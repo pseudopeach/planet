@@ -9,11 +9,10 @@ public function HumanPlayerShell(target:IEventDispatcher=null){
 	super(target);
 }
 
-public function prmoptMove(state:GameState, context:MoveContext):GameMove{
-	//given the state visible to this player entity and this move context, return a move
-	
-	//**** stub
-	return null;
+public function prmoptMove(state:GameState, context:MoveContext):void{
+	//automatically respond to prompt
+	var move:GameMove = decideMove(state, context);
+	GameKernel.shared.commitMove(move);
 }
 
 }}
