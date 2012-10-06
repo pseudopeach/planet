@@ -41,7 +41,7 @@ protected function nextResponderIndex():int{
 	return 0;
 }
 
-public function commitMove(move:GameMove):void{
+public function commitMove(move:GameAction):void{
 	//movesStack.push(move);
 	//currentResponderInd = currentTurnTakerInd;
 	//advanceResponder();
@@ -51,7 +51,7 @@ public function commitMove(move:GameMove):void{
 	//advanceTurnPlayer();
 	//currentTurnPlayer.prmoptTurn(state.filterForPlayer(player), null /* *** */);
 }
-public function followup(action:GameMove):void{
+public function followup(action:GameAction):void{
 	actionStack.push(action);
 	trace("follow up for: "+action.name+", levels deep: "+actionStack.length);
 	// **** set up current responder iterator
@@ -59,7 +59,7 @@ public function followup(action:GameMove):void{
 	
 	while(consecPasses < players.length){
 		var responder:Player = players[nextResponderIndex()];
-		var act:GameMove = responder.prmoptTurn(state,null);
+		var act:GameAction = responder.prmoptTurn(state,null);
 		if(act){
 			trace("returned: "+act.name);
 			followup(act);
@@ -73,7 +73,7 @@ public function followup(action:GameMove):void{
 	trace(action.name + " resolves");
 }
 
-protected function reactToMove(move:GameMove):void{
+protected function reactToMove(move:GameAction):void{
 	
 }
 
