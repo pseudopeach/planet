@@ -7,10 +7,11 @@ import mx.collections.ArrayCollection;
 
 public class GameKernel extends EventDispatcher{
 	
+public var turnOrderDelegate:ITurnOrderDelegate;
 	
 protected var players:ArrayCollection = new ArrayCollection();
 protected var state:GameState;
-protected var actionStack:Array = new Array();
+
 	
 public function GameKernel(target:IEventDispatcher=null){
 	super(target);
@@ -24,57 +25,37 @@ public static function get shared():GameKernel{
 	return _shared
 }
 
-public function init():void{
-	currentTurnTakerInd = 0;
+public function initGame():void{
+	//currentTurnTakerInd = 0;
 	state = new GameState();
-}
-
-
-protected var currentTurnTakerInd:int = 0;
-public var currentTurnTaker:Player;
-protected function advanceTaker():void{
-	currentTurnTakerInd = (currentTurnTakerInd+1) % players.length;
-	currentTurnTaker = players[currentTurnTakerInd];
-}
-
-protected function nextResponderIndex():int{
-	return 0;
-}
-
-public function commitMove(move:GameAction):void{
-	//movesStack.push(move);
-	//currentResponderInd = currentTurnTakerInd;
-	//advanceResponder();
-	//if(moveStack[movesStack.length-1].player == currentResponder)
-		//resolveStack();
-	//reactToMove(move);
-	//advanceTurnPlayer();
-	//currentTurnPlayer.prmoptTurn(state.filterForPlayer(player), null /* *** */);
-}
-public function followup(action:GameAction):void{
-	actionStack.push(action);
-	trace("follow up for: "+action.name+", levels deep: "+actionStack.length);
-	// **** set up current responder iterator
-	var consecPasses:int = 0;
 	
-	while(consecPasses < players.length){
-		var responder:Player = players[nextResponderIndex()];
-		var act:GameAction = responder.prmoptTurn(state,null);
-		if(act){
-			trace("returned: "+act.name);
-			followup(act);
-			consecPasses = 0;
-		}else{
-			consecPasses++;
-			trace(responder.name + " passes");
-		}
-	}
-	actionStack.pop();
-	trace(action.name + " resolves");
+	if(!turnOrderDelegate)
+		turnOrderDelegate = new DefaultTurnTakerDelegate();
 }
 
-protected function reactToMove(move:GameAction):void{
+
+
+public function commitPassAction():void{
+	//either prompt the next user or resolve an action
+	var actInQuestion:GameAction = state.resolvingAction ? state.resolvingAction : state.topStackItem;
+	actInQuestion.nPassResponses++;
+	if(actInQuestion.nPassResponses == players.length)
+		resolveAction();
+	else
+		turnOrderDelegate.getNextResponder(state).prmoptTurn(state,null);
+}
+public function commitAction(action:GameAction, wasResolved:Boolean=false):void{
+	//stack the action
+	state.stackAction(action);
 	
+	//prompt next player to respond to this action being stacked
+	turnOrderDelegate.getNextResponder(state).prmoptTurn(state,null);
+}
+protected function resolveAction():void{
+	state.resolveAction();
+	
+	//prompt next player to respond to this action being un-stacked
+	turnOrderDelegate.getNextResponder(state).prmoptTurn(state,null);
 }
 
 

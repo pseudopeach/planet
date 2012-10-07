@@ -9,7 +9,7 @@ public function HumanPlayerShell(target:IEventDispatcher=null){
 	super(target);
 }
 
-public function prmoptMove(state:GameState, context:MoveContext):void{
+public function prmoptTurn(state:GameState, context:MoveContext):void{
 	//automatically respond to prompt
 	var move:GameMove = decideMove(state, context);
 	GameKernel.shared.commitMove(move);

@@ -10,20 +10,19 @@ import flash.events.IEventDispatcher;
 public class Player extends EventDispatcher{
 	
 public static const PLAYER_MOVE_PROMPT:String = "PLAYER_MOVE_PROMPT";
-
+public var name:String;
 	
 public function Player(target:IEventDispatcher=null){
 	super(target);
 }
 
-public function prmoptMove(state:GameState, context:MoveContext):void{
+public function prmoptTurn(state:GameState, context:MoveContext):Boolean{
 	var ev:ObjectEvent = new ObjectEvent(PLAYER_MOVE_PROMPT);
 	ev.obj = {state:state, context:context};
 	dispatchEvent(ev);
+	return true;
 }
 
-public function commitMove(move:GameMove):void{
-	kernel.commitMove(move);
-}
+
 
 }}
