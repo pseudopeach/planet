@@ -5,7 +5,7 @@ import com.apptinic.util.ObjectEvent;
 import flash.events.EventDispatcher;
 import flash.events.IEventDispatcher;
 
-//[(event=PLAYER_MOVE_PROMPT, type=
+[Event(name=PLAYER_MOVE_PROMPT, type="com.apptinic.util.ObjectEvent")] 
 
 public class Player extends EventDispatcher{
 	
@@ -16,10 +16,10 @@ public function Player(target:IEventDispatcher=null){
 	super(target);
 }
 
-public function prmoptTurn(state:GameState, context:MoveContext):Boolean{
-	var ev:ObjectEvent = new ObjectEvent(PLAYER_MOVE_PROMPT);
-	ev.obj = {state:state, context:context};
-	dispatchEvent(ev);
+public function prmoptTurn(state:GameState):Boolean{
+	var e:ObjectEvent = new ObjectEvent(PLAYER_MOVE_PROMPT);
+	e.obj = {state:state};
+	dispatchEvent(e);
 	return true;
 }
 

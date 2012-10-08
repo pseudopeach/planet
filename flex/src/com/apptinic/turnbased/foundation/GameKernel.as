@@ -1,15 +1,29 @@
 package com.apptinic.turnbased.foundation{
 	
+import com.apptinic.util.ObjectEvent;
+
 import flash.events.EventDispatcher;
 import flash.events.IEventDispatcher;
 
 import mx.collections.ArrayCollection;
 
+//[Event(name=PLAYER_ACTED, type="com.apptinic.util.ObjectEvent")] 
+//[Event(name=PLAYER_PASSED, type="com.apptinic.util.ObjectEvent")]
+[Event(name=GAME_ENDED, type="com.apptinic.util.ObjectEvent")]
+
 public class GameKernel extends EventDispatcher{
+
+//public static const PLAYER_ACTED:String = "PLAYER_ACTED";
+//public static const PLAYER_PASSED:String = "PLAYER_PASSED";
+public static const GAME_ENDED:String = "GAME_ENDED";
+
+public static const OUTCOME_SINGLE_WINNER:String = "OUTCOME_SINGLE_WINNER";
+public static const OUTCOME_DRAW:String = "OUTCOME_DRAW";
 	
 public var turnOrderDelegate:ITurnOrderDelegate;
+public var endGameDelegate:IEndGameDelegate;
 	
-protected var players:ArrayCollection = new ArrayCollection();
+public var gameStateClass:Class;
 protected var state:GameState;
 
 	
@@ -27,35 +41,64 @@ public static function get shared():GameKernel{
 
 public function initGame():void{
 	//currentTurnTakerInd = 0;
-	state = new GameState();
+	state = gameStateClass ? new gameStateClass() : new GameState();
 	
 	if(!turnOrderDelegate)
 		turnOrderDelegate = new DefaultTurnTakerDelegate();
 }
 
-
-
 public function commitPassAction():void{
 	//either prompt the next user or resolve an action
 	var actInQuestion:GameAction = state.resolvingAction ? state.resolvingAction : state.topStackItem;
-	actInQuestion.nPassResponses++;
-	if(actInQuestion.nPassResponses == players.length)
+	actInQuestion.listPlayerAsPassed(turnOrderDelegate.getCurrentResponder(state));
+	if(!turnOrderDelegate.isActionSettled(actInQuestion,state)){
+		var responder:Player = turnOrderDelegate.getNextResponder(state);
+		responder.prmoptTurn(state.getFiltered(responder));
+	}else if(state.topStackItem){
+		//there are unresolved actions on the stack
 		resolveAction();
-	else
-		turnOrderDelegate.getNextResponder(state).prmoptTurn(state,null);
+	}else{
+		//the stack is empty, prompt the next player for their regular turn
+		turnOrderDelegate.getNextTurnTaker(state).prmoptTurn(state);
+	}
+
 }
-public function commitAction(action:GameAction, wasResolved:Boolean=false):void{
+public function commitAction(action:GameAction):void{
+	//validation
+	action.player = state.topStackItem ? 
+		turnOrderDelegate.getCurrentResponder(state) : 
+		turnOrderDelegate.getCurrentTurnTaker(state);
+	if(!action.isLegalInCurrentState(state)) return;
+	
 	//stack the action
 	state.stackAction(action);
 	
 	//prompt next player to respond to this action being stacked
-	turnOrderDelegate.getNextResponder(state).prmoptTurn(state,null);
+	var responder:Player = turnOrderDelegate.getNextResponder(state);
+	responder.prmoptTurn(state.getFiltered(responder));
 }
 protected function resolveAction():void{
 	state.resolveAction();
 	
+	//did someone win?
+	if(endGameDelegate.getGameWinner(state))
+		endGame();
+	
 	//prompt next player to respond to this action being un-stacked
-	turnOrderDelegate.getNextResponder(state).prmoptTurn(state,null);
+	var responder:Player = turnOrderDelegate.getNextResponder(state);
+	responder.prmoptTurn(state.getFiltered(responder));
+}
+
+protected function endGame():void{
+	var e:ObjectEvent = new ObjectEvent(GAME_ENDED);
+	var winnerRet:Object = endGameDelegate.getGameWinner(state);
+	if(winnerRet as Player)
+		e.obj = {outcome:OUTCOME_SINGLE_WINNER, winner:winnerRet};
+	else if(winnerRet.hasOwnProperty("length") && winnerRet.length > 1)
+		e.obj = {outcome:OUTCOME_DRAW, winners:winnerRet};
+	else
+		throw new Error("Unknown game outcome");
+	dispatchEvent(e);
 }
 
 

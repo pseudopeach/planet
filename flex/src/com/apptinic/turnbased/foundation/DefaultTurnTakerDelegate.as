@@ -18,6 +18,10 @@ public function getNextResponder(state:GameState):Player{
 public function getCurrentResponder(state:GameState):Player{
 	return null;
 }
+
+public function isActionSettled(action:GameAction, state:GameState):Boolean{
+	return true;
+}
 	
 
 

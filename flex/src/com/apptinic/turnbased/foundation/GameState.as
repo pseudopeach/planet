@@ -7,6 +7,7 @@ public class GameState extends EventDispatcher{
 	
 public var actionStack:Array = new Array();
 public var resolvingAction:GameAction;
+public var players:Array = new Array();
 //protected var stackScopes:Array = new Array();
 	
 public function GameState(target:IEventDispatcher=null){
@@ -15,7 +16,7 @@ public function GameState(target:IEventDispatcher=null){
 
 public function stackAction(action:GameAction):void{
 	resolvingAction = null;
-	action.nPassResponses = 0;
+	action.clearPassList();
 	actionStack.push(action);
 }
 public function get topStackItem():GameAction{
@@ -25,10 +26,15 @@ public function get topStackItem():GameAction{
 		return null;
 }
 
-public function resolveAction():void{
+public function resolveAction():GameAction{
 	resolvingAction = actionStack.pop();
 	resolvingAction.resolve(this);
-	resolvingAction.nPassResponses = 0;
+	resolvingAction.clearPassList();
+	return resolvingAction;
+}
+
+public function getFiltered(player:Player):GameState{
+	return null;
 }
 
 }}

@@ -7,4 +7,6 @@ function getCurrentTurnTaker(state:GameState):Player;
 function getNextResponder(state:GameState):Player;
 function getCurrentResponder(state:GameState):Player;
 
+function isActionSettled(action:GameAction, state:GameState):Boolean;
+
 }}
