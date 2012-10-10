@@ -1,12 +1,10 @@
 package com.apptinic.turnbased.foundation{
 public interface ITurnOrderDelegate{
-
-function getNextTurnTaker(state:GameState):Player;
-function getCurrentTurnTaker(state:GameState):Player;
-
-function getNextResponder(state:GameState):Player;
-function getCurrentResponder(state:GameState):Player;
-
-function isActionSettled(action:GameAction, state:GameState):Boolean;
+	
+function set state(input:GameState):void;
+function advanceTurnTaker():void;
+function get currentTurnTaker():Player;
+function get currentResponder():Player;
+function isActionSettled(action:GameAction):Boolean;
 
 }}

@@ -20,7 +20,12 @@ public static const GAME_ENDED:String = "GAME_ENDED";
 public static const OUTCOME_SINGLE_WINNER:String = "OUTCOME_SINGLE_WINNER";
 public static const OUTCOME_DRAW:String = "OUTCOME_DRAW";
 	
-public var turnOrderDelegate:ITurnOrderDelegate;
+protected var _turnOrderDelegate:ITurnOrderDelegate;
+public function set turnOrderDelegate(input:ITurnOrderDelegate):void {
+	_turnOrderDelegate = input;
+	_turnOrderDelegate.state = state;
+}
+public function get turnOrderDelegate():ITurnOrderDelegate{return _turnOrderDelegate;}
 public var endGameDelegate:IEndGameDelegate;
 	
 public var gameStateClass:Class;
@@ -50,31 +55,31 @@ public function initGame():void{
 public function commitPassAction():void{
 	//either prompt the next user or resolve an action
 	var actInQuestion:GameAction = state.resolvingAction ? state.resolvingAction : state.topStackItem;
-	actInQuestion.listPlayerAsPassed(turnOrderDelegate.getCurrentResponder(state));
-	if(!turnOrderDelegate.isActionSettled(actInQuestion,state)){
-		var responder:Player = turnOrderDelegate.getNextResponder(state);
+	actInQuestion.listPlayerAsPassed(turnOrderDelegate.currentResponder);
+	if(!turnOrderDelegate.isActionSettled(actInQuestion)){
+		var responder:Player = turnOrderDelegate.currentResponder;
 		responder.prmoptTurn(state.getFiltered(responder));
 	}else if(state.topStackItem){
 		//there are unresolved actions on the stack
 		resolveAction();
 	}else{
 		//the stack is empty, prompt the next player for their regular turn
-		turnOrderDelegate.getNextTurnTaker(state).prmoptTurn(state);
+		turnOrderDelegate.currentTurnTaker.prmoptTurn(state);
 	}
 
 }
 public function commitAction(action:GameAction):void{
 	//validation
 	action.player = state.topStackItem ? 
-		turnOrderDelegate.getCurrentResponder(state) : 
-		turnOrderDelegate.getCurrentTurnTaker(state);
+		turnOrderDelegate.currentResponder : 
+		turnOrderDelegate.currentTurnTaker;
 	if(!action.isLegalInCurrentState(state)) return;
 	
 	//stack the action
 	state.stackAction(action);
 	
 	//prompt next player to respond to this action being stacked
-	var responder:Player = turnOrderDelegate.getNextResponder(state);
+	var responder:Player = turnOrderDelegate.currentResponder;
 	responder.prmoptTurn(state.getFiltered(responder));
 }
 protected function resolveAction():void{
@@ -85,7 +90,7 @@ protected function resolveAction():void{
 		endGame();
 	
 	//prompt next player to respond to this action being un-stacked
-	var responder:Player = turnOrderDelegate.getNextResponder(state);
+	var responder:Player = turnOrderDelegate.currentResponder;
 	responder.prmoptTurn(state.getFiltered(responder));
 }
 
