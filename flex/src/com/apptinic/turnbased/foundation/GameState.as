@@ -42,7 +42,7 @@ public function stackAction(action:GameAction):void{
 	actionStack.push(action);
 
 	var e:ObjectEvent = new ObjectEvent(ACTION_STACKED);
-	e.obj = {action:action};
+	e.obj = action;
 	dispatchEvent(e);
 }
 public function get topStackItem():GameAction{
@@ -61,7 +61,7 @@ public function resolveAction():GameAction{
 	resolvingAction.clearPassList();
 	
 	var e:ObjectEvent = new ObjectEvent(ACTION_RESOLVED);
-	e.obj = {action:resolvingAction};
+	e.obj = resolvingAction;
 	dispatchEvent(e);
 	
 	return resolvingAction;
@@ -71,12 +71,12 @@ public function promptPlayer(player:Player, isNewTurn:Boolean=false):void{
 	var e:ObjectEvent;
 	if(isNewTurn){
 		e = new ObjectEvent(NEW_TURN);
-		e.obj = {player:player};
+		e.obj = player;
 		dispatchEvent(e);
 	}
 	if(canPlayerRespond()){
 		e = new ObjectEvent(PROMPTING_PLAYER);
-		e.obj = {player:player};
+		e.obj = player;
 		dispatchEvent(e);
 		
 		player.prompt(this.getFiltered(player));
@@ -88,7 +88,7 @@ public function recordPassAction(player:Player):void{
 	activeAction.listPlayerAsPassed(player);
 	
 	var e:ObjectEvent = new ObjectEvent(PLAYER_PASSED);
-	e.obj = {player:player};
+	e.obj = player;
 	dispatchEvent(e);
 }
 

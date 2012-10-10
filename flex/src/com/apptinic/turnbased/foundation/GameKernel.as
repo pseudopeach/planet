@@ -37,6 +37,10 @@ public function initGame():GameState{
 	return state;
 }
 
+public function begin():void{
+	state.promptPlayer(turnOrderDelegate.currentTurnTaker,true);
+}
+
 public function commitPassAction():void{
 	//either prompt the next user or resolve an action
 	state.recordPassAction(turnOrderDelegate.currentResponder);
