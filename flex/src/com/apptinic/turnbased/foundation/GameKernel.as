@@ -1,24 +1,8 @@
 package com.apptinic.turnbased.foundation{
-	
-import com.apptinic.util.ObjectEvent;
-
-import flash.events.EventDispatcher;
-import flash.events.IEventDispatcher;
 
 import mx.collections.ArrayCollection;
 
-//[Event(name=PLAYER_ACTED, type="com.apptinic.util.ObjectEvent")] 
-//[Event(name=PLAYER_PASSED, type="com.apptinic.util.ObjectEvent")]
-[Event(name=GAME_ENDED, type="com.apptinic.util.ObjectEvent")]
-
-public class GameKernel extends EventDispatcher{
-
-//public static const PLAYER_ACTED:String = "PLAYER_ACTED";
-//public static const PLAYER_PASSED:String = "PLAYER_PASSED";
-public static const GAME_ENDED:String = "GAME_ENDED";
-
-public static const OUTCOME_SINGLE_WINNER:String = "OUTCOME_SINGLE_WINNER";
-public static const OUTCOME_DRAW:String = "OUTCOME_DRAW";
+public class GameKernel{
 	
 protected var _turnOrderDelegate:ITurnOrderDelegate;
 public function set turnOrderDelegate(input:ITurnOrderDelegate):void {
@@ -26,14 +10,13 @@ public function set turnOrderDelegate(input:ITurnOrderDelegate):void {
 	_turnOrderDelegate.state = state;
 }
 public function get turnOrderDelegate():ITurnOrderDelegate{return _turnOrderDelegate;}
-public var endGameDelegate:IEndGameDelegate;
 	
 public var gameStateClass:Class;
 protected var state:GameState;
 
 	
-public function GameKernel(target:IEventDispatcher=null){
-	super(target);
+public function GameKernel(){
+	super();
 }
 
 //shared singleton
@@ -44,17 +27,19 @@ public static function get shared():GameKernel{
 	return _shared
 }
 
-public function initGame():void{
+public function initGame():GameState{
 	//currentTurnTakerInd = 0;
 	state = gameStateClass ? new gameStateClass(this) : new GameState(this);
 	
 	if(!turnOrderDelegate)
 		turnOrderDelegate = new DefaultTurnTakerDelegate();
+	
+	return state;
 }
 
 public function commitPassAction():void{
 	//either prompt the next user or resolve an action
-	state.activeAction.listPlayerAsPassed(turnOrderDelegate.currentResponder);
+	state.recordPassAction(turnOrderDelegate.currentResponder);
 	if(!turnOrderDelegate.isActionSettled(state.activeAction)){
 		state.promptPlayer(turnOrderDelegate.currentResponder);
 	}else if(state.topStackItem){
@@ -62,9 +47,8 @@ public function commitPassAction():void{
 		resolveAction();
 	}else{
 		//the stack is empty, prompt the next player for their regular turn
-		state.promptPlayer(turnOrderDelegate.currentTurnTaker);
+		state.promptPlayer(turnOrderDelegate.currentTurnTaker,true);
 	}
-
 }
 public function commitAction(action:GameAction):void{
 	//validation
@@ -83,24 +67,11 @@ protected function resolveAction():void{
 	state.resolveAction();
 	
 	//did someone win?
-	if(endGameDelegate.getGameWinner(state))
-		endGame();
+	if(state.getGameWinner(state))
+		state.endGame();
 	
 	//prompt next player to respond to this action being un-stacked
 	state.promptPlayer(turnOrderDelegate.currentResponder);
 }
-
-protected function endGame():void{
-	var e:ObjectEvent = new ObjectEvent(GAME_ENDED);
-	var winnerRet:Object = endGameDelegate.getGameWinner(state);
-	if(winnerRet as Player)
-		e.obj = {outcome:OUTCOME_SINGLE_WINNER, winner:winnerRet};
-	else if(winnerRet.hasOwnProperty("length") && winnerRet.length > 1)
-		e.obj = {outcome:OUTCOME_DRAW, winners:winnerRet};
-	else
-		throw new Error("Unknown game outcome");
-	dispatchEvent(e);
-}
-
 
 }}

@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
-			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600"
+			   implements="com.apptinic.turnbased.foundation.IEndGameDelegate" xmlns:foundation="com.apptinic.turnbased.foundation.*">
 	<s:Button click="" />
 	
 <fx:Script>
 <![CDATA[
 	import com.apptinic.turnbased.foundation.GameKernel;
+	import com.apptinic.turnbased.foundation.GameState;
+	import com.apptinic.turnbased.foundation.IEndGameDelegate;
+	import com.apptinic.turnbased.foundation.Player;
 
-var gamek:GameKernel
+public var gamek:GameKernel;
+protected var turn:int = 0;
+	
+protected function init():void{
+	gamek = GameKernel.shared;
+	gamek.initGame().endGameDelegate = this;
+}
+
+public function getGameWinner(state:GameState):Player{
+	if(turn==15)
+		return state.players[0];
+	else
+		return null;
+}
+
 
 ]]>
 </fx:Script>
