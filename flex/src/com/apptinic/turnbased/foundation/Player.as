@@ -16,7 +16,7 @@ public function Player(target:IEventDispatcher=null){
 	super(target);
 }
 
-public function prmoptTurn(state:GameState):Boolean{
+public function prompt(state:GameState):Boolean{
 	var e:ObjectEvent = new ObjectEvent(PLAYER_MOVE_PROMPT);
 	e.obj = {state:state};
 	dispatchEvent(e);

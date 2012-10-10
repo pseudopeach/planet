@@ -46,7 +46,7 @@ public static function get shared():GameKernel{
 
 public function initGame():void{
 	//currentTurnTakerInd = 0;
-	state = gameStateClass ? new gameStateClass() : new GameState();
+	state = gameStateClass ? new gameStateClass(this) : new GameState(this);
 	
 	if(!turnOrderDelegate)
 		turnOrderDelegate = new DefaultTurnTakerDelegate();
@@ -57,14 +57,13 @@ public function commitPassAction():void{
 	var actInQuestion:GameAction = state.resolvingAction ? state.resolvingAction : state.topStackItem;
 	actInQuestion.listPlayerAsPassed(turnOrderDelegate.currentResponder);
 	if(!turnOrderDelegate.isActionSettled(actInQuestion)){
-		var responder:Player = turnOrderDelegate.currentResponder;
-		responder.prmoptTurn(state.getFiltered(responder));
+		state.promptPlayer(turnOrderDelegate.currentResponder);
 	}else if(state.topStackItem){
 		//there are unresolved actions on the stack
 		resolveAction();
 	}else{
 		//the stack is empty, prompt the next player for their regular turn
-		turnOrderDelegate.currentTurnTaker.prmoptTurn(state);
+		state.promptPlayer(turnOrderDelegate.currentTurnTaker);
 	}
 
 }
@@ -79,8 +78,7 @@ public function commitAction(action:GameAction):void{
 	state.stackAction(action);
 	
 	//prompt next player to respond to this action being stacked
-	var responder:Player = turnOrderDelegate.currentResponder;
-	responder.prmoptTurn(state.getFiltered(responder));
+	state.promptPlayer(turnOrderDelegate.currentResponder);
 }
 protected function resolveAction():void{
 	state.resolveAction();
@@ -90,8 +88,7 @@ protected function resolveAction():void{
 		endGame();
 	
 	//prompt next player to respond to this action being un-stacked
-	var responder:Player = turnOrderDelegate.currentResponder;
-	responder.prmoptTurn(state.getFiltered(responder));
+	state.promptPlayer(turnOrderDelegate.currentResponder);
 }
 
 protected function endGame():void{

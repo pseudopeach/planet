@@ -8,10 +8,12 @@ public class GameState extends EventDispatcher{
 public var actionStack:Array = new Array();
 public var resolvingAction:GameAction;
 public var players:Array = new Array();
+public var kernel:GameKernel;
 //protected var stackScopes:Array = new Array();
 	
-public function GameState(target:IEventDispatcher=null){
+public function GameState(kernel:GameKernel, target:IEventDispatcher=null){
 	super(target);
+	this.kernel = kernel;
 }
 
 public function stackAction(action:GameAction):void{
@@ -33,8 +35,19 @@ public function resolveAction():GameAction{
 	return resolvingAction;
 }
 
+public function promptPlayer(player:Player):void{
+	if(canPlayerRespond())
+		player.prompt(this.getFiltered(player));
+	else
+		kernel.commitPassAction();
+}
+
+protected function canPlayerRespond():Boolean{
+	return true;
+}
+
 public function getFiltered(player:Player):GameState{
-	return null;
+	return this;
 }
 
 }}
