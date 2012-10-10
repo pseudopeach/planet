@@ -24,14 +24,13 @@ public function advanceTurnTaker():void{
 public function get currentTurnTaker():Player{
 	return _state.players[turnTakerInd];
 }
-public function get activeAction():GameAction{
-	return _state.resolvingAction ? _state.resolvingAction : _state.topStackItem;
-}
+
 
 public function get currentResponder():Player{
+	var activeAction:GameAction = _state.activeAction;
 	if(activeAction.passedOnBy.length == 0){
 		if(playerCanRespondToSelf && !playerRespondsToSelfAfterOtherPlayers)
-			return activeAction.player;
+			return _state.activeAction.player;
 		else
 			return playerAfter[activeAction.player];
 	}

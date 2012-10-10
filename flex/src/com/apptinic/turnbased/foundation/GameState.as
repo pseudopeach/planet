@@ -27,6 +27,9 @@ public function get topStackItem():GameAction{
 	else
 		return null;
 }
+public function get activeAction():GameAction{
+	return resolvingAction ? resolvingAction : topStackItem;
+}
 
 public function resolveAction():GameAction{
 	resolvingAction = actionStack.pop();
@@ -48,6 +51,10 @@ protected function canPlayerRespond():Boolean{
 
 public function getFiltered(player:Player):GameState{
 	return this;
+}
+
+public function get currentContext():GameContext{
+	return null;
 }
 
 }}

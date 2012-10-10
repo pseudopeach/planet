@@ -54,9 +54,8 @@ public function initGame():void{
 
 public function commitPassAction():void{
 	//either prompt the next user or resolve an action
-	var actInQuestion:GameAction = state.resolvingAction ? state.resolvingAction : state.topStackItem;
-	actInQuestion.listPlayerAsPassed(turnOrderDelegate.currentResponder);
-	if(!turnOrderDelegate.isActionSettled(actInQuestion)){
+	state.activeAction.listPlayerAsPassed(turnOrderDelegate.currentResponder);
+	if(!turnOrderDelegate.isActionSettled(state.activeAction)){
 		state.promptPlayer(turnOrderDelegate.currentResponder);
 	}else if(state.topStackItem){
 		//there are unresolved actions on the stack
