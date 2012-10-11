@@ -32,7 +32,7 @@ public function initGame():GameState{
 	state = gameStateClass ? new gameStateClass(this) : new GameState(this);
 	
 	if(!turnOrderDelegate)
-		turnOrderDelegate = new DefaultTurnTakerDelegate();
+		turnOrderDelegate = new DefaultTurnTakerDelegate(state);
 	
 	return state;
 }
@@ -44,13 +44,16 @@ public function begin():void{
 public function commitPassAction():void{
 	//either prompt the next user or resolve an action
 	state.recordPassAction(turnOrderDelegate.currentResponder);
-	if(!turnOrderDelegate.isActionSettled(state.activeAction)){
+	
+	if(state.activeAction && !turnOrderDelegate.isActionSettled(state.activeAction)){
+		//there is an activeAction and it's not settled yet, prompt responder
 		state.promptPlayer(turnOrderDelegate.currentResponder);
 	}else if(state.topStackItem){
-		//there are unresolved actions on the stack
+		//there's no unsettled action, but there's something on the stack, so resolve it 
 		resolveAction();
 	}else{
-		//the stack is empty, prompt the next player for their regular turn
+		//there's no unsettled action AND the stack is empty, time for the next turn
+		turnOrderDelegate.stackWasResolved();
 		state.promptPlayer(turnOrderDelegate.currentTurnTaker,true);
 	}
 }

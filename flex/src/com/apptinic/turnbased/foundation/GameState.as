@@ -85,7 +85,8 @@ public function promptPlayer(player:Player, isNewTurn:Boolean=false):void{
 }
 
 public function recordPassAction(player:Player):void{
-	activeAction.listPlayerAsPassed(player);
+	if(activeAction)
+		activeAction.listPlayerAsPassed(player);
 	
 	var e:ObjectEvent = new ObjectEvent(PLAYER_PASSED);
 	e.obj = player;

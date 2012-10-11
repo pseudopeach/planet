@@ -2,6 +2,7 @@ package com.apptinic.turnbased.playertest{
 import com.apptinic.turnbased.foundation.GameAction;
 import com.apptinic.turnbased.foundation.GameContext;
 import com.apptinic.turnbased.foundation.GameKernel;
+import com.apptinic.turnbased.foundation.GameState;
 import com.apptinic.turnbased.foundation.Player;
 
 import flash.events.IEventDispatcher;
@@ -23,41 +24,41 @@ override public function prompt(state:GameState):void{
 	var mv:GameAction;
 	switch(name){
 		case "Justin":
-			if(con.status = GameContext.REGULAR_TURN && !logHas("move1")){
+			if(con.status == GameContext.REGULAR_TURN && !logHas("move1")){
 				mv = new GameAction();
 				mv.name = "move1";
 				log.push("move1");
 				GameKernel.shared.commitAction(mv);
 			}
-			if(con.status = GameContext.RESPOND_STACK && logHas("resp1") && !logHas("resp2")){
+			if(con.status == GameContext.RESPOND_STACK && logHas("resp1") && !logHas("resp2")){
 				mv = new GameAction();
 				mv.name = "resp2";
 				log.push("resp2");
 				GameKernel.shared.commitAction(mv);
 			}
-			return;
+			break;
 		case "Kyle":
-			if(con.status = GameContext.RESPOND_STACK && logHas("move1") && !logHas("resp1")){
+			if(con.status == GameContext.RESPOND_STACK && logHas("move1") && !logHas("resp1")){
 				mv = new GameAction();
 				mv.name = "resp1";
 				log.push("resp1");
 				GameKernel.shared.commitAction(mv);
 			}
-			if(con.status = GameContext.REGULAR_TURN && logHas("move1") && !logHas("move2")){
+			if(con.status == GameContext.REGULAR_TURN && logHas("move1") && !logHas("move2")){
 				mv = new GameAction();
 				mv.name = "move2";
 				log.push("move2");
 				GameKernel.shared.commitAction(mv);
 			}
-			return;
+			break;
 		case "Sarah":
-			if(con.status = GameContext.RESPOND_UNSTACK && !logHas("resolved1")){
+			if(con.status == GameContext.RESPOND_UNSTACK && !logHas("resolved1")){
 				mv = new GameAction();
 				mv.name = "resolved1";
 				log.push("resolved1");
 				GameKernel.shared.commitAction(mv);
 			}
-			return;
+			break;
 	}
 	GameKernel.shared.commitPassAction();
 }
