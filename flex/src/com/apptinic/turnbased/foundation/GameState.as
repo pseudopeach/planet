@@ -28,6 +28,7 @@ public var actionStack:Array = new Array();
 public var resolvingAction:GameAction;
 public var players:Array = new Array();
 public var kernel:GameKernel;
+public var turnOrderDelegate:ITurnOrderDelegate;
 public var endGameDelegate:IEndGameDelegate;
 //protected var stackScopes:Array = new Array();
 	
@@ -67,14 +68,20 @@ public function resolveAction():GameAction{
 	return resolvingAction;
 }
 
-public function promptPlayer(player:Player, isNewTurn:Boolean=false):void{
+public function promptNextPlayer():void{
 	var e:ObjectEvent;
-	if(isNewTurn){
+	var player:Player;
+	if(!activeAction){
+		turnOrderDelegate.stackWasResolved();
+		player = turnOrderDelegate.currentTurnTaker;
 		e = new ObjectEvent(NEW_TURN);
 		e.obj = player;
 		dispatchEvent(e);
-	}
-	if(canPlayerRespond()){
+		resolvingAction = null
+	}else
+		player = turnOrderDelegate.currentResponder;
+	
+	if(canPlayerRespond(player)){
 		e = new ObjectEvent(PROMPTING_PLAYER);
 		e.obj = player;
 		dispatchEvent(e);
@@ -84,16 +91,23 @@ public function promptPlayer(player:Player, isNewTurn:Boolean=false):void{
 		kernel.commitPassAction();
 }
 
-public function recordPassAction(player:Player):void{
-	if(activeAction)
+public function recordPassAction():void{
+	var player:Player;
+	if(activeAction){
+		player = turnOrderDelegate.currentResponder;
 		activeAction.listPlayerAsPassed(player);
+	}else
+		player = turnOrderDelegate.currentTurnTaker;
 	
+	//record the pass on whatever action
+	//fire an event
+		
 	var e:ObjectEvent = new ObjectEvent(PLAYER_PASSED);
 	e.obj = player;
 	dispatchEvent(e);
 }
 
-protected function canPlayerRespond():Boolean{
+protected function canPlayerRespond(player:Player):Boolean{
 	return true;
 }
 

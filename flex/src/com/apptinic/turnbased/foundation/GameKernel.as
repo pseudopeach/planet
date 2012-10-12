@@ -33,33 +33,28 @@ public function initGame():GameState{
 	
 	if(!turnOrderDelegate)
 		turnOrderDelegate = new DefaultTurnTakerDelegate(state);
+	state.turnOrderDelegate = turnOrderDelegate;
 	
 	return state;
 }
 
 public function begin():void{
-	state.promptPlayer(turnOrderDelegate.currentTurnTaker,true);
+	state.promptNextPlayer();
 }
 
 public function commitPassAction():void{
 	//either prompt the next user or resolve an action
-	state.recordPassAction(turnOrderDelegate.currentResponder);
+	state.recordPassAction();
 	
-	if(state.activeAction && !turnOrderDelegate.isActionSettled(state.activeAction)){
-		//there is an activeAction and it's not settled yet, prompt responder
-		state.promptPlayer(turnOrderDelegate.currentResponder);
-	}else if(state.topStackItem){
-		//there's no unsettled action, but there's something on the stack, so resolve it 
-		resolveAction();
-	}else{
-		//there's no unsettled action AND the stack is empty, time for the next turn
-		turnOrderDelegate.stackWasResolved();
-		state.promptPlayer(turnOrderDelegate.currentTurnTaker,true);
-	}
+	if(state.topStackItem && turnOrderDelegate.isActionSettled(state.activeAction)){
+		//there's at least one item on the stack and it's ready to be resolved
+		this.resolveAction();
+	}else
+		state.promptNextPlayer();
 }
 public function commitAction(action:GameAction):void{
 	//validation
-	action.player = state.topStackItem ? 
+	action.player = state.activeAction ? 
 		turnOrderDelegate.currentResponder : 
 		turnOrderDelegate.currentTurnTaker;
 	if(!action.isLegalInCurrentState(state)) return;
@@ -68,17 +63,19 @@ public function commitAction(action:GameAction):void{
 	state.stackAction(action);
 	
 	//prompt next player to respond to this action being stacked
-	state.promptPlayer(turnOrderDelegate.currentResponder);
+	state.promptNextPlayer();
 }
 protected function resolveAction():void{
 	state.resolveAction();
 	
 	//did someone win?
-	if(state.getGameWinner(state))
+	if(state.getGameWinner(state)){
 		state.endGame();
+		return;
+	}
 	
 	//prompt next player to respond to this action being un-stacked
-	state.promptPlayer(turnOrderDelegate.currentResponder);
+	state.promptNextPlayer();
 }
 
 }}
