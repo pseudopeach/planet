@@ -10,8 +10,11 @@ protected var playerAfter:Dictionary = new Dictionary();
 public var playerCanRespondToSelf:Boolean = false;
 public var playerRespondsToSelfAfterOtherPlayers:Boolean = false;
 
-public function DefaultTurnTakerDelegate(state:GameState,initialTurnTaker:int = 0){
+public function DefaultTurnTakerDelegate(state:GameState){
 	this.state = state;
+}
+
+public function setupPlayerOrder(initialTurnTaker:int = 0):void{
 	turnTakerInd = initialTurnTaker;
 	for(var i:int=1;i<_state.players.length;i++)
 		playerAfter[_state.players[i-1]] = _state.players[i];

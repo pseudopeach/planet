@@ -26,11 +26,16 @@ public static const OUTCOME_DRAW:String = "OUTCOME_DRAW";
 	
 public var actionStack:Array = new Array();
 public var resolvingAction:GameAction;
-public var players:Array = new Array();
 public var kernel:GameKernel;
 public var turnOrderDelegate:ITurnOrderDelegate;
 public var endGameDelegate:IEndGameDelegate;
-//protected var stackScopes:Array = new Array();
+
+public var _players:Array = new Array();
+public function get players():Array{return _players;}
+public function set players(input:Array):void{
+	_players = input;
+	turnOrderDelegate.setupPlayerOrder();
+}
 	
 public function GameState(kernel:GameKernel, target:IEventDispatcher=null){
 	super(target);
@@ -98,9 +103,6 @@ public function recordPassAction():void{
 		activeAction.listPlayerAsPassed(player);
 	}else
 		player = turnOrderDelegate.currentTurnTaker;
-	
-	//record the pass on whatever action
-	//fire an event
 		
 	var e:ObjectEvent = new ObjectEvent(PLAYER_PASSED);
 	e.obj = player;
