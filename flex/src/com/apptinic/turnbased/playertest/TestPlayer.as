@@ -20,17 +20,16 @@ private function logHas(s:String):Boolean{
 }
 
 override public function prompt(state:GameState):void{
-	var con:GameContext = new GameContext(state);
 	var mv:GameAction;
 	switch(name){
 		case "Justin":
-			if(con.status == GameContext.REGULAR_TURN && !logHas("move1")){
+			if(state.status == GameState.NEW_TURN && !logHas("move1")){
 				mv = new GameAction();
 				mv.name = "move1";
 				log.push("move1");
 				GameKernel.shared.commitAction(mv);
 			}
-			if(con.status == GameContext.RESPOND_STACK && logHas("resp1") && !logHas("resp2")){
+			if(state.status == GameState.ACTION_STACKED && logHas("resp1") && !logHas("resp2")){
 				mv = new GameAction();
 				mv.name = "resp2";
 				log.push("resp2");
@@ -38,13 +37,13 @@ override public function prompt(state:GameState):void{
 			}
 			break;
 		case "Kyle":
-			if(con.status == GameContext.RESPOND_STACK && logHas("move1") && !logHas("resp1")){
+			if(state.status == GameState.ACTION_STACKED && logHas("move1") && !logHas("resp1")){
 				mv = new GameAction();
 				mv.name = "resp1";
 				log.push("resp1");
 				GameKernel.shared.commitAction(mv);
 			}
-			if(con.status == GameContext.REGULAR_TURN && logHas("move1") && !logHas("move2")){
+			if(state.status == GameState.NEW_TURN && logHas("move1") && !logHas("move2")){
 				mv = new GameAction();
 				mv.name = "move2";
 				log.push("move2");
@@ -52,7 +51,7 @@ override public function prompt(state:GameState):void{
 			}
 			break;
 		case "Sarah":
-			if(con.status == GameContext.RESPOND_UNSTACK && !logHas("resolved1")){
+			if(state.status == GameState.ACTION_RESOLVED && !logHas("resolved1")){
 				mv = new GameAction();
 				mv.name = "resolved1";
 				log.push("resolved1");

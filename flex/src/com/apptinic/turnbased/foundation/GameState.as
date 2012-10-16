@@ -30,13 +30,17 @@ public var kernel:GameKernel;
 public var turnOrderDelegate:ITurnOrderDelegate;
 public var endGameDelegate:IEndGameDelegate;
 
-public var _players:Array = new Array();
+protected var _players:Array = new Array();
 public function get players():Array{return _players;}
 public function set players(input:Array):void{
 	_players = input;
 	turnOrderDelegate.setupPlayerOrder();
 }
-	
+protected var _status:String;
+public function get status():String{return _status;}
+
+// **** whose turn accessor?
+
 public function GameState(kernel:GameKernel, target:IEventDispatcher=null){
 	super(target);
 	this.kernel = kernel;
@@ -47,6 +51,7 @@ public function stackAction(action:GameAction):void{
 	action.clearPassList();
 	actionStack.push(action);
 
+	_status = ACTION_STACKED;
 	var e:ObjectEvent = new ObjectEvent(ACTION_STACKED);
 	e.obj = action;
 	dispatchEvent(e);
@@ -66,6 +71,7 @@ public function resolveAction():GameAction{
 	resolvingAction.resolve(this);
 	resolvingAction.clearPassList();
 	
+	_status = ACTION_RESOLVED;
 	var e:ObjectEvent = new ObjectEvent(ACTION_RESOLVED);
 	e.obj = resolvingAction;
 	dispatchEvent(e);
@@ -75,16 +81,7 @@ public function resolveAction():GameAction{
 
 public function promptNextPlayer():void{
 	var e:ObjectEvent;
-	var player:Player;
-	if(!activeAction){
-		turnOrderDelegate.stackWasResolved();
-		player = turnOrderDelegate.currentTurnTaker;
-		e = new ObjectEvent(NEW_TURN);
-		e.obj = player;
-		dispatchEvent(e);
-		resolvingAction = null
-	}else
-		player = turnOrderDelegate.currentResponder;
+	var player:Player = activeAction ? turnOrderDelegate.currentResponder : turnOrderDelegate.currentTurnTaker;
 	
 	if(canPlayerRespond(player)){
 		e = new ObjectEvent(PROMPTING_PLAYER);
@@ -107,6 +104,17 @@ public function recordPassAction():void{
 	var e:ObjectEvent = new ObjectEvent(PLAYER_PASSED);
 	e.obj = player;
 	dispatchEvent(e);
+}
+
+public function recordNewTurn():void{
+	turnOrderDelegate.stackWasResolved();
+	var player:Player = turnOrderDelegate.currentTurnTaker;
+	
+	_status = NEW_TURN;
+	var e:ObjectEvent = new ObjectEvent(NEW_TURN);
+	e.obj = player;
+	dispatchEvent(e);
+	resolvingAction = null;
 }
 
 protected function canPlayerRespond(player:Player):Boolean{

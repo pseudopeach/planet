@@ -10,21 +10,7 @@ public var hasResolved:Boolean;
 public var status:String;
 	
 public function GameContext(state:GameState=null){
-	if(state){
-		if(!state.topStackItem){
-			status = REGULAR_TURN;
-			hasResolved = false;
-		}
-		else if(!activeAction){
-			status = RESPOND_STACK;
-			hasResolved = false;
-			activeAction = state.activeAction;
-		}else{
-			status = RESPOND_UNSTACK;
-			hasResolved = false;
-			activeAction = state.activeAction;
-		}
-	}
+	
 }
 
 }}

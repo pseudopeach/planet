@@ -49,8 +49,17 @@ public function commitPassAction():void{
 	if(state.topStackItem && turnOrderDelegate.isActionSettled(state.activeAction)){
 		//there's at least one item on the stack and it's ready to be resolved
 		this.resolveAction();
-	}else
+	}else{
+		if(!state.activeAction){
+			//new turn code
+			if(state.getGameWinner(state)){
+				state.endGame();
+				return;
+			}
+			state.recordNewTurn();
+		}
 		state.promptNextPlayer();
+	}
 }
 public function commitAction(action:GameAction):void{
 	//validation
