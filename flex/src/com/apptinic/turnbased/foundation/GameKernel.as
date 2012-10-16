@@ -46,17 +46,18 @@ public function commitPassAction():void{
 	//either prompt the next user or resolve an action
 	state.recordPassAction();
 	
-	if(state.topStackItem && turnOrderDelegate.isActionSettled(state.activeAction)){
-		//there's at least one item on the stack and it's ready to be resolved
-		this.resolveAction();
+	if(state.activeAction && !turnOrderDelegate.isActionSettled(state.activeAction)){
+		//just another pass on an unsettled action
+		state.promptNextPlayer();
+	}else if(state.topStackItem){
+		//there are unresolved actions on the stack
+		resolveAction();
 	}else{
-		if(!state.activeAction){
-			//new turn code
-			if(state.getGameWinner(state)){
-				state.endGame();
-				return;
-			}
-			state.recordNewTurn();
+		//the stack is empty, prompt the next player for their regular turn
+		state.recordNewTurn();
+		if(state.getGameWinner(state)){
+			state.endGame();
+			return;
 		}
 		state.promptNextPlayer();
 	}

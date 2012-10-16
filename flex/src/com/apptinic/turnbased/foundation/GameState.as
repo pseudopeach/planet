@@ -30,6 +30,8 @@ public var kernel:GameKernel;
 public var turnOrderDelegate:ITurnOrderDelegate;
 public var endGameDelegate:IEndGameDelegate;
 
+private var ended:Boolean = false;
+
 protected var _players:Array = new Array();
 public function get players():Array{return _players;}
 public function set players(input:Array):void{
@@ -94,6 +96,8 @@ public function promptNextPlayer():void{
 }
 
 public function recordPassAction():void{
+	if(ended)
+		trace("oh no!");
 	var player:Player;
 	if(activeAction){
 		player = turnOrderDelegate.currentResponder;
@@ -136,6 +140,7 @@ public function getGameWinner(state:GameState):Player{
 }
 
 public function endGame():void{
+	ended = true;
 	var e:ObjectEvent = new ObjectEvent(GAME_ENDED);
 	var winnerRet:Object = endGameDelegate.getGameWinner(this);
 	if(winnerRet as Player)
