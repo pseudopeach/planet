@@ -39,53 +39,42 @@ public function initGame():GameState{
 }
 
 public function begin():void{
-	state.promptNextPlayer();
+	resumeGame();
 }
 
-public function commitPassAction():void{
-	//either prompt the next user or resolve an action
-	state.recordPassAction();
+protected function resumeGame(newAction:GameAction=null):void{
+	var action:GameAction;
 	
-	if(state.activeAction && !turnOrderDelegate.isActionSettled(state.activeAction)){
-		//just another pass on an unsettled action
-		state.promptNextPlayer();
-	}else if(state.topStackItem){
-		//there are unresolved actions on the stack
-		resolveAction();
-	}else{
-		//the stack is empty, prompt the next player for their regular turn
-		state.recordNewTurn();
-		if(state.getGameWinner(state)){
-			state.endGame();
-			return;
+	//main game loop
+	while(!state.getGameWinner(state)){
+		//use the entered newAction, or prompt for an action
+		if(newAction){
+			action = newAction;
+			newAction = null;
+		}else
+			action = state.promptNextPlayer();
+		
+		//process the action
+		if(!action){ //player passed
+			state.recordPassAction();
+			if(state.topStackItem && turnOrderDelegate.isActionSettled(state.activeAction)) 
+				state.resolveAction();
+			else if(!state.activeAction || state.activeAction && turnOrderDelegate.isActionSettled(state.activeAction))
+				state.recordTurnEnd();
+
+		}else if(action.isWaitRequest)
+			return; //exit the game loop until we resume with the human player's move
+		else{
+			//it's a real action, validate it
+			action.player = state.activeAction ? turnOrderDelegate.currentResponder : turnOrderDelegate.currentTurnTaker;
+			if(!action.isLegalInCurrentState(state)) 
+				return; //ignores this illegal move
+			
+			//stack the action
+			state.stackAction(action);
 		}
-		state.promptNextPlayer();
 	}
-}
-public function commitAction(action:GameAction):void{
-	//validation
-	action.player = state.activeAction ? 
-		turnOrderDelegate.currentResponder : 
-		turnOrderDelegate.currentTurnTaker;
-	if(!action.isLegalInCurrentState(state)) return;
-	
-	//stack the action
-	state.stackAction(action);
-	
-	//prompt next player to respond to this action being stacked
-	state.promptNextPlayer();
-}
-protected function resolveAction():void{
-	state.resolveAction();
-	
-	//did someone win?
-	if(state.getGameWinner(state)){
-		state.endGame();
-		return;
-	}
-	
-	//prompt next player to respond to this action being un-stacked
-	state.promptNextPlayer();
+	state.endGame();
 }
 
 }}

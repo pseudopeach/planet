@@ -19,21 +19,21 @@ private function logHas(s:String):Boolean{
 	return log.indexOf(s) != -1;
 }
 
-override public function prompt(state:GameState):void{
+override public function prompt(state:GameState):GameAction{
 	var mv:GameAction;
 	switch(name){
 		case "Justin":
-			if(state.status == GameState.NEW_TURN && !logHas("move1")){
+			if(state.status == GameState.TURN_END && !logHas("move1")){
 				mv = new GameAction();
 				mv.name = "move1";
 				log.push("move1");
-				GameKernel.shared.commitAction(mv);
+				return mv;
 			}
 			if(state.status == GameState.ACTION_STACKED && logHas("resp1") && !logHas("resp2")){
 				mv = new GameAction();
 				mv.name = "resp2";
 				log.push("resp2");
-				GameKernel.shared.commitAction(mv);
+				return mv;
 			}
 			break;
 		case "Kyle":
@@ -41,13 +41,13 @@ override public function prompt(state:GameState):void{
 				mv = new GameAction();
 				mv.name = "resp1";
 				log.push("resp1");
-				GameKernel.shared.commitAction(mv);
+				return mv;
 			}
-			if(state.status == GameState.NEW_TURN && logHas("move1") && !logHas("move2")){
+			if(state.status == GameState.TURN_END && logHas("move1") && !logHas("move2")){
 				mv = new GameAction();
 				mv.name = "move2";
 				log.push("move2");
-				GameKernel.shared.commitAction(mv);
+				return mv;
 			}
 			break;
 		case "Sarah":
@@ -55,11 +55,11 @@ override public function prompt(state:GameState):void{
 				mv = new GameAction();
 				mv.name = "resolved1";
 				log.push("resolved1");
-				GameKernel.shared.commitAction(mv);
+				return mv;
 			}
 			break;
 	}
-	GameKernel.shared.commitPassAction();
+	return null;
 }
 
 }}

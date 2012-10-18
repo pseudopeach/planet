@@ -16,10 +16,11 @@ public function Player(target:IEventDispatcher=null){
 	super(target);
 }
 
-public function prompt(state:GameState):void{
+public function prompt(state:GameState):GameAction{
 	var e:ObjectEvent = new ObjectEvent(PLAYER_MOVE_PROMPT);
 	e.obj = {state:state};
 	dispatchEvent(e);
+	return new GameAction(true);
 }
 
 

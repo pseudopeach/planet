@@ -7,19 +7,19 @@ import flash.events.IEventDispatcher;
 
 [Event(name=PROMPTING_PLAYER, type="com.apptinic.util.ObjectEvent")]
 [Event(name=PLAYER_PASSED, type="com.apptinic.util.ObjectEvent")]
-[Event(name=NEW_TURN, type="com.apptinic.util.ObjectEvent")]
+[Event(name=TURN_END, type="com.apptinic.util.ObjectEvent")]
 [Event(name=ACTION_STACKED, type="com.apptinic.util.ObjectEvent")]
 [Event(name=ACTION_RESOLVED, type="com.apptinic.util.ObjectEvent")]
-[Event(name=GAME_ENDED, type="com.apptinic.util.ObjectEvent")]
+[Event(name=GAME_OVER, type="com.apptinic.util.ObjectEvent")]
 
 public class GameState extends EventDispatcher{
 	
 public static const PROMPTING_PLAYER:String = "PROMPTING_PLAYER";
 public static const PLAYER_PASSED:String = "PLAYER_PASSED";
-public static const NEW_TURN:String = "NEW_TURN";
+public static const TURN_END:String = "TURN_END";
 public static const ACTION_STACKED:String = "ACTION_STACKED";
 public static const ACTION_RESOLVED:String = "ACTION_RESOLVED";
-public static const GAME_ENDED:String = "GAME_ENDED";
+public static const GAME_OVER:String = "GAME_OVER";
 
 public static const OUTCOME_SINGLE_WINNER:String = "OUTCOME_SINGLE_WINNER";
 public static const OUTCOME_DRAW:String = "OUTCOME_DRAW";
@@ -30,7 +30,7 @@ public var kernel:GameKernel;
 public var turnOrderDelegate:ITurnOrderDelegate;
 public var endGameDelegate:IEndGameDelegate;
 
-private var ended:Boolean = false;
+public var ended:Boolean = false;
 
 protected var _players:Array = new Array();
 public function get players():Array{return _players;}
@@ -81,7 +81,7 @@ public function resolveAction():GameAction{
 	return resolvingAction;
 }
 
-public function promptNextPlayer():void{
+public function promptNextPlayer():GameAction{
 	var e:ObjectEvent;
 	var player:Player = activeAction ? turnOrderDelegate.currentResponder : turnOrderDelegate.currentTurnTaker;
 	
@@ -90,14 +90,12 @@ public function promptNextPlayer():void{
 		e.obj = player;
 		dispatchEvent(e);
 		
-		player.prompt(this.getFiltered(player));
+		return player.prompt(this.getFiltered(player));
 	}else
-		kernel.commitPassAction();
+		return null;
 }
 
 public function recordPassAction():void{
-	if(ended)
-		trace("oh no!");
 	var player:Player;
 	if(activeAction){
 		player = turnOrderDelegate.currentResponder;
@@ -110,15 +108,13 @@ public function recordPassAction():void{
 	dispatchEvent(e);
 }
 
-public function recordNewTurn():void{
+public function recordTurnEnd():void{
 	turnOrderDelegate.stackWasResolved();
-	var player:Player = turnOrderDelegate.currentTurnTaker;
-	
-	_status = NEW_TURN;
-	var e:ObjectEvent = new ObjectEvent(NEW_TURN);
-	e.obj = player;
-	dispatchEvent(e);
 	resolvingAction = null;
+	
+	_status = TURN_END;
+	var e:ObjectEvent = new ObjectEvent(TURN_END);
+	dispatchEvent(e);
 }
 
 protected function canPlayerRespond(player:Player):Boolean{
@@ -141,7 +137,7 @@ public function getGameWinner(state:GameState):Player{
 
 public function endGame():void{
 	ended = true;
-	var e:ObjectEvent = new ObjectEvent(GAME_ENDED);
+	var e:ObjectEvent = new ObjectEvent(GAME_OVER);
 	var winnerRet:Object = endGameDelegate.getGameWinner(this);
 	if(winnerRet as Player)
 		e.obj = {outcome:OUTCOME_SINGLE_WINNER, winner:winnerRet};
