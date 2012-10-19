@@ -29,7 +29,7 @@ public static function get shared():GameKernel{
 
 public function initGame():GameState{
 	//currentTurnTakerInd = 0;
-	state = gameStateClass ? new gameStateClass(this) : new GameState(this);
+	state = gameStateClass ? new gameStateClass() : new GameState();
 	
 	if(!turnOrderDelegate)
 		turnOrderDelegate = new DefaultTurnTakerDelegate(state);

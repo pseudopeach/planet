@@ -2,18 +2,18 @@ class GameState
   
 include EventBroadcaster
 	
-@@Initialized = :initialized
-@Prompting_Player = :prompting_player
-@Player_Passed = :player_passed
-@Purn_End = :turn_end
-@Action_Stacked = :action_stacked
-@Action_Resolved = :action_resolved
-@Game_Over = :game_over
+broadcastable :initialized
+broadcastable :prompting_player
+broadcastable :player_passed
+broadcastable :turn_end
+broadcastable :action_stacked
+broadcastable :action_resolved
+broadcastable :game_over
 
 @Outcome_Single_Winner = :outcome_single_winner
 @Outcome_Draw = :outcome_draw
 
-attr_accessor :turn_order_delegate, :status
+attr_accessor :turn_order_delegate, :status, :players
 	
 def players=(input)
 	@players = input
@@ -26,9 +26,8 @@ end
 
 # **** whose turn accessor?
 
-def initialize(kernel)
+def initialize
 	super
-	@kernel = kernel
 	@action_stack = []
 	@resolving_action = nil
 	@status = @@Initialize

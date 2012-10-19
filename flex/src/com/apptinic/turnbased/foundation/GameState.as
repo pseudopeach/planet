@@ -26,7 +26,6 @@ public static const OUTCOME_DRAW:String = "OUTCOME_DRAW";
 	
 public var actionStack:Array = new Array();
 public var resolvingAction:GameAction;
-public var kernel:GameKernel;
 public var turnOrderDelegate:ITurnOrderDelegate;
 public var endGameDelegate:IEndGameDelegate;
 
@@ -43,9 +42,8 @@ public function get status():String{return _status;}
 
 // **** whose turn accessor?
 
-public function GameState(kernel:GameKernel, target:IEventDispatcher=null){
+public function GameState(target:IEventDispatcher=null){
 	super(target);
-	this.kernel = kernel;
 }
 
 public function stackAction(action:GameAction):void{

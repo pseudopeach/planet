@@ -1,35 +1,35 @@
-package com.apptinic.turnbased.foundation
-
-class game_action
-	
-#public static const wait_for_human = "wait_for_human"
-	
-
-
-
-
+class GameAction
+  
+def initialize(wait=false)
+  super
+  @passed_on_by = []
+  @has_resolved = false
+  @is_wait_request = wait
+end
 
 #adds user to the list of players that have decided not to respond to this action
 def list_player_as_passed(p)
-	return _passed_on_by.push(p)
+	return @passed_on_by.push(p)
 end
-def clear_pass_list = new arrayend
-def passed_on_by _passed_on_byend
+def clear_pass_list 
+  @passed_on_by = []
+end
 
+def resolved?
+  return @has_resolved
+end
 
-def has_resolved _has_resolvedend
-
-def game_action(wait=false)
-	this.is_wait_request = wait
+def wait_request?
+  return @is_wait_request
 end
 
 def legal_in_current_state?(state)
 	return true
 end
 
-def resolve(state)
+def resolve state
 	#action does whatever it does, operating on the game state
-	_has_resolved = true
+	@has_resolved = true
 end
 
-}}endend
+end

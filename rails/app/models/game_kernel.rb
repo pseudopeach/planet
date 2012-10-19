@@ -19,7 +19,7 @@ end
 
 def initGame
   #currentTurnTakerInd = 0;
-  @state = @game_state_class ? @game_state_class.new(self) : GameState.new(self)
+  @state = @game_state_class ? @game_state_class.new : GameState.new
   
   @turn_order_delegate = DefaultTurnTakerDelegate.new(@state) unless @turn_order_delegate
   
