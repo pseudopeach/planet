@@ -1,9 +1,13 @@
-class Player
+class Game::Player < ActiveRecord::Base
 	
 include EventBroadcaster
 
 attr_accessor :name
-broadcastable :prompt
+belongs_to :game, :class_name=>State, :foreign_key=>"game_id"
+
+def initialize
+  broadcastable :prompt
+end
 
 def prompt state
 	e = {:obj=>self}

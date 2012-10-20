@@ -1,9 +1,8 @@
-class DefaultTurnTakerDelegate
+class Game::DefaultTurnTakerDelegate
 	
 attr_accessor :state, :player_can_respond_to_self, :player_responds_to_self_after_other_players
 
-def initialize(state)
-  super
+def initialize state 
 	@state = state
 end
 

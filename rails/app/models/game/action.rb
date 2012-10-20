@@ -1,7 +1,11 @@
-class GameAction
+class Game::Action < ActiveRecord::Base
+  
+attr_accessor :name, :player
+belongs_to :player
+has_and_belongs_to_many :players_that_passed, :class_name=>Player, :join_table=>"actions_players_passed"
+
   
 def initialize(wait=false)
-  super
   @passed_on_by = []
   @has_resolved = false
   @is_wait_request = wait
