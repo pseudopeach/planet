@@ -5,8 +5,10 @@
 #   gem 'sqlite3'
 development:
   adapter: mysql2
-  database: terra
+  host: localhost
+  database: terraform
   password: password
+  port: 8889
   pool: 5
   timeout: 5000
 

@@ -1,53 +1,48 @@
 class Game::State < ActiveRecord::Base
-  include EventBroadcaster
+  include Util::EventBroadcaster
 
-attr_accessor :turn_order_delegate, :end_game_delegate, :status
-has_many :players, :foreign_key=>"game_id"
-has_and_belongs_to_many :stacked_actions, :class_name=>Action, :join_table=>"actions_states_stacked"
-has_and_belongs_to_many :resolved_actions, :class_name=>Action, :join_table=>"actions_states_resolved"
-belongs_to :resolving_items, :class_name=>Action
+attr_accessor :turn_order_delegate, :end_game_delegate
+has_many :players
+has_and_belongs_to_many :stacked_actions, :class_name=>"Game::Action", :join_table=>"actions_states_stacked"
+belongs_to :resolving_action, :class_name=>"Game::Action"
   
 def players=(input)
-  @players = input
+  slef[:players] = input
   @turn_order_delegate.setup_player_order
-end
-
-def players
-  return @players
 end
 
 # **** whose turn accessor?
 
 def initialize
   super
-  @action_stack = []
-  @resolving_action = nil
+  #@action_stack = []
+  #@resolving_action = nil
   Game::ALL_STATUSES.each {|q| broadcastable q}
-  @status = Game::GAME_INITIALIZED
+  status = Game::GAME_INITIALIZED
   
 end
 
 def stack_action(action)
-  @resolving_action = nil
+  resolving_action = nil
   action.clear_pass_list
-  @action_stack.push action
+  stacked_actions << action
 
-  @status = Game::ACTION_STACKED
+  status = Game::ACTION_STACKED
   e = {:obj=>action}
   broadcast_event @status, e
 end
 
 def top_stack_item
-  return @action_stack.last
+  return stacked_actions.last
 end
 def active_action
-  return @resolving_action ? @resolving_action : top_stack_item
+  return resolving_action ? resolving_action : top_stack_item
 end
 
 def resolve_action
-  @resolving_action = @action_stack.pop
-  @resolving_action.resolve(self)
-  @resolving_action.clear_pass_list
+  resolving_action = stacked_actions.pop
+  resolving_action.resolve(self)
+  resolving_action.clear_pass_list
   
   @status = Game::ACTION_RESOLVED
   e = {:obj=>@resolving_action}
@@ -79,9 +74,9 @@ end
 
 def record_turn_end
   turn_order_delegate.stack_was_resolved
-  @resolving_action = nil
+  resolving_action = nil
   
-  @status = Game::TURN_END
+  status = Game::TURN_END
   broadcast_status
 end
 
@@ -97,7 +92,7 @@ def game_winner(state)
 end
 
 def end_game
-  @status = Game::GAME_OVER
+  status = Game::GAME_OVER
   winner_ret = @end_game_delegate.game_winner(self)
   if(winner_ret.is_a? Player)
     e = {:outcome=>Game::OUTCOME_SINGLE_WINNER, :winner=>winner_ret}
@@ -107,7 +102,7 @@ def end_game
     raise "unknown game outcome"
   end
   
-  broadcast_event @status, e
+  broadcast_event status, e
 end
 
 protected 
@@ -118,7 +113,7 @@ end
 
 def broadcast_status
   e = {:obj=>self}
-  broadcast_event @status, e
+  broadcast_event status, e
 end
   
 end
