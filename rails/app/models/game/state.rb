@@ -3,33 +3,31 @@ class Game::State < ActiveRecord::Base
 
 attr_accessor :turn_order_delegate, :end_game_delegate
 has_many :players
+has_many :turn_completions
 has_and_belongs_to_many :stacked_actions, :class_name=>"Game::Action", :join_table=>"actions_states_stacked"
 belongs_to :resolving_action, :class_name=>"Game::Action"
   
 def players=(input)
-  slef[:players] = input
+  self[:players] = input
   @turn_order_delegate.setup_player_order
 end
 
 # **** whose turn accessor?
 
-def initialize
-  super
-  #@action_stack = []
-  #@resolving_action = nil
+def init_game
+  @turn_order_delegate = Game::DefaultTurnTakerDelegate.new(self) unless @turn_order_delegate
+  @end_game_delegate = self unless @end_game_delegate
   Game::ALL_STATUSES.each {|q| broadcastable q}
   status = Game::GAME_INITIALIZED
-  
+  #broadcast_event Game::GAME_INITIALIZED, {}
+  return self
 end
 
-def stack_action(action)
-  resolving_action = nil
-  action.clear_pass_list
-  stacked_actions << action
-
-  status = Game::ACTION_STACKED
-  e = {:obj=>action}
-  broadcast_event @status, e
+def manager
+  init_game
+  mgr = Game::Kernel.new
+  mgr.state = self
+  return mgr
 end
 
 def top_stack_item
@@ -39,23 +37,29 @@ def active_action
   return resolving_action ? resolving_action : top_stack_item
 end
 
+def stack_action(action)
+  resolving_action = nil
+  action.clear_pass_list
+  stacked_actions << action ## auto-saves action and stack-linkage
+  action.on_stack
+  
+  update_activity_time
+
+  status = Game::ACTION_STACKED
+  e = {:obj=>action}
+  broadcast_event Game::ACTION_STACKED, e
+end
+
 def resolve_action
   resolving_action = stacked_actions.pop
   resolving_action.resolve(self)
   resolving_action.clear_pass_list
-  
-  @status = Game::ACTION_RESOLVED
-  e = {:obj=>@resolving_action}
-  broadcast_event @status, e
-  return @resolving_action
-end
-
-def prompt_next_player
-  player = active_action ? @turn_order_delegate.current_responder : @turn_order_delegate.current_turn_taker
-  
-  if(player_can_respond?(player))
-    broadcast_event Game::PROMPTING_PLAYER, {:obj=>player}
-    return player.prompt(self.filtered_for(player))
+  last_action = 0.seconds.ago
+  if self.save 
+    @status = Game::ACTION_RESOLVED
+    e = {:obj=>resolving_action}
+    broadcast_event Game::ACTION_RESOLVED, e
+    return @resolving_action
   else
     return nil
   end
@@ -68,17 +72,35 @@ def record_pass_action
   else
     player = @turn_order_delegate.current_turn_taker
   end
+  
+  update_activity_time
     
   broadcast_event Game::PLAYER_PASSED, {:obj=>player}
 end
 
 def record_turn_end
-  turn_order_delegate.stack_was_resolved
+  turn_order_delegate.stack_was_resolved # ***
   resolving_action = nil
+  player = @turn_order_delegate.current_turn_taker
+  
+  self.turn_completions << Game::TurnCompletion.new(:player => player)
   
   status = Game::TURN_END
-  broadcast_status
+  broadcast_event Game::TURN_END, {:obj=>player}
 end
+
+
+def prompt_next_player
+  player = active_action ? @turn_order_delegate.current_responder : @turn_order_delegate.current_turn_taker
+  
+  if(player_can_respond?(player))
+    broadcast_event Game::PROMPTING_PLAYER, {:obj=>player}
+    return player.prompt(self.filtered_for(player))
+  else
+    return nil
+  end
+end
+
 
 def filtered_for(player)
   return self
@@ -102,7 +124,7 @@ def end_game
     raise "unknown game outcome"
   end
   
-  broadcast_event status, e
+  broadcast_event Game::GAME_OVER, e if self.save
 end
 
 protected 
@@ -111,9 +133,10 @@ def player_can_respond?(player)
   return true
 end
 
-def broadcast_status
-  e = {:obj=>self}
-  broadcast_event status, e
+
+def update_activity_time
+  last_action = 0.seconds.ago
+  self.save
 end
   
 end

@@ -1,24 +1,6 @@
-class Game::TestKernel
-
-attr_accessor :game_state_class
-
-def turn_order_delegate= input
-  @turn_order_delegate = input
-  @turn_order_delegate.state = @state
-end
-def turn_order_delegate
-  return @turn_order_delegate
-end
-
-
-def init_game
-  @state = @game_state_class ? @game_state_class.new : GameState.new
-  @turn_order_delegate = DefaultTurnTakerDelegate.new(@state) unless @turn_order_delegate
-  @state.turn_order_delegate = @turn_order_delegate
+class Game::Kernel
   
-  return @state
-end
-
+ attr_accessor :state
 
 def begin
 	resume_game
@@ -39,7 +21,7 @@ def resume_game(new_action=nil)
 		#process the action
 		if !action #player passed
 			@state.record_pass_action
-			if(@state.top_stack_item && @turn_order_delegate.action_settled?(@state.active_action))
+			if(@state.top_stack_item && @state.turn_order_delegate.action_settled?(@state.active_action))
 				@state.resolve_action
 			elsif(!@state.active_action || @state.active_action && turn_order_delegate.action_settled?(@state.active_action))
 				@state.record_turn_end
@@ -49,7 +31,8 @@ def resume_game(new_action=nil)
 			return #exit the game loop until we resume with the human player's move
 		else
 			#it's a real action, validate it
-			action.player = @state.active_action ? @turn_order_delegate.current_responder : @turn_order_delegate.current_turn_taker
+			action.player = @state.active_action ? 
+			   @state.turn_order_delegate.current_responder : @state.turn_order_delegate.current_turn_taker
 			
 			return unless action.legal_in_current_state?(@state)
 			

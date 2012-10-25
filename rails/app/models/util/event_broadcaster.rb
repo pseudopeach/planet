@@ -9,16 +9,16 @@ module Util::EventBroadcaster
   end
   
   def add_observer observer, message, handler
-    raise "Observer registered for invalid event message." unless @broadcastable_msgs.index message
+    raise "Observer registered for invalid event message: #{message}." unless @broadcastable_msgs.index message
     raise "Observer doesn't implement handler #{handler}." unless observer.respond_to? handler
-    @registry = {} unless @registry
-    @registry[message] = [] unless @registry[message]
-    @registry[message].push({:observer=>observer, :handler=>handler.to_sym})
+    @observer_registry = {} unless @observer_registry
+    @observer_registry[message] = [] unless @observer_registry[message]
+    @observer_registry[message].push({:observer=>observer, :handler=>handler.to_sym})
     return true
   end
   
   def remove_observer observer, message
-    if obs = @registry[message]
+    if obs = @observer_registry[message]
       old_len = obs.length
       return obs.delete_if {|q| q[:observer]==observer}.length != old_len
     end
@@ -26,8 +26,9 @@ module Util::EventBroadcaster
   end
   
   def broadcast_event message, obj
-    raise "Message not registered as broadcastable" unless @broadcastable_msgs.index message
-    if obs = @registry[message]
+    raise "Message: #{message} is not registered as broadcastable" unless @broadcastable_msgs.index message
+    @observer_registry = {} unless @observer_registry
+    if obs = @observer_registry[message]
       obj[:message] = message
       obs.each do |orec|
         orec[:observer].send(orec[:handler],obj)
