@@ -14,13 +14,12 @@ end
 
 # **** whose turn accessor?
 
-def init_game
-  @turn_order_delegate = Game::DefaultTurnTakerDelegate.new(self) unless @turn_order_delegate
-  @end_game_delegate = self unless @end_game_delegate
+def init
+  @turn_order_delegate = Game::DefaultTurnTakerDelegate.new(self)
+  @end_game_delegate = self
   Game::ALL_STATUSES.each {|q| broadcastable q}
   status = Game::GAME_INITIALIZED
   #broadcast_event Game::GAME_INITIALIZED, {}
-  return self
 end
 
 def manager
@@ -51,8 +50,9 @@ def stack_action(action)
 end
 
 def resolve_action
-  resolving_action = stacked_actions.pop
+  resolving_action = stacked_actions.last
   resolving_action.resolve(self)
+  stacked_actions.delete resolving_action
   resolving_action.clear_pass_list
   last_action = 0.seconds.ago
   if self.save 
@@ -135,7 +135,8 @@ end
 
 
 def update_activity_time
-  last_action = 0.seconds.ago
+  self.last_action = 0.seconds.ago
+  puts "saving last action time #{self.last_action.to_s(:short)}"
   self.save
 end
   

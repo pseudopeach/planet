@@ -30,6 +30,7 @@ end
 def current_responder
 	n = @state.active_action.passed_on_by.size
 	m = @player_list.index state.active_action.player
+	m += 1 if !player_can_respond_to_self || player_responds_to_self_after_other_players
 	n = (m+n) % @player_list.size
   return @player_list[n]
 end

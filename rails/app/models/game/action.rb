@@ -14,7 +14,7 @@ def list_player_as_passed(p)
 	passed_on_by << p
 end
 def clear_pass_list 
-  passed_on_by = []
+  passed_on_by.clear
 end
 
 def resolved?
