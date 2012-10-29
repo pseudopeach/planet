@@ -33,9 +33,10 @@ def on_stack
   #if the action does anything the moment it hits the stack
 end
 
-def resolve state
+def resolve(state)
 	#action does whatever it does, operating on the game state
-	resolved_at = 0.seconds.ago
+	self.resolved_at = 0.seconds.ago
+	self.save
 end
 
 end
