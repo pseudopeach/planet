@@ -3,6 +3,7 @@ class Game::State < ActiveRecord::Base
 
 attr_accessor :turn_order_delegate, :end_game_delegate
 has_many :players
+has_many :items, :through=>:players
 has_many :turn_completions
 has_and_belongs_to_many :stacked_actions, :class_name=>"Game::Action", :join_table=>"actions_states_stacked"
 belongs_to :resolving_action, :class_name=>"Game::Action", :foreign_key=>"resolving_action_id"
@@ -109,6 +110,7 @@ end
 
 
 def filtered_for(player)
+  
   return self
 end
 

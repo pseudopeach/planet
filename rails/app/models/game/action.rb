@@ -2,6 +2,7 @@ class Game::Action < ActiveRecord::Base
   
 belongs_to :player
 has_and_belongs_to_many :passed_on_by, :class_name=>"Game::Player", :join_table=>'actions_players_passed'
+has_many :action_requirements
 
   
 def initialize(wait=false)
@@ -25,7 +26,14 @@ def wait_request?
   return @is_wait_request
 end
 
-def legal_in_current_state?(state)
+def legal?(state)
+  inv = {}
+  player.items.each do |q|
+    inv[q.item_type] = qty
+  end
+	action_requirements.each do |q|
+	  return false if inv[q.item_type].nil? || inv[q.item_type] < q.item_qty
+	end
 	return true
 end
 

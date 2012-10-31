@@ -28,6 +28,7 @@ def resume_game(new_action=nil)
 			end
 
 		elsif action.wait_request?
+		  puts "*** prompt for human input"
 			return #exit the game loop until we resume with the human player's move
 		else
 			#it's a real action, validate it
