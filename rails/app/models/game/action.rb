@@ -1,6 +1,7 @@
 class Game::Action < ActiveRecord::Base
   
 belongs_to :player
+belongs_to :target_player, :class_name=>"Game::Player"
 has_and_belongs_to_many :passed_on_by, :class_name=>"Game::Player", :join_table=>'actions_players_passed'
 has_many :action_requirements
 
@@ -45,6 +46,16 @@ def resolve(state)
 	#action does whatever it does, operating on the game state
 	self.resolved_at = 0.seconds.ago
 	self.save
+end
+
+after_initialize :deserialize_data
+before_save :serialize_data
+
+def serialize_data
+  self.data = @xdata.empty? ? nil : @xdata.to_json
+end
+def deserialize_data
+  @xdata = self.data ? JSON(self.data) : {}
 end
 
 end

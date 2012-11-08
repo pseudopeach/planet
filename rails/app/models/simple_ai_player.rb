@@ -1,5 +1,20 @@
 class SimpleAIPlayer < Game::Player
   
+incase_of :my_turn?, :prefer=>Game::Action  
+  
+def my_turn? state
+  state.status == Game::TURN_END
+end
+
+def should_respond? state
+  state.status == Game::ACTION_STACKED
+end
+
+def should_respond_resolved? state
+  state.status == Game::ACTION_RESOLVED
+end
+  
+  
 @@ai_tactics = []
 def self.incase_of sit_test, options={}
   @@ai_tactics << { :sit_test=>sit_test.to_sym, :options=>options }
