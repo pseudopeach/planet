@@ -1,4 +1,4 @@
-class Terra::Carnivore < Game::Player
+class Terra::Prey < Game::Player
   def hit_points
     return @xdata[:hp]
   end

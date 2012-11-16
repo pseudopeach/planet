@@ -1,5 +1,4 @@
 class Game::Player < ActiveRecord::Base
-
 belongs_to :game, :class_name=>"Game::State"
 has_many :actions, :class_name=>"Game::Action"
 has_many :items
@@ -8,12 +7,15 @@ has_many :player_observers
 has_many :player_attributes
 #has_many :upgrades
 
-def introduce(loc_i,loc_j)
-  #introduces ai player to game
+def prototype
+  #charge owner dna points
+  #change column
 end
 
-def human?
-  return !user_id.nil?
+def introduce(loc_i,loc_j)
+  #charge owner launch cost
+  #introduces ai player to game
+  #set state, turn_order, location
 end
 
 def prompt(state)
@@ -86,8 +88,9 @@ def set_game_attrs(hash_in)
         found.save
       else
         #item needs to be created
-        new_attr = (player_attributes << Game::PlayerAttribute.new(:name=>key, :value=>item))
-        @loaded_game_attributes[key] = new_attr
+        new_attr = Game::PlayerAttribute.new(:name=>key, :value=>item)
+        player_attributes << new_attr
+        @loaded_game_attributes[name] = new_attr
       end
     end #each loop
   end #transaction
@@ -95,19 +98,21 @@ def set_game_attrs(hash_in)
 end
 
 def game_attr_add(name, d_value)
-  if @loaded_game_attributes.key?(key)
+  @loaded_game_attributes = {} unless @loaded_game_attributes
+  if @loaded_game_attributes.key?(name)
     #item already loaded
-    @loaded_game_attributes[key].value += d_valule
-    @loaded_game_attributes[key].save
-  elsif found = player_attributes.where(:name=>key).first
+    @loaded_game_attributes[name].value += d_value
+    @loaded_game_attributes[name].save
+  elsif found = player_attributes.where(:name=>name).first
     #item exists, but not already loaded
-    @loaded_game_attributes[key] = found
+    @loaded_game_attributes[name] = found
     found.value += d_value
     found.save
   else
     #item needs to be created
-    new_attr = (player_attributes << Game::PlayerAttribute.new(:name=>key, :value=>item))
-    @loaded_game_attributes[key] = new_attr
+    new_attr = Game::PlayerAttribute.new(:name=>name, :value=>d_value)
+    player_attributes << new_attr
+    @loaded_game_attributes[name] = new_attr
   end
 end
 

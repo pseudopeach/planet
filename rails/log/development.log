@@ -1,0 +1,458 @@
+  [1m[36m (1.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (15.5ms)[0m  INSERT INTO `game_players` (`data`, `engineering_cost`, `is_prototyped`, `launch_cost`, `loc_i`, `loc_j`, `name`, `state_id`, `turn_order`, `type`, `user_id`) VALUES (NULL, NULL, 0, NULL, NULL, NULL, 'Rabbit', NULL, NULL, 'Game::Player', NULL)
+  [1m[36m (5.3ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `game_players` (`data`, `engineering_cost`, `is_prototyped`, `launch_cost`, `loc_i`, `loc_j`, `name`, `state_id`, `turn_order`, `type`, `user_id`) VALUES (NULL, NULL, 0, NULL, NULL, NULL, 'Rabbit', NULL, NULL, 'Game::Player', NULL)
+  [1m[36m (2.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO `game_players` (`data`, `engineering_cost`, `is_prototyped`, `launch_cost`, `loc_i`, `loc_j`, `name`, `state_id`, `turn_order`, `type`, `user_id`) VALUES (NULL, NULL, 0, NULL, NULL, NULL, 'Rabbit', NULL, NULL, 'Game::Player', NULL)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 0.0, 0.0, 'Rabbit', 'Terra:Predator')
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_diet', 0, 1.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_habitat', 0, 1.0)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_movement', 0, 3.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_hunger', 0, 5.0)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_hit_points', 0, 4.0)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_attack', 0, 0.0)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_defense', 0, 4.0)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 0.0, 0.0, 'Locust', 'Terra:Predator')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_diet', 0, 1.0)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_habitat', 0, 1.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_movement', 0, 3.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_hunger', 0, 8.0)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_hit_points', 0, 2.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_attack', 0, 0.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_defense', 0, 2.0)[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 0.0, 0.0, 'Snake', 'Terra:Predator')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_diet', 0, 3.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_habitat', 0, 1.0)
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_movement', 0, 1.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_hunger', 0, 2.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_hit_points', 0, 4.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_attack', 0, 10.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_defense', 0, 5.0)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 0.0, 0.0, 'Bear', 'Terra:Predator')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_diet', 0, 2.0)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_habitat', 0, 1.0)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_movement', 0, 1.0)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_hunger', 0, 5.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_hit_points', 0, 12.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_attack', 0, 10.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_defense', 0, 8.0)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 0.0, 0.0, 'Wolf', 'Terra:Predator')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_diet', 0, 3.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_habitat', 0, 1.0)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_movement', 0, 2.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_hunger', 0, 5.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_hit_points', 0, 6.0)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_attack', 0, 6.0)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_defense', 0, 8.0)[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 0.0, 0.0, 'Sardine', 'Terra:Predator')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_diet', 0, 1.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_habitat', 0, 2.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_movement', 0, 1.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_hunger', 0, 4.0)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_hit_points', 0, 2.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_attack', 0, 0.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_defense', 0, 2.0)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 0.0, 0.0, 'Tuna', 'Terra:Predator')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_diet', 0, 3.0)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_habitat', 0, 2.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_movement', 0, 2.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_hunger', 0, 6.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_hit_points', 0, 10.0)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_attack', 0, 4.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_defense', 0, 3.0)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 0.0, 0.0, 'Shark', 'Terra:Predator')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_diet', 0, 3.0)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_habitat', 0, 2.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_movement', 0, 2.0)[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_hunger', 0, 7.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_hit_points', 0, 20.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_attack', 0, 8.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_defense', 0, 5.0)[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 0.0, 0.0, 'Whale', 'Terra:Predator')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_diet', 0, 1.0)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_habitat', 0, 2.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_movement', 0, 2.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_hunger', 0, 4.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_hit_points', 0, 40.0)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_attack', 0, 0.0)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_defense', 0, 7.0)[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.9ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mTerra::CreatureAttribute Load (0.6ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.5ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mTerra::CreatureAttribute Load (0.7ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.5ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mTerra::CreatureAttribute Load (31.9ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.5ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 1 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35mTerra::CreatureAttribute Load (0.6ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.6ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35mTerra::CreatureAttribute Load (0.6ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.5ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mTerra::CreatureAttribute Load (0.6ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.6ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 1 LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mUPDATE `terra_base_creatures` SET `player_class` = 'Terra:Prey' WHERE `terra_base_creatures`.`id` = 1[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.6ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 1 LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mUPDATE `terra_base_creatures` SET `player_class` = 'Terra:Prey' WHERE `terra_base_creatures`.`id` = 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.4ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.4ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hit_points' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_hit_points', 1, 4.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.3ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.2ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 2 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mUPDATE `terra_base_creatures` SET `player_class` = 'Terra:Prey' WHERE `terra_base_creatures`.`id` = 2[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hit_points' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_hit_points', 1, 2.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (1.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.3ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 3 LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.3ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hit_points' LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_hit_points', 1, 4.0)
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTerra::BaseCreature Load (0.3ms)[0m  [1mSELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 4 LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hit_points' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_hit_points', 1, 12.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.4ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.3ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 5 LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.3ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hit_points' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_hit_points', 1, 6.0)
+  [1m[36mTerra::CreatureAttribute Load (1.0ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTerra::BaseCreature Load (0.2ms)[0m  [1mSELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  UPDATE `terra_base_creatures` SET `player_class` = 'Terra:Prey' WHERE `terra_base_creatures`.`id` = 6
+  [1m[36mTerra::CreatureAttribute Load (0.3ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hit_points' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_hit_points', 1, 2.0)
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTerra::BaseCreature Load (0.4ms)[0m  [1mSELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 7 LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.4ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.3ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.3ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hit_points' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_hit_points', 1, 10.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.2ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 8 LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.3ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hit_points' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_hit_points', 1, 20.0)
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTerra::BaseCreature Load (0.2ms)[0m  [1mSELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 9 LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  UPDATE `terra_base_creatures` SET `player_class` = 'Terra:Prey' WHERE `terra_base_creatures`.`id` = 9
+  [1m[36mTerra::CreatureAttribute Load (0.4ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hit_points' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_hit_points', 1, 40.0)
+  [1m[36mTerra::CreatureAttribute Load (0.3ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[36m (1.3ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (6.6ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 1 LIMIT 1
+  [1m[36m (4.7ms)[0m  [1mUPDATE `terra_base_creatures` SET `launch_cost` = 30.0 WHERE `terra_base_creatures`.`id` = 1[0m
+  [1m[35mTerra::CreatureAttribute Load (0.4ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_diet', 1, 1.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_habitat', 1, 1.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_movement', 1, 5.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_hunger', 1, 18.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_size' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_size', 1, 80.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_attack', 1, 0.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 1 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (1, 'pa_defense', 1, 4.0)[0m
+  [1m[35m (69.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.3ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 2 LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mUPDATE `terra_base_creatures` SET `launch_cost` = 30.0 WHERE `terra_base_creatures`.`id` = 2[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_diet', 1, 1.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_habitat', 1, 1.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_movement', 1, 8.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_hunger', 1, 12.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_size' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_size', 1, 30.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_attack', 1, 0.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 2 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (2, 'pa_defense', 1, 2.0)[0m
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.2ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 3 LIMIT 1
+  [1m[36m (0.9ms)[0m  [1mUPDATE `terra_base_creatures` SET `engineering_cost` = 50.0, `launch_cost` = 50.0 WHERE `terra_base_creatures`.`id` = 3[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_diet', 1, 3.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_habitat', 1, 1.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_movement', 1, 2.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_hunger', 1, 3.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_size' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_size', 1, 50.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_attack', 1, 10.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 3 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (3, 'pa_defense', 1, 5.0)[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.3ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 4 LIMIT 1
+  [1m[36m (0.9ms)[0m  [1mUPDATE `terra_base_creatures` SET `engineering_cost` = 75.0, `launch_cost` = 65.0 WHERE `terra_base_creatures`.`id` = 4[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_diet', 1, 2.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_habitat', 1, 1.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_movement', 1, 3.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_hunger', 1, 60.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_size' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_size', 1, 400.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_attack', 1, 10.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 4 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (4, 'pa_defense', 1, 8.0)[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.2ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 5 LIMIT 1
+  [1m[36m (0.9ms)[0m  [1mUPDATE `terra_base_creatures` SET `launch_cost` = 50.0 WHERE `terra_base_creatures`.`id` = 5[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_diet', 1, 3.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_habitat', 1, 1.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_movement', 1, 3.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_hunger', 1, 35.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_size' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_size', 1, 250.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_attack', 1, 6.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 5 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (5, 'pa_defense', 1, 8.0)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.2ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 6 LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mUPDATE `terra_base_creatures` SET `launch_cost` = 20.0 WHERE `terra_base_creatures`.`id` = 6[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_diet', 1, 1.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_habitat', 1, 2.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_movement', 1, 6.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_hunger', 1, 8.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_size' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_size', 1, 30.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_attack', 1, 0.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 6 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (6, 'pa_defense', 1, 2.0)[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.3ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 7 LIMIT 1
+  [1m[36m (0.9ms)[0m  [1mUPDATE `terra_base_creatures` SET `launch_cost` = 50.0 WHERE `terra_base_creatures`.`id` = 7[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_diet', 1, 3.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_habitat', 1, 2.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_movement', 1, 6.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.4ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_hunger', 1, 40.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_size' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_size', 1, 100.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_attack', 1, 4.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.3ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 7 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (7, 'pa_defense', 1, 3.0)[0m
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.3ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 8 LIMIT 1
+  [1m[36m (0.9ms)[0m  [1mUPDATE `terra_base_creatures` SET `engineering_cost` = 50.0, `launch_cost` = 80.0 WHERE `terra_base_creatures`.`id` = 8[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_diet', 1, 3.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_habitat', 1, 2.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_movement', 1, 3.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_hunger', 1, 40.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_size' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_size', 1, 300.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_attack', 1, 8.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 8 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (8, 'pa_defense', 1, 5.0)[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTerra::BaseCreature Load (0.2ms)[0m  SELECT `terra_base_creatures`.* FROM `terra_base_creatures` WHERE `terra_base_creatures`.`id` = 9 LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mUPDATE `terra_base_creatures` SET `engineering_cost` = 75.0, `launch_cost` = 100.0 WHERE `terra_base_creatures`.`id` = 9[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_diet' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_diet', 1, 1.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_habitat', 1, 2.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_movement' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_movement', 1, 2.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_hunger' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_hunger', 1, 80.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_size' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_size', 1, 800.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_attack' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_attack', 1, 0.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 9 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_defense' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (9, 'pa_defense', 1, 7.0)[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 0.0, 10.0, 'Lychen', 'Terra::Flora')
+  [1m[36mTerra::CreatureAttribute Load (0.3ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 10 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_growth' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (10, 'pa_growth', 1, 4.0)
+  [1m[36mTerra::CreatureAttribute Load (0.3ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 10 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (10, 'pa_habitat', 1, 1.0)
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 10 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_invade' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (10, 'pa_invade', 1, 1.0)
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 10 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_yummy' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (10, 'pa_yummy', 1, 4.0)
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 0.0, 10.0, 'Plankton', 'Terra::Flora')[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 11 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_growth' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (11, 'pa_growth', 1, 9.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 11 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (11, 'pa_habitat', 1, 2.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 11 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_invade' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (11, 'pa_invade', 1, 1.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 11 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_yummy' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (11, 'pa_yummy', 1, 8.0)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 20.0, 20.0, 'Ferns', 'Terra::Flora')
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 12 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_growth' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (12, 'pa_growth', 1, 3.0)
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 12 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (12, 'pa_habitat', 1, 1.0)
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 12 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_invade' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (12, 'pa_invade', 1, 3.0)
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 12 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_yummy' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (12, 'pa_yummy', 1, 6.0)
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 20.0, 40.0, 'Pines', 'Terra::Flora')[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 13 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_growth' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (13, 'pa_growth', 1, 2.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 13 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (13, 'pa_habitat', 1, 1.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 13 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_invade' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (13, 'pa_invade', 1, 7.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 13 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_yummy' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (13, 'pa_yummy', 1, 2.0)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 40.0, 30.0, 'Wildflowers', 'Terra::Flora')
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 14 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_growth' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (14, 'pa_growth', 1, 6.0)
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 14 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (14, 'pa_habitat', 1, 1.0)
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 14 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_invade' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (14, 'pa_invade', 1, 3.0)
+  [1m[36mTerra::CreatureAttribute Load (0.2ms)[0m  [1mSELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 14 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_yummy' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (14, 'pa_yummy', 1, 6.0)
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_base_creatures` (`data`, `engineering_cost`, `launch_cost`, `name`, `player_class`) VALUES (NULL, 20.0, 30.0, 'Kelp', 'Terra::Flora')[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 15 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_growth' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (15, 'pa_growth', 1, 6.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 15 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_habitat' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (15, 'pa_habitat', 1, 2.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 15 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_invade' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (15, 'pa_invade', 1, 5.0)[0m
+  [1m[35mTerra::CreatureAttribute Load (0.2ms)[0m  SELECT `terra_creature_attributes`.* FROM `terra_creature_attributes` WHERE `terra_creature_attributes`.`crupgrade_id` = 15 AND `terra_creature_attributes`.`of_base_creature` = 1 AND `terra_creature_attributes`.`name` = 'pa_yummy' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `terra_creature_attributes` (`crupgrade_id`, `name`, `of_base_creature`, `value`) VALUES (15, 'pa_yummy', 1, 7.0)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
