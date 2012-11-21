@@ -21,4 +21,6 @@ module Terra
   PA_REPRO_PROG = :pa_repro_prog
   
   DEF_REPRO_CUTOFF = 0.7
+  DEF_CAPACITY = 1000.0
+  DEF_SPREAD_ODDS = 4.0 # 1 in DEF_SPREAD_ODDS chance of spreading if at capacity
 end

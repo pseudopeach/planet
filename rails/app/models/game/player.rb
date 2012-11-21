@@ -3,19 +3,20 @@ belongs_to :game, :class_name=>"Game::State"
 has_many :actions, :class_name=>"Game::Action"
 has_many :items
 belongs_to :user
+belongs_to :prototype, :class_name=>"Game::Player", :foreign_key=>"prototype_player_id"
+belongs_to :location
 has_many :player_observers
 has_many :player_attributes
 #has_many :upgrades
 
 def prototype
   #charge owner dna points
-  #change column
+  #self.prototype = self
 end
 
-def introduce(loc_i,loc_j)
-  #charge owner launch cost
-  #introduces ai player to game
-  #set state, turn_order, location
+def set_location(location)
+  self.loc_i = location[:i]
+  self.loc_j = location[:j]
 end
 
 def prompt(state)
@@ -114,6 +115,31 @@ def game_attr_add(name, d_value)
     player_attributes << new_attr
     @loaded_game_attributes[name] = new_attr
   end
+end
+
+def spawn_at(offspring_loc=self.location)
+  new_player = self.dup
+  new_player.state = offspring_loc.state
+  new_player.turn_order = new_player.state.players.maximum(:turn_order) + 1 
+  attrs = {}
+  self.player_attributes.each {|r| attrs[q.name]=q.value}
+  attrs[Terra::PA_HIT_POINTS] = flora? ? 1.0 : (get_game_attr Terra::PA_SIZE)
+  new_player.transaction do
+    new_player.save
+    new_player.introduce_at offspring_loc
+    new_player.set_game_attrs attrs
+  end
+end
+
+def flora?
+  return false
+end
+def on_introduced
+  
+end
+
+def on_dying
+  
 end
 
 end

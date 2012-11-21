@@ -1,84 +1,80 @@
 class Terra::Predator < Game::Player
-  def hit_points
-    return @xdata[:hp]
-  end
-  def size
-    return @xdata[:size]
-  end
-  def hunger
-    return @xdata[:hunger]
-  end
-  def attack
-    return @xdata[:attack]
-  end
-  def defense
-    return @xdata[:defense]
-  end
-  def repro_prog
-    return @xdata[:repro_prog]
-  end
   
-  
-  def prompt(state)
-    if @xdata[:activity] == :persue
-      if can_attack? @xdata[:prey_id]
-        attack @xdata[:prey_id]
-      else  
-        #move toward @xdata[:prey_loc]
-      end
-    elsif @xdata[:activity] == :evade || @xdata[:activity] == :wounded
-      #move toward @xdata[:safe_loc]
+  def prompt
+    case @xdata[:activity]
+    when :forage
+      act = create_forage_action
+    when :persue
+      act = create_persuit_move
+    when :eat
+      act = create_attack_action
+    when :flee
+      act = create_attack_action
     else
-      #random move
+      @xdata[:activity] = :forage
+      act = create_forage_action
+    end
+    return act
+  end
+  
+  def on_enemy_contact(e)
+    enemy = e[:enemy]
+    if is_dangerous?(enemy)
+      @xdata[:activity] = :flee
+      @xdata[:predator_id] = enemy.id
+    elsif @xdata[:activity] == :forage && is_prey?(enemy)
+      @xdata[:activity] = :persue
+      @xdata[:prey_id] = enemy.id
+      @state.add_player_observer self, enemy, Terra::ACT_MOVE, :on_prey_moved 
     end
   end
   
-  def new_enemy_contact(enemies)
-    enemies.each do |q|
-      if @xdata[:activity] == :seek && can_eat?(q)
-         @xdata[:activity] = :persue
-         @xdata[:prey_id] = q[:id]
-         q.add_observer self, Terra::FAUNA_MOVE, :prey_moved
-      end
-      if eats_me? q
-        @xdata[:activity] = :evade
-        q.add_observer self, Terra::FAUNA_MOVE, :predator_moved
-      end
-    end 
+  def on_lost_contact(e)
+    enemy = e[:enemy]
+    if @xdata[:activity] == :flee && @xdata[:predator_id] == enemy.id
+      @xdata[:activity] = :forage
+      @xdata.delete :predator_id
+    end
+    if @xdata[:activity] == :persue && @xdata[:prey_id] == enemy.id
+      @xdata[:activity] = :forage
+      @xdata.delete :prey_id
+    end
+  end
+  
+  def on_prey_moved(e)
+    @xdata[:prey_loc] = e[:new_loc]
+  end
+  
+  def on_enemy_arrival(e)
+    enemy = e[:enemy]
+    if @xdata[:activity] == :persue && @xdata[:prey_id] == enemy.id
+      @xdata[:activity] = :eat
+    end
   end
   
   def attacked(attacker)
-    if @xdata[:activity] == :persue && can_eat?(attacker)
-      attack attacker
-    elsif will_fight? attacker
-      withstand attacker
-    end #else continue fleeing
+    @state.manager.stack_action Terra::ActDefend.new(self,attacker)
+    if should_flee?(attacker)
+      @xdata[:activity] = :flee
+      @xdata[:predator_id] = attacker.id
+    else
+      @xdata[:activity] = :eat
+      @xdata[:prey_id] = attacker.id
+    end
   end
   
-  def enemy_defeated
-    @xdata[:activity] = :seek
-    @xdata.delete :prey_id
+  def is_prey?(enemy)
+    my_size = self.get_game_attr Terra::PA_SIZE
+    e_size = enemy.get_game_attr Terra::PA_SIZE
+    return my_size / e_size > 0.5 
   end
   
-  def prey_escaped
-    @xdata[:activity] = :seek
-    @xdata.delete :prey_id
+  def is_dangerous?(enemy)
+    # **** stub
   end
   
-  def eat
-    
-  end
-  
-  def reproduce
-    
-  end
-  
-  def attacked
-    
-  end
-  
-  def dying
-    
+  def should_flee?(attacker)
+    # **** stub
   end
   
 end
