@@ -24,10 +24,12 @@ def init
 end
 
 def manager
-  init_game
-  mgr = Game::Kernel.new
-  mgr.state = self
-  return mgr
+  unless @mgr
+    init_game
+    @mgr = Game::Kernel.new 
+    @mgr.state = self
+  end
+  return @mgr
 end
 
 def top_stack_item
@@ -124,7 +126,7 @@ end
 def end_game
   self.status = Game::GAME_OVER
   winner_ret = @end_game_delegate.game_winner(self)
-  if(winner_ret.is_a? Player)
+  if(winner_ret.is_a? Game::Player)
     e = {:outcome=>Game::OUTCOME_SINGLE_WINNER, :winner=>winner_ret}
   elsif(winner_ret.respond_to? :length && winner_ret.length > 1)
     e = {:outcome=>Game::OUTCOME_DRAW, :winners=>winner_ret}
@@ -138,14 +140,15 @@ end
 
 protected 
 
-def player_can_respond?(player)
-  return true
-end
-
 
 def update_activity_time
   self.last_action = 0.seconds.ago
   self.save
+end
+
+def broadcast_event(message, obj)
+  super message, obj
+  action = obj[:action]
 end
   
 end

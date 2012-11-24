@@ -2,9 +2,12 @@ class Terra::ActAttack < Game::Action
   
   def initialize(player=nil,target_player=nil)
     super false
-    self.player = player
+    
     self.target_player = target_player
-    @xdata[:power] = player.get_game_attr Terra::PA_ATTACK
+    if player
+      self.player = player
+      @xdata[:power] = player.get_game_attr Terra::PA_ATTACK
+    end
   end
   
   def resolve(state)

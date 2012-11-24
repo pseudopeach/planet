@@ -5,7 +5,7 @@ class Terra::ActDefend < Game::Action
     attack = nil
     drop = nil
     if x > 0
-      if attack_i = state.stacked_actions.index {|q| q.is_a? Terra::ActAttack}
+      if attack_i = state.stacked_actions.rindex {|q| q.is_a? Terra::ActAttack}
         attack = state.stacked_actions[attack_i]
         ap = attack.xdata[:power]
         dp = player.get_game_attr(Terra::PA_ATTACK)

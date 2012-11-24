@@ -1,10 +1,10 @@
 class Terra::ActCounterAttack < Game::Action
   
-  def initialize(player,target_player,power)
+  def initialize(player=nil,target_player=nil,power=nil)
     super false
     self.player = player
     self.target_player = target_player
-    @xdata[:power] = power
+    @xdata[:power] = power if power
   end
   
   def resolve(state)

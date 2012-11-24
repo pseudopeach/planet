@@ -11,6 +11,8 @@ module Terra
   PA_HABITAT = :pa_habitat
   PA_SIZE = :pa_size
   PA_REPRO_CUTOFF = :pa_repro_cutoff
+  PA_OBSERVABLE_RANGE = :pa_obvl_range
+  PA_OBSERVATION_RANGE = :pa_obvn_range
   
   PA_GROWTH = :pa_growth
   PA_YUMMY = :pa_yummy
@@ -23,4 +25,7 @@ module Terra
   DEF_REPRO_CUTOFF = 0.7
   DEF_CAPACITY = 1000.0
   DEF_SPREAD_ODDS = 4.0 # 1 in DEF_SPREAD_ODDS chance of spreading if at capacity
+  
+  DEF_OBSERVATION_RANGE = 2.0
+  DEF_OBSERVABLE_RANGE = 3.0
 end

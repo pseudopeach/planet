@@ -1,5 +1,10 @@
 class Terra::Predator < Game::Player
   
+  def spawn_at(offspring_loc=self.location)
+    super offspring_loc
+    @state.add_player_observer self, nil, Terra::ActAttack.to_s, :attacked
+  end
+  
   def prompt
     case @xdata[:activity]
     when :forage
@@ -17,8 +22,8 @@ class Terra::Predator < Game::Player
     return act
   end
   
-  def on_enemy_contact(e)
-    enemy = e[:enemy]
+  def on_enemy_move(action)
+    enemy = action.player
     if is_dangerous?(enemy)
       @xdata[:activity] = :flee
       @xdata[:predator_id] = enemy.id
@@ -29,8 +34,8 @@ class Terra::Predator < Game::Player
     end
   end
   
-  def on_lost_contact(e)
-    enemy = e[:enemy]
+  def on_lost_contact(action)
+    enemy = action.player
     if @xdata[:activity] == :flee && @xdata[:predator_id] == enemy.id
       @xdata[:activity] = :forage
       @xdata.delete :predator_id
@@ -52,7 +57,8 @@ class Terra::Predator < Game::Player
     end
   end
   
-  def attacked(attacker)
+  def attacked(action)
+    attacker = action.player
     @state.manager.stack_action Terra::ActDefend.new(self,attacker)
     if should_flee?(attacker)
       @xdata[:activity] = :flee

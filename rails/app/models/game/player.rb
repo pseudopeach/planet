@@ -131,12 +131,13 @@ def spawn_at(offspring_loc=self.location)
   end
 end
 
+def on_enemy_move(action)
+end
+
 def flora?
   return false
 end
-def on_introduced
-  
-end
+
 
 def on_dying
   
