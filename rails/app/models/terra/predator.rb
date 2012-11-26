@@ -70,8 +70,8 @@ class Terra::Predator < Game::Player
   end
   
   def is_prey?(enemy)
-    my_size = self.get_game_attr Terra::PA_SIZE
-    e_size = enemy.get_game_attr Terra::PA_SIZE
+    my_size = self.game_attr Terra::PA_SIZE
+    e_size = enemy.game_attr Terra::PA_SIZE
     return my_size / e_size > 0.5 
   end
   

@@ -5,8 +5,8 @@ has_many :items
 belongs_to :user
 belongs_to :prototype, :class_name=>"Game::Player", :foreign_key=>"prototype_player_id"
 belongs_to :location
-has_many :player_observers
-has_many :player_attributes
+has_many :player_observers, :dependent=>:destroy
+has_many :player_attributes, :dependent=>:destroy
 #has_many :upgrades
 
 def prototype
@@ -14,59 +14,20 @@ def prototype
   #self.prototype = self
 end
 
-def set_location(location)
-  self.loc_i = location[:i]
-  self.loc_j = location[:j]
-end
 
-def prompt(state)
-	e = {:obj=>self}
-	broadcast_event :prompt, e
-	return new game_action(true)
-end
-  
 attr_accessor :xdata
 before_save :serialize_data
 #after_initialize :load_broadcastables 
 after_initialize :deserialize_data 
 
-def serialize_data
-  self.data = @xdata.empty? ? nil : @xdata.to_json
-end
-def deserialize_data
-  @xdata = self.data ? JSON(self.data) : {}
-end
-
-def add_observer(observer, message, handler)
-  #raise "Tried to observe non-broadcastable message." unless @broadcastable.index message
-  player_observers << Game::PlayerObserver.new(:message=>message, :observer=>observer, :handler=>handler)
-end
-
-def remove_observer(observer, message)
-  player_observers.destroy_all(:observer=>observer, :message=>message)
-end
-
-def remove_observer_all(observer)
-  player_observers.destroy_all(:observer=>observer)
-end
-
-def broadcast_event(message, obj)
-  #raise "Tried to broadcast non-broadcastable message." unless @broadcastable.index message
-  obj[:message] = message
-  obs = player_observers.where(:message=>message)
-  obs.each do |q|
-    q.observer.send(q[:handler], obj)
-  end
-end
-
-def get_game_attr(name, unwrap=true)
+def game_attr(name, unwrap=true)
   @loaded_game_attributes = {} unless @loaded_game_attributes
   if @loaded_game_attributes.key? name
     return @loaded_game_attributes[name]
   end
-  if out = player_attributes.where(:name=>name).first
-    @loaded_game_attributes[name] = out
-  end
+  out = player_attributes.where(:name=>name).first
+  @loaded_game_attributes[name] = out #will store nils
+  
   return (unwrap && out) ? out.value : out
 end
 
@@ -74,7 +35,7 @@ def tem_get_attr
   return @loaded_game_attributes
 end
 
-def set_game_attrs(hash_in)
+def game_attrs=(hash_in)
   @loaded_game_attributes = {} unless @loaded_game_attributes
   self.transaction do
     hash_in.each do |key, item|
@@ -117,30 +78,29 @@ def game_attr_add(name, d_value)
   end
 end
 
-def spawn_at(offspring_loc=self.location)
-  new_player = self.dup
-  new_player.state = offspring_loc.state
-  new_player.turn_order = new_player.state.players.maximum(:turn_order) + 1 
-  attrs = {}
-  self.player_attributes.each {|r| attrs[q.name]=q.value}
-  attrs[Terra::PA_HIT_POINTS] = flora? ? 1.0 : (get_game_attr Terra::PA_SIZE)
-  new_player.transaction do
-    new_player.save
-    new_player.introduce_at offspring_loc
-    new_player.set_game_attrs attrs
-  end
-end
 
-def on_enemy_move(action)
-end
 
 def flora?
   return false
 end
-
+def parasite?
+  return false
+end
 
 def on_dying
   
 end
+
+def prompt(state)
+  return nil
+end
+
+def serialize_data
+  self.data = @xdata.empty? ? nil : @xdata.to_json
+end
+def deserialize_data
+  @xdata = self.data ? JSON(self.data) : {}
+end
+  
 
 end

@@ -8,12 +8,12 @@ class Terra::ActMove < Game::Action
     
     #notify followers of player
     in_range = []
-    r_observable = self.player.get_player_attr Terra::PA_OBSERVABLE_RANGE
+    r_observable = self.player.game_attr Terra::PA_OBSERVABLE_RANGE
     r_observable = Terra::DEF_OBSERVABLE_RANGE unless r_observable
     player.location.nearby_locations(r_observable).each do |loc|
       loc.players.each do |pl|
         if pl.respond_to? :on_enemy_move && pl.user_id != player.user_id
-          r_observe = self.player.get_player_attr Terra::PA_OBSERVABLE_RANGE
+          r_observe = self.player.game_attr Terra::PA_OBSERVABLE_RANGE
           r_observe = Terra::DEF_OBSERVABLE_RANGE unless r_observe
           if r_observe >= player.location.range_to(pl.location)
             pl.on_enemy_move self #trigger the enemy move handler of all enemies that have one and are close enough to observe

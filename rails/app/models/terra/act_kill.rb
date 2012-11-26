@@ -5,7 +5,7 @@ class Terra::ActKill < Game::Action
   def resolve(state)
     #removes target player from the gamestate
     super state
-    state.manager.retire_player target_player
+    state.retire_player target_player
   end
   
 end

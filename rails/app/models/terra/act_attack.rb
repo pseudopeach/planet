@@ -6,7 +6,7 @@ class Terra::ActAttack < Game::Action
     self.target_player = target_player
     if player
       self.player = player
-      @xdata[:power] = player.get_game_attr Terra::PA_ATTACK
+      @xdata[:power] = player.game_attr Terra::PA_ATTACK
     end
   end
   
@@ -30,15 +30,17 @@ class Terra::ActAttack < Game::Action
   
   def flora_meal(state)
     target_hp = target_player.get_attr Terra::PA_HIT_POINTS
+    yummyness = target_player.get_attr Terra::PA_YUMMY
+    #nutrition = @xdata[:power] * yummyness
     
     if target_hp > @xdata[:power] 
       self.transaction do
-        player.game_attr_add Terra::PA_HIT_POINTS, @xdata[:power] 
+        player.game_attr_add Terra::PA_HIT_POINTS, @xdata[:power] * yummyness
         target_player.game_attr_add Terra::PA_HIT_POINTS, -@xdata[:power] 
       end
     else
       self.transaction do
-        player.game_attr_add Terra::PA_HIT_POINTS, target_hp
+        player.game_attr_add Terra::PA_HIT_POINTS, target_hp*yummyness
         state.manager.stack_action Terra::ActKill.new(self,target_player)
       end    
     end
@@ -48,8 +50,8 @@ class Terra::ActAttack < Game::Action
     #player = get_game_attributes {:hp=>Terra::ATTR_HIT_POINTS, }
     target_mass = target_player.get_attr Terra::PA_SIZE
     player.preload_game_attrs [Terra::PA_HIT_POINTS, Terra::PA_SIZE, Terra::PA_REPRO_PROG, Terra::PA_REPRO_CUTOFF]
-    player_hp = player.get_attr Terra::PA_HIT_POINTS
-    player_size = player.get_attr Terra::PA_SIZE
+    player_hp = player.game_attr Terra::PA_HIT_POINTS
+    player_size = player.game_attr Terra::PA_SIZE
     cutoff = Terra::DEF_REPRO_CUTOFF unless (cutoff = player.get_attr Terra::PA_REPRO_CUTOFF)
     p_repro = target_mass*(player_hp-cutoff)/(1-cutoff)
     p_repro = 0 if p_repro < 0
@@ -63,7 +65,7 @@ class Terra::ActAttack < Game::Action
     hsh[Terra::PA_HIT_POINTS] = player_hp + p_regen
     hsh[Terra::PA_REPRO_PROG] = player.get_attr Terra::PA_REPRO_PROG + p_repro
     
-    player.set_game_attributes hsh  
+    player.game_attributes = hsh  
   end
   
 end

@@ -10,7 +10,7 @@ class Terra::ActCounterAttack < Game::Action
   def resolve(state)
     #return unless state.players.includedes target player #attack against retired player does nothing
     super state
-    hp = target_player.get_attr Terra::PA_HIT_POINTS
+    hp = target_player.game_attr Terra::PA_HIT_POINTS
  
     if hp - @xdata[:power] > 0
       target_player.game_attr_add Terra::PA_HIT_POINTS, (-@xdata[:power])
