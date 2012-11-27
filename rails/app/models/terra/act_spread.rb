@@ -6,6 +6,7 @@ class Terra::ActSpread < Game::Action
   def resolve(state)
     super state
     
+    
     player.preload_game_attrs [Terra::PA_GROWTH, Terra::PA_CAPACITY, Terra::PA_INVADE, Terra::PA_HIT_POINTS]
     g = player.game_attr Terra::PA_GROWTH
     cap = player.game_attr Terra::PA_CAPACITY

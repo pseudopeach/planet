@@ -8,7 +8,7 @@ class Terra::Predator < Game::Player
   def prompt
     case @xdata[:activity]
     when :forage
-      act = create_forage_action
+      act = player.game_attr(Terra::PA_REPRO_PROG) >= player.game_attr(Terra::PA_SIZE) ? create_birth : create_forage_action
     when :persue
       act = create_persuit_move
     when :eat

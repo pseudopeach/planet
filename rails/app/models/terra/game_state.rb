@@ -32,23 +32,29 @@ end
 
 def record_turn_end
   player = @turn_order_delegate.current_turn_taker
-  player.get_game_attr Terra::PA_HUNGER
-end
-
-def prompt_next_player
-  player = active_action ? @turn_order_delegate.current_responder : @turn_order_delegate.current_turn_taker
+  player.game_attr_add Terra::PA_HIT_POINTS, -Terra::PA_HUNGER
   
-  if(player_can_respond?(player))
-    broadcast_event Game::PROMPTING_PLAYER, {:obj=>player}
-    return player.prompt(self.filtered_for(player))
+  #player either dies or gets a new turn
+  if player.game_attr Terra::PA_HIT_POINTS < 0
+    stack_action Terra::ActKill.new(player,player)
   else
-    return nil
+    player.game_attrs = {Terra::PA_MOVES_LEFT=>player.game_attr(Terra::PA_MOVEMENT)}
   end
 end
 
-def end_game
-  super
-  #do terra specific game end stuff
+def record_round_end
+  Game::Location.each do |q|
+    q.calc_caps
+  end
+end
+
+def prompt_next_player
+  player = current_turn_taker
+  
+  player.game_attr_add Terra::PA_MOVES_LEFT, -1 if player.respond_to? :creature?
+  
+  broadcast_event Game::PROMPTING_PLAYER, {:obj=>player}
+  return player.prompt(self.filtered_for(player))
 end
 
 def spawn_player_at(player, offspring_loc=nil) # **** redo
@@ -59,6 +65,8 @@ def spawn_player_at(player, offspring_loc=nil) # **** redo
   attrs = {}
   player.player_attributes.each {|r| attrs[q.name]=q.value}
   attrs[Terra::PA_HIT_POINTS] = flora? ? 1.0 : (get_game_attr Terra::PA_SIZE)
+  attrs[Terra::PA_MOVES_LEFT] = new_player.game_attr Terra::PA_MOVEMENT
+  attrs[Terra::PA_REPRO_PROG] = 0
   new_player.transaction do
     new_player.save
     new_player.introduce_at offspring_loc
@@ -114,6 +122,17 @@ def broadcast_player_event(status, action)
     end
   end
  
+end
+
+def current_turn_taker
+  # **** todo
+end
+def game_winner
+  # **** todo
+end
+def end_game
+  super
+  #do terra specific game end stuff
 end
   
 end

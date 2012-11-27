@@ -1,5 +1,5 @@
 class Game::State < ActiveRecord::Base
-  include Util::EventBroadcaster
+  #include Util::EventBroadcaster
 
 attr_accessor :turn_order_delegate, :end_game_delegate
 has_many :players
@@ -50,7 +50,7 @@ def stack_action(action)
   end
   
   e = {:obj=>action}
-  broadcast_event Game::ACTION_STACKED, e
+  #broadcast_event Game::ACTION_STACKED, e
 end
 
 def resolve_action
@@ -64,7 +64,7 @@ def resolve_action
   end 
   
   e = {:obj=>resolving_action}
-  broadcast_event Game::ACTION_RESOLVED, e
+  #broadcast_event Game::ACTION_RESOLVED, e
   return @resolving_action
 
 end
@@ -82,7 +82,7 @@ def record_pass_action
     update_activity_time
   end
     
-  broadcast_event Game::PLAYER_PASSED, {:obj=>player}
+  #broadcast_event Game::PLAYER_PASSED, {:obj=>player}
 end
 
 def record_turn_end
@@ -95,7 +95,7 @@ def record_turn_end
     self.status = Game::TURN_END
     update_activity_time
   end
-  broadcast_event Game::TURN_END, {:obj=>player}
+  #broadcast_event Game::TURN_END, {:obj=>player}
 end
 
 
@@ -135,7 +135,7 @@ def end_game
   end
   update_activity_time
   
-  broadcast_event Game::GAME_OVER, e if self.save
+  #broadcast_event Game::GAME_OVER, e if self.save
 end
 
 protected 
@@ -146,9 +146,9 @@ def update_activity_time
   self.save
 end
 
-def broadcast_event(message, obj)
-  super message, obj
-  action = obj[:action]
-end
+#def broadcast_event(message, obj)
+  #super message, obj
+  #action = obj[:action]
+#end
   
 end
