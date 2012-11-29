@@ -3,6 +3,9 @@ module Terra
     'terra_'
   end
   
+  FUEL_PTS = 1
+  DNA_PTS = 2
+  
   PA_ATTACK = :pa_attack #impl
   PA_DEFENSE = :pa_defense #impl
   PA_MOVEMENT = :pa_movement #impl
@@ -30,6 +33,7 @@ module Terra
   DEF_OBSERVATION_RANGE = 2.0  #impl
   DEF_OBSERVABLE_RANGE = 3.0  #impl
   
-  #location arrival
-  #charge points
+  #location arrival   #impl
+  #charge points #impl
+  #turn order
 end

@@ -7,11 +7,19 @@ belongs_to :prototype, :class_name=>"Game::Player", :foreign_key=>"prototype_pla
 belongs_to :location
 has_many :player_observers, :dependent=>:destroy
 has_many :player_attributes, :dependent=>:destroy
+belongs_to :locations
+
+include Game::ItemAccounting
 #has_many :upgrades
 
 def prototype
-  #charge owner dna points
-  #self.prototype = self
+  return {:success=>false} unless self.user.item_count(Terra::DNA_PTS) >= engineering_cost
+  self.transaction do
+    self.prototype = self
+    self.save
+    self.user.item_count_add Terra::DNA_PTS, -engineering_cost
+  end
+  return {:success=>true}
 end
 
 
@@ -78,7 +86,9 @@ def game_attr_add(name, d_value)
   end
 end
 
-
+def creature_player?
+  return true
+end
 
 def flora?
   return false

@@ -1,6 +1,6 @@
 class Terra::GameState < Game::State
 has_many :player_observers, :through=> :players
-  
+has_many :locations
 
 def init
   @turn_order_delegate = self
@@ -43,7 +43,7 @@ def record_turn_end
 end
 
 def record_round_end
-  Game::Location.each do |q|
+  self.locations.each do |q|
     q.calc_caps
   end
 end

@@ -6,6 +6,7 @@ class Terra::Predator < Game::Player
   end
   
   def prompt
+    check_prey
     case @xdata[:activity]
     when :forage
       act = player.game_attr(Terra::PA_REPRO_PROG) >= player.game_attr(Terra::PA_SIZE) ? create_birth : create_forage_action
@@ -47,13 +48,12 @@ class Terra::Predator < Game::Player
   end
   
   def on_prey_moved(e)
-    @xdata[:prey_loc] = e[:new_loc]
+    @xdata[:prey_loc_id] = e[:new_loc].id
   end
   
-  def on_enemy_arrival(e)
-    enemy = e[:enemy]
-    if @xdata[:activity] == :persue && @xdata[:prey_id] == enemy.id
-      @xdata[:activity] = :eat
+  def check_prey(prey=nil)
+    if @xdata[:activity] == :persue && @xdata[:prey_loc_id] = self.location.id
+        @xdata[:activity] = :eat
     end
   end
   
