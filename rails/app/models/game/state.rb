@@ -2,9 +2,12 @@ class Game::State < ActiveRecord::Base
   #include Util::EventBroadcaster
 
 attr_accessor :turn_order_delegate, :end_game_delegate
-has_many :players
+has_many :players, :conditions=>["turn_order IS NOT NULL"], :order=>:turn_order
+has_many :all_players
+has_many :real_players
 has_many :items, :through=>:players
 has_many :turn_completions
+belongs_to :current_turn_taker, :class_name=>"Game::Player"
 has_and_belongs_to_many :stacked_actions, :class_name=>"Game::Action", :join_table=>"actions_states_stacked"
 belongs_to :resolving_action, :class_name=>"Game::Action", :foreign_key=>"resolving_action_id"
   
@@ -142,7 +145,7 @@ protected
 
 
 def update_activity_time
-  self.last_action = 0.seconds.ago
+  self.last_action_at = 0.seconds.ago
   self.save
 end
 

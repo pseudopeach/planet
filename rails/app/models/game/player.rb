@@ -1,16 +1,23 @@
 class Game::Player < ActiveRecord::Base
 belongs_to :game, :class_name=>"Game::State"
-has_many :actions, :class_name=>"Game::Action"
-has_many :items
+
 belongs_to :user
-belongs_to :prototype, :class_name=>"Game::Player", :foreign_key=>"prototype_player_id"
 belongs_to :location
+
+belongs_to :prototype, :class_name=>"Game::Player", :foreign_key=>"prototype_player_id"
+belongs_to :parent_player
+has_many :child_creatures
+
+belongs_to :next_player, :class_name=>"Game::Player"
+has_one :prev_player, :class_name=>"Game::Player", :foreign_key=>"next_player_id"
+
 has_many :player_observers, :dependent=>:destroy
 has_many :player_attributes, :dependent=>:destroy
-belongs_to :locations
+has_many :actions, :class_name=>"Game::Action"
+has_many :items
 
 include Game::ItemAccounting
-#has_many :upgrades
+
 
 def prototype
   return {:success=>false} unless self.user.item_count(Terra::DNA_PTS) >= engineering_cost

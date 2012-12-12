@@ -1,15 +1,11 @@
 class Game::Action < ActiveRecord::Base
   
+attr_accessor :is_wait_request, :is_pass_action
+  
 belongs_to :player
 belongs_to :target_player, :class_name=>"Game::Player"
 has_and_belongs_to_many :passed_on_by, :class_name=>"Game::Player", :join_table=>'actions_players_passed'
 has_many :action_requirements
-
-  
-def initialize(wait=false)
-  super
-  @is_wait_request = wait
-end
 
 #adds user to the list of players that have decided not to respond to this action
 def list_player_as_passed(p)
@@ -23,18 +19,32 @@ def resolved?
   return !resolved_at.nil?
 end
 
+def self.create_wait
+  out = self.class.new
+  out.is_wait_request = true
+  return out
+end
 def wait_request?
   return @is_wait_request
 end
 
+def self.create_pass
+  out = self.class.new
+  out.is_pass_action = true
+  return out
+end
+def pass?
+  return @is_pass_action
+end
+def can_interrupt?
+  return false
+end
+
+
 def legal?(state)
-  inv = {}
-  player.items.each do |q|
-    inv[q.item_type] = qty
+  unless can_interrupt? || state.current_turn_taker == self.player
+    return false
   end
-	action_requirements.each do |q|
-	  return false if inv[q.item_type].nil? || inv[q.item_type] < q.item_qty
-	end
 	return true
 end
 

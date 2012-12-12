@@ -1,7 +1,7 @@
 class Terra::Predator < Game::Player
   
-  def spawn_at(offspring_loc=self.location)
-    super offspring_loc
+  def on_born
+    super 
     @state.add_player_observer self, nil, Terra::ActAttack.to_s, :attacked
   end
   
@@ -20,6 +20,7 @@ class Terra::Predator < Game::Player
       @xdata[:activity] = :forage
       act = create_forage_action
     end
+    act = Game::Action.create_pass unless act
     return act
   end
   

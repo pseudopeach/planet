@@ -40,6 +40,8 @@ def record_turn_end
   else
     player.game_attrs = {Terra::PA_MOVES_LEFT=>player.game_attr(Terra::PA_MOVEMENT)}
   end
+  self.current_turn_taker = player.next_player
+  self.save
 end
 
 def record_round_end
@@ -50,6 +52,7 @@ end
 
 def prompt_next_player
   player = current_turn_taker
+  #player = active_action ? @turn_order_delegate.current_responder : @turn_order_delegate.current_turn_take
   
   player.game_attr_add Terra::PA_MOVES_LEFT, -1 if player.respond_to? :creature?
   
@@ -59,20 +62,38 @@ end
 
 def spawn_player_at(player, offspring_loc=nil) # **** redo
   offspring_loc = player.location unless offspring_loc
+  #clone from prototype or parent
   new_player = player.dup
-  new_player.state = offspring_loc.state
-  new_player.turn_order = new_player.state.players.maximum(:turn_order) + 1 
+  if player.parent_player
+    #it's the offspring of an active player
+    before = player
+  else
+    #it's arriving from a launch action
+    #find last creature owned by this player
+    parent = self.real_players.where(:user=>player.user).first
+    player.parent_player = parent
+    before = parent.child_creatures.last
+    before = parent unless before
+    
+    new_player.state = offspring_loc.state
+  end
+  
+  #insert into turn order
+  new_player.next_player = before.next_player
+  before.next_player = new_player
+  
   attrs = {}
+  #copy prototype attributes
   player.player_attributes.each {|r| attrs[q.name]=q.value}
   attrs[Terra::PA_HIT_POINTS] = flora? ? 1.0 : (get_game_attr Terra::PA_SIZE)
   attrs[Terra::PA_MOVES_LEFT] = new_player.game_attr Terra::PA_MOVEMENT
   attrs[Terra::PA_REPRO_PROG] = 0
   new_player.transaction do
     new_player.save
-    new_player.introduce_at offspring_loc
+    before.save
     new_player.set_game_attrs attrs
+    new_player.on_born
   end
-  new_player.on_born
 end
 
 def retire_player(player)
@@ -85,8 +106,13 @@ def retire_player(player)
   #purge all observer records that involve him
   player.player_observers.delete_all
   self.player_observers.delete_all(:observer=>player)
-  player.turn_order = nil
-  player.save 
+  #remove from turn chain
+  player.transaction do
+    player.prev_player.next_player = player.next_player
+    player.prev_player.save
+    player.next_player = nil
+    player.save 
+  end
 end
 
 def add_player_observer(observer, player, action_type, handler, for_resoltion=true)
@@ -124,9 +150,24 @@ def broadcast_player_event(status, action)
  
 end
 
-def current_turn_taker
-  # **** todo
+def setup_player_order
+  last_player = nil
+  self.transaction do
+    self.real_players.each do |rp|
+      last_player.next_player = rp
+      last_player.save
+      last_player = rp
+      rp.owned_creatures.each do |c|
+        last_player.next_player = c
+        last_player.save
+        last_player = c
+      end
+    end
+  end
+  last_player.next_player = self.real_players.first
+  last_player.save
 end
+
 def game_winner
   # **** todo
 end
