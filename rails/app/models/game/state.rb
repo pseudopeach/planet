@@ -2,9 +2,7 @@ class Game::State < ActiveRecord::Base
   #include Util::EventBroadcaster
 
 attr_accessor :turn_order_delegate, :end_game_delegate
-has_many :players, :conditions=>["turn_order IS NOT NULL"], :order=>:turn_order
-has_many :all_players
-has_many :real_players
+has_many :players, :conditions=>["next_player_id IS NOT NULL"]
 has_many :items, :through=>:players
 has_many :turn_completions
 belongs_to :current_turn_taker, :class_name=>"Game::Player"

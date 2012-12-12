@@ -5,8 +5,8 @@ belongs_to :user
 belongs_to :location
 
 belongs_to :prototype, :class_name=>"Game::Player", :foreign_key=>"prototype_player_id"
-belongs_to :parent_player
-has_many :child_creatures
+belongs_to :parent_player, :class_name=>"Game::Player", :foreign_key=>"parent_player_id"
+has_many :child_creatures, :class_name=>"Game::Player", :foreign_key=>"parent_player_id"
 
 belongs_to :next_player, :class_name=>"Game::Player"
 has_one :prev_player, :class_name=>"Game::Player", :foreign_key=>"next_player_id"

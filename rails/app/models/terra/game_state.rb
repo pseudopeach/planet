@@ -1,22 +1,58 @@
 class Terra::GameState < Game::State
+  
+after_initialize :setup
+
 has_many :player_observers, :through=> :players
 has_many :locations
+has_many :real_players, :class_name=>"Game::Player", :foreign_key=>"state_id", :conditions=>["parent_player_id IS NULL"]
+has_many :all_players
 
-def init
+def setup
   @turn_order_delegate = self
-  @turn_order_delegate.setup_player_order
   @end_game_delegate = self
-  Game::ALL_STATUSES.each {|q| broadcastable q}
   #broadcast_event Game::GAME_INITIALIZED, {}
 end
 
 def manager
   unless @mgr
-    init_game
+    setup
     @mgr = Terra::StateManager.new 
     @mgr.state = self
   end
   return @mgr
+end
+
+def self.create_game(user)
+  game = Terra::GameState.new
+  game.status = Game::GAME_CREATED
+  player = Game::HumanPlayer.new
+  player.user = user
+  player.next_player = player
+  player.name = user.screen_name
+  self.transaction do
+    game.save
+    game.players << player
+  end
+  
+  return game
+end
+
+def join(user)
+  player = Game::HumanPlayer.new
+  player.user = user
+  players = self.players
+  last_player = players.last
+  player.next_player = last_player.next_player
+  last_player.next_player = player
+  player.next_player = players.first
+  player.name = user.screen_name
+  self.current_turn_taker = player
+  self.status = Game::GAME_READY_FOR_PLAY if status == Game::GAME_CREATED
+  self.transaction do
+    self.save
+    self.players << player
+    last_player.save
+  end
 end
 
 def stack_action(action)
