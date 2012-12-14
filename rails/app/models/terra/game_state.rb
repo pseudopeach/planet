@@ -4,8 +4,8 @@ after_initialize :setup
 
 has_many :player_observers, :through=> :players
 has_many :locations
-has_many :real_players, :class_name=>"Game::Player", :foreign_key=>"state_id", :conditions=>["parent_player_id IS NULL"]
-has_many :all_players
+#has_many :real_players, :class_name=>"Game::Player", :foreign_key=>"state_id", :conditions=>["parent_player_id IS NULL"]
+#has_many :all_players
 
 def setup
   @turn_order_delegate = self
@@ -40,8 +40,8 @@ end
 def join(user)
   player = Game::HumanPlayer.new
   player.user = user
-  players = self.players
-  last_player = players.last
+  players_all = self.players
+  last_player = players_all.last
   player.next_player = last_player.next_player
   last_player.next_player = player
   player.next_player = players.first
@@ -106,7 +106,7 @@ def spawn_player_at(player, offspring_loc=nil) # **** redo
   else
     #it's arriving from a launch action
     #find last creature owned by this player
-    parent = self.real_players.where(:user=>player.user).first
+    parent = self.real_players.find{|p| p.user_id = user.id}
     player.parent_player = parent
     before = parent.child_creatures.last
     before = parent unless before
@@ -173,13 +173,15 @@ protected
 
 def broadcast_player_event(status, action)
   res_only = status == Game::ACTION_RESOLVED
-  observers = player_observers.where(:player=>action.player, :message=>action.class, :for_resolution=>res_only)
+  #observers = player_observers.where(:player=>action.player, :message=>action.class, :for_resolution=>res_only)
+  observers = player_observers.select{|o| o.player_id==action.player_id && o.message==action.class.to_s && o.for_resolution==res_only}
   observers.each do |q|
     q.observer.send(q.handler,action)
   end
   if action.target_player
-    targets = player_observers.where(:player=>nil, :observer=>action.target_player, :message=>action.class)
-    observers.each do |q|
+    #targets = player_observers.where(:player=>nil, :observer=>action.target_player, :message=>action.class)
+    targets = player_observers.select{|o| !o.player && o.observer_id==action.target_player_id && o.message==action.class.to_s}
+    targets.each do |q|
       q.observer.send(q.handler,action) #if the target player has any handlers for being targeted
     end
   end

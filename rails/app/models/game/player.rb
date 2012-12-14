@@ -119,5 +119,30 @@ def deserialize_data
   @xdata = self.data ? JSON(self.data) : {}
 end
   
+def next_player
+  if @next_player
+  elsif game && (@next_player = game.players.find{|p| self.next_player_id == p.id})
+  else
+    @next_player = super
+  end
+  return @next_player
+end
+def prev_player
+  if @prev_player
+  elsif game && (@prev_player = game.players.find{|p| self.id == p.next_player_id})
+  else
+    @prev_player = super
+  end
+  return @prev_player
+end
+
+def next_player=(input)
+  @next_player = input
+  super input
+end
+def prev_player=(input)
+  @prev_player = input
+  super input
+end
 
 end

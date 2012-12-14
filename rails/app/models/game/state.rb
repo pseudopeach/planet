@@ -9,10 +9,6 @@ belongs_to :current_turn_taker, :class_name=>"Game::Player"
 has_and_belongs_to_many :stacked_actions, :class_name=>"Game::Action", :join_table=>"actions_states_stacked"
 belongs_to :resolving_action, :class_name=>"Game::Action", :foreign_key=>"resolving_action_id"
   
-def players=(input)
-  self[:players] = input
-  @turn_order_delegate.setup_player_order
-end
 
 # **** whose turn accessor?
 
@@ -137,6 +133,14 @@ def end_game
   update_activity_time
   
   #broadcast_event Game::GAME_OVER, e if self.save
+end
+
+def players
+  out = super
+  out.each do |player|
+    player.game = self
+  end
+  return out
 end
 
 protected 
