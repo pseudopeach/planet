@@ -9,11 +9,13 @@ end
 def on_stack(state)
   #charge launch points
   self.player.item_count_add Terra::FUEL_TYPE, -self.target_player.launch_cost
+  player.location.announce_local_activity self
 end
 
 def resolve(state)
   super state
   state.spawn_player_at(self.target_player, self.player, @xdata[:location_id])
+  player.location.announce_local_activity self
 end
 
 def legal?(state)

@@ -31,7 +31,7 @@ module Terra
   DEF_SPREAD_ODDS = 4.0 # 1 in DEF_SPREAD_ODDS chance of spreading if at capacity
   
   DEF_OBSERVATION_RANGE = 2.0  #impl
-  DEF_OBSERVABLE_RANGE = 3.0  #impl
+  DEF_OBSERVABLE_RANGE = 4.0  #impl
   
   #location arrival   #impl
   #charge points #impl

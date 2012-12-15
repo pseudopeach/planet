@@ -24,6 +24,16 @@ class Terra::Predator < Game::Player
     return act
   end
   
+  def on_creature_presence(action)
+    if action.resolved? && enemy?(action.player)
+      on_enemy_move(action)
+    elsif action.resolved?
+      on_friendly_presence(action)
+    else
+      on_presence_action_stacked(action)
+    end 
+  end
+  
   def on_enemy_move(action)
     enemy = action.player
     if is_dangerous?(enemy)
@@ -48,8 +58,14 @@ class Terra::Predator < Game::Player
     end
   end
   
-  def on_prey_moved(e)
-    @xdata[:prey_loc_id] = e[:new_loc].id
+  def on_friendly_presence(action)
+  end
+  
+  def on_presence_action_stacked(action)
+  end
+  
+  def on_prey_moved(action)
+    @xdata[:prey_loc_id] = action[:new_loc_id]
   end
   
   def check_prey(prey=nil)
