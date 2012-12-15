@@ -5,8 +5,8 @@ belongs_to :user
 belongs_to :location
 
 belongs_to :prototype, :class_name=>"Game::Player", :foreign_key=>"prototype_player_id"
-belongs_to :parent_player, :class_name=>"Game::Player", :foreign_key=>"parent_player_id"
-has_many :child_creatures, :class_name=>"Game::Player", :foreign_key=>"parent_player_id"
+belongs_to :owner_player, :class_name=>"Game::Player", :foreign_key=>"owner_player_id"
+has_many :owned_creatures, :class_name=>"Game::Player", :foreign_key=>"owner_player_id"
 
 belongs_to :next_player, :class_name=>"Game::Player"
 has_one :prev_player, :class_name=>"Game::Player", :foreign_key=>"next_player_id"
@@ -51,18 +51,13 @@ def tem_get_attr
 end
 
 def game_attrs=(hash_in)
-  @loaded_game_attributes = {} unless @loaded_game_attributes
+  preload_game_attrs hash_in.keys
   self.transaction do
     hash_in.each do |key, item|
       if @loaded_game_attributes.key?(key)
         #item already loaded
         @loaded_game_attributes[key].value = item
         @loaded_game_attributes[key].save
-      elsif found = player_attributes.where(:name=>key).first
-        #item exists, but not already loaded
-        @loaded_game_attributes[key] = found
-        found.value = item
-        found.save
       else
         #item needs to be created
         new_attr = Game::PlayerAttribute.new(:name=>key, :value=>item)
@@ -71,7 +66,6 @@ def game_attrs=(hash_in)
       end
     end #each loop
   end #transaction
-      
 end
 
 def game_attr_add(name, d_value)
@@ -93,8 +87,17 @@ def game_attr_add(name, d_value)
   end
 end
 
+def preload_game_attrs(array_in)
+  @loaded_game_attributes = {} unless @loaded_game_attributes
+  load_keys = array_in - @loaded_game_attributes.keys
+  if load_keys.length > 0
+    existing_attrs = player_attributes.where(:name=>load_keys)
+    existing_attrs.each{|a| @loaded_game_attributes[a.name] = a }
+  end
+end
+
 def creature_player?
-  return true
+  self.owner_player 
 end
 
 def flora?

@@ -1,6 +1,6 @@
 class Game::Action < ActiveRecord::Base
   
-attr_accessor :is_wait_request, :is_pass_action
+attr_accessor :is_wait_request, :is_pass_action, :legality_error
   
 belongs_to :player
 belongs_to :target_player, :class_name=>"Game::Player"
@@ -48,7 +48,7 @@ def legal?(state)
 	return true
 end
 
-def on_stack
+def on_stack(state)
   #if the action does anything the moment it hits the stack
 end
 

@@ -20,23 +20,6 @@ def stack_response(resp_action)
   
 end
 
-def launch_player_prototype(prototype, owner, location)
-  return false unless prototype.is_prototyped
-  return unless player.game == state
-  return false if owner.creature_player?
-  return unless location.game == state
-  
-  return false unless owner.user.item_count(Terra::FUEL_PTS,owner) >= prototype.launch_cost
-  
-  owner.transaction do
-    owner.item_count_add Terra::FUEL_TYPE, -prototype.launch_cost
-    state.spawn_player_at(prototype,location)
-  end
-  
-  return true
-end
-
-
 protected 
 
 def resume_game(request_action)

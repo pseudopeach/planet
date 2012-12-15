@@ -34,7 +34,7 @@ class Terra::BaseCreature < ActiveRecord::Base
         pxd[:blueprint][:upgrades] << q.id
       end #upgrade
       
-      player.set_game_attrs attrs
+      player.game_attrs = attrs
       player.xdata = pxd
       player.save
     end #trans

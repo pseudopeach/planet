@@ -3,7 +3,7 @@ class Terra::GameState < Game::State
 after_initialize :setup
 
 has_many :player_observers, :through=> :players
-has_many :locations
+has_many :locations, :foreign_key=>"state_id"
 #has_many :real_players, :class_name=>"Game::Player", :foreign_key=>"state_id", :conditions=>["parent_player_id IS NULL"]
 #has_many :all_players
 
@@ -96,20 +96,19 @@ def prompt_next_player
   return player.prompt(self.filtered_for(player))
 end
 
-def spawn_player_at(player, offspring_loc=nil) # **** redo
+def spawn_player_at(player, owner_player=nil, offspring_loc=nil) # **** redo
   offspring_loc = player.location unless offspring_loc
   #clone from prototype or parent
   new_player = player.dup
-  if player.parent_player
+  if player.owner_player
     #it's the offspring of an active player
     before = player
   else
     #it's arriving from a launch action
     #find last creature owned by this player
-    parent = self.real_players.find{|p| p.user_id = user.id}
-    player.parent_player = parent
-    before = parent.child_creatures.last
-    before = parent unless before
+    player.owner_player = owner_player
+    before = owner.child_creatures.last
+    before = owner_player unless before
     
     new_player.state = offspring_loc.state
   end
@@ -127,7 +126,7 @@ def spawn_player_at(player, offspring_loc=nil) # **** redo
   new_player.transaction do
     new_player.save
     before.save
-    new_player.set_game_attrs attrs
+    new_player.game_attrs = attrs
     new_player.on_born
   end
 end
@@ -166,6 +165,16 @@ def remove_player_observer(observer, player, action_type=nil, for_resoltion=true
   else
     #remove a specific observer   
     player.player_observers.delete_all(:observer=>observer, :player=>player, :action_type=>action_type) 
+  end
+end
+
+def create_locations
+  self.transaction do
+  (0...10).each do |i|
+    (0...10).each do |j|
+      self.locations << Terra::Location.new(:i=>i,:j=>j)
+    end
+  end
   end
 end
 
@@ -212,6 +221,10 @@ end
 def end_game
   super
   #do terra specific game end stuff
+end
+
+def real_players
+  self.players.select {|p| !p.owner_player_id}
 end
   
 end

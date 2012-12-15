@@ -41,7 +41,7 @@ def stack_action(action)
     self.resolving_action = nil
     action.clear_pass_list
     stacked_actions << action ## auto-saves action and stack-linkage
-    action.on_stack
+    action.on_stack self
     self.status = Game::ACTION_STACKED
     update_activity_time
   end
