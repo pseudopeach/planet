@@ -1,5 +1,5 @@
 class Game::Player < ActiveRecord::Base
-belongs_to :game, :class_name=>"Game::State"
+belongs_to :game, :class_name=>"Game::State", :foreign_key=>"state_id"
 
 belongs_to :user
 belongs_to :location

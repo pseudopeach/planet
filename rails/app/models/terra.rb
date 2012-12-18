@@ -26,6 +26,10 @@ module Terra
   PA_MOVES_LEFT = :pa_moves_left #impl
   PA_REPRO_PROG = :pa_repro_prog  #impl
   
+  HABITAT_LAND = 1.0
+  HABITAT_WATER = 2.0
+  HABITAT_BOTH = 3.0
+  
   DEF_REPRO_CUTOFF = 0.7  #impl
   DEF_CAPACITY = 1000.0  #impl
   DEF_SPREAD_ODDS = 4.0 # 1 in DEF_SPREAD_ODDS chance of spreading if at capacity

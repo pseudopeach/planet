@@ -1,14 +1,23 @@
 class Terra::ActMove < Game::Action
+  xdata_attr :new_location, :class_name=>"Terra::Location"
   
   def resolve(state)
     super state
-    player.location = Terra::Location.find_by_id(@xdata[:new_loc_id])
+    player.location = self.new_location
     
-      player.save
-      player.location.announce_local_activity self
-    
-   
+    player.save
+    new_location.announce_local_activity self
   end
   
+  def legal?(state)
+    unless new_location.state == state
+      @legality_error = "Location is invalid."
+      return false
+    end
+    unless (player.game_attr Terra::PA_HABITAT==HABITAT_LAND) == new_location.is_land
+      @legality_error = "Wrong habitat."
+      return false
+    end
+  end
   
 end
