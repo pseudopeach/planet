@@ -52,6 +52,7 @@ def join(user)
     self.save
     self.players << player
     last_player.save
+    self.create_locations
   end
 end
 
@@ -61,9 +62,9 @@ def stack_action(action)
 end
 
 def resolve_action
-  @resolving_action = super
-  broadcast_player_event Game::ACTION_RESOLVED, @resolving_action
-  return @resolving_action
+  super
+  broadcast_player_event Game::ACTION_RESOLVED, self.resolving_action
+  return self.resolving_action
 end
 
 def record_turn_end
@@ -96,7 +97,7 @@ def prompt_next_player
   return player.prompt(self.filtered_for(player))
 end
 
-def spawn_player_at(player, owner_player=nil, offspring_loc=nil) # **** redo
+def spawn_player_at(player, owner_player=nil, offspring_loc=nil) 
   offspring_loc = player.location unless offspring_loc
   #clone from prototype or parent
   new_player = player.dup
@@ -107,20 +108,21 @@ def spawn_player_at(player, owner_player=nil, offspring_loc=nil) # **** redo
     #it's arriving from a launch action
     #find last creature owned by this player
     player.owner_player = owner_player
-    before = owner.child_creatures.last
+    before = owner_player.owned_creatures.last
     before = owner_player unless before
     
-    new_player.state = offspring_loc.state
+    new_player.game = self
   end
   
+  new_player.location = offspring_loc
   #insert into turn order
   new_player.next_player = before.next_player
   before.next_player = new_player
   
   attrs = {}
   #copy prototype attributes
-  player.player_attributes.each {|r| attrs[q.name]=q.value}
-  attrs[Terra::PA_HIT_POINTS] = flora? ? 1.0 : (get_game_attr Terra::PA_SIZE)
+  player.player_attributes.each {|q| attrs[q.name]=q.value}
+  attrs[Terra::PA_HIT_POINTS] = player.flora? ? 1.0 : (player.game_attr Terra::PA_SIZE)
   attrs[Terra::PA_MOVES_LEFT] = new_player.game_attr Terra::PA_MOVEMENT
   attrs[Terra::PA_REPRO_PROG] = 0
   new_player.transaction do
@@ -151,8 +153,9 @@ def retire_player(player)
 end
 
 def add_player_observer(observer, player, action_type, handler, for_resoltion=true)
-  new_o = Terra::PlayerObserver.new(:observer=>observer, :player=>player, :action_type=>action_type, :for_resolution=>for_resoltion)
-  new_o.player.player_observers << new_o
+  new_o = Terra::PlayerObserver.new({:observer=>observer, :player=>player, 
+    :action_type=>action_type, :handler=>handler, :for_resolution=>for_resoltion})
+  observer.player_observers << new_o
 end
 
 def remove_player_observer(observer, player, action_type=nil, for_resoltion=true)

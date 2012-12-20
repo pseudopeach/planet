@@ -2,7 +2,7 @@ class Terra::Predator < Game::Player
   
   def on_born
     super 
-    @state.add_player_observer self, nil, Terra::ActAttack.to_s, :attacked
+    game.add_player_observer self, nil, Terra::ActAttack.to_s, :attacked
   end
   
   def prompt

@@ -23,7 +23,7 @@ class Terra::Location < Game::Location
     in_range = []
     r_observable = action.player.game_attr Terra::PA_OBSERVABLE_RANGE
     r_observable = Terra::DEF_OBSERVABLE_RANGE unless r_observable
-    self.nearby_locations(r_observable).each do |loc|
+    self.nearby_locations(r_observable,true).each do |loc|
       range = self.range_to(loc)
       loc.players.each do |pl|
         if pl.respond_to? :on_creature_presence && pl != action.player
@@ -38,7 +38,7 @@ class Terra::Location < Game::Location
     end
     
     #unregister observers that are no longer in range
-    unreg = player.player_observers - in_range
+    unreg = action.player.player_observers - in_range
     unreg.each do |q|
       state.remove_player_observer q.observer, action.player
     end

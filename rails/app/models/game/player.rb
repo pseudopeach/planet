@@ -11,7 +11,7 @@ has_many :owned_creatures, :class_name=>"Game::Player", :foreign_key=>"owner_pla
 belongs_to :next_player, :class_name=>"Game::Player"
 has_one :prev_player, :class_name=>"Game::Player", :foreign_key=>"next_player_id"
 
-has_many :player_observers, :dependent=>:destroy
+has_many :player_observers, :class_name=>"Terra::PlayerObserver", :dependent=>:destroy
 has_many :player_attributes, :dependent=>:destroy
 has_many :actions, :class_name=>"Game::Action"
 has_many :items
@@ -105,6 +105,10 @@ def flora?
 end
 def parasite?
   return false
+end
+
+def on_born
+  
 end
 
 def on_dying

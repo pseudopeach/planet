@@ -61,12 +61,11 @@ end
 def self.xdata_attr(name, options={})
   name_s = name.to_s
   class_name = options[:class_name] ? options[:class_name] : ("Terra::"+name_s.camelize)
-  puts "class name is #{options[:class_name]} , #{class_name}"
   model_class = class_name.constantize
   col_name = :id # options[:column_name] ? options[:column_name] : "id"
   define_method name.to_sym do
     return @loaded_xdata[name] if @loaded_xdata[name]
-    key = @xdata[(name_s+"_id").to_sym]
+    key = @xdata[name_s+"_id"]
     return nil unless key
     @loaded_xdata[name] = model_class.find_by_id(key)
     return @loaded_xdata[name]

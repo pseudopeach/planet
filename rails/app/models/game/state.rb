@@ -52,9 +52,9 @@ end
 
 def resolve_action
   self.transaction do
-    self.resolving_action = stacked_actions.last
+    self.resolving_action = self.stacked_actions.last
     self.resolving_action.resolve(self)
-    stacked_actions.delete resolving_action
+    stacked_actions.delete self.resolving_action
     self.resolving_action.clear_pass_list
     self.status = Game::ACTION_RESOLVED
     update_activity_time
@@ -62,7 +62,7 @@ def resolve_action
   
   e = {:obj=>resolving_action}
   #broadcast_event Game::ACTION_RESOLVED, e
-  return @resolving_action
+  return self.resolving_action
 
 end
 

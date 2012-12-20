@@ -13,14 +13,14 @@ def self.game_launch(game)
   action = Terra::ActLaunch.new
   action.player = player
   action.target_player = player.user.prototyped_creatures.first
-  action.location = game.locations.first.id
+  action.location = game.locations.first
   return action
 end
 
 def on_stack(state)
   #charge launch points
   self.player.item_count_add Terra::FUEL_PTS, -self.target_player.launch_cost
-  player.location.announce_local_activity self
+  self.location.announce_local_activity self
 end
 
 def self.make_a(name, str)

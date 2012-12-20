@@ -464,3 +464,7 @@ DEPRECATION WARNING: You're trying to create an attribute `game_id'. Writing arb
 DEPRECATION WARNING: You're trying to create an attribute `game_state_id'. Writing arbitrary attributes on a model is deprecated. Please just use `attr_writer` etc. (called from block (3 levels) in create_locations at /Users/justinarmstrong/Documents/dev/terraform/rails/app/models/terra/game_state.rb:176)
 Mysql2::Error: Column 'state_id' cannot be null: INSERT INTO `game_locations` (`i`, `is_land`, `j`, `state_id`) VALUES (0, 0, 0, NULL)
 Mysql2::Error: Column 'player_id' cannot be null: INSERT INTO `game_actions` (`created_at`, `data`, `player_id`, `resolved_at`, `target_player_id`, `type`) VALUES ('2012-12-18 22:10:46', '{\"location_id\":1}', NULL, NULL, NULL, 'Terra::ActLaunch')
+Mysql2::Error: Unknown column 'game_players.location_id' in 'where clause': SELECT `game_players`.* FROM `game_players`  WHERE `game_players`.`location_id` = 1
+Mysql2::Error: Unknown column 'game_players.location' in 'where clause': SELECT `game_players`.* FROM `game_players`  WHERE `game_players`.`location` IN (NULL)
+Mysql2::Error: Unknown column 'game_players.location' in 'where clause': SELECT `game_players`.* FROM `game_players`  WHERE `game_players`.`location` IN (NULL)
+Mysql2::Error: Column 'handler' cannot be null: INSERT INTO `terra_player_observers` (`action_type`, `for_resolution`, `handler`, `observer_id`, `player_id`) VALUES ('Terra::ActAttack', 1, NULL, 23, 23)
