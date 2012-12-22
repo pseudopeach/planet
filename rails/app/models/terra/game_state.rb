@@ -121,7 +121,7 @@ def spawn_player_at(player, owner_player=nil, offspring_loc=nil)
   
   attrs = {}
   #copy prototype attributes
-  player.player_attributes.each {|q| attrs[q.name]=q.value}
+  #player.player_attributes.each {|q| attrs[q.name]=q.value}
   attrs[Terra::PA_HIT_POINTS] = player.flora? ? 1.0 : (player.game_attr Terra::PA_SIZE)
   attrs[Terra::PA_MOVES_LEFT] = new_player.game_attr Terra::PA_MOVEMENT
   attrs[Terra::PA_REPRO_PROG] = 0

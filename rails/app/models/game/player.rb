@@ -16,10 +16,12 @@ has_many :player_attributes, :dependent=>:destroy
 has_many :actions, :class_name=>"Game::Action"
 has_many :items
 
+@@loaded_prototypes = {}
+
 include Game::ItemAccounting
 
 
-def prototype
+def make_prototype
   return {:success=>false} unless self.user.item_count(Terra::DNA_PTS) >= engineering_cost
   self.transaction do
     self.prototype = self
@@ -33,21 +35,35 @@ end
 attr_accessor :xdata
 before_save :serialize_data
 #after_initialize :load_broadcastables 
-after_initialize :deserialize_data 
+after_initialize :deserialize_data
+
+def prototype
+  return nil unless prototype_player_id
+  return @prototype if @prototype
+  unless @prototype = @@loaded_prototypes[prototype_player_id]
+    @prototype = super
+    @prototype.preload_all_game_attrs
+    @@loaded_prototypes[prototype_player_id] = @prototype
+  end
+  return @prototype
+end
+def prototype=(input)
+  super(input)
+  @prototype = input
+  @@loaded_prototypes[prototype_player_id] = @prototype
+end 
 
 def game_attr(name, unwrap=true)
   @loaded_game_attributes = {} unless @loaded_game_attributes
   if @loaded_game_attributes.key? name
     return @loaded_game_attributes[name]
+  elsif prototype && (prf = self.prototype.preloaded_game_attributes.key?(name))
+    return prf
   end
   out = player_attributes.where(:name=>name).first
   @loaded_game_attributes[name] = out #will store nils
   
   return (unwrap && out) ? out.value : out
-end
-
-def tem_get_attr
-  return @loaded_game_attributes
 end
 
 def game_attrs=(hash_in)
@@ -87,12 +103,28 @@ def game_attr_add(name, d_value)
   end
 end
 
-def preload_game_attrs(array_in)
+def preload_game_attrs(array_in=nil)
   @loaded_game_attributes = {} unless @loaded_game_attributes
   load_keys = array_in - @loaded_game_attributes.keys
+  load_keys -= self.prototype.preloaded_game_attrs if self.prototype
   if load_keys.length > 0
     existing_attrs = player_attributes.where(:name=>load_keys)
     existing_attrs.each{|a| @loaded_game_attributes[a.name] = a }
+  end
+end
+
+def preload_all_game_attrs
+  @loaded_game_attributes = {}
+  self.player_attributes.all.each do |q|
+    @loaded_game_attributes[q.name] = q
+  end
+end
+
+def preloaded_game_attrs
+  if @loaded_game_attributes
+    return @loaded_game_attributes.keys 
+  else
+    return []
   end
 end
 
