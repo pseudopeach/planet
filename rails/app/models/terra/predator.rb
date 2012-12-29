@@ -1,15 +1,20 @@
 class Terra::Predator < Game::Player
+  xdata_attr :prey, :class_name=>"Game::Player"
+  xdata_attr :predator, :class_name=>"Game::Player"
+  xdata_attr :prey, :class_name=>"Game::Player"
+  xdata_attr :prey_last_location, :class_name=>"Terra::Location"
+  
   
   def on_born
     super 
-    game.add_player_observer self, nil, Terra::ActAttack.to_s, :attacked
+    game.add_player_observer self, nil, Terra::ActAttack.to_s, :attacked, false
   end
   
   def prompt
     check_prey
     case @xdata[:activity]
     when :forage
-      act = player.game_attr(Terra::PA_REPRO_PROG) >= player.game_attr(Terra::PA_SIZE) ? create_birth : create_forage_action
+      act = self.game_attr(Terra::PA_REPRO_PROG) >= player.game_attr(Terra::PA_SIZE) ? create_birth : create_forage_action
     when :persue
       act = create_persuit_move
     when :eat
@@ -38,24 +43,26 @@ class Terra::Predator < Game::Player
     enemy = action.player
     if is_dangerous?(enemy)
       @xdata[:activity] = :flee
-      @xdata[:predator_id] = enemy.id
+      self.predator = enemy
     elsif @xdata[:activity] == :forage && is_prey?(enemy)
       @xdata[:activity] = :persue
-      @xdata[:prey_id] = enemy.id
-      @state.add_player_observer self, enemy, Terra::ACT_MOVE, :on_prey_moved 
+      self.prey = enemy
+      @state.manager.add_player_observer self, enemy, Terra::ACT_MOVE, :on_prey_moved 
     end
+    self.save
   end
   
   def on_lost_contact(action)
     enemy = action.player
-    if @xdata[:activity] == :flee && @xdata[:predator_id] == enemy.id
+    if @xdata[:activity] == :flee && predator.id == enemy.id
       @xdata[:activity] = :forage
-      @xdata.delete :predator_id
+      self.predator = nil
     end
-    if @xdata[:activity] == :persue && @xdata[:prey_id] == enemy.id
+    if @xdata[:activity] == :persue && prey.id == enemy.id
       @xdata[:activity] = :forage
-      @xdata.delete :prey_id
+      self.prey = nil
     end
+    self.save
   end
   
   def on_friendly_presence(action)
@@ -65,13 +72,14 @@ class Terra::Predator < Game::Player
   end
   
   def on_prey_moved(action)
-    @xdata[:prey_loc_id] = action[:new_loc_id]
+    prey_last_location = action.new_location
   end
   
   def check_prey(prey=nil)
-    if @xdata[:activity] == :persue && @xdata[:prey_loc_id] = self.location.id
+    if @xdata[:activity] == :persue && prey_last_location.id == self.location.id
         @xdata[:activity] = :eat
     end
+    self.save
   end
   
   def attacked(action)
@@ -79,11 +87,12 @@ class Terra::Predator < Game::Player
     @state.manager.stack_action Terra::ActDefend.new(self,attacker)
     if should_flee?(attacker)
       @xdata[:activity] = :flee
-      @xdata[:predator_id] = attacker.id
+     self.predator = attacker
     else
       @xdata[:activity] = :eat
-      @xdata[:prey_id] = attacker.id
+      self.prey = attacker
     end
+    self.save
   end
   
   def is_prey?(enemy)
@@ -93,11 +102,11 @@ class Terra::Predator < Game::Player
   end
   
   def is_dangerous?(enemy)
-    # **** stub
+    return true
   end
   
   def should_flee?(attacker)
-    # **** stub
+    return false
   end
   
 end

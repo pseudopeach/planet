@@ -1,4 +1,8 @@
 class Game::Player < ActiveRecord::Base
+  
+include Game::ExtendedAttributes
+include Game::ItemAccounting
+  
 belongs_to :game, :class_name=>"Game::State", :foreign_key=>"state_id"
 
 belongs_to :user
@@ -11,24 +15,40 @@ has_many :owned_creatures, :class_name=>"Game::Player", :foreign_key=>"owner_pla
 belongs_to :next_player, :class_name=>"Game::Player"
 has_one :prev_player, :class_name=>"Game::Player", :foreign_key=>"next_player_id"
 
-has_many :player_observers, :class_name=>"Terra::PlayerObserver", :dependent=>:destroy
+has_many :observations, :class_name=>"Terra::PlayerObserver", :foreign_key=>"observer_id", :dependent=>:destroy
+has_many :observed_players, :class_name=>"Game::Player", :through=>:observations
+has_many :observers, :class_name=>"Terra::PlayerObserver", :foreign_key=>"player_id"
+has_many :observing_players, :class_name=>"Game::Player", :through=>:observers
 has_many :player_attributes, :dependent=>:destroy
 has_many :actions, :class_name=>"Game::Action"
 has_many :items
 
 @@loaded_prototypes = {}
 
-include Game::ItemAccounting
+
 
 
 def make_prototype
-  return {:success=>false} unless self.user.item_count(Terra::DNA_PTS) >= engineering_cost
+  return {:success=>false, :error=>"Not enough DNA Points"} unless self.user.item_count(Terra::DNA_PTS) >= engineering_cost
+  if self.prototype || self.game
+    return {:success=>false, :error=>"Not elligable for prototyping"}
+  end
   self.transaction do
     self.prototype = self
     self.save
     self.user.item_count_add Terra::DNA_PTS, -engineering_cost
   end
   return {:success=>true}
+end
+
+def create_launch_action(owner_player,location=nil)
+  action = Terra::ActLaunch.new(:player=>owner_player, :target_player=>self)
+  if location
+    action.location = location
+  else
+    action.location = owner_player.game.locations.first
+  end
+  return action
 end
 
 
@@ -56,11 +76,12 @@ end
 def game_attr(name, unwrap=true)
   @loaded_game_attributes = {} unless @loaded_game_attributes
   if @loaded_game_attributes.key? name
-    return @loaded_game_attributes[name]
-  elsif prototype && (prf = self.prototype.preloaded_game_attributes.key?(name))
-    return prf
+    out = @loaded_game_attributes[name]
+  elsif prototype && (prf = self.prototype.preloaded_game_attrs[name])
+    out = prf
+  else
+    out = player_attributes.where(:name=>name).first
   end
-  out = player_attributes.where(:name=>name).first
   @loaded_game_attributes[name] = out #will store nils
   
   return (unwrap && out) ? out.value : out
@@ -106,7 +127,7 @@ end
 def preload_game_attrs(array_in=nil)
   @loaded_game_attributes = {} unless @loaded_game_attributes
   load_keys = array_in - @loaded_game_attributes.keys
-  load_keys -= self.prototype.preloaded_game_attrs if self.prototype
+  load_keys -= self.prototype.preloaded_game_attrs.keys if self.prototype
   if load_keys.length > 0
     existing_attrs = player_attributes.where(:name=>load_keys)
     existing_attrs.each{|a| @loaded_game_attributes[a.name] = a }
@@ -116,15 +137,15 @@ end
 def preload_all_game_attrs
   @loaded_game_attributes = {}
   self.player_attributes.all.each do |q|
-    @loaded_game_attributes[q.name] = q
+    @loaded_game_attributes[q.name.to_sym] = q
   end
 end
 
 def preloaded_game_attrs
   if @loaded_game_attributes
-    return @loaded_game_attributes.keys 
+    return @loaded_game_attributes
   else
-    return []
+    return {}
   end
 end
 
@@ -137,6 +158,9 @@ def flora?
 end
 def parasite?
   return false
+end
+def enemy?(other_player)
+  return (self.user!=other_player.user)
 end
 
 def on_born
@@ -151,13 +175,6 @@ def prompt(state)
   return nil
 end
 
-def serialize_data
-  self.data = @xdata.empty? ? nil : @xdata.to_json
-end
-def deserialize_data
-  @xdata = self.data ? JSON(self.data) : {}
-end
-  
 def next_player
   if @next_player
   elsif game && (@next_player = game.players.find{|p| self.next_player_id == p.id})

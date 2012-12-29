@@ -8,26 +8,11 @@ def self.from_prototype(player, prototype_id, location)
   self.location = location
 end
 
-def self.game_launch(game)
-  player = game.current_turn_taker
-  action = Terra::ActLaunch.new
-  action.player = player
-  action.target_player = player.user.prototyped_creatures.first
-  action.location = game.locations.first
-  return action
-end
-
 def on_stack(state)
   #charge launch points
   self.player.item_count_add Terra::FUEL_PTS, -self.target_player.launch_cost
   self.location.announce_local_activity self
 end
-
-def self.make_a(name, str)
-    define_method name.to_sym do
-      puts str
-    end
-  end
 
 def resolve(state)
   super state
@@ -36,6 +21,7 @@ def resolve(state)
 end
 
 def legal?(state)
+  return false unless super
   unless player.game.id == state.id
     @legality_error="Player must be part of current game." 
     return false
@@ -44,7 +30,7 @@ def legal?(state)
     @legality_error="Creatures can't launch other creatures." 
     return false
   end
-  unless target_player.user == player.user
+  unless target_player.user_id == player.user_id
     @legality_error="Prototype must be owned by the same user as the owner player."
     return false
   end
@@ -52,7 +38,6 @@ def legal?(state)
     @legality_error="Can't launch experimental creature."
     return false
   end
- 
   unless location.game.id == state.id
     @legality_error="Location is invalid."
     return false 

@@ -143,6 +143,13 @@ def players
   return out
 end
 
+def current_turn_taker
+  if out = player_by_id(current_turn_taker_id)
+    return out
+  end
+  return super
+end
+
 protected 
 
 
