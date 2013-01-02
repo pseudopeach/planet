@@ -85,16 +85,15 @@ def record_turn_end
     if player.creature_player?
       hp = player.game_attr Terra::PA_HUNGER
       player.game_attr_add Terra::PA_HIT_POINTS, -hp
-    end
     
-    #player either dies or gets a new turn
-    if player.game_attr(Terra::PA_HIT_POINTS) < 0
-      stack_action Terra::ActKill.new(player,player)
-      self.resolve_action
-    else
-      player.game_attrs = {Terra::PA_MOVES_LEFT=>player.game_attr(Terra::PA_MOVEMENT)}
+      #player either dies or gets a new turn
+      if player.game_attr(Terra::PA_HIT_POINTS) < 0
+        stack_action Terra::ActKill.new(player,player)
+        return false
+      else
+        player.game_attrs = {Terra::PA_MOVES_LEFT=>player.game_attr(Terra::PA_MOVEMENT)}
+      end
     end
-  
     #state housekeeping
     self.turn_completions << Game::TurnCompletion.new(:player => player)
     self.current_turn_taker = player.next_player
@@ -102,6 +101,7 @@ def record_turn_end
     self.status = Game::TURN_END
     update_activity_time
   end #trans
+  return true
 end
 
 def record_round_end

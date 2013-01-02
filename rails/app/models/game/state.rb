@@ -158,6 +158,16 @@ def update_activity_time
   self.save
 end
 
+def reset_turn_taker
+  player = self.turn_completions.last.player.next_player
+  self.current_turn_taker = player
+  if self.save
+    return player
+  else
+    return nil
+  end
+end
+
 #def broadcast_event(message, obj)
   #super message, obj
   #action = obj[:action]

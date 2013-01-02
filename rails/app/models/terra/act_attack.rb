@@ -29,8 +29,8 @@ class Terra::ActAttack < Game::Action
   end
   
   def flora_meal(state)
-    target_hp = target_player.get_attr Terra::PA_HIT_POINTS
-    yummyness = target_player.get_attr Terra::PA_YUMMY
+    target_hp = target_player.game_attr Terra::PA_HIT_POINTS
+    yummyness = target_player.game_attr Terra::PA_YUMMY
     #nutrition = @xdata[:power] * yummyness
     
     if target_hp > @xdata[:power] 
@@ -52,7 +52,7 @@ class Terra::ActAttack < Game::Action
     player.preload_game_attrs [Terra::PA_HIT_POINTS, Terra::PA_SIZE, Terra::PA_REPRO_PROG, Terra::PA_REPRO_CUTOFF]
     player_hp = player.game_attr Terra::PA_HIT_POINTS
     player_size = player.game_attr Terra::PA_SIZE
-    cutoff = Terra::DEF_REPRO_CUTOFF unless (cutoff = player.get_attr Terra::PA_REPRO_CUTOFF)
+    cutoff = player.game_attr Terra::PA_REPRO_CUTOFF
     p_repro = target_mass*(player_hp-cutoff)/(1-cutoff)
     p_repro = 0 if p_repro < 0
     p_regen = target_mass - p_repro

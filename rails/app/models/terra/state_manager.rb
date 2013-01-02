@@ -7,8 +7,12 @@ def begin
 end
 
 def add_player_observer(observer, observed, message, handler)
-  #check range
-  #check allowed messages
+  if observed 
+    range = observer.location.range_to(observed.location)
+    if range > observer.game_attr(Terra::PA_OBSERVATION_RANGE) || range > observer.game_attr(Terra::PA_OBSERVABLE_RANGE)
+      return {:success=>false, :error=>"Observed player not in range."}
+    end
+  end
 end
 
 def remove_player_observer(observer, observed, message)

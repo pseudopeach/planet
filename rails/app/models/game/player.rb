@@ -84,6 +84,13 @@ def game_attr(name, unwrap=true)
   end
   @loaded_game_attributes[name] = out #will store nils
   
+  unless out
+    cname = ("DEF_"+name.to_s).upcase
+    if Terra.const_defined? cname
+      return Terra.const_get
+    end
+  end
+  
   return (unwrap && out) ? out.value : out
 end
 
@@ -150,7 +157,7 @@ def preloaded_game_attrs
 end
 
 def creature_player?
-  self.owner_player 
+  return !self.owner_player.nil?
 end
 
 def flora?
@@ -160,7 +167,7 @@ def parasite?
   return false
 end
 def enemy?(other_player)
-  return (self.user!=other_player.user)
+  return (self.user_id!=other_player.user_id)
 end
 
 def on_born

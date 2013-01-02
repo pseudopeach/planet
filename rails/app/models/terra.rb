@@ -30,12 +30,12 @@ module Terra
   HABITAT_WATER = 2.0
   HABITAT_BOTH = 3.0
   
-  DEF_REPRO_CUTOFF = 0.7  #impl
-  DEF_CAPACITY = 1000.0  #impl
-  DEF_SPREAD_ODDS = 4.0 # 1 in DEF_SPREAD_ODDS chance of spreading if at capacity
+  DEF_PA_REPRO_CUTOFF = 0.7  #impl
+  DEF_PA_CAPACITY = 1000.0  #impl
+  DEF_PA_SPREAD_ODDS = 4.0 # 1 in DEF_SPREAD_ODDS chance of spreading if at capacity
   
-  DEF_OBSERVATION_RANGE = 2.0  #impl
-  DEF_OBSERVABLE_RANGE = 4.0  #impl
+  DEF_PA_OBSERVATION_RANGE = 2.0  #impl
+  DEF_PA_OBSERVABLE_RANGE = 4.0  #impl
   
   #location arrival   #impl
   #charge points #impl
