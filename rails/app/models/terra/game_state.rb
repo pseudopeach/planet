@@ -3,14 +3,15 @@ class Terra::GameState < Game::State
 after_initialize :setup
 
 has_many :player_observers, :through=> :players
-has_many :locations, :foreign_key=>"state_id"
+has_many :locations, :foreign_key=>"state_id", :inverse_of=>:game
 #has_many :real_players, :class_name=>"Game::Player", :foreign_key=>"state_id", :conditions=>["parent_player_id IS NULL"]
 #has_many :all_players
 
 def setup
   @turn_order_delegate = self
   @end_game_delegate = self
-  players = self.players
+  a = self.players.length if self.players
+  #puts "first player id: #{@players.first.id}"
   #broadcast_event Game::GAME_INITIALIZED, {}
 end
 
@@ -149,7 +150,7 @@ def spawn_player_at(player, owner_player=nil, offspring_loc=nil)
   #copy prototype attributes
   #player.player_attributes.each {|q| attrs[q.name]=q.value}
   attrs[Terra::PA_HIT_POINTS] = player.flora? ? 1.0 : (player.game_attr Terra::PA_SIZE)
-  attrs[Terra::PA_MOVES_LEFT] = new_player.game_attr Terra::PA_MOVEMENT
+  attrs[Terra::PA_MOVES_LEFT] = player.game_attr Terra::PA_MOVEMENT
   attrs[Terra::PA_REPRO_PROG] = 0
   new_player.transaction do
     self.players << new_player

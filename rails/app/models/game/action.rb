@@ -6,8 +6,7 @@ attr_accessor :is_wait_request, :is_pass_action, :legality_error, :xdata, :game
   
 belongs_to :player
 belongs_to :target_player, :class_name=>"Game::Player"
-has_and_belongs_to_many :passed_on_by, :class_name=>"Game::Player", :join_table=>'actions_players_passed'
-has_many :action_requirements
+#has_and_belongs_to_many :passed_on_by, :class_name=>"Game::Player", :join_table=>'actions_players_passed'
 
 #adds user to the list of players that have decided not to respond to this action
 def list_player_as_passed(p)

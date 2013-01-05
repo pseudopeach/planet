@@ -34,8 +34,8 @@ module Terra
   DEF_PA_CAPACITY = 1000.0  #impl
   DEF_PA_SPREAD_ODDS = 4.0 # 1 in DEF_SPREAD_ODDS chance of spreading if at capacity
   
-  DEF_PA_OBSERVATION_RANGE = 2.0  #impl
-  DEF_PA_OBSERVABLE_RANGE = 4.0  #impl
+  DEF_PA_OBVN_RANGE = 2.0  #impl
+  DEF_PA_OBVL_RANGE = 4.0  #impl
   
   #location arrival   #impl
   #charge points #impl

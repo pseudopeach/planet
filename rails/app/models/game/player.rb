@@ -3,7 +3,7 @@ class Game::Player < ActiveRecord::Base
 include Game::ExtendedAttributes
 include Game::ItemAccounting
   
-belongs_to :game, :class_name=>"Game::State", :foreign_key=>"state_id"
+belongs_to :game, :class_name=>"Game::State", :foreign_key=>"state_id", :inverse_of=>:players
 
 belongs_to :user
 belongs_to :location
@@ -12,8 +12,8 @@ belongs_to :prototype, :class_name=>"Game::Player", :foreign_key=>"prototype_pla
 belongs_to :owner_player, :class_name=>"Game::Player", :foreign_key=>"owner_player_id"
 has_many :owned_creatures, :class_name=>"Game::Player", :foreign_key=>"owner_player_id"
 
-belongs_to :next_player, :class_name=>"Game::Player"
-has_one :prev_player, :class_name=>"Game::Player", :foreign_key=>"next_player_id"
+belongs_to :next_player, :class_name=>"Game::Player", :inverse_of=>:prev_player
+has_one :prev_player, :class_name=>"Game::Player", :foreign_key=>"next_player_id", :inverse_of=>:next_player
 
 has_many :observations, :class_name=>"Terra::PlayerObserver", :foreign_key=>"observer_id", :dependent=>:destroy
 has_many :observed_players, :class_name=>"Game::Player", :through=>:observations
@@ -24,9 +24,6 @@ has_many :actions, :class_name=>"Game::Action"
 has_many :items
 
 @@loaded_prototypes = {}
-
-
-
 
 def make_prototype
   return {:success=>false, :error=>"Not enough DNA Points"} unless self.user.item_count(Terra::DNA_PTS) >= engineering_cost
@@ -78,8 +75,10 @@ def game_attr(name, unwrap=true)
   if @loaded_game_attributes.key? name
     out = @loaded_game_attributes[name]
   elsif prototype && (prf = self.prototype.preloaded_game_attrs[name])
+    #puts "found attr on prototype"
     out = prf
   else
+    #puts "prototype nil?:#{self.prototype.nil?}  pattrs:#{self.prototype.preloaded_game_attrs.inspect}"
     out = player_attributes.where(:name=>name).first
   end
   @loaded_game_attributes[name] = out #will store nils
@@ -87,7 +86,7 @@ def game_attr(name, unwrap=true)
   unless out
     cname = ("DEF_"+name.to_s).upcase
     if Terra.const_defined? cname
-      return Terra.const_get
+      return Terra.const_get cname
     end
   end
   
@@ -100,14 +99,16 @@ def game_attrs=(hash_in)
     hash_in.each do |key, item|
       if @loaded_game_attributes.key?(key)
         #item already loaded
-        @loaded_game_attributes[key].value = item
+        attr = @loaded_game_attributes[key]
+        attr.value = item
         @loaded_game_attributes[key].save
       else
         #item needs to be created
-        new_attr = Game::PlayerAttribute.new(:name=>key, :value=>item)
-        player_attributes << new_attr
-        @loaded_game_attributes[name] = new_attr
+        attr = Game::PlayerAttribute.new(:name=>key, :value=>item)
+        player_attributes << attr
+        @loaded_game_attributes[name] = attr
       end
+      attr.history_entries << Game::PlayerAttrEntry.new(:action=>game.resolving_action, :value=>attr.value)
     end #each loop
   end #transaction
 end
@@ -116,19 +117,21 @@ def game_attr_add(name, d_value)
   @loaded_game_attributes = {} unless @loaded_game_attributes
   if @loaded_game_attributes.key?(name)
     #item already loaded
-    @loaded_game_attributes[name].value += d_value
-    @loaded_game_attributes[name].save
-  elsif found = player_attributes.where(:name=>name).first
+    attr = @loaded_game_attributes[name]
+    attr.value += d_value
+    attr.save
+  elsif attr = player_attributes.where(:name=>name).first
     #item exists, but not already loaded
-    @loaded_game_attributes[name] = found
-    found.value += d_value
-    found.save
+    @loaded_game_attributes[name] = attr
+    attr.value += d_value
+    attr.save
   else
     #item needs to be created
-    new_attr = Game::PlayerAttribute.new(:name=>name, :value=>d_value)
-    player_attributes << new_attr
-    @loaded_game_attributes[name] = new_attr
+    attr = Game::PlayerAttribute.new(:name=>name, :value=>d_value)
+    player_attributes << attr
+    @loaded_game_attributes[name] = attr
   end
+  attr.history_entries << Game::PlayerAttrEntry.new(:action=>game.resolving_action, :value=>attr.value)
 end
 
 def preload_game_attrs(array_in=nil)
@@ -137,7 +140,7 @@ def preload_game_attrs(array_in=nil)
   load_keys -= self.prototype.preloaded_game_attrs.keys if self.prototype
   if load_keys.length > 0
     existing_attrs = player_attributes.where(:name=>load_keys)
-    existing_attrs.each{|a| @loaded_game_attributes[a.name] = a }
+    existing_attrs.each{|a| @loaded_game_attributes[a.name.to_sym] = a }
   end
 end
 
@@ -181,6 +184,8 @@ end
 def prompt(state)
   return nil
 end
+
+#override methods to take advantage of the fact that all players have been loaded already in the game object
 
 def next_player
   if @next_player

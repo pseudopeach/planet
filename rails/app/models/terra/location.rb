@@ -1,4 +1,5 @@
 class Terra::Location < Game::Location
+  belongs_to :game, :class_name=>"Terra::GameState", :foreign_key=>"state_id", :inverse_of=>:locations
   
   def has_player_type?(prototype_id)
     return players.where(:prototype_id=>prototype_id).length > 0
@@ -21,11 +22,15 @@ class Terra::Location < Game::Location
   def announce_local_activity(action)
   #notify followers of player
     in_range = []
-    r_observable = action.player.game_attr Terra::PA_OBSERVABLE_RANGE
+    if action.player.creature_player?
+      r_observable = action.player.game_attr Terra::PA_OBSERVABLE_RANGE
+    else
+      r_observable = action.target_player.game_attr Terra::PA_OBSERVABLE_RANGE
+    end
     self.nearby_locations(r_observable,true).each do |loc|
       range = self.range_to(loc)
       loc.players.each do |pl|
-        if pl.respond_to?(:on_creature_presence) && pl != action.player
+        if pl.respond_to?(:on_creature_presence) && pl.id != action.player.id
           r_observe = pl.game_attr Terra::PA_OBSERVATION_RANGE
           if r_observe >= range
             pl.on_creature_presence action #trigger the enemy move handler of all enemies that have one and are close enough to observe

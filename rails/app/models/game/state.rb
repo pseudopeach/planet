@@ -2,7 +2,8 @@ class Game::State < ActiveRecord::Base
   #include Util::EventBroadcaster
 
 attr_accessor :turn_order_delegate, :end_game_delegate
-has_many :players, :conditions=>["next_player_id IS NOT NULL"]
+has_many :players, :conditions=>["next_player_id IS NOT NULL"], :inverse_of=>:game
+has_many :locations, :foreign_key=>"state_id", :inverse_of=>:game
 has_many :items, :through=>:players
 has_many :turn_completions
 belongs_to :current_turn_taker, :class_name=>"Game::Player"
@@ -55,7 +56,7 @@ def resolve_action
     self.resolving_action = self.stacked_actions.last
     self.resolving_action.resolve(self)
     stacked_actions.delete self.resolving_action
-    self.resolving_action.clear_pass_list
+    #self.resolving_action.clear_pass_list
     self.status = Game::ACTION_RESOLVED
     update_activity_time
   end 
@@ -133,14 +134,6 @@ def end_game
   update_activity_time
   
   #broadcast_event Game::GAME_OVER, e if self.save
-end
-
-def players
-  out = super
-  out.each do |player|
-    player.game = self
-  end
-  return out
 end
 
 def current_turn_taker

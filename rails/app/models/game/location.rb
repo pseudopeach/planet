@@ -1,5 +1,5 @@
 class Game::Location < ActiveRecord::Base
-  belongs_to :game, :class_name=>"Game::State", :foreign_key=>"state_id"
+  belongs_to :game, :class_name=>"Game::State", :foreign_key=>"state_id", :inverse_of=>:locations
   has_many :players
   
   def nearby_locations(radius=1,include_players=false)
@@ -8,9 +8,9 @@ class Game::Location < ActiveRecord::Base
     jmax = j + radius
     jmin = j - radius
     if include_players
-      out = Game::Location.where("i <= ? and i >= ? and j <= ? and j >= ?",imax,imin,jmax,jmin).includes(:players)
+      out = self.game.locations.where("i <= ? and i >= ? and j <= ? and j >= ?",imax,imin,jmax,jmin).includes(:players)
     else
-      out = Game::Location.where("i <= ? and i >= ? and j <= ? and j >= ?",imax,imin,jmax,jmin)
+      out = self.game.locations.where("i <= ? and i >= ? and j <= ? and j >= ?",imax,imin,jmax,jmin)
     end
     
     return out

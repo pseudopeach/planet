@@ -1,6 +1,5 @@
 module Game::ExtendedAttributes
   def self.included receiver
-    puts "thing"
     receiver.extend ClassMethods
   end
 
