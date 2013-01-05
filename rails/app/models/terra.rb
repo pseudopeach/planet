@@ -21,6 +21,7 @@ module Terra
   PA_YUMMY = :pa_yummy  #impl
   PA_INVADE = :pa_invade #impl
   PA_CAPACITY = :pa_capacity #impl
+  PA_SPREAD_ODDS = :pa_spread_odds
   
   PA_HIT_POINTS = :pa_hit_points  #impl
   PA_MOVES_LEFT = :pa_moves_left #impl
@@ -30,13 +31,14 @@ module Terra
   HABITAT_WATER = 2.0
   HABITAT_BOTH = 3.0
   
-  DEF_PA_REPRO_CUTOFF = 0.7  #impl
-  DEF_PA_CAPACITY = 1000.0  #impl
-  DEF_PA_SPREAD_ODDS = 4.0 # 1 in DEF_SPREAD_ODDS chance of spreading if at capacity
-  
-  DEF_PA_OBVN_RANGE = 2.0  #impl
-  DEF_PA_OBVL_RANGE = 4.0  #impl
-  
+  DEFAULT_PLAYER_ATTRIBUTES={
+    PA_REPRO_CUTOFF => 0.7,  #impl
+    PA_CAPACITY => 1000.0,  #impl
+    PA_SPREAD_ODDS => 4.0, # 1 in DEF_SPREAD_ODDS chance of spreading if at capacity
+    
+    PA_OBSERVATION_RANGE => 2.0,  #impl
+    PA_OBSERVABLE_RANGE => 4.0  #impl
+  }
   #location arrival   #impl
   #charge points #impl
   #turn order

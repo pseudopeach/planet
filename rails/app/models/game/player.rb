@@ -83,21 +83,14 @@ def game_attr(name, unwrap=true)
   end
   @loaded_game_attributes[name] = out #will store nils
   
-  unless out
-    cname = ("DEF_"+name.to_s).upcase
-    if Terra.const_defined? cname
-      return Terra.const_get cname
-    end
-  end
-  
-  return (unwrap && out) ? out.value : out
+  return (unwrap && out && out.respond_to?(:value)) ? out.value : out
 end
 
 def game_attrs=(hash_in)
   preload_game_attrs hash_in.keys
   self.transaction do
     hash_in.each do |key, item|
-      if @loaded_game_attributes.key?(key)
+      if @loaded_game_attributes.key?(key) && @loaded_game_attributes[key].respond_to?(:value)
         #item already loaded
         attr = @loaded_game_attributes[key]
         attr.value = item
@@ -114,15 +107,10 @@ def game_attrs=(hash_in)
 end
 
 def game_attr_add(name, d_value)
-  @loaded_game_attributes = {} unless @loaded_game_attributes
-  if @loaded_game_attributes.key?(name)
+  preload_game_attrs [name]
+  if @loaded_game_attributes.key?(name) && @loaded_game_attributes[key].respond_to?(:value)
     #item already loaded
     attr = @loaded_game_attributes[name]
-    attr.value += d_value
-    attr.save
-  elsif attr = player_attributes.where(:name=>name).first
-    #item exists, but not already loaded
-    @loaded_game_attributes[name] = attr
     attr.value += d_value
     attr.save
   else
@@ -145,7 +133,7 @@ def preload_game_attrs(array_in=nil)
 end
 
 def preload_all_game_attrs
-  @loaded_game_attributes = {}
+  @loaded_game_attributes = Terra::DEFAULT_PLAYER_ATTRIBUTES.clone
   self.player_attributes.all.each do |q|
     @loaded_game_attributes[q.name.to_sym] = q
   end
