@@ -10,7 +10,7 @@ has_many :locations, :foreign_key=>"state_id", :inverse_of=>:game
 def setup
   @turn_order_delegate = self
   @end_game_delegate = self
-  a = self.players.length if self.players
+  #a = self.players.length if self.players
   #puts "first player id: #{@players.first.id}"
   #broadcast_event Game::GAME_INITIALIZED, {}
 end
@@ -23,6 +23,34 @@ def test_stuff
   p1p = u1.prototyped_creatures.first
   p2p = u2.prototyped_creatures.first
   return {:p1=>p1,:p2=>p2,:u1=>u1,:u2=>u2,:p1p=>p1p,:p2p=>p2p}
+end
+
+def history(since_action_id=nil)
+  if since_action_id 
+    event_list = self.actions.includes([:player_attr_entries,:player_attr_entries=>:player_attribute]).order(:id).
+      where("id > ?",since_id)
+  else
+    event_list = self.actions.includes([:player_attr_entries,:player_attr_entries=>:player_attribute]).order(:id)
+  end 
+  if event_list.length > 0
+    cutoff = @event_list[0].resolved_at
+    event_list += self.turn_completions.where("timestamp >= ?",cutoff)
+    event_list.sort! {|a,b| a.timestamp<=>b.timestamp}
+  end
+  event_list_out = []
+  event_list.each do |e|
+    hsh = {:e_type=>e.class, :timestamp=>e.timestamp, :player_id=>e.player_id}
+    unless e.class == Terra::TurnCompletion
+      [:target_player_id, :resolved_at, :xdata].each {|q| hsh[q] = e[q]}
+      hsh[:action_id] = e.id
+      hsh[:attribute_updates] = []
+      e.player_attr_entries.each do |ae|
+        hsh[:attribute_updates] << {:attr_id=>ae.id,:name=>ae.player_attrribute.name,:value=>ae.value}
+      end
+    end
+    event_list_out << hsh
+  end
+    return @event_list
 end
 
 def manager
@@ -158,6 +186,7 @@ def spawn_player_at(player, owner_player=nil, offspring_loc=nil)
     new_player.game_attrs = attrs
     new_player.on_born
   end
+  return new_player
 end
 
 def retire_player(player)

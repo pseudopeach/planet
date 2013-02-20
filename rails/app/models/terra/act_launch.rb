@@ -1,6 +1,7 @@
 class Terra::ActLaunch < Game::Action 
   
   xdata_attr :location
+  xdata_attr :created_player
  
 def self.from_prototype(player, prototype_id, location)
   self.player = player
@@ -15,9 +16,10 @@ def on_stack(state)
 end
 
 def resolve(state)
-  super state
-  state.spawn_player_at(self.target_player, self.player, self.location)
+  self.created_player = state.spawn_player_at(self.target_player, self.player, self.location)
+  self.xdata[:created_player_class] = created_player.class.to_s
   self.location.announce_local_activity self
+  super state
 end
 
 def legal?(state)

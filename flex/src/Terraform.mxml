@@ -2,12 +2,15 @@
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
 			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600"
-			   initialize="init()"
-			   implements="com.apptinic.turnbased.foundation.IEndGameDelegate" xmlns:foundation="com.apptinic.turnbased.foundation.*">
-	<s:Button click="" />
+			   initialize="init()" >
+			   	<s:Button click="" />
 	
 <fx:Script>
 <![CDATA[
+	import com.apptinic.terraschema.Action;
+	import com.apptinic.terraschema.GameData;
+	import com.apptinic.terraschema.PlayerAttrUpdate;
+	import com.apptinic.terraview.ActLaunch;
 	import com.apptinic.turnbased.foundation.GameContext;
 	import com.apptinic.turnbased.foundation.GameKernel;
 	import com.apptinic.turnbased.foundation.GameState;
@@ -15,51 +18,47 @@
 	import com.apptinic.turnbased.foundation.Player;
 	import com.apptinic.turnbased.playertest.TestPlayer;
 	import com.apptinic.util.ObjectEvent;
+	import com.apptinic.util.UberCollection;
+	
+	import mx.collections.ArrayCollection;
 
 public var gamek:GameKernel;
 protected var state:GameState;
 protected var turn:int = 0;
 	
 protected function init():void{
-	gamek = GameKernel.shared;
-	state = gamek.initGame();
-	state.endGameDelegate = this;
-	
-	var k:TestPlayer = new TestPlayer();
-	k.name = "Kyle";
-	var j:TestPlayer = new TestPlayer();
-	j.name = "Justin";
-	var s:TestPlayer = new TestPlayer();
-	s.name = "Sarah";
-	state.players = [s,k,j];
-	
-	state.addEventListener(GameState.TURN_END,onGameEvent);
-	state.addEventListener(GameState.PROMPTING_PLAYER,onGameEvent);
-	state.addEventListener(GameState.PLAYER_PASSED,onGameEvent);
-	state.addEventListener(GameState.ACTION_STACKED,onGameEvent);
-	state.addEventListener(GameState.ACTION_RESOLVED,onGameEvent);
-	state.addEventListener(GameState.GAME_OVER,onGameEvent);
-	
-	gamek.begin();
+	var game:GameData = new GameData();
+	game.update({players:testPlayers, locations:testLocations});
+	var action:Action = new ActLaunch({
+		xdata:{createdPlayerId:23, createdPlayerClass:"com.apptinic.terraschema::Player", locationId:5},
+		attrUpdates:[
+			{id:333, playerAttrId:2, attrName:"PA_HIT_POINTS", value:10},
+			{id:334, playerAttrId:4, attrName:"PA_REPRO_PROGRESS", value:0},
+		]
+	});
+	action.execute(game);
+	trace("did it work?");
+	//attr.player not set by inverse
 }
-
-public function getGameWinner(state:GameState):Player{
-	if(turn>12)
-		return state.players[0];
-	else{//trace("**** IT IS TURN "+turn);
-		return null;
-	}
-}
-
-protected function onGameEvent(event:ObjectEvent):void{
-	if(event.type == GameState.TURN_END)
-		turn++;
-	if(event.obj&&event.obj.hasOwnProperty("name"))
-		trace(event.type+": "+event.obj.name+" "+turn);
-	else
-		trace(event.type);
 	
-}
+public var testLocations:UberCollection = new UberCollection([
+	{id:1, i:0, j:0, isLand:false},
+	{id:2, i:0, j:1, isLand:false},
+	{id:3, i:0, j:2, isLand:false},
+	{id:4, i:1, j:0, isLand:true},
+	{id:5, i:1, j:1, isLand:true},
+	{id:6, i:1, j:2, isLand:false},
+	{id:7, i:2, j:0, isLand:true},
+	{id:8, i:2, j:1, isLand:true},
+	{id:9, i:2, j:2, isLand:true},
+]);
+	
+public var testPlayers:UberCollection = new UberCollection([
+	{id:1, locationId:3, name:"fish"},
+	{id:2, locationId:2, name:"whale"},
+	{id:3, locationId:5, name:"rabbit"},
+	{id:4, locationId:5, name:"snake"},
+]);
 
 
 ]]>

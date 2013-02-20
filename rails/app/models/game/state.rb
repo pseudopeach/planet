@@ -3,6 +3,8 @@ class Game::State < ActiveRecord::Base
 
 attr_accessor :turn_order_delegate, :end_game_delegate
 has_many :players, :conditions=>["next_player_id IS NOT NULL"], :inverse_of=>:game
+has_many :all_players, :class_name=>"Game::Player", :foreign_key=>"state_id", :inverse_of=>:game
+has_many :actions, :through=>:all_players
 has_many :locations, :foreign_key=>"state_id", :inverse_of=>:game
 has_many :items, :through=>:players
 has_many :turn_completions
@@ -141,6 +143,12 @@ def current_turn_taker
     return out
   end
   return super
+end
+
+def all_players
+  out = super
+  self.players = out.select {|p| p.next_player_id}
+  return out
 end
 
 protected 

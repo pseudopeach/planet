@@ -1,4 +1,6 @@
 .DS_Store
 *.swf
-flex/bin-debug/
+flex/bin-debug/*
 rails/Gemfile.lock
+rails/.metadata/
+rails/log/

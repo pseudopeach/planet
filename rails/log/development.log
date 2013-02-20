@@ -477,3 +477,4 @@ Mysql2::Error: Duplicate entry '32-pa_moves_left' for key 'uk_key_per_player': I
 Mysql2::Error: Duplicate entry '32-pa_moves_left' for key 'uk_key_per_player': INSERT INTO `game_player_attributes` (`name`, `player_id`, `value`) VALUES ('pa_moves_left', 32, 3.0)
 Mysql2::Error: Duplicate entry '32-pa_moves_left' for key 'uk_key_per_player': INSERT INTO `game_player_attributes` (`name`, `player_id`, `value`) VALUES ('pa_moves_left', 32, 3.0)
 Mysql2::Error: Table 'terraform.actions_players_passed' doesn't exist: SELECT `game_players`.* FROM `game_players` INNER JOIN `actions_players_passed` ON `game_players`.`id` = `actions_players_passed`.`player_id` WHERE `actions_players_passed`.`action_id` = 29
+Mysql2::Error: Unknown column 'game_actions.state_id' in 'where clause': SELECT  `game_actions`.* FROM `game_actions`  WHERE `game_actions`.`state_id` = 2 LIMIT 1

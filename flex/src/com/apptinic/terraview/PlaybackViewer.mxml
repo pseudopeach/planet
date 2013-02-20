@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300">
+
+	
+	
+<fx:Script>
+<![CDATA[
+	import com.apptinic.terraschema.GameData;
+	import com.apptinic.util.ServiceEvent;
+	
+	import mx.collections.ArrayCollection;
+
+protected var _dataProvider:GameData;
+protected var position:uint = 0;
+	
+public function set dataProvider(input:GameData):void{
+	_dataProvider = input;
+	onDataProviderChange();
+	position = 0;
+}
+
+public function play(speed:Number = 1.0):void{
+	
+}
+public function pause():void{
+	
+}
+public function seek(position:uint=0):void{
+	
+}
+public function get position():uint{
+	
+}
+public function get isPlaying():Boolean{
+	
+}
+
+protected function onDataProviderChange(event:Event=null):void{
+	
+}
+	
+]]>
+</fx:Script>
+</s:Group>
