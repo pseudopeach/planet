@@ -9,13 +9,13 @@
 <![CDATA[
 	import com.apptinic.terraschema.Action;
 	import com.apptinic.terraschema.GameData;
+	import com.apptinic.terraschema.Player;
 	import com.apptinic.terraschema.PlayerAttrUpdate;
 	import com.apptinic.terraview.ActLaunch;
 	import com.apptinic.turnbased.foundation.GameContext;
 	import com.apptinic.turnbased.foundation.GameKernel;
 	import com.apptinic.turnbased.foundation.GameState;
 	import com.apptinic.turnbased.foundation.IEndGameDelegate;
-	import com.apptinic.turnbased.foundation.Player;
 	import com.apptinic.turnbased.playertest.TestPlayer;
 	import com.apptinic.util.ObjectEvent;
 	import com.apptinic.util.UberCollection;
@@ -27,7 +27,13 @@ protected var state:GameState;
 protected var turn:int = 0;
 	
 protected function init():void{
-	var game:GameData = new GameData();
+	var pl:Player = new Player({id:12,
+		attributes:[
+			{name:"four",value:1,id:4},
+			{name:"five",value:2,id:5}
+		]
+	});
+	/*var game:GameData = new GameData();
 	game.update({players:testPlayers, locations:testLocations});
 	var action:Action = new ActLaunch({
 		xdata:{createdPlayerId:23, createdPlayerClass:"com.apptinic.terraschema::Player", locationId:5},
@@ -36,7 +42,7 @@ protected function init():void{
 			{id:334, playerAttrId:4, attrName:"PA_REPRO_PROGRESS", value:0},
 		]
 	});
-	action.execute(game);
+	action.execute(game);*/
 	trace("did it work?");
 	//attr.player not set by inverse
 }

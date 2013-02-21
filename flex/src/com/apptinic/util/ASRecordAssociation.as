@@ -13,6 +13,8 @@ public var propName:String; // local property name
 public var inversePropName:String;
 protected var _inverse:ASRecordAssociation;
 
+/*his is implemented as a lazy getter so that the 
+whole schema is complete by the time it needs to be accessed*/
 public function get inverse():ASRecordAssociation{
 	if(!inversePropName) return null;
 	if(!_inverse){

@@ -20,7 +20,7 @@ public static var fidCount:int = 1;
 public var id:int;
 protected var fid:int;
 
-public var supressEvents:Boolean = false;
+public var isLockedForUpdate:Boolean = false;
 public var isPopulated:Boolean = false;
 
 protected var lastProcessedUpdateEventId:int=-1;
@@ -28,15 +28,6 @@ protected var lastDispatchedUpdateEventId:int=-1;
 
 // =========== lazily generated, read-only attributes =================
 
-protected var _schemaEntry:Object;
-/*protected function get schemaEntry():Object{
-	if(!_schemaEntry){
-		_schemaEntry = SCHEMA[this.constructor];
-		if(!_schemaEntry)
-			throw new Error("No schema info was set for this class: "+this.constructor.toString());
-	}
-	return _schemaEntry;
-}*/
 protected var _classInfo:ASRecordClass;
 public function get classInfo():ASRecordClass{
 	if(!_classInfo)
@@ -69,33 +60,6 @@ public static function findOrCreate(klass:ASRecordClass,id:*=null):ASRecord{
 		out = createRecord(klass,id);
 	return out;
 }
-
-/*public function enterInSchema(forClass:Class, input:Array):void{
-	if(SCHEMA[forClass]) return;
-	var className:String = ASRecordClass.friendlyClassName(this);
-	var schemaEntry:Object = new Object();
-	var assoc:ASRecordAssociation;
-	_classInfo = ASRecordClass.getInstance(this.constructor);
-	
-	schemaEntry.classInfo = _classInfo;
-	schemaEntry.associations = new Object();
-	//copy associations from superklass (inherit)
-	if(_classInfo.superKlass)
-		for(var s:String in _classInfo.superKlass.associations){
-			assoc = _classInfo.superKlass.associations[s];
-			schemaEntry.associations[assoc.propName] = assoc;
-		}
-	for(var i:int;i<input.length;i++){
-		assoc = new ASRecordAssociation(input[i]);
-		schemaEntry.associations[assoc.propName] = assoc;
-		
-		trace("** created association ** "+this._classInfo.shortClassName+" "+
-			assoc.type+" "+assoc.propName);
-	}
-	_classInfo.associations = schemaEntry.associations;
-	SCHEMA[forClass] = schemaEntry;
-	//trace("setting schema info schema entry: "+className);
-}*/
 
 public function enterInSchema(forClass:Class, assocIn:Array=null):void{
 	if(SCHEMA[forClass]) return;
@@ -150,122 +114,6 @@ public function update(input:Object, event:ASRecordEvent=null):void{
 	isPopulated = true;
 }
 
-public function setMany(assoc:ASRecordAssociation,input:Object):void{
-	var listIn:IList;
-	if(input as Array) listIn = new ArrayCollection(input as Array);
-	else listIn = input as IList;
-	if(!this[assoc.propName])
-		this[assoc.propName] = new UberCollection();
-	var list:UberCollection = this[assoc.propName];
-	list.refObject = assoc;
-	if(!list.hasEventListener(ASRecordEvent.CHANGE))
-		list.addEventListener(ASRecordEvent.CHANGE, onMemberCollectionChange);
-	list.supressEvents = true;
-	list.removeAll();
-	for(var i:int=0;i<listIn.length;i++){
-		var record:ASRecord = findOrCreate(assoc.classInfo,listIn[i].id);
-		record.update(listIn[i]);
-		list.addItem(record);
-	}
-	list.supressEvents = false;
-	list.refresh();
-}
-
-protected function onMemberCollectionChange(event:ASRecordEvent):void{
-	var record:ASRecord = event.item as ASRecord;
-	var assoc:ASRecordAssociation = (event.target as UberCollection).refObject as ASRecordAssociation;
-	
-	if(assoc.propName == "attributes")
-		trace("pause here");
-	//**** figure out how to look that up
-	var invAssoc:ASRecordAssociation;
-	switch(event.subtype){
-		case ASRecordEvent.COLL_ITEM_ADDED:
-			if((invAssoc = assoc.inverse))
-				record[invAssoc.propName] = this			
-			//add event listener?
-		break;
-		case ASRecordEvent.COLL_ITEM_REMOVED:
-			if((invAssoc = assoc.inverse))
-				record[invAssoc.propName] = null;			
-			//remove event listener?
-		break;
-	}
-}
-
-//this function bulk updates this ASRecord, and any associated records that are mentioned in the input
-/*public function update(input:Object, event:ASRecordEvent=null):void{
-	if(event && event.eventId == lastProcessedUpdateEventId) return;
-	
-	var newEvent:ASRecordEvent = new ASRecordEvent(ASRecordEvent.CHANGE,this,event);
-	lastProcessedUpdateEventId = newEvent.eventId;
-	var association:ASRecordAssociation;
-	var dummies:Array = [];
-	var lu:Array = []
-	for(var s:String in input){
-		association = assocByFKey[s];
-		if(association && !input.hasOwnProperty(association.propName))
-			dummies.push({association:association, value:input[s]});
-		else if((association = associations[s]))
-			lu.push({association:association, value:input[s], event:event});
-		else
-			this[s] = input[s];    
-	}
-	this.isPopulated = true;
-	if(input.hasOwnProperty("id")) ASRecord.storeObject(this);
-	
-	//save associated objects
-	var i:int;
-	var item:ASRecord;
-	for(i=0;i<dummies.length;i++) linkDummyRecord(dummies[i].association,dummies[i].value);
-	for(i=0;i<lu.length;i++){
-		var assoc:ASRecordAssociation = lu[i].association;
-		if(assoc.type == HAS_MANY){
-			var collection:UberCollection = this[assoc.propName];
-			if(!collection){
-				this[assoc.propName] = new UberCollection();
-				collection = this[assoc.propName];
-				collection.supressEvents = true;
-			}else{
-				collection.supressEvents = true;
-				collection.removeAll();
-			}
-			
-			//add all the items
-			for(var j:int=0;j<lu[i].value.length;j++){
-				//**** implement this
-			}
-			collection.addEventListener(ASRecordEvent.CHANGE,onLinkedCollectionUpdate);
-			collection.supressEvents = false;
-			collection.refresh();
-			
-		}else{
-			//single (belongs_to) member update
-			item = updateMember(assoc.propName,lu[i].value,-1,event,lu[i].assoc);
-			if(assoc.inverse) item.updateMember(assoc.inverse, this, -1, event);
-		}
-	}
-	
-	if(!supressEvents)
-		dispatchEvent(newEvent);
-}*/
-
-public static function findStoredObject(klass:Class,id:*):ASRecord{
-	var store:Object = REPO[klass];
-	if(!store) return null;
-	return store["id-"+id.toString()];    
-}
-public static function storeObject(obj:ASRecord):void{
-	if(!obj.classInfo)
-		throw new Error("Somehow, an instance of ASRecord exists with null classInfo");
-	var store:Object = REPO[obj.classInfo.tableBaseClass];
-	if(!store){
-		store = new Object()
-		REPO[obj.classInfo.tableBaseClass] = store;
-	}
-	store["id-"+obj.id.toString()] = obj;
-}
-
 protected function onPropertyChanged(event:PropertyChangeEvent):void{
 	var newRecord:ASRecord = event.newValue as ASRecord;
 	var oldRecord:ASRecord = event.oldValue as ASRecord;
@@ -286,13 +134,12 @@ protected function onPropertyChanged(event:PropertyChangeEvent):void{
 		}
 		
 		//deal with inverses
-		if((invAssoc = assoc.inverse)){
+		if(!isLockedForUpdate && (invAssoc = assoc.inverse)){
 			if(invAssoc.type == BELONGS_TO){
-				oldRecord[invAssoc.propName] = null;
-				newRecord[invAssoc.propName] = this;
+				if(oldRecord) updateLocked(oldRecord,invAssoc.propName,null);
+				updateLocked(newRecord,invAssoc.propName,this);
 			}else{
-				(oldRecord[invAssoc.propName] as UberCollection).removeItem(this);
-				(newRecord[invAssoc.propName] as UberCollection).addItem(this);
+				//implement
 			}
 		}
 		
@@ -303,9 +150,68 @@ protected function onPropertyChanged(event:PropertyChangeEvent):void{
 	if(event.property != "id") isPopulated = true;
 	
 	var newEvent:ASRecordEvent = new ASRecordEvent(ASRecordEvent.CHANGE,this);
-	dispatchEvent(newEvent);
-	
+	dispatchEvent(newEvent);	
 }
+
+protected function onMemberCollectionChange(event:ASRecordEvent):void{
+	var record:ASRecord = event.item as ASRecord;
+	var assoc:ASRecordAssociation = (event.target as UberCollection).refObject as ASRecordAssociation;
+	
+	//**** figure out how to look that up
+	if(!isLockedForUpdate){
+		var invAssoc:ASRecordAssociation;
+		switch(event.subtype){
+			case ASRecordEvent.COLL_ITEM_ADDED:
+				if((invAssoc = assoc.inverse))
+					updateLocked(record,invAssoc.propName,this);			
+				//add event listener?
+			break;
+			case ASRecordEvent.COLL_ITEM_REMOVED:
+				if((invAssoc = assoc.inverse))
+					updateLocked(record,invAssoc.propName,null);			
+				//remove event listener?
+			break;
+		}
+	}
+}
+
+public function setMany(assoc:ASRecordAssociation,input:Object):void{
+	var listIn:IList;
+	if(input as Array) listIn = new ArrayCollection(input as Array);
+	else listIn = input as IList;
+	if(!this[assoc.propName])
+		this[assoc.propName] = new UberCollection();
+	var list:UberCollection = this[assoc.propName];
+	list.refObject = assoc;
+	if(!list.hasEventListener(ASRecordEvent.CHANGE))
+		list.addEventListener(ASRecordEvent.CHANGE, onMemberCollectionChange);
+	//list.supressEvents = true;
+	list.removeAll();
+	for(var i:int=0;i<listIn.length;i++){
+		var record:ASRecord = findOrCreate(assoc.classInfo,listIn[i].id);
+		record.update(listIn[i]);
+		list.addItem(record);
+	}
+	//list.supressEvents = false;
+	list.refresh();
+}
+
+public static function findStoredObject(klass:Class,id:*):ASRecord{
+	var store:Object = REPO[klass];
+	if(!store) return null;
+	return store["id-"+id.toString()];    
+}
+public static function storeObject(obj:ASRecord):void{
+	if(!obj.classInfo)
+		throw new Error("Somehow, an instance of ASRecord exists with null classInfo");
+	var store:Object = REPO[obj.classInfo.tableBaseClass];
+	if(!store){
+		store = new Object()
+		REPO[obj.classInfo.tableBaseClass] = store;
+	}
+	store["id-"+obj.id.toString()] = obj;
+}
+
 public function setfKey(propName:String, idValue:*, assoc:ASRecordAssociation=null, propAlreadyUpdated:Boolean=false):void{
 	var record:ASRecord;
 	if(!assoc) 
@@ -315,52 +221,6 @@ public function setfKey(propName:String, idValue:*, assoc:ASRecordAssociation=nu
 		this[assoc.propName] = record;
 }
 
-//public static function getRecordFrom
-
-//this function called when only the id of an associated object is known
-/*public function linkDummyRecord(assocEntry:ASRecordAssociation, id:*, index:int=-1):void{
-	var record:ASRecord = searchStoredObjects(assocEntry.assocClassName,id);
-	if(!record){
-		var aclass:Class = assocEntry.assocClass
-		record = new aclass();
-		record.id = id;
-		record.addEventListener(ASRecordEvent.CHANGE,onLinkedRecordUpdate);
-		ASRecord.storeObject(record,assocEntry.assocClassName);
-	}
-	if(index == -1)
-		this[assocEntry.propName] = record;
-	else
-		this[assocEntry.propName][index] = record;    
-}*/
-/*public function updateAssociated(assocEntry:Object, input:Object, event:ASRecordEvent=null, manyIndex:int=-1):void{
-	//get a record instance, update existing if required
-	var record:ASRecord = saveOrCreateRecord(input,assocEntry.assocClass,assocEntry.assocClassName);
-	if(!this[assocEntry.propName]){
-		//never been set on this
-		record.addEventListener(ASRecordEvent.CHANGE,onLinkedRecordUpdate);
-		if(manyIndex == -1)
-			this[assocEntry.propName] = record;
-		else{
-			this[assocEntry.propName][manyIndex] = record;
-			/*if(assocEntry.inverse) 
-				record.updateAssociated(f,
-		}
-	}
-	record.update(input,true,event);
-}
-public function saveOrCreateRecord(input:Object, klass:Class=null, repoClassName:String=null, event:ASRecordEvent=null, autoDispatch:Boolean=true):ASRecord{
-	var newRecClass:Class = input.hasOwnProperty('asType') ? 
-		getClassForType(input.asType) : klass;
-	var repoName:String = repoClassName ? repoClassName : getQualifiedClassName(klass);
-	var record:ASRecord = searchStoredObjects(repoName,input.id);
-	if(!record){
-		record = new newRecClass(input);
-		ASRecord.storeObject(record,repoName);
-	}else
-		record.update(input,autoDispatch,event);
-	return record;
-}*/
-
 protected function onLinkedRecordUpdate(event:ASRecordEvent):void{
 	if(lastDispatchedUpdateEventId != event.eventId){
 		lastDispatchedUpdateEventId = event.eventId;
@@ -369,14 +229,12 @@ protected function onLinkedRecordUpdate(event:ASRecordEvent):void{
 	}
 }
 
-protected function onLinkedCollectionUpdate(event:ASRecordEvent):void{
-	if(event.subtype == ASRecordEvent.COLL_ITEM_ADDED)
-		event.item.addEventListener(ASRecordEvent.CHANGE,onLinkedRecordUpdate);
-	else if(event.subtype == ASRecordEvent.COLL_ITEM_REMOVED)
-		event.item.removeEventListener(ASRecordEvent.CHANGE,onLinkedRecordUpdate);
-	onLinkedRecordUpdate(event);
-	//this function may need to differ someday, but for now, it's identical to onLinkedRecordUpdate
+public static function updateLocked(record:ASRecord, property:String, value:*):void{
+	record.updateLocked = true;
+	record[property] = value;
+	record.updateLocked = false;
 }
+
 public function refresh():void{
 	dispatchEvent(new ASRecordEvent(ASRecordEvent.CHANGE, this));
 }

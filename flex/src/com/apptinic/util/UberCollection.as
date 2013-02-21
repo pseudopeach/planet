@@ -24,6 +24,7 @@ override public function addItemAt(item:Object,index:int):void{
 		var event:ASRecordEvent = new ASRecordEvent(ASRecordEvent.CHANGE,this);
 		event.subtype = ASRecordEvent.COLL_ITEM_ADDED;
 		event.newIndex = index;
+		event.item = item;
 		dispatchEvent(event);
 	}
 }
