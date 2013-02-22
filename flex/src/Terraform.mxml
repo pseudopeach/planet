@@ -27,13 +27,7 @@ protected var state:GameState;
 protected var turn:int = 0;
 	
 protected function init():void{
-	var pl:Player = new Player({id:12,
-		attributes:[
-			{name:"four",value:1,id:4},
-			{name:"five",value:2,id:5}
-		]
-	});
-	/*var game:GameData = new GameData();
+	var game:GameData = new GameData();
 	game.update({players:testPlayers, locations:testLocations});
 	var action:Action = new ActLaunch({
 		xdata:{createdPlayerId:23, createdPlayerClass:"com.apptinic.terraschema::Player", locationId:5},
@@ -42,7 +36,7 @@ protected function init():void{
 			{id:334, playerAttrId:4, attrName:"PA_REPRO_PROGRESS", value:0},
 		]
 	});
-	action.execute(game);*/
+	action.execute(game);
 	trace("did it work?");
 	//attr.player not set by inverse
 }

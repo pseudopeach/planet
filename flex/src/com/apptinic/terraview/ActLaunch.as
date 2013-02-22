@@ -7,6 +7,7 @@ import com.apptinic.util.ASRecord;
 import com.apptinic.util.ASRecordClass;
 import com.apptinic.util.UberCollection;
 
+[Bindable]
 public class ActLaunch extends Action{
 	
 public var createdPlayer:Player;

@@ -1,7 +1,8 @@
 package com.apptinic.terraschema{
 	import com.apptinic.util.ASRecord;
 	import com.apptinic.util.UberCollection;
-
+	
+[Bindable]
 public class Location extends ASRecord{
 
 public var players:UberCollection;

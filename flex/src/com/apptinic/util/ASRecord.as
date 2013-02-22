@@ -5,6 +5,7 @@ import flash.utils.getQualifiedClassName;
 
 import mx.collections.ArrayCollection;
 import mx.collections.IList;
+import mx.collections.ISummaryCalculator;
 import mx.events.CollectionEvent;
 import mx.events.PropertyChangeEvent;
 
@@ -84,6 +85,13 @@ public function enterInSchema(forClass:Class, assocIn:Array=null):void{
 	SCHEMA[forClass] = schemaEntry;
 	_classInfo = schemaEntry;
 }
+/*protected function init():void{
+	for(var s:String in classInfo.associations){
+		var assoc:ASRecordAssociation = classInfo.associations[s];
+		if(assoc.type == HAS_MANY && !this[assoc.propName])
+			this.setMany(assoc,[],true);
+	}
+}*/
 
 // =========== Core Functionality =================
 
@@ -111,6 +119,7 @@ public function update(input:Object, event:ASRecordEvent=null):void{
 				this[s] = item; 
 		}
 	}
+	//init();
 	isPopulated = true;
 }
 
@@ -157,7 +166,7 @@ protected function onMemberCollectionChange(event:ASRecordEvent):void{
 	var record:ASRecord = event.item as ASRecord;
 	var assoc:ASRecordAssociation = (event.target as UberCollection).refObject as ASRecordAssociation;
 	
-	//**** figure out how to look that up
+	//**** this isn't running for player.attributes.add, why?
 	if(!isLockedForUpdate){
 		var invAssoc:ASRecordAssociation;
 		switch(event.subtype){
@@ -175,12 +184,15 @@ protected function onMemberCollectionChange(event:ASRecordEvent):void{
 	}
 }
 
-public function setMany(assoc:ASRecordAssociation,input:Object):void{
+public function setMany(assoc:ASRecordAssociation,input:Object,updateLocked:Boolean=false):void{
 	var listIn:IList;
 	if(input as Array) listIn = new ArrayCollection(input as Array);
 	else listIn = input as IList;
-	if(!this[assoc.propName])
+	if(!this[assoc.propName]){
+		if(updateLocked) isLockedForUpdate = true;
 		this[assoc.propName] = new UberCollection();
+		isLockedForUpdate = false;
+	}
 	var list:UberCollection = this[assoc.propName];
 	list.refObject = assoc;
 	if(!list.hasEventListener(ASRecordEvent.CHANGE))
@@ -230,9 +242,9 @@ protected function onLinkedRecordUpdate(event:ASRecordEvent):void{
 }
 
 public static function updateLocked(record:ASRecord, property:String, value:*):void{
-	record.updateLocked = true;
+	record.isLockedForUpdate = true;
 	record[property] = value;
-	record.updateLocked = false;
+	record.isLockedForUpdate = false;
 }
 
 public function refresh():void{

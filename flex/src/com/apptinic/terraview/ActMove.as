@@ -2,6 +2,7 @@ package com.apptinic.terraview{
 import com.apptinic.terraschema.Action;
 import com.apptinic.terraschema.GameData;
 
+[Bindable]
 public class ActMove extends Action{
 	
 public var newLocation:Location;

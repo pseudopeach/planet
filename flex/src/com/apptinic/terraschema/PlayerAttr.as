@@ -3,7 +3,7 @@ package com.apptinic.terraschema{
 	import com.apptinic.util.UberCollection;
 	
 [Bindable]
-public dynamic class PlayerAttr extends ASRecord{
+public class PlayerAttr extends ASRecord{
 
 public var player:Player;
 public var attrUpdates:UberCollection;

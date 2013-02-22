@@ -3,7 +3,8 @@ package com.apptinic.terraschema{
 	import com.apptinic.util.UberCollection;
 	
 	import mx.collections.ArrayCollection;
-
+	
+[Bindable]
 public class Player extends ASRecord{
 
 public var name:String;
