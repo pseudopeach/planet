@@ -2,8 +2,8 @@
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
 			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600"
-			   initialize="init()" >
-			   	<s:Button click="" />
+			   initialize="init()" xmlns:terraview="com.apptinic.terraview.*" >
+			   	<terraview:Globe />
 	
 <fx:Script>
 <![CDATA[
@@ -27,7 +27,7 @@ protected var state:GameState;
 protected var turn:int = 0;
 	
 protected function init():void{
-	var game:GameData = new GameData();
+	/*var game:GameData = new GameData();
 	game.update({players:testPlayers, locations:testLocations});
 	var action:Action = new ActLaunch({
 		xdata:{createdPlayerId:23, createdPlayerClass:"com.apptinic.terraschema::Player", locationId:5},
@@ -37,7 +37,7 @@ protected function init():void{
 		]
 	});
 	action.execute(game);
-	trace("did it work?");
+	trace("did it work?");*/
 	//attr.player not set by inverse
 }
 	
