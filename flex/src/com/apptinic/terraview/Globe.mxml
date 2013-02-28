@@ -16,7 +16,7 @@ public var xCenter:Number = 220;
 public var yCenter:Number = 220;
 public var rMatrix:Matrix3D;
 
-public var polygons:ArrayCollection;
+public var net:TruncatedIcosahedron = new TruncatedIcosahedron();
 
 
 public function test():void{
@@ -24,7 +24,7 @@ public function test():void{
 	rMatrix.appendScale(radius,radius,radius);
 	rMatrix.appendRotation(-10,new Vector3D(0,1,0));
 	
-	for(var i:int;i<testDat.length;i++){
+	/*for(var i:int;i<testDat.length;i++){
 		testDat[i].lat *= Math.PI/180 *2;
 		testDat[i].lat += .5;
 		testDat[i].lon *= Math.PI/180 *2;
@@ -42,7 +42,13 @@ public function test():void{
 	ss.color = 0x9EE847;
 	
 	beginDraw();
-	renderShape(ss);
+	renderShape(ss);*/
+	var start:Number = (new Date()).time;
+	beginDraw();
+	for(var i:int=0;i<net.curvedTiles.length;i++)
+		renderShape(net.curvedTiles[i]);
+	var span:Number = (new Date()).time - start;
+	trace("rendered in:"+span);
 }
 	
 protected function beginDraw():void{
@@ -59,7 +65,7 @@ protected function renderShape(shape:SphereShape):void{
 	var transitionActive:Boolean = false;
 	var original:Point;
 	
-	graphics.beginFill(shape.color,1);
+	graphics.beginFill(shape.color,shape.alpha);
 	for(var i:int=0;i<shape.vertices.length;i++){
 		tvect = rMatrix.deltaTransformVector(shape.vertices[i]);
 		if(tvect.z < 0){
@@ -67,28 +73,29 @@ protected function renderShape(shape:SphereShape):void{
 			if(!wasOnScreen){
 				if(transitionActive){
 					//transition onto screen
-					trace("***going off, close out");
+					//trace("***going off, close out");
 					temp = radius/Math.sqrt(tvect.x*tvect.x + tvect.y*tvect.y);
 					edgeCurve(transition.x,transition.y,temp*tvect.x,temp*tvect.y);
 					transitionActive = false;
 				}else{	
 					//starting out
-					trace("***start new region");
+					//trace("***start new region");
 					transition.x = tvect.x;
 					transition.y = tvect.y;
 					graphics.moveTo(tvect.x+xCenter,tvect.y+yCenter);
 					if(i==0){
-						trace("***first point");
+						//trace("***first point");
 						original = new Point();
 						original.x = transition.x;
 						original.y = transition.y;
 					}else
 						transitionActive = true;
 				}
+				graphics.lineStyle(shape.borderThickness,shape.borderColor,shape.borderAlpha);
 				wasOnScreen = true;
 			}	
 			graphics.lineTo(tvect.x+xCenter,tvect.y+yCenter);
-			trace("line to "+tvect.x+","+tvect.y);
+			//trace("line to "+tvect.x+","+tvect.y);
 		}else{
 			//point is off screen
 			if(wasOnScreen){
@@ -96,12 +103,12 @@ protected function renderShape(shape:SphereShape):void{
 				temp = radius/Math.sqrt(tvect.x*tvect.x + tvect.y*tvect.y);
 				if(transitionActive){
 					//transition from off screen
-					trace("***transition off, close out. scale:" +temp );
+					//trace("***transition off, close out. scale:" +temp );
 					edgeCurve(temp*tvect.x,temp*tvect.y,transition.x,transition.y);
 					transitionActive = false;
 				}else{
 					//go off screen for 
-					trace("***transition off");
+					//trace("***transition off");
 					transition.x = temp*tvect.x;
 					transition.y = temp*tvect.y;
 					transitionActive = true;
@@ -114,7 +121,7 @@ protected function renderShape(shape:SphereShape):void{
 	
 	//special case: curve back to start
 	if(transitionActive){
-		trace("open transition at end");
+		//trace("open transition at end");
 		if(original)
 			edgeCurve(transition.x,transition.y,original.x,original.y);
 		else
@@ -124,21 +131,40 @@ protected function renderShape(shape:SphereShape):void{
 }
 
 protected function edgeCurve(x1:Number,y1:Number,x2:Number,y2:Number):void{
+	graphics.lineStyle(0,0,0);
 	var start:Number = Math.atan2(y1,x1);
 	var finish:Number = Math.atan2(y2,x2);
 	var radius1:Number = radius+1.0;
-	trace("***edge curve from "+start*180/Math.PI+" to "+finish*180/Math.PI);
+	//trace("***edge curve from "+start*180/Math.PI+" to "+finish*180/Math.PI);
 	if(finish > start)
 		for(var th:Number=start;th<finish;th+=.02){
-			trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
+			//trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
 			graphics.lineTo(radius1*Math.cos(th)+xCenter,radius1*Math.sin(th)+yCenter);
 		}
 	else
 		for(var th:Number=start;th>finish;th-=.02){
-			trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
+			//trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
 			graphics.lineTo(radius1*Math.cos(th)+xCenter,radius1*Math.sin(th)+yCenter);
 		}
 	graphics.lineTo(radius1*Math.cos(finish)+xCenter,radius1*Math.sin(finish)+yCenter)	
+}
+	
+public static function toCartesian(lat:Number, lon:Number, radius:Number=1.0):Vector3D{
+	//var latr:Number = lat/180*Math.PI;
+	//var lonr:Number = lon/180*Math.PI;
+	var out:Vector3D = new Vector3D();
+	out.x = radius*Math.cos(lat)*Math.sin(lon);
+	out.y = -radius*Math.sin(lat);
+	out.z = -radius*Math.cos(lat)*Math.cos(lon);
+	return out;
+}
+
+public static function toSpherical(v:Vector3D):Object{
+	var out:Object = {lat:0.0, lon:0.0};
+	var len:Number = v.length;
+	out.lat = -Math.asin(v.y/len);
+	out.lon = Math.atan2(v.x,-v.z);
+	return out;
 }
 
 public var testDat:Array = [

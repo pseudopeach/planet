@@ -3,7 +3,7 @@
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
 			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600"
 			   initialize="init()" xmlns:terraview="com.apptinic.terraview.*" >
-			   <!--	<terraview:Globe />-->
+			   <terraview:Globe />
 	
 <fx:Script>
 <![CDATA[
@@ -41,8 +41,6 @@ protected function init():void{
 	trace("did it work?");*/
 	//attr.player not set by inverse
 	
-	var t:TruncatedIcosahedron = new TruncatedIcosahedron();
-	t.init();
 }
 	
 public var testLocations:UberCollection = new UberCollection([
