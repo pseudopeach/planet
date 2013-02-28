@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Canvas xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		   xmlns:s="library://ns.adobe.com/flex/spark" 
-		   xmlns:mx="library://ns.adobe.com/flex/mx" width="600" height="600"
+		   xmlns:mx="library://ns.adobe.com/flex/mx" width="500" height="500"
 		   creationComplete="test()" >
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
@@ -12,8 +12,8 @@
 import mx.collections.ArrayCollection;
 
 public var radius:Number = 200;
-public var xCenter:Number = 300;
-public var yCenter:Number = 300;
+public var xCenter:Number = 220;
+public var yCenter:Number = 220;
 public var rMatrix:Matrix3D;
 
 public var polygons:ArrayCollection;
@@ -22,20 +22,21 @@ public var polygons:ArrayCollection;
 public function test():void{
 	rMatrix = new Matrix3D();
 	rMatrix.appendScale(radius,radius,radius);
-	rMatrix.appendRotation(30,new Vector3D(1,0,0));
+	rMatrix.appendRotation(-10,new Vector3D(0,1,0));
 	
 	for(var i:int;i<testDat.length;i++){
-		testDat[i].lat *= Math.PI/180 ;
-		testDat[i].lon *= Math.PI/180 ;
+		testDat[i].lat *= Math.PI/180 *2;
+		testDat[i].lat += .5;
+		testDat[i].lon *= Math.PI/180 *2;
 	}
 	var ss:SphereShape = new SphereShape();
 	ss.vertices = new Vector.<Vector3D>()
 	for(var i:int=0;i<testDat.length;i++){
 		var item:Object = testDat[i];
 		var v:Vector3D = new Vector3D;
-		v.x = Math.cos(item.lat)*Math.cos(item.lon);
-		v.y = Math.cos(item.lat)*Math.sin(item.lon);
-		v.z = Math.sin(item.lat);
+		v.x = Math.cos(item.lat)*Math.sin(item.lon);
+		v.y = -Math.sin(item.lat);
+		v.z = -Math.cos(item.lat)*Math.cos(item.lon);
 		ss.vertices.push(v);
 	}
 	ss.color = 0x9EE847;
@@ -125,18 +126,19 @@ protected function renderShape(shape:SphereShape):void{
 protected function edgeCurve(x1:Number,y1:Number,x2:Number,y2:Number):void{
 	var start:Number = Math.atan2(y1,x1);
 	var finish:Number = Math.atan2(y2,x2);
-	trace("***edge curve from "+start+" to "+finish);
+	var radius1:Number = radius+1.0;
+	trace("***edge curve from "+start*180/Math.PI+" to "+finish*180/Math.PI);
 	if(finish > start)
 		for(var th:Number=start;th<finish;th+=.02){
 			trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
-			graphics.lineTo(radius*Math.cos(th)+xCenter,radius*Math.sin(th)+yCenter);
+			graphics.lineTo(radius1*Math.cos(th)+xCenter,radius1*Math.sin(th)+yCenter);
 		}
 	else
 		for(var th:Number=start;th>finish;th-=.02){
 			trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
-			graphics.lineTo(radius*Math.cos(th)+xCenter,radius*Math.sin(th)+yCenter);
+			graphics.lineTo(radius1*Math.cos(th)+xCenter,radius1*Math.sin(th)+yCenter);
 		}
-	graphics.lineTo(radius*Math.cos(finish)+xCenter,radius*Math.sin(finish)+yCenter)	
+	graphics.lineTo(radius1*Math.cos(finish)+xCenter,radius1*Math.sin(finish)+yCenter)	
 }
 
 public var testDat:Array = [
