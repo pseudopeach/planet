@@ -14,10 +14,11 @@
 <![CDATA[
 	import flash.utils.getTimer;
 	import flash.utils.setTimeout;
-
+	
 public const CLICK_DISTANCE_LIMIT:Number = 10;
 public const LAT_DAMPING:Number = 10; //deg/s^2
 public const LON_DAMPING:Number = 10;
+	
 
 //public static const MAX_HIGHLIGHT:Number = .30;
 	
@@ -36,7 +37,7 @@ public function set latitude(input:Number):void{
 	rotationInvalid = true;
 	invalidateDisplayList();
 }
-protected var _longitude:Number = 11;
+protected var _longitude:Number = 0;
 public function get longitude():Number {return _latitude;}
 public function set longitude(input:Number):void{
 	_longitude = input;
@@ -48,9 +49,11 @@ public function set longitude(input:Number):void{
 protected var shadowMap:BitmapData;
 protected var shadowTransform:Matrix;
 protected var theRotation:Matrix3D = new Matrix3D();
+protected var theRotationInv:Matrix3D;
 protected var rotationInvalid:Boolean = true;
 	
 protected var radius:Number;	
+protected var radiusSq:Number;
 //protected var _latitudeVel:Number = 0;
 //protected var _longitudeVel:Number = 0;
 protected var angularVelocity:Point = new Point();
@@ -81,11 +84,14 @@ protected function createShadowMap(size:Number):void{
 	}
 	shadowMap = map;
 }
-
-protected function onClickOrTap(x:Number, y:Number, data:Object=null):void{
-	trace("clicked at: "+x+","+y);
-	invalidateDisplayList();
+protected function onHover(x:Number, y:Number, data:Object=null):void{
+	
 }
+	
+protected function onClickOrTap(x:Number, y:Number, data:Object=null):void{
+	
+}
+
 protected function onDragging(xStart:Number, yStart:Number, x:Number, y:Number):void{
 	//isCoasting = false;
 	convertMouseDelta(x-xStart,y-yStart);
@@ -94,7 +100,7 @@ protected function onDragging(xStart:Number, yStart:Number, x:Number, y:Number):
 protected function onDragEnded(xStart:Number, yStart:Number, dx:Number, dy:Number):void{
 	convertMouseDelta(dx,dy);
 	//isCoasting = true;
-	trace("velocity: "+angularVelocity.x+","+angularVelocity.y);
+	//trace("velocity: "+angularVelocity.x+","+angularVelocity.y);
 }
 	
 protected function convertMouseDelta(dx:Number,dy:Number):void{
@@ -140,11 +146,11 @@ protected function onMouseMove(event:MouseEvent):void{
 	if(_isDragging){
 		onDragging(dragOrigin.x,dragOrigin.y,event.localX,event.localY);
 	}else{
-		//hover code here ****
+		onHover(event.localX,event.localY,event);
 	}
 }
 
-private function onMouseWheel(event:MouseEvent):void{
+protected function onMouseWheel(event:MouseEvent):void{
 	trace("mouse wheel, delta: "+event.delta);
 }	
 
@@ -177,10 +183,16 @@ protected function doInertiaStep():void{
 protected function adjustRotation():void{
 	if(!rotationInvalid) return;
 	theRotation.identity();
-	radius = Math.min(width,height);
+	radius = Math.min(width,height)/2;
+	radiusSq = Math.pow(radius,2);
+	//trace("radius="+radius);
 	theRotation.appendScale(radius,radius,radius);
 	theRotation.appendRotation(_longitude,new Vector3D(0,1,0));
 	theRotation.appendRotation(_latitude,new Vector3D(1,0,0));
+	var temp:Number = 1/radiusSq;
+	theRotationInv = theRotation.clone();
+	theRotationInv.transpose();
+	theRotationInv.appendScale(temp,temp,temp);
 	rotationInvalid = false;
 }
 	
@@ -324,6 +336,17 @@ public static function toSpherical(v:Vector3D):Object{
 	out.lat = -Math.asin(v.y/len);
 	out.lon = Math.atan2(v.x,-v.z);
 	return out;
+}
+
+
+public function to3D(pixelX:Number,pixelY:Number):Vector3D{
+	var output:Vector3D = new Vector3D(pixelX-radius,pixelY-radius);
+	var d2len:Number = output.lengthSquared;
+	if(d2len > radiusSq) return null;
+	output.z = -Math.sqrt(radiusSq - d2len);
+	output = theRotationInv.deltaTransformVector(output);
+	//trace("pointer position: "+output.x+", "+output.y+", "+output.z);
+	return output;
 }
 
 ]]>

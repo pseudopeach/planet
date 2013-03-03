@@ -17,9 +17,8 @@ public function init():void{
 	curvedTiles = new Vector.<SphereShape>();
 	for(var i:int=0;i<faces.length;i++){
 		var tile:SphereShape = bendTile( faces[i] );
-		tile.borderColor = 0xd0d0d0;
-		tile.borderAlpha = 1;
-		tile.alpha = 0;
+		tile.center = faces[i].center;
+		tile.type = faces[i].type;
 		curvedTiles.push(tile);
 	}
 }
@@ -85,6 +84,7 @@ public function createFaces():void{
 	//post-processing
 	for(i=0;i<faces.length;i++){
 		f1 = faces[i];
+		f1.center.normalize();
 		if(!f1.center || f1.center.length==0) 
 			f1.center = SphereView.toCartesian(f1.lat*Math.PI/180, f1.lon*Math.PI/180);
 		if(f1.lat < 0)

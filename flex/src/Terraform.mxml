@@ -4,7 +4,7 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600"
 			   initialize="init()" xmlns:terraview="com.apptinic.terraview.*" 
 			   xmlns:util="com.apptinic.util.*" >
-			   <terraview:Globe width="200" height="200"/>
+			   <terraview:Globe width="500" height="500"/>
 	
 <fx:Script>
 <![CDATA[
