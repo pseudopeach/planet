@@ -1,4 +1,4 @@
-package com.apptinic.terraview{
+package com.apptinic.util{
 	import flash.geom.Vector3D;
 
 public class SphereShape{

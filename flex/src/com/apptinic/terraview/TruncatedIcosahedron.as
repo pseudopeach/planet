@@ -1,4 +1,7 @@
 package com.apptinic.terraview{
+	import com.apptinic.util.SphereShape;
+	import com.apptinic.util.SphereView;
+	
 	import flash.geom.Vector3D;
 
 public class TruncatedIcosahedron{
@@ -83,7 +86,7 @@ public function createFaces():void{
 	for(i=0;i<faces.length;i++){
 		f1 = faces[i];
 		if(!f1.center || f1.center.length==0) 
-			f1.center = Globe.toCartesian(f1.lat*Math.PI/180, f1.lon*Math.PI/180);
+			f1.center = SphereView.toCartesian(f1.lat*Math.PI/180, f1.lon*Math.PI/180);
 		if(f1.lat < 0)
 			f1.vertices.reverse();
 	}
@@ -93,9 +96,9 @@ public function createFaces():void{
 //creates a vertex on p1, which points toward the center of p2
 public function addPentVertex(p1:SphereShape, p2:SphereShape):void{
 	if(!p1.center || p1.center.length==0) 
-		p1.center = Globe.toCartesian(p1.lat*Math.PI/180, p1.lon*Math.PI/180);
+		p1.center = SphereView.toCartesian(p1.lat*Math.PI/180, p1.lon*Math.PI/180);
 	if(!p2.center || p2.center.length==0) 
-		p2.center = Globe.toCartesian(p2.lat*Math.PI/180, p2.lon*Math.PI/180);
+		p2.center = SphereView.toCartesian(p2.lat*Math.PI/180, p2.lon*Math.PI/180);
 	
 	var diff:Vector3D = p2.center.subtract(p1.center);
 	var newVert:Vector3D;

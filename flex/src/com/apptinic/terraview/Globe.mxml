@@ -1,180 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Canvas xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		   xmlns:s="library://ns.adobe.com/flex/spark" 
-		   xmlns:mx="library://ns.adobe.com/flex/mx" width="500" height="500"
-		   creationComplete="test()" >
-	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
-	</fx:Declarations>
+<util:SphereView xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx" 
+	xmlns:util="com.apptinic.util.*"
+	initialize="init()"
+>
 	
 <fx:Script>
 <![CDATA[
-import mx.collections.ArrayCollection;
-
-public var radius:Number = 200;
-public var xCenter:Number = 220;
-public var yCenter:Number = 220;
-public var rMatrix:Matrix3D;
-
+import com.apptinic.util.SphereShape;
+	
 public var net:TruncatedIcosahedron = new TruncatedIcosahedron();
-
-
-public function test():void{
-	rMatrix = new Matrix3D();
-	rMatrix.appendScale(radius,radius,radius);
-	rMatrix.appendRotation(-10,new Vector3D(0,1,0));
 	
-	/*for(var i:int;i<testDat.length;i++){
-		testDat[i].lat *= Math.PI/180 *2;
-		testDat[i].lat += .5;
-		testDat[i].lon *= Math.PI/180 *2;
-	}
-	var ss:SphereShape = new SphereShape();
-	ss.vertices = new Vector.<Vector3D>()
-	for(var i:int=0;i<testDat.length;i++){
-		var item:Object = testDat[i];
-		var v:Vector3D = new Vector3D;
-		v.x = Math.cos(item.lat)*Math.sin(item.lon);
-		v.y = -Math.sin(item.lat);
-		v.z = -Math.cos(item.lat)*Math.cos(item.lon);
-		ss.vertices.push(v);
-	}
-	ss.color = 0x9EE847;
-	
-	beginDraw();
-	renderShape(ss);*/
-	var start:Number = (new Date()).time;
-	beginDraw();
-	for(var i:int=0;i<net.curvedTiles.length;i++)
-		renderShape(net.curvedTiles[i]);
-	var span:Number = (new Date()).time - start;
-	trace("rendered in:"+span);
-}
-	
-protected function beginDraw():void{
-	graphics.beginFill(0x76A3FF);
-	graphics.drawCircle(xCenter,yCenter,radius);
-	graphics.endFill();
-}
-	
-protected function renderShape(shape:SphereShape):void{
-	var tvect:Vector3D;
-	var temp:Number;
-	var wasOnScreen:Boolean = false;
-	var transition:Point = new Point();
-	var transitionActive:Boolean = false;
-	var original:Point;
-	
-	graphics.beginFill(shape.color,shape.alpha);
-	for(var i:int=0;i<shape.vertices.length;i++){
-		tvect = rMatrix.deltaTransformVector(shape.vertices[i]);
-		if(tvect.z < 0){
-			//point is on screen
-			if(!wasOnScreen){
-				if(transitionActive){
-					//transition onto screen
-					//trace("***going off, close out");
-					temp = radius/Math.sqrt(tvect.x*tvect.x + tvect.y*tvect.y);
-					edgeCurve(transition.x,transition.y,temp*tvect.x,temp*tvect.y);
-					transitionActive = false;
-				}else{	
-					//starting out
-					//trace("***start new region");
-					transition.x = tvect.x;
-					transition.y = tvect.y;
-					graphics.moveTo(tvect.x+xCenter,tvect.y+yCenter);
-					if(i==0){
-						//trace("***first point");
-						original = new Point();
-						original.x = transition.x;
-						original.y = transition.y;
-					}else
-						transitionActive = true;
-				}
-				graphics.lineStyle(shape.borderThickness,shape.borderColor,shape.borderAlpha);
-				wasOnScreen = true;
-			}	
-			graphics.lineTo(tvect.x+xCenter,tvect.y+yCenter);
-			//trace("line to "+tvect.x+","+tvect.y);
-		}else{
-			//point is off screen
-			if(wasOnScreen){
-				//prev point was onscreen. transition
-				temp = radius/Math.sqrt(tvect.x*tvect.x + tvect.y*tvect.y);
-				if(transitionActive){
-					//transition from off screen
-					//trace("***transition off, close out. scale:" +temp );
-					edgeCurve(temp*tvect.x,temp*tvect.y,transition.x,transition.y);
-					transitionActive = false;
-				}else{
-					//go off screen for 
-					//trace("***transition off");
-					transition.x = temp*tvect.x;
-					transition.y = temp*tvect.y;
-					transitionActive = true;
-					graphics.lineTo(transition.x+xCenter,transition.y+yCenter);
-				}
-				wasOnScreen = false;
-			}
-		}
-	}//for loop
-	
-	//special case: curve back to start
-	if(transitionActive){
-		//trace("open transition at end");
-		if(original)
-			edgeCurve(transition.x,transition.y,original.x,original.y);
-		else
-			edgeCurve(tvect.x,tvect.y,transition.x,transition.y);
-	}
-	graphics.endFill();
+protected function init():void{
+	shapes = net.curvedTiles;
 }
 
-protected function edgeCurve(x1:Number,y1:Number,x2:Number,y2:Number):void{
-	graphics.lineStyle(0,0,0);
-	var start:Number = Math.atan2(y1,x1);
-	var finish:Number = Math.atan2(y2,x2);
-	var radius1:Number = radius+1.0;
-	//trace("***edge curve from "+start*180/Math.PI+" to "+finish*180/Math.PI);
-	if(finish > start)
-		for(var th:Number=start;th<finish;th+=.02){
-			//trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
-			graphics.lineTo(radius1*Math.cos(th)+xCenter,radius1*Math.sin(th)+yCenter);
-		}
-	else
-		for(var th:Number=start;th>finish;th-=.02){
-			//trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
-			graphics.lineTo(radius1*Math.cos(th)+xCenter,radius1*Math.sin(th)+yCenter);
-		}
-	graphics.lineTo(radius1*Math.cos(finish)+xCenter,radius1*Math.sin(finish)+yCenter)	
-}
-	
-public static function toCartesian(lat:Number, lon:Number, radius:Number=1.0):Vector3D{
-	//var latr:Number = lat/180*Math.PI;
-	//var lonr:Number = lon/180*Math.PI;
-	var out:Vector3D = new Vector3D();
-	out.x = radius*Math.cos(lat)*Math.sin(lon);
-	out.y = -radius*Math.sin(lat);
-	out.z = -radius*Math.cos(lat)*Math.cos(lon);
-	return out;
-}
 
-public static function toSpherical(v:Vector3D):Object{
-	var out:Object = {lat:0.0, lon:0.0};
-	var len:Number = v.length;
-	out.lat = -Math.asin(v.y/len);
-	out.lon = Math.atan2(v.x,-v.z);
-	return out;
-}
 
-public var testDat:Array = [
-	{ lat:-10.57 , lon:142.49 } ,{ lat:-14.12 , lon:143.8 } ,{ lat:-14.66 , lon:145.11 } ,{ lat:-18.7 , lon:146.2 } ,{ lat:-20.18 , lon:148.72 } ,{ lat:-23.51 , lon:151.02 } ,{ lat:-25.26 , lon:152.76 } ,{ lat:-28.02 , lon:153.64 } ,{ lat:-30.42 , lon:153.09 } ,{ lat:-32.5 , lon:152.33 } ,{ lat:-35.61 , lon:150.36 } ,{ lat:-37.52 , lon:149.92 } ,{ lat:-38.09 , lon:147.3 } ,{ lat:-38.65 , lon:143.58 } ,{ lat:-37.99 , lon:140.85 } ,{ lat:-36.95 , lon:139.64 } ,{ lat:-35.71 , lon:139.42 } ,{ lat:-34.45 , lon:138.11 } ,{ lat:-35.23 , lon:136.69 } ,{ lat:-33.09 , lon:137.57 } ,{ lat:-34.74 , lon:135.6 } ,{ lat:-33.19 , lon:134.39 } ,{ lat:-32.11 , lon:133.52 } ,{ lat:-31.52 , lon:131.11 } ,{ lat:-32.11 , lon:127.72 } ,{ lat:-32.11 , lon:125.97 } ,{ lat:-32.89 , lon:124.44 } ,{ lat:-33.77 , lon:123.57 } ,{ lat:-33.87 , lon:120.07 } ,{ lat:-34.94 , lon:117.23 } ,{ lat:-33.87 , lon:114.93 } ,{ lat:-32.99 , lon:115.48 } ,{ lat:-27 , lon:113.73 } ,{ lat:-25.98 , lon:114.06 } ,{ lat:-24.24 , lon:113.29 } ,{ lat:-21.95 , lon:113.84 } ,{ lat:-20.6 , lon:116.9 } ,{ lat:-19.44 , lon:120.84 } ,{ lat:-16.79 , lon:122.48 } ,{ lat:-16.26 , lon:124.12 } ,{ lat:-15.19 , lon:124.44 } ,{ lat:-13.69 , lon:129.96 } ,{ lat:-14.77 , lon:128.16 } ,{ lat:-14.66 , lon:129.36 } ,{ lat:-12.73 , lon:130.24 } ,{ lat:-11.54 , lon:132.64 } ,{ lat:-12.08 , lon:136.91 } ,{ lat:-14.66 , lon:135.49 } ,{ lat:-17.54 , lon:139.97 } ,{ lat:-16.58 , lon:141.06 } ,{ lat:-14.23 , lon:141.5 } ,{ lat:-11.86 , lon:141.94 } ,
-	
-	
-];
-	
-	
-	
 ]]>
 </fx:Script>
-</mx:Canvas>
+</util:SphereView>

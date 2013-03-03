@@ -2,8 +2,9 @@
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
 			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600"
-			   initialize="init()" xmlns:terraview="com.apptinic.terraview.*" >
-			   <terraview:Globe />
+			   initialize="init()" xmlns:terraview="com.apptinic.terraview.*" 
+			   xmlns:util="com.apptinic.util.*" >
+			   <terraview:Globe width="200" height="200"/>
 	
 <fx:Script>
 <![CDATA[

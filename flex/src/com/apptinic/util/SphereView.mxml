@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:UIComponent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	mouseDown="onMouseDown(event)"
+	mouseUp="onMouseUp(event)"
+	mouseMove="onMouseMove(event)"
+	mouseOut="onMouseOut(event)"
+	mouseWheel="onMouseWheel(event)"
+	
+>	
+	
+<fx:Script>
+<![CDATA[
+	import flash.utils.getTimer;
+	import flash.utils.setTimeout;
+
+public const CLICK_DISTANCE_LIMIT:Number = 10;
+public const LAT_DAMPING:Number = 10; //deg/s^2
+public const LON_DAMPING:Number = 10;
+
+//public static const MAX_HIGHLIGHT:Number = .30;
+	
+public var shapes:Vector.<SphereShape>;
+public var baseColor:uint = 0x76A3FF;
+public var maxShadowAlpha:Number = .08;
+public var lightDir:Vector3D = new Vector3D(-2,-3,5);
+	
+protected var _latitude:Number = 0;
+public function get latitude():Number {return _latitude;}
+public function set latitude(input:Number):void{
+	if(input > 90) input = 90;
+	if(input < -90) input = -90;
+	_latitude = input;
+	//trace("latitude" + _latitude);
+	rotationInvalid = true;
+	invalidateDisplayList();
+}
+protected var _longitude:Number = 11;
+public function get longitude():Number {return _latitude;}
+public function set longitude(input:Number):void{
+	_longitude = input;
+	//trace("longitude" + _longitude);
+	rotationInvalid = true;
+	invalidateDisplayList();
+}
+
+protected var shadowMap:BitmapData;
+protected var shadowTransform:Matrix;
+protected var theRotation:Matrix3D = new Matrix3D();
+protected var rotationInvalid:Boolean = true;
+	
+protected var radius:Number;	
+//protected var _latitudeVel:Number = 0;
+//protected var _longitudeVel:Number = 0;
+protected var angularVelocity:Point = new Point();
+protected var isCoasting:Boolean = false;
+protected var lastRenderAt:int = -1;
+	
+protected function createShadowMap(size:Number):void{
+	lightDir.normalize();
+	var map:BitmapData = new BitmapData(size,size,true,0x00ff00ff);
+	var rad:Number = map.width/2;
+	for(var i:int=0;i<map.height;i++){
+		for(var j:int=0;j<map.width;j++){
+			var x:Number = 2*i/map.width - 1;
+			var y:Number = 2*j/map.width - 1;
+			if(Math.pow(x,2)+Math.pow(y,2) > 1) continue;
+				
+			var norm:Vector3D = new Vector3D(x,y,Math.sqrt(1-Math.pow(x,2)-Math.pow(y,2)));
+			var percent:Number = lightDir.dotProduct(norm);
+			//trace("percent:"+uint(percent*0xffffff).toString(16));
+			if(percent > 0)
+				map.setPixel32(i,j,uint((1-percent)*maxShadowAlpha*255)<<24 );
+				//map.setPixel32(i,j,uint(percent*maxShadowAlpha));
+			else
+				map.setPixel32(i,j,uint(maxShadowAlpha*255)<<24);
+			//map.setPixel32(i,j,0xffffff<<8|uint(percent*MAX_HIGHLIGHT));
+			
+		}
+	}
+	shadowMap = map;
+}
+
+protected function onClickOrTap(x:Number, y:Number, data:Object=null):void{
+	trace("clicked at: "+x+","+y);
+	invalidateDisplayList();
+}
+protected function onDragging(xStart:Number, yStart:Number, x:Number, y:Number):void{
+	//isCoasting = false;
+	convertMouseDelta(x-xStart,y-yStart);
+	
+}
+protected function onDragEnded(xStart:Number, yStart:Number, dx:Number, dy:Number):void{
+	convertMouseDelta(dx,dy);
+	//isCoasting = true;
+	trace("velocity: "+angularVelocity.x+","+angularVelocity.y);
+}
+	
+protected function convertMouseDelta(dx:Number,dy:Number):void{
+	latitude = dragOriginLat + 90*dy/radius;
+	longitude = dragOriginLon - 90*dx/radius;
+}
+
+
+protected var dragOrigin:Point;
+protected var _isDragging:Boolean = false;
+protected var tempPoint:Point = new Point();
+protected var dragOriginLat:Number;
+protected var dragOriginLon:Number;
+	
+protected function onMouseDown(event:MouseEvent):void{
+	dragOrigin = new Point(event.localX,event.localY);
+	dragOriginLat = _latitude;
+	dragOriginLon = _longitude;
+}
+
+protected function onMouseUp(event:MouseEvent):void{
+	if(_isDragging){
+		onDragEnded(dragOrigin.x, dragOrigin.y, event.localX-dragOrigin.x,event.localY-dragOrigin.y);
+	}else if(dragOrigin)
+		onClickOrTap(dragOrigin.x,dragOrigin.y,event);
+	_isDragging = false;
+	dragOrigin = null;
+}
+protected function onMouseOut(event:MouseEvent):void{
+	if(_isDragging){
+		onDragEnded(dragOrigin.x, dragOrigin.y, event.localX-dragOrigin.x,event.localY-dragOrigin.y);
+	}
+	_isDragging = false;
+	dragOrigin = null;
+}
+protected function onMouseMove(event:MouseEvent):void{
+	if(event.buttonDown && !_isDragging && dragOrigin){
+		tempPoint.x = event.localX;
+		tempPoint.y = event.localY;
+		if(Point.distance(dragOrigin,tempPoint) > CLICK_DISTANCE_LIMIT)
+			_isDragging = true;
+	} 
+	if(_isDragging){
+		onDragging(dragOrigin.x,dragOrigin.y,event.localX,event.localY);
+	}else{
+		//hover code here ****
+	}
+}
+
+private function onMouseWheel(event:MouseEvent):void{
+	trace("mouse wheel, delta: "+event.delta);
+}	
+
+protected function doInertiaStep():void{
+	if(lastRenderAt < 0){
+		//trace("first frame. Not inerting");
+		return;
+	}
+	var time:Number = (getTimer() - lastRenderAt)/1000;
+	var d:Number = LAT_DAMPING*time;
+	if(Math.abs(angularVelocity.y)<d)
+		angularVelocity.y = 0;
+	else
+		angularVelocity.y += d*(angularVelocity.y>0?-1:1);
+	
+	d = LON_DAMPING*time
+	if(Math.abs(angularVelocity.x)<d)
+		angularVelocity.x = 0;
+	else
+		angularVelocity.x += d*(angularVelocity.x>0?-1:1);
+	if(angularVelocity.length > .0001){
+		latitude = _latitude + angularVelocity.y*time;
+		longitude = _longitude + angularVelocity.x*time;
+	}else
+		isCoasting = false;
+	//trace("intertia step:"+d);
+	
+}
+	
+protected function adjustRotation():void{
+	if(!rotationInvalid) return;
+	theRotation.identity();
+	radius = Math.min(width,height);
+	theRotation.appendScale(radius,radius,radius);
+	theRotation.appendRotation(_longitude,new Vector3D(0,1,0));
+	theRotation.appendRotation(_latitude,new Vector3D(1,0,0));
+	rotationInvalid = false;
+}
+	
+// =================== drawing =======================================
+	
+override protected function updateDisplayList(unscaledWidth:Number,unscaledHeight:Number):void{
+	super.updateDisplayList(unscaledWidth,unscaledHeight);
+	//radius = Math.min(unscaledWidth,unscaledHeight)/2;
+	//doInertiaStep();
+	adjustRotation();
+	if(!shadowMap)
+		createShadowMap(300)
+	if(!shadowTransform){
+		shadowTransform = new Matrix();
+		shadowTransform.scale(2*radius/shadowMap.width,2*radius/shadowMap.width);
+	} 
+	graphics.clear();
+	graphics.beginFill(baseColor);
+	graphics.drawCircle(radius,radius,radius);
+	graphics.endFill();
+	
+	for(var i:int=0;i<shapes.length;i++)
+		renderShape(shapes[i]);
+	
+	graphics.beginBitmapFill(shadowMap,shadowTransform,false,true);
+	graphics.drawCircle(radius,radius,radius);
+	graphics.endFill();
+	
+	lastRenderAt = getTimer();
+	//setTimeout(invalidateDisplayList,2000);
+	if(isCoasting){setTimeout(invalidateDisplayList,7);}
+}
+	
+protected function renderShape(shape:SphereShape):void{
+	var tvect:Vector3D;
+	var temp:Number;
+	var wasOnScreen:Boolean = false;
+	var transition:Point = new Point();
+	var transitionActive:Boolean = false;
+	var original:Point;
+	graphics.beginFill(shape.color,shape.alpha);
+	for(var i:int=0;i<shape.vertices.length;i++){
+		tvect = theRotation.deltaTransformVector(shape.vertices[i]);
+		//trace("vect:"+tvect.x+","+tvect.y+","+tvect.z);
+		if(tvect.z < 0){
+			//point is on screen
+			if(!wasOnScreen){
+				if(transitionActive){
+					//transition onto screen
+					//trace("***going off, close out");
+					temp = radius/Math.sqrt(tvect.x*tvect.x + tvect.y*tvect.y);
+					edgeCurve(transition.x,transition.y,temp*tvect.x,temp*tvect.y);
+					transitionActive = false;
+				}else{	
+					//starting out
+					//trace("***start new region");
+					transition.x = tvect.x;
+					transition.y = tvect.y;
+					graphics.moveTo(tvect.x+radius,tvect.y+radius);
+					//trace("move to:"+(tvect.x+radius)+","+(tvect.y+radius));
+					if(i==0){
+						//trace("***first point");
+						original = new Point();
+						original.x = transition.x;
+						original.y = transition.y;
+					}else
+						transitionActive = true;
+				}
+				graphics.lineStyle(shape.borderThickness,shape.borderColor,shape.borderAlpha);
+				wasOnScreen = true;
+			}	
+			graphics.lineTo(tvect.x+radius,tvect.y+radius);
+			//trace("line to "+tvect.x+","+tvect.y);
+		}else{
+			//point is off screen
+			if(wasOnScreen){
+				//prev point was onscreen. transition
+				temp = radius/Math.sqrt(tvect.x*tvect.x + tvect.y*tvect.y);
+				if(transitionActive){
+					//transition from off screen
+					//trace("***transition off, close out. scale:" +temp );
+					edgeCurve(temp*tvect.x,temp*tvect.y,transition.x,transition.y);
+					transitionActive = false;
+				}else{
+					//go off screen for 
+					//trace("***transition off");
+					transition.x = temp*tvect.x;
+					transition.y = temp*tvect.y;
+					transitionActive = true;
+					graphics.lineTo(transition.x+radius,transition.y+radius);
+				}
+				wasOnScreen = false;
+			}
+		}
+	}//for loop
+	
+	//special case: curve back to start
+	if(transitionActive){
+		//trace("open transition at end");
+		if(original)
+			edgeCurve(transition.x,transition.y,original.x,original.y);
+		else
+			edgeCurve(tvect.x,tvect.y,transition.x,transition.y);
+	}
+	graphics.endFill();
+}
+
+protected function edgeCurve(x1:Number,y1:Number,x2:Number,y2:Number):void{
+	graphics.lineStyle(0,0,0);
+	var start:Number = Math.atan2(y1,x1);
+	var finish:Number = Math.atan2(y2,x2);
+	var radius1:Number = radius+1.0;
+	var th:Number
+	//trace("***edge curve from "+start*180/Math.PI+" to "+finish*180/Math.PI);
+	if(finish > start)
+		for(th=start;th<finish;th+=.02){
+			//trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
+			graphics.lineTo(radius1*Math.cos(th)+radius,radius1*Math.sin(th)+radius);
+		}
+	else
+		for(th=start;th>finish;th-=.02){
+			//trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
+			graphics.lineTo(radius1*Math.cos(th)+radius,radius1*Math.sin(th)+radius);
+		}
+	graphics.lineTo(radius1*Math.cos(finish)+radius,radius1*Math.sin(finish)+radius)	
+}
+	
+public static function toCartesian(lat:Number, lon:Number, radius:Number=1.0):Vector3D{
+	//var latr:Number = lat/180*Math.PI;
+	//var lonr:Number = lon/180*Math.PI;
+	var out:Vector3D = new Vector3D();
+	out.x = radius*Math.cos(lat)*Math.sin(lon);
+	out.y = -radius*Math.sin(lat);
+	out.z = -radius*Math.cos(lat)*Math.cos(lon);
+	return out;
+}
+
+public static function toSpherical(v:Vector3D):Object{
+	var out:Object = {lat:0.0, lon:0.0};
+	var len:Number = v.length;
+	out.lat = -Math.asin(v.y/len);
+	out.lon = Math.atan2(v.x,-v.z);
+	return out;
+}
+
+]]>
+</fx:Script>
+</mx:UIComponent>
+
