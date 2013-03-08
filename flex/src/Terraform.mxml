@@ -13,6 +13,7 @@
 	import com.apptinic.terraschema.Player;
 	import com.apptinic.terraschema.PlayerAttrUpdate;
 	import com.apptinic.terraview.ActLaunch;
+	import com.apptinic.terraview.ContinentBuilder;
 	import com.apptinic.terraview.TruncatedIcosahedron;
 	import com.apptinic.turnbased.foundation.GameContext;
 	import com.apptinic.turnbased.foundation.GameKernel;
@@ -55,6 +56,8 @@ public var testLocations:UberCollection = new UberCollection([
 	{id:8, i:2, j:1, isLand:true},
 	{id:9, i:2, j:2, isLand:true},
 ]);
+	
+public var cont:ContinentBuilder = new ContinentBuilder()
 	
 public var testPlayers:UberCollection = new UberCollection([
 	{id:1, locationId:3, name:"fish"},

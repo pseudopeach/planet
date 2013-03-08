@@ -14,6 +14,7 @@ public var lon:Number;
 public var center:Vector3D;
 public var type:String;
 public var vertices:Vector.<Vector3D>;
+public var adjacentShapes:Vector.<SphereShape>;
 	
 	
 public function SphereShape(input:Object=null){

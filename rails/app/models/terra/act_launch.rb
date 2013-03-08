@@ -1,7 +1,7 @@
 class Terra::ActLaunch < Game::Action 
   
   xdata_attr :location
-  xdata_attr :created_player
+  xdata_attr :created_player, :class_name=>"Game::Player"
  
 def self.from_prototype(player, prototype_id, location)
   self.player = player

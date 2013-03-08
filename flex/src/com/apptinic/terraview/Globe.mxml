@@ -14,7 +14,7 @@ public const BORDER_ALPHA:Number = .05;
 public const BORDER_THICKNESS:int = 2;
 public const H_BORDER_COLOR:uint = 0xffffff;	
 public const H_BORDER_ALPHA:Number = .9;
-public const PENT_RATIO:Number = 1.18299818148;
+
 public var net:TruncatedIcosahedron = new TruncatedIcosahedron();
 	
 protected function init():void{
@@ -26,17 +26,17 @@ protected function init():void{
 		net.curvedTiles[i].color = BORDER_COLOR;
 		shapes.push(net.curvedTiles[i]);
 	}
-	//invalidateDisplayList();
-	
+	var cBuilder:ContinentBuilder = new ContinentBuilder();
 }
-	
 
+
+	
 protected var hoveredLocation:SphereShape;
 override protected function onHover(x:Number, y:Number, data:Object=null):void{
 	var newLoc:SphereShape;
 	var pointer3D:Vector3D = to3D(x,y);
 	if(pointer3D)
-		newLoc = findContainingLocation(pointer3D);
+		newLoc = net.findContainingLocation(pointer3D);
 	if(newLoc != hoveredLocation){
 		if(newLoc){
 			newLoc.borderColor = H_BORDER_COLOR;
@@ -51,24 +51,7 @@ override protected function onHover(x:Number, y:Number, data:Object=null):void{
 	}
 }
 	
-protected function findContainingLocation(surfacePoint:Vector3D):SphereShape{
-	var loc:SphereShape;
-	var tVect:Vector3D;
-	var shortest:Number = 200000;
-	var tempDist:Number;
-	//trace("pointer position: "+pointer3D.x+", "+pointer3D.y+", "+pointer3D.z);
-	for(var i:int=0;i<net.curvedTiles.length;i++){
-		//trace("hover near center: "+net.curvedTiles[i].center);
-		tVect = surfacePoint.subtract(net.curvedTiles[i].center);
-		tempDist = tVect.length;
-		if(net.curvedTiles[i].type == "pent") tempDist *= PENT_RATIO;
-		if(tempDist < shortest){
-			shortest = tempDist;
-			loc = net.curvedTiles[i];
-		}
-	}
-	return loc;
-}
+
 	
 override protected function onClickOrTap(x:Number, y:Number, data:Object=null):void{
 	trace("click: "+x+","+y);

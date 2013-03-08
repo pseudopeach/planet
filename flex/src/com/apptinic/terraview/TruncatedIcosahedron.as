@@ -7,20 +7,34 @@ package com.apptinic.terraview{
 public class TruncatedIcosahedron{
 	
 public const MAGIC_LATS:Array = [90.0, 52.6226318593503, 26.565051177078, 10.8123169635717];
-public const POINTS_PER_ARC:int = 10;
+public const POINTS_PER_ARC_DEFAULT:int = 5;
+public const PENT_RATIO:Number = 1.18299818148;
+
 public var faces:Vector.<SphereShape>;
 public var curvedTiles:Vector.<SphereShape>;
 
 public function init():void{
 	createFaces();
 	//validateFaces();
+	var tile:SphereShape;
 	curvedTiles = new Vector.<SphereShape>();
 	for(var i:int=0;i<faces.length;i++){
-		var tile:SphereShape = bendTile( faces[i] );
+		tile = bendTile( faces[i] );
 		tile.center = faces[i].center;
 		tile.type = faces[i].type;
+		tile.lat = faces[i].lat;
+		tile.lon = faces[i].lon;
+		
 		curvedTiles.push(tile);
 	}
+	/*for(i=0;i<curvedTiles.length;i++){
+		tile = curvedTiles[i];
+		tile.adjacentShapes = new Vector.<SphereShape>();
+		for(var j:int=0;j<faces[i].adjacentShapes.length;j++){
+			var k:int = faces.indexOf(faces[i].adjacentShapes[i]);
+			tile.adjacentShapes.push(curvedTiles[k]);
+		}
+	}*/
 }
 
 public function createFaces():void{
@@ -31,13 +45,16 @@ public function createFaces():void{
 	for(i=1;i<MAGIC_LATS.length;i++){
 		for(j=0;j<10;j++){
 			faces.push( f1=new SphereShape({lat:MAGIC_LATS[i], lon:36.0*j, 
-				type:"hex", vertices: new Vector.<Vector3D>(), center:new Vector3D()}) );
+				type:"hex", vertices: new Vector.<Vector3D>(), center:new Vector3D(),
+				adjacentShapes: new Vector.<SphereShape>()}) );
 			if(j%2==0) f1.lat *= -1;
 			if(i==2){ f1.type = "pent";f1.lat *= -1;}
 		}
 	}
-	faces.push(new SphereShape({lat:90.0, lon:0.0, type:"pent", vertices: new Vector.<Vector3D>()}) );
-	faces.push(new SphereShape({lat:-90.0, lon:0.0, type:"pent", vertices: new Vector.<Vector3D>()}) );
+	faces.push(new SphereShape({lat:90.0, lon:0.0, type:"pent", 
+		vertices: new Vector.<Vector3D>(), adjacentShapes: new Vector.<SphereShape>()}) );
+	faces.push(new SphereShape({lat:-90.0, lon:0.0, type:"pent", 
+		vertices: new Vector.<Vector3D>(), adjacentShapes: new Vector.<SphereShape>()}) );
 	
 	//pents 10-19, 30,31
 	//arctic=30
@@ -58,14 +75,18 @@ public function createFaces():void{
 		f1 = faces[i];
 		f1.vertices.push(faces[(i+9)%10+10].vertices[4]);
 		f1.vertices.push(faces[(i+9)%10+10].vertices[3]);
+		makeAdjacent(f1,faces[(i+9)%10+10]);
 		f1.vertices.push(faces[(i+11)%10+10].vertices[0]);
 		f1.vertices.push(faces[(i+11)%10+10].vertices[4]);
+		makeAdjacent(f1,faces[(i+11)%10+10]);
 		if(i%2==1){
 			f1.vertices.push(faces[30].vertices[int(i/2+1)%5]);
 			f1.vertices.push(faces[30].vertices[int(i/2)%5]);
+			makeAdjacent(f1,faces[30]);
 		}else{
 			f1.vertices.push(faces[31].vertices[int(i/2)%5]);
 			f1.vertices.push(faces[31].vertices[int(i/2+4)%5]);
+			makeAdjacent(f1,faces[31]);
 		}
 	}
 	
@@ -75,10 +96,13 @@ public function createFaces():void{
 		f1 = faces[i];
 		f1.vertices.push(faces[(i-9)%10+10].vertices[1]);
 		f1.vertices.push(faces[(i-9)%10+10].vertices[0]);
+		makeAdjacent(f1,faces[(i-9)%10+10]);
 		f1.vertices.push(faces[(i-11)%10+10].vertices[3]);
 		f1.vertices.push(faces[(i-11)%10+10].vertices[2]);
+		makeAdjacent(f1,faces[(i-11)%10+10]);
 		f1.vertices.push(faces[(i-10)%10+10].vertices[1]);
 		f1.vertices.push(faces[(i-10)%10+10].vertices[2]);
+		makeAdjacent(f1,faces[(i-10)%10+10]);
 	}
 	
 	//post-processing
@@ -107,11 +131,17 @@ public function addPentVertex(p1:SphereShape, p2:SphereShape):void{
 	if(Math.abs(p2.lat)>85){
 		p2.vertices.push((newVert=new Vector3D(p2.center.x-diff.x/3,p2.center.y-diff.y/3,p2.center.z-diff.z/3)));
 		newVert.normalize();
-	}
-	
+	}	
 }
 
-public function bendTile(input:SphereShape):SphereShape{
+public function makeAdjacent(p1:SphereShape,p2:SphereShape):void{
+	if(p1.adjacentShapes.indexOf(p2)!=-1)
+		p1.adjacentShapes.push(p2);
+	if(!p2.adjacentShapes.indexOf(p1)!=-1)
+		p1.adjacentShapes.push(p1);
+}
+
+public function bendTile(input:SphereShape,ppa:int=POINTS_PER_ARC_DEFAULT):SphereShape{
 	var output:SphereShape = new SphereShape(input);
 	output.vertices = new Vector.<Vector3D>();
 	
@@ -120,9 +150,9 @@ public function bendTile(input:SphereShape):SphereShape{
 		var axis:Vector3D = input.vertices[i].crossProduct(nextVert);
 		var forepoint:Vector3D = axis.crossProduct(input.vertices[i]);
 		forepoint.normalize();
-		var step:Number = Vector3D.angleBetween(input.vertices[i],nextVert) / POINTS_PER_ARC;
+		var step:Number = Vector3D.angleBetween(input.vertices[i],nextVert) / ppa;
 		
-		for(var j:int=0;j<POINTS_PER_ARC;j++){
+		for(var j:int=0;j<ppa;j++){
 			var s:Number = Math.sin(j*step);
 			var c:Number = Math.cos(j*step);
 			output.vertices.push( new Vector3D(
@@ -133,6 +163,25 @@ public function bendTile(input:SphereShape):SphereShape{
 		}
 	}
 	return output;
+}
+
+public function findContainingLocation(surfacePoint:Vector3D,searchBaseFaces:Boolean=false):SphereShape{
+	var loc:SphereShape;
+	var tVect:Vector3D;
+	var shortest:Number = 200000;
+	var tempDist:Number;
+	//trace("pointer position: "+pointer3D.x+", "+pointer3D.y+", "+pointer3D.z);
+	for(var i:int=0;i<curvedTiles.length;i++){
+		//trace("hover near center: "+net.curvedTiles[i].center);
+		tVect = surfacePoint.subtract(curvedTiles[i].center);
+		tempDist = tVect.length;
+		if(curvedTiles[i].type == "pent") tempDist *= PENT_RATIO;
+		if(tempDist < shortest){
+			shortest = tempDist;
+			loc = searchBaseFaces ? faces[i] : curvedTiles[i];
+		}
+	}
+	return loc;
 }
 
 

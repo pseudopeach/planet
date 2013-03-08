@@ -304,19 +304,16 @@ protected function edgeCurve(x1:Number,y1:Number,x2:Number,y2:Number):void{
 	graphics.lineStyle(0,0,0);
 	var start:Number = Math.atan2(y1,x1);
 	var finish:Number = Math.atan2(y2,x2);
-	var radius1:Number = radius+1.0;
+	var radius1:Number = radius;
 	var th:Number
 	//trace("***edge curve from "+start*180/Math.PI+" to "+finish*180/Math.PI);
 	if(finish > start)
-		for(th=start;th<finish;th+=.02){
-			//trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
-			graphics.lineTo(radius1*Math.cos(th)+radius,radius1*Math.sin(th)+radius);
-		}
-	else
-		for(th=start;th>finish;th-=.02){
-			//trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
-			graphics.lineTo(radius1*Math.cos(th)+radius,radius1*Math.sin(th)+radius);
-		}
+		finish -= 2*Math.PI;
+	for(th=start;th>finish;th-=.1){
+		//trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
+		graphics.lineTo(radius1*Math.cos(th)+radius,radius1*Math.sin(th)+radius);
+	}
+	
 	graphics.lineTo(radius1*Math.cos(finish)+radius,radius1*Math.sin(finish)+radius)	
 }
 	

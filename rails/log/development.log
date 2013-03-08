@@ -481,3 +481,5 @@ Mysql2::Error: Unknown column 'game_actions.state_id' in 'where clause': SELECT 
   [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
 Migrating to CreateDatabase (1)
   [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Mysql2::Error: Column 'name' cannot be null: INSERT INTO `game_players` (`data`, `engineering_cost`, `launch_cost`, `location_id`, `name`, `next_player_id`, `owner_player_id`, `prototype_player_id`, `state_id`, `type`, `user_id`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 'Game::Player', NULL)
+Mysql2::Error: Duplicate entry '10-3' for key 'PRIMARY': INSERT INTO `actions_states_stacked` (`state_id`, `action_id`) VALUES (3, 10)
