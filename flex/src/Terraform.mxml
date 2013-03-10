@@ -4,7 +4,8 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600"
 			   initialize="init()" xmlns:terraview="com.apptinic.terraview.*" 
 			   xmlns:util="com.apptinic.util.*" >
-			   <terraview:Globe width="500" height="500"/>
+			   <terraview:Globe id="globe" width="500" height="500"/>
+	<s:Button label="regen" click="globe.init()" />
 	
 <fx:Script>
 <![CDATA[
@@ -57,7 +58,7 @@ public var testLocations:UberCollection = new UberCollection([
 	{id:9, i:2, j:2, isLand:true},
 ]);
 	
-public var cont:ContinentBuilder = new ContinentBuilder()
+//public var cont:ContinentBuilder = new ContinentBuilder()
 	
 public var testPlayers:UberCollection = new UberCollection([
 	{id:1, locationId:3, name:"fish"},

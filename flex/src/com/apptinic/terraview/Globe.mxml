@@ -8,7 +8,8 @@
 	
 <fx:Script>
 <![CDATA[
-import com.apptinic.util.SphereShape;
+	import com.apptinic.util.SphereShape;
+	
 public const BORDER_COLOR:uint = 0x666666;	
 public const BORDER_ALPHA:Number = .05;
 public const BORDER_THICKNESS:int = 2;
@@ -17,23 +18,34 @@ public const H_BORDER_ALPHA:Number = .9;
 
 public var net:TruncatedIcosahedron = new TruncatedIcosahedron();
 	
-protected function init():void{
+public function init():void{
 	shapes = new Vector.<SphereShape>();
-	for(var i:int=0;i<net.curvedTiles.length;i++){
+	/*for(var i:int=0;i<net.curvedTiles.length;i++){
 		net.curvedTiles[i].alpha=0;
 		net.curvedTiles[i].borderThickness = BORDER_THICKNESS;
 		net.curvedTiles[i].borderAlpha = BORDER_ALPHA;
 		net.curvedTiles[i].color = BORDER_COLOR;
 		shapes.push(net.curvedTiles[i]);
+	}*/
+	var cb:ContinentBuilder = new ContinentBuilder();
+	cb.tempsv = this;
+	cb.generate();
+	cb.hedron.createCurvedTiles();
+	for(var i:int=0;i<cb.hedron.curvedTiles.length;i++)
+		shapes.push(cb.hedron.curvedTiles[i]);
+	for(var h:int=0;h<cb.continentOutlines.length;h++){
+		var temp:SphereShape = new SphereShape({alpha:.1, borderColor:0xff0000, borderAlpha:1});
+		temp.vertices = cb.continentOutlines[h];
+		shapes.push(temp);
 	}
-	var cBuilder:ContinentBuilder = new ContinentBuilder();
+	invalidateDisplayList();
 }
 
 
 	
 protected var hoveredLocation:SphereShape;
 override protected function onHover(x:Number, y:Number, data:Object=null):void{
-	var newLoc:SphereShape;
+	/*var newLoc:SphereShape;
 	var pointer3D:Vector3D = to3D(x,y);
 	if(pointer3D)
 		newLoc = net.findContainingLocation(pointer3D);
@@ -48,10 +60,8 @@ override protected function onHover(x:Number, y:Number, data:Object=null):void{
 		}
 		hoveredLocation = newLoc;
 		invalidateDisplayList();
-	}
+	}*/
 }
-	
-
 	
 override protected function onClickOrTap(x:Number, y:Number, data:Object=null):void{
 	trace("click: "+x+","+y);

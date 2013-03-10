@@ -16,17 +16,8 @@ public var curvedTiles:Vector.<SphereShape>;
 public function init():void{
 	createFaces();
 	//validateFaces();
-	var tile:SphereShape;
-	curvedTiles = new Vector.<SphereShape>();
-	for(var i:int=0;i<faces.length;i++){
-		tile = bendTile( faces[i] );
-		tile.center = faces[i].center;
-		tile.type = faces[i].type;
-		tile.lat = faces[i].lat;
-		tile.lon = faces[i].lon;
-		
-		curvedTiles.push(tile);
-	}
+	createCurvedTiles()
+	
 	/*for(i=0;i<curvedTiles.length;i++){
 		tile = curvedTiles[i];
 		tile.adjacentShapes = new Vector.<SphereShape>();
@@ -35,6 +26,22 @@ public function init():void{
 			tile.adjacentShapes.push(curvedTiles[k]);
 		}
 	}*/
+}
+
+public function createCurvedTiles():void{
+	curvedTiles = new Vector.<SphereShape>();
+	var tile:SphereShape;
+	for(var i:int=0;i<faces.length;i++){
+		tile = bendTile( faces[i] );
+		tile.center = faces[i].center;
+		tile.type = faces[i].type;
+		tile.lat = faces[i].lat;
+		tile.lon = faces[i].lon;
+		tile.color = faces[i].color;
+		tile.alpha = faces[i].alpha;
+		
+		curvedTiles.push(tile);
+	}
 }
 
 public function createFaces():void{

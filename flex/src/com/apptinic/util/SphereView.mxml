@@ -221,6 +221,16 @@ override protected function updateDisplayList(unscaledWidth:Number,unscaledHeigh
 	graphics.drawCircle(radius,radius,radius);
 	graphics.endFill();
 	
+	/*for(var x:int=0;x<assydots.length;x++){
+		var color:uint = (30*assydots[x].index)<<16|(255-30*assydots[x].index);
+		var loc:Vector3D = theRotation.deltaTransformVector(assydots[x].pos);
+		if(loc.z < 0){
+			graphics.beginFill(color);
+			graphics.drawCircle(loc.x+radius,loc.y+radius,10);
+			graphics.endFill();
+		}
+	}*/
+	
 	lastRenderAt = getTimer();
 	//setTimeout(invalidateDisplayList,2000);
 	if(isCoasting){setTimeout(invalidateDisplayList,7);}
@@ -345,6 +355,11 @@ public function to3D(pixelX:Number,pixelY:Number):Vector3D{
 	//trace("pointer position: "+output.x+", "+output.y+", "+output.z);
 	return output;
 }
+	
+	/*protected var assydots:Array = [];
+	public function drawDot(pos:Vector3D, index:int):void{
+		assydots.push({pos:pos, index:index});
+	}*/
 
 ]]>
 </fx:Script>
