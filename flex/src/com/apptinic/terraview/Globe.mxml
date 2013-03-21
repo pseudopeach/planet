@@ -16,28 +16,31 @@ public const BORDER_THICKNESS:int = 2;
 public const H_BORDER_COLOR:uint = 0xffffff;	
 public const H_BORDER_ALPHA:Number = .9;
 
-public var net:TruncatedIcosahedron = new TruncatedIcosahedron();
+protected var net:Vector.<SphereShape>;
+protected var surfaceFeatures:Vector.<SphereShape>;
+
 	
 public function init():void{
-	shapes = new Vector.<SphereShape>();
-	/*for(var i:int=0;i<net.curvedTiles.length;i++){
-		net.curvedTiles[i].alpha=0;
-		net.curvedTiles[i].borderThickness = BORDER_THICKNESS;
-		net.curvedTiles[i].borderAlpha = BORDER_ALPHA;
-		net.curvedTiles[i].color = BORDER_COLOR;
-		shapes.push(net.curvedTiles[i]);
-	}*/
+	var shape:SphereShape;
+	//shapes = new Vector.<SphereShape>();
+	
 	var cb:ContinentBuilder = new ContinentBuilder();
-	cb.tempsv = this;
 	cb.generate();
-	cb.hedron.createCurvedTiles();
-	for(var i:int=0;i<cb.hedron.curvedTiles.length;i++)
-		shapes.push(cb.hedron.curvedTiles[i]);
-	for(var h:int=0;h<cb.continentOutlines.length;h++){
-		var temp:SphereShape = new SphereShape({alpha:.1, borderColor:0xff0000, borderAlpha:1});
-		temp.vertices = cb.continentOutlines[h];
-		shapes.push(temp);
+	surfaceFeatures = cb.tiles;
+	
+	net = new Vector.<SphereShape>();
+	var hedron:TruncatedIcosahedron = new TruncatedIcosahedron();
+	for each(shape in hedron.faces){
+		shape.alpha = 0;
+		shape.borderAlpha = BORDER_ALPHA;
+		shape.borderColor = BORDER_COLOR
+		shape.borderThickness = BORDER_THICKNESS;
+		shape.bend();
+		net.push(shape);
 	}
+		
+	shapes = surfaceFeatures.concat(net);
+	
 	invalidateDisplayList();
 }
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+             xmlns:s="library://ns.adobe.com/flex/spark" 
+             xmlns:fb="http://ns.adobe.com/flashbuilder/2009"
+             minWidth="21" minHeight="21" 
+             alpha.disabled="0.5"
+			 >
+     
+   <fx:Metadata>   
+        [HostComponent("spark.components.SkinnableContainer")]
+    </fx:Metadata>
+    
+    <!-- states -->
+    <s:states>
+        <s:State name="normal" />
+        <s:State name="disabled" />
+    </s:states>
+    
+	
+	<s:Path width="30" height="60" data="m 11 0 l -1 0 l-10 10 l 10 10 l 1 0">
+		<s:stroke>
+			<s:SolidColorStroke color="#0082A6" weight="4" joints="miter" caps="square"/>
+		</s:stroke>
+		<s:fill>
+			<s:SolidColor color="#0082A6" alpha=".25"  />
+		</s:fill>
+	</s:Path>
+	<s:Path width="100%" height="60" data="l 10 0 m -10 20 l 10 0" left="30" right="30">
+		<s:stroke>
+			<s:SolidColorStroke color="#0082A6" weight="4" joints="miter" caps="square" />
+		</s:stroke>
+		<s:fill>
+			<s:SolidColor color="#0082A6" alpha=".25"  />
+		</s:fill>
+	</s:Path>
+	<s:Rect width="100%" height="100%" left="30" right="30">
+		<s:fill>
+			<s:SolidColor color="#0082A6" alpha=".25"  />
+		</s:fill>
+	</s:Rect>
+	
+	<s:Path width="30" height="60" data="l 1 0 l 10 10 l -10 10 l -1 0" right="-2.75">
+		<s:stroke>
+			<s:SolidColorStroke color="#0082A6" weight="4" joints="miter" caps="square"/>
+		</s:stroke>
+		<s:fill>
+			<s:SolidColor color="#0082A6" alpha=".25"  />
+		</s:fill>
+	</s:Path>
+	
+	
+
+	<s:Group id="contentGroup" left="5" right="5" top="5" bottom="5" minWidth="0" minHeight="0">
+		
+	</s:Group>
+	
+	<!--<s:Label id="labelDisplay"
+			 textAlign="center"
+			 verticalAlign="middle"
+			 maxDisplayedLines="1"
+			 horizontalCenter="0" verticalCenter="1">
+	</s:Label>-->
+</s:SparkSkin>
+

@@ -1,22 +1,22 @@
 package com.apptinic.terraview{
 	import com.apptinic.util.SphereShape;
 	import com.apptinic.util.SphereView;
+	import com.apptinic.util.UDF;
 	
 	import flash.geom.Vector3D;
 
 public class TruncatedIcosahedron{
 	
 public const MAGIC_LATS:Array = [90.0, 52.6226318593503, 26.565051177078, 10.8123169635717];
-public const POINTS_PER_ARC_DEFAULT:int = 5;
 public const PENT_RATIO:Number = 1.18299818148;
 
 public var faces:Vector.<SphereShape>;
-public var curvedTiles:Vector.<SphereShape>;
+//public var curvedTiles:Vector.<SphereShape>;
 
 public function init():void{
 	createFaces();
 	//validateFaces();
-	createCurvedTiles()
+	//createCurvedTiles()
 	
 	/*for(i=0;i<curvedTiles.length;i++){
 		tile = curvedTiles[i];
@@ -26,22 +26,6 @@ public function init():void{
 			tile.adjacentShapes.push(curvedTiles[k]);
 		}
 	}*/
-}
-
-public function createCurvedTiles():void{
-	curvedTiles = new Vector.<SphereShape>();
-	var tile:SphereShape;
-	for(var i:int=0;i<faces.length;i++){
-		tile = bendTile( faces[i] );
-		tile.center = faces[i].center;
-		tile.type = faces[i].type;
-		tile.lat = faces[i].lat;
-		tile.lon = faces[i].lon;
-		tile.color = faces[i].color;
-		tile.alpha = faces[i].alpha;
-		
-		curvedTiles.push(tile);
-	}
 }
 
 public function createFaces():void{
@@ -148,7 +132,8 @@ public function makeAdjacent(p1:SphereShape,p2:SphereShape):void{
 		p1.adjacentShapes.push(p1);
 }
 
-public function bendTile(input:SphereShape,ppa:int=POINTS_PER_ARC_DEFAULT):SphereShape{
+/*public function bendTile(input:SphereShape,ppa:int=POINTS_PER_ARC_DEFAULT):SphereShape{
+	//**** refactor this to detect and bend lond streatches, but ignore short ones
 	var output:SphereShape = new SphereShape(input);
 	output.vertices = new Vector.<Vector3D>();
 	
@@ -162,33 +147,30 @@ public function bendTile(input:SphereShape,ppa:int=POINTS_PER_ARC_DEFAULT):Spher
 		for(var j:int=0;j<ppa;j++){
 			var s:Number = Math.sin(j*step);
 			var c:Number = Math.cos(j*step);
-			output.vertices.push( new Vector3D(
-				input.vertices[i].x*c+forepoint.x*s,
-				input.vertices[i].y*c+forepoint.y*s,
-				input.vertices[i].z*c+forepoint.z*s
-			));
+			
+			output.vertices.push(UDF.linearCombine(input.vertices[i],c,forepoint,s));
 		}
 	}
 	return output;
-}
+}*/
 
-public function findContainingLocation(surfacePoint:Vector3D,searchBaseFaces:Boolean=false):SphereShape{
-	var loc:SphereShape;
+public function findContainingFace(surfacePoint:Vector3D):int{
+	var ind:int;
 	var tVect:Vector3D;
 	var shortest:Number = 200000;
 	var tempDist:Number;
 	//trace("pointer position: "+pointer3D.x+", "+pointer3D.y+", "+pointer3D.z);
-	for(var i:int=0;i<curvedTiles.length;i++){
+	for(var i:int=0;i<faces.length;i++){
 		//trace("hover near center: "+net.curvedTiles[i].center);
-		tVect = surfacePoint.subtract(curvedTiles[i].center);
+		tVect = surfacePoint.subtract(faces[i].center);
 		tempDist = tVect.length;
-		if(curvedTiles[i].type == "pent") tempDist *= PENT_RATIO;
+		if(faces[i].type == "pent") tempDist *= PENT_RATIO;
 		if(tempDist < shortest){
 			shortest = tempDist;
-			loc = searchBaseFaces ? faces[i] : curvedTiles[i];
+			ind = i;
 		}
 	}
-	return loc;
+	return ind;
 }
 
 

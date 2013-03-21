@@ -1,7 +1,10 @@
 package com.apptinic.util{
-import avmplus.describeType;
+
+import flash.geom.Vector3D;
+import flash.utils.describeType;
 
 import mx.collections.ArrayCollection;
+import mx.collections.IList;
 
 
 public class UDF{
@@ -217,20 +220,12 @@ public static function interpolateColor(colorBegin:uint,colorEnd:uint,percent:Nu
 
 
 
-public static function toTitleCase(input:String, alwaysLowerCase:Array=null):String{
-	alwaysLowerCase = alwaysLowerCase ? alwaysLowerCase : ["the","to","for","from","a","an","and","of","that"];
-	var wordAr:Array = input.split(/\s+/);
-	//var output:String = "";
-	for(var i:int=0;i<wordAr.length;i++){
-		var thisWord:String = wordAr[i].toLowerCase();
-		//thisWord = thisWord.toLowerCase();
-		if(alwaysLowerCase.indexOf(thisWord) == -1 || i == 0){
-			thisWord = thisWord.charAt(0).toUpperCase() + thisWord.substr(1);
-		}
-		wordAr[i] = thisWord;
-	}
-	return wordAr.join(" ");
+public static function linearCombine(v1:Vector3D,v1Scale:Number,v2:Vector3D,v2Scale:Number):Vector3D{
+	return new Vector3D(
+		v1.x*v1Scale + v2.x*v2Scale,
+		v1.y*v1Scale + v2.y*v2Scale,
+		v1.z*v1Scale + v2.z*v2Scale
+	);
 }
-
 
 }}

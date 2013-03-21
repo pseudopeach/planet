@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+             xmlns:s="library://ns.adobe.com/flex/spark" 
+             xmlns:fb="http://ns.adobe.com/flashbuilder/2009"
+             minWidth="21" minHeight="21" 
+             alpha.disabled="0.5"
+			 >
+ <fx:Script>
+	 <![CDATA[
+		//public var iconSrc:String; 
+	 ]]>
+ </fx:Script>    
+   <fx:Metadata>   
+        [HostComponent("spark.components.Button")]
+    </fx:Metadata>
+    
+    <!-- states -->
+    <s:states>
+        <s:State name="up" />
+		<s:State name="over" />
+		<s:State name="down" />
+        <s:State name="disabled" />
+    </s:states>
+    
+	<s:Path height="100%" width="100%" data="m 10 0 l 30 0 l 0 20 l -10 10 l -30 0 l 0 -20 l 10 -10">
+		<s:fill>
+			<s:SolidColor color="#ff0000" alpha=".8" />
+		</s:fill>
+		<s:filters>
+			<s:GlowFilter 
+				color="#0082A6" 
+				alpha=".08" 
+				blurX="16" 
+				blurY="16"
+				strength="3" 
+				quality="3"
+				inner="false" 
+				knockout="true"/>
+		</s:filters>
+	</s:Path>
+	
+	<s:Path x="2" y="2" width="100%" height="100%" data="m 10 0 l 30 0 l 0 20 l -10 10 l -30 0 l 0 -20 l 10 -10">
+		<!--<s:stroke>
+			<s:SolidColorStroke color="#0082A6" weight="3" />
+		</s:stroke>	-->
+		<s:stroke>
+			<s:SolidColorStroke color="#0082A6" weight="4" joints="miter" />
+		</s:stroke>
+		<s:fill>
+			<s:SolidColor color="#0082A6" alpha=".25"  />
+		</s:fill>
+	</s:Path>
+	
+	<s:Label id="labelDisplay"
+			 textAlign="center"
+			 verticalAlign="middle"
+			 maxDisplayedLines="1"
+			 horizontalCenter="0" bottom="5">
+	</s:Label>
+	
+	<s:BitmapImage id="iconDisplay" horizontalCenter="0" verticalCenter="0" />
+</s:SparkSkin>
+

@@ -1,6 +1,4 @@
-package com.apptinic.terraview{
-import com.apptinic.terraschema.Action;
-import com.apptinic.terraschema.GameData;
+package com.apptinic.terraschema{
 
 public class ActKill extends Action{
 	

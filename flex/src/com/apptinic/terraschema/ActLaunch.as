@@ -1,8 +1,4 @@
-package com.apptinic.terraview{
-import com.apptinic.terraschema.Action;
-import com.apptinic.terraschema.GameData;
-import com.apptinic.terraschema.Player;
-import com.apptinic.terraschema.PlayerAttrUpdate;
+package com.apptinic.terraschema{
 import com.apptinic.util.ASRecord;
 import com.apptinic.util.ASRecordClass;
 import com.apptinic.util.UberCollection;

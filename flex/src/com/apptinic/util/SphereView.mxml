@@ -214,8 +214,8 @@ override protected function updateDisplayList(unscaledWidth:Number,unscaledHeigh
 	graphics.drawCircle(radius,radius,radius);
 	graphics.endFill();
 	
-	for(var i:int=0;i<shapes.length;i++)
-		renderShape(shapes[i]);
+	for each(var shape:SphereShape in shapes)
+		renderShape(shape);
 	
 	graphics.beginBitmapFill(shadowMap,shadowTransform,false,true);
 	graphics.drawCircle(radius,radius,radius);
