@@ -2,19 +2,18 @@
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
 			   xmlns:mx="library://ns.adobe.com/flex/mx" 
-			   xmlns:terraview="com.apptinic.terraview.*" 
-			   xmlns:util="com.apptinic.util.*" xmlns:terraui="com.apptinic.terraui.*"
-			   minWidth="800" minHeight="600" backgroundColor="0"
-			   initialize="init()"  >
+			   xmlns:terraview="com.apptinic.terraview.*"
+			   minWidth="955" minHeight="600" backgroundColor="#000000">
+	<fx:Style source="other.css" />
 	
 	<s:Group width="100%" height="100%" >
 		<s:Group x="102" y="212" left="10" bottom="10" right="10">
 			<terraview:GameStats id="gameStateStats" width="231" height="173" x="72" y="139" />
-			<s:SkinnableContainer id="otehr" width="108" height="81" x="25" y="0" >
+			<s:SkinnableContainer id="otehr" width="108" height="81" x="25" y="0"  skinClass="com.apptinic.terraview.ZionCellSkin">
 				<s:Label text="yes"  x="64" y="10"/>
 				
 			</s:SkinnableContainer>
-			<s:SkinnableContainer id="itemStats" width="108" height="81" y="91" >
+			<s:SkinnableContainer id="itemStats" width="108" height="81" y="91" skinClass="com.apptinic.terraview.ZionCellSkin">
 				<s:Label text="yes"  x="64" y="10"/>
 				
 			</s:SkinnableContainer>
@@ -29,4 +28,13 @@
 		
 	</s:Group>
 	
+<fx:Script>
+<![CDATA[
+	
+import com.apptinic.terraview.ZionCellSkin;
+import com.apptinic.util.RequestQueue;
+var rq = new RequestQueue();
+	
+]]>
+</fx:Script>
 </s:Application>

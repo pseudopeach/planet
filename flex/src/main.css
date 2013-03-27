@@ -1,0 +1,34 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+/*@font-face{
+	src:url("assets/JuraBook.ttf");
+	font-family:"Jura";
+	font-weight:normal;
+}
+
+@font-face{
+	src:url("assets/JuraDemiBold.ttf");
+	font-family:"Jura";
+	font-weight:bold;
+}*/
+
+.Global {
+	font-family:"Jura";
+	font-size:12px;
+	font-lookup:embeddedCFF;
+}
+s|Label {
+	fontFamily:"Jura";
+	font-size:12px;
+	font-lookup:embeddedCFF;
+	color:#ffff00;
+}
+
+s|Button.ZionCell {
+	skinClass: ClassReference('ZionCellSkin');
+	color: #ffffff;
+	font-size: 30px;
+	font-weight: bold;
+}

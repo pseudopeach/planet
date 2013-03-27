@@ -4,5 +4,29 @@
 		 xmlns:mx="library://ns.adobe.com/flex/mx" 
 		 skinClass="com.apptinic.terraview.ZionCellSkin"
 		 width="231" height="173">
+	<fx:Style source="other.css" />
+	
+	<s:Label x="58" y="4" text="GAME STATS" fontSize="24" fontWeight="bold" />
+	<mx:PieChart x="6" y="56" id="piechart1" width="101" height="101">
+		<mx:series>
+			<mx:PieSeries displayName="Series 1" field=""/>
+		</mx:series>
+	</mx:PieChart>
+	<s:Group  x="108" y="39" width="197" height="98">
+		<s:layout>
+			<s:TileLayout  verticalGap="5"/>
+		</s:layout>
+			<s:Label text="Turn"/>
+			<s:Label text="10"  fontWeight="bold"/>
+		
+			<s:Label text="Cells Ctrld."/>
+			<s:Label text="17"  fontWeight="bold"/>
+
+			<s:Label text="Enemy Ctrld." />
+			<s:Label text="12"  fontWeight="bold" />
+
+			<s:Label text="Open" />
+			<s:Label text="10"  fontWeight="bold" />
+	</s:Group>
 	
 </s:SkinnableContainer>

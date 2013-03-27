@@ -1,0 +1,31 @@
+/* CSS file */
+
+@font-face{
+	src:url("/assets/JuraBook.ttf");
+	font-family:"JuraCCF";
+	embed-as-cff:true;
+	font-weight:normal;
+}
+
+ 
+
+@font-face{
+	src:url("/assets/JuraDemiBold.ttf");
+	font-family:"JuraCCF";
+	embed-as-cff:true;
+	font-weight:bold;
+}
+
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+global{
+	font-family:"JuraCCF";
+	color:#ffffff;
+}
+s|Label{
+	font-family:"JuraCCF";
+	color:#ffffff;
+	font-size:14px;
+}
+
