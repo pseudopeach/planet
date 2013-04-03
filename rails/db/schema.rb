@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130402220502) do
+ActiveRecord::Schema.define(:version => 20130403201305) do
 
   create_table "actions_states_stacked", :id => false, :force => true do |t|
     t.integer "action_id", :null => false
@@ -90,9 +90,9 @@ ActiveRecord::Schema.define(:version => 20130402220502) do
   end
 
   create_table "game_turn_completions", :force => true do |t|
-    t.integer   "state_id",  :null => false
-    t.integer   "player_id", :null => false
-    t.timestamp "timestamp", :null => false
+    t.integer  "state_id",   :null => false
+    t.integer  "player_id",  :null => false
+    t.datetime "created_at", :null => false
   end
 
   add_index "game_turn_completions", ["state_id"], :name => "state_id"
