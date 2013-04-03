@@ -2,6 +2,10 @@ class Terra::ActLaunch < Game::Action
   
   xdata_attr :location
   xdata_attr :created_player, :class_name=>"Game::Player"
+  
+def uses_move?
+  return false
+end
  
 def self.from_prototype(player, prototype_id, location)
   self.player = player
@@ -11,15 +15,18 @@ end
 
 def on_stack(state)
   #charge launch points
+  super
   self.player.item_count_add Terra::FUEL_PTS, -self.target_player.launch_cost
   self.location.announce_local_activity self
 end
 
 def resolve(state)
-  self.created_player = state.spawn_player_at(self.target_player, self.player, self.location)
-  self.xdata[:created_player_class] = created_player.class.to_s
-  self.location.announce_local_activity self
-  super state
+  self.transaction do
+    self.created_player = state.spawn_player_at(self.target_player, self.player, self.location)
+    self.xdata[:created_player_class] = created_player.class.to_s
+    self.location.announce_local_activity self
+    super state
+  end
 end
 
 def legal?(state)
@@ -36,10 +43,10 @@ def legal?(state)
     @legality_error="Prototype must be owned by the same user as the owner player."
     return false
   end
-  unless target_player.prototype
-    @legality_error="Can't launch experimental creature."
-    return false
-  end
+  #unless target_player.prototype
+  #  @legality_error="Can't launch experimental creature."
+  #  return false
+  #end
   unless location.game.id == state.id
     @legality_error="Location is invalid."
     return false 

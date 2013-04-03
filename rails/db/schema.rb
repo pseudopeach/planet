@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 1) do
+ActiveRecord::Schema.define(:version => 20130402220502) do
 
   create_table "actions_states_stacked", :id => false, :force => true do |t|
     t.integer "action_id", :null => false
@@ -51,10 +51,12 @@ ActiveRecord::Schema.define(:version => 1) do
 
   create_table "game_player_attr_entries", :force => true do |t|
     t.integer "player_attribute_id", :null => false
-    t.integer "action_id",           :null => false
+    t.integer "action_id"
     t.float   "value"
+    t.integer "turn_completion_id"
   end
 
+  add_index "game_player_attr_entries", ["action_id", "turn_completion_id"], :name => "timeline_lookup"
   add_index "game_player_attr_entries", ["player_attribute_id"], :name => "player_attribute_id"
 
   create_table "game_player_attributes", :force => true do |t|

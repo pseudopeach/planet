@@ -41,7 +41,9 @@ end
 def can_interrupt?
   return false
 end
-
+def uses_move?
+  return true
+end
 
 def legal?(state)
   @game = state
@@ -49,11 +51,18 @@ def legal?(state)
     legality_error = "Can't play this action on another player's turn."
     return false
   end
+  if uses_move? && player.game_attr(Terra::PA_MOVES_LEFT) < 1
+    legality_error = "Player doen't have any moves left."
+    return false
+  end
 	return true
 end
 
 def on_stack(state)
   @game = state
+  if uses_move?
+    self.player.game_attr_add Terra::PA_MOVES_LEFT, -1
+  end
   #if the action does anything the moment it hits the stack
 end
 

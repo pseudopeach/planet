@@ -110,7 +110,11 @@ end
 
 def record_turn_end
   self.transaction do
+    
+    #deal with player
     player = self.current_turn_taker
+    self.resolving_action = nil
+    self.turn_completions << Game::TurnCompletion.new(:player => player)
     if player.creature_player?
       hp = player.game_attr Terra::PA_HUNGER
       player.game_attr_add Terra::PA_HIT_POINTS, -hp
@@ -123,10 +127,9 @@ def record_turn_end
         player.game_attrs = {Terra::PA_MOVES_LEFT=>player.game_attr(Terra::PA_MOVEMENT)}
       end
     end
-    #state housekeeping
-    self.turn_completions << Game::TurnCompletion.new(:player => player)
+    
+    #set up next turn
     self.current_turn_taker = player.next_player
-    self.resolving_action = nil
     self.status = Game::TURN_END
     update_activity_time
   end #trans
@@ -230,8 +233,8 @@ end
 
 def create_locations
   self.transaction do
-  (0...10).each do |i|
-    (0...10).each do |j|
+  (0...5).each do |i|
+    (0...6).each do |j|
       self.locations << Terra::Location.new(:i=>i,:j=>j)
     end
   end

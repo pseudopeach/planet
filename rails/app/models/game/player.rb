@@ -19,7 +19,7 @@ has_many :observations, :class_name=>"Terra::PlayerObserver", :foreign_key=>"obs
 has_many :observed_players, :class_name=>"Game::Player", :through=>:observations
 has_many :observers, :class_name=>"Terra::PlayerObserver", :foreign_key=>"player_id"
 has_many :observing_players, :class_name=>"Game::Player", :through=>:observers
-has_many :player_attributes, :dependent=>:destroy
+has_many :player_attributes, :dependent=>:destroy, :inverse_of=>:player
 has_many :actions, :class_name=>"Game::Action"
 has_many :items
 
@@ -53,6 +53,7 @@ attr_accessor :xdata
 before_save :serialize_data
 #after_initialize :load_broadcastables 
 after_initialize :deserialize_data
+after_initialize :preload_all_game_attrs, :if=>:prototype?
 
 def prototype
   return nil unless prototype_player_id
@@ -72,15 +73,19 @@ end
 
 def game_attr(name, unwrap=true)
   @loaded_game_attributes = {} unless @loaded_game_attributes
+  
+  #if it's already been cached in this object, return it
   if @loaded_game_attributes.key? name
     out = @loaded_game_attributes[name]
+   
+  #search for a specific entry for this player
+  elsif out = player_attributes.where(:name=>name).first
+     
+  #if this player has a prototype and that prototype has the attr, return it
   elsif prototype && (prf = self.prototype.preloaded_game_attrs[name])
-    #puts "found attr on prototype"
-    out = prf
-  else
-    #puts "prototype nil?:#{self.prototype.nil?}  pattrs:#{self.prototype.preloaded_game_attrs.inspect}"
-    out = player_attributes.where(:name=>name).first
+    out = prf 
   end
+  
   @loaded_game_attributes[name] = out #will store nils
   
   return (unwrap && out && out.respond_to?(:value)) ? out.value : out
@@ -101,25 +106,27 @@ def game_attrs=(hash_in)
         player_attributes << attr
         @loaded_game_attributes[name] = attr
       end
-      attr.history_entries << Game::PlayerAttrEntry.new(:action=>game.resolving_action, :value=>attr.value)
+      Game::PlayerAttrEntry.record_entry(attr,attr.value) if game
     end #each loop
   end #transaction
 end
 
 def game_attr_add(name, d_value)
   preload_game_attrs [name]
-  if @loaded_game_attributes.key?(name) && @loaded_game_attributes[key].respond_to?(:value)
-    #item already loaded
-    attr = @loaded_game_attributes[name]
-    attr.value += d_value
-    attr.save
-  else
-    #item needs to be created
-    attr = Game::PlayerAttribute.new(:name=>name, :value=>d_value)
-    player_attributes << attr
-    @loaded_game_attributes[name] = attr
+  self.transaction do
+    if @loaded_game_attributes.key?(name) && @loaded_game_attributes[name].respond_to?(:value)
+      #item already loaded
+      attr = @loaded_game_attributes[name]
+      attr.value += d_value
+      attr.save
+    else
+      #item needs to be created
+      attr = Game::PlayerAttribute.new(:name=>name, :value=>d_value)
+      player_attributes << attr
+      @loaded_game_attributes[name] = attr
+    end
+    Game::PlayerAttrEntry.record_entry(attr,attr.value) if game
   end
-  attr.history_entries << Game::PlayerAttrEntry.new(:action=>game.resolving_action, :value=>attr.value)
 end
 
 def preload_game_attrs(array_in=nil)
@@ -132,6 +139,7 @@ def preload_game_attrs(array_in=nil)
   end
 end
 
+#called on all prototypes
 def preload_all_game_attrs
   @loaded_game_attributes = Terra::DEFAULT_PLAYER_ATTRIBUTES.clone
   self.player_attributes.all.each do |q|
@@ -149,6 +157,10 @@ end
 
 def creature_player?
   return !self.owner_player.nil?
+end
+
+def prototype?
+  return id && prototype_player_id == id
 end
 
 def flora?

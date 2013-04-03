@@ -38,6 +38,9 @@ end
 def active_action
   return resolving_action ? resolving_action : top_stack_item
 end
+def last_completed_turn
+  return turn_completions.last
+end
 
 def stack_action(action)
   self.transaction do
