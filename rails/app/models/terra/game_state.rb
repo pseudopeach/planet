@@ -27,30 +27,31 @@ end
 
 def history(since_action_id=nil)
   if since_action_id 
-    event_list = self.actions.includes([:player_attr_entries,:player_attr_entries=>:player_attribute]).order(:id).
+    events = self.actions.includes([:player_attr_entries,:player_attr_entries=>:player_attribute]).order(:id).
       where("id > ?",since_id)
   else
-    event_list = self.actions.includes([:player_attr_entries,:player_attr_entries=>:player_attribute]).order(:id)
+    events = self.actions.includes([:player_attr_entries,:player_attr_entries=>:player_attribute]).order(:id)
   end 
-  if event_list.length > 0
-    cutoff = @event_list[0].resolved_at
-    event_list += self.turn_completions.where("timestamp >= ?",cutoff)
-    event_list.sort! {|a,b| a.timestamp<=>b.timestamp}
+  if events.length > 0
+    cutoff = events[0].resolved_at
+    events += self.turn_completions.where("created_at >= ?",cutoff)
+    events.sort! {|a,b| a.created_at<=>b.created_at}
   end
-  event_list_out = []
-  event_list.each do |e|
-    hsh = {:e_type=>e.class, :timestamp=>e.timestamp, :player_id=>e.player_id}
-    unless e.class == Terra::TurnCompletion
-      [:target_player_id, :resolved_at, :xdata].each {|q| hsh[q] = e[q]}
-      hsh[:action_id] = e.id
+  history = []
+  events.each do |e|
+    hsh = {:e_type=>e.class, :created_at=>e.created_at, :player_id=>e.player_id, :id=>e.id}
+    if e.is_a? Game::Action
+      [:target_player_id, :resolved_at].each {|q| hsh[q] = e[q]}
+      hsh.update JSON(e.data) if e.data
       hsh[:attribute_updates] = []
       e.player_attr_entries.each do |ae|
-        hsh[:attribute_updates] << {:attr_id=>ae.id,:name=>ae.player_attrribute.name,:value=>ae.value}
+        puts "Attribute entry: #{ae.id}"
+        hsh[:attribute_updates] << {:attr_id=>ae.id,:name=>ae.player_attribute.name,:value=>ae.value}
       end
     end
-    event_list_out << hsh
+    history << hsh
   end
-    return @event_list
+    return history
 end
 
 def manager
