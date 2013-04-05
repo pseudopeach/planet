@@ -39,7 +39,8 @@ def history(since_action_id=nil)
   end
   history = []
   events.each do |e|
-    hsh = {:e_type=>e.class, :created_at=>e.created_at, :player_id=>e.player_id, :id=>e.id}
+    hsh = {:e_type=>e.class.to_s, :created_at=>e.created_at, :player_id=>e.player_id, :id=>e.id}
+
     if e.is_a? Game::Action
       [:target_player_id, :resolved_at].each {|q| hsh[q] = e[q]}
       hsh.update JSON(e.data) if e.data
@@ -49,6 +50,7 @@ def history(since_action_id=nil)
         hsh[:attribute_updates] << {:attr_id=>ae.id,:name=>ae.player_attribute.name,:value=>ae.value}
       end
     end
+
     history << hsh
   end
     return history

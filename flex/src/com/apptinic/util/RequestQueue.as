@@ -14,9 +14,11 @@ import mx.rpc.remoting.RemoteObject;
 [Event(name=GenericObjectEvent.FAULT, type="com.apptinic.util.RequestQueueEvent")]
 
 public class RequestQueue extends EventDispatcher{
-	
-public var endpoint:String = "/amf/";
-public var server:String = "http://localhost";
+
+public var endpoint:String = "/amf";
+public var server:String = "http://localhost:3000";
+public var destination:String = "RubyAMF";
+
 public var maxConcurrentRequests:uint = 3;
 //public var synchronized:Boolean = false; // develop later
 
@@ -25,13 +27,14 @@ protected var outstandingRequests:uint = 0;
 protected var sharedRemote:RemoteObject;
 protected var refObjectDict:Dictionary = new Dictionary();
 
-	
+
 public function RequestQueue(target:IEventDispatcher=null){
 	super(target);
+	queue = [];
 }
 
-public function addRequest(opName:String, opSrc:String, args:Array=null, refObject:Object=null):uint{
-	queue.push({opName:opName, opSrc:opSrc, args:args, refObject:refObject});
+public function addRequest(opName:String, opSrc:String, params:Object=null, refObject:Object=null):uint{
+	queue.push({opName:opName, opSrc:opSrc, params:params, refObject:refObject});
 	pokeQueue();
 	return queue.length;
 }
@@ -39,13 +42,13 @@ public function addRequest(opName:String, opSrc:String, args:Array=null, refObje
 protected function executeRequest(req:Object):void{
 	var ro:RemoteObject = getSpareRemote();
 	ro.source = req.opSrc;
-
+	
 	var op:AbstractOperation = ro.getOperation(req.opName);
 	var tok:AsyncToken = op.send(req.params);
 	if(req.refObject) 
 		refObjectDict[tok] = req.refObject;
 	outstandingRequests++;
-
+	
 }
 
 protected function onResult(event:ResultEvent):void{
@@ -75,7 +78,7 @@ protected function onFault(event:FaultEvent):void{
 	var remote:RemoteObject = event.target as RemoteObject;
 	var refObj:Object = refObjectDict[event.token];
 	
-	trace("fault encountered");
+	trace("fault returned");
 	
 	if(refObj){
 		e.refObject = refObj;
@@ -106,6 +109,7 @@ protected function getSpareRemote():RemoteObject{
 	}
 	remote = new RemoteObject();
 	remote.endpoint = server+endpoint;
+	remote.destination = destination;
 	remote.addEventListener(ResultEvent.RESULT,onResult);
 	remote.addEventListener(FaultEvent.FAULT, onFault);
 	return remote;
