@@ -3,4 +3,5 @@
 flex/bin-debug/*
 rails/Gemfile.lock
 rails/.metadata/
-rails/log/
+rails/log/*
+rails/tmp/*
