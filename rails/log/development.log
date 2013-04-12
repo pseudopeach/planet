@@ -1644,3 +1644,1163 @@ Processing by PlayController#history as AMF
   [1m[36mGame::TurnCompletion Load (0.3ms)[0m  [1mSELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (created_at >= '2013-04-02 00:24:26')[0m
 Completed 200 OK in 383ms (Views: 0.2ms | ActiveRecord: 18.8ms)
 ["Sending back AMF"]
+
+
+Started GET "/play/history/1" for 127.0.0.1 at 2013-04-06 10:19:00 -0400
+Processing by PlayController#history as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTerra::GameState Load (13.0ms)[0m  SELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1
+  [1m[36mGame::Action Load (2.8ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 ORDER BY id[0m
+  [1m[35mGame::PlayerAttrEntry Load (2.6ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (1.8ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::TurnCompletion Load (1.7ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (created_at >= '2013-04-02 00:24:26')
+  Rendered play/history.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 1084ms (Views: 59.5ms | ActiveRecord: 77.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-06 10:19:02 -0400
+Served asset /application.css - 200 OK (12ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-06 10:19:02 -0400
+Served asset /play.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-06 10:19:02 -0400
+Served asset /jquery.js - 200 OK (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-06 10:19:02 -0400
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-06 10:19:02 -0400
+Served asset /play.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-06 10:19:02 -0400
+Served asset /application.js - 200 OK (9ms)
+
+
+Started GET "/play/history/1" for 127.0.0.1 at 2013-04-06 10:21:13 -0400
+Processing by PlayController#history as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::Action Load (0.3ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 ORDER BY id
+  [1m[36mGame::PlayerAttrEntry Load (0.4ms)[0m  [1mSELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)[0m
+  [1m[35mGame::PlayerAttribute Load (0.3ms)[0m  SELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)
+  [1m[36mGame::TurnCompletion Load (0.3ms)[0m  [1mSELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (created_at >= '2013-04-02 00:24:26')[0m
+  Rendered play/history.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 411ms (Views: 12.1ms | ActiveRecord: 21.7ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-06 10:21:14 -0400
+Served asset /play.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-06 10:21:14 -0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-06 10:21:14 -0400
+Served asset /play.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-06 10:21:14 -0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-06 10:21:14 -0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-06 10:21:14 -0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/play/history/1" for 127.0.0.1 at 2013-04-06 10:22:37 -0400
+Processing by PlayController#history as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTerra::GameState Load (0.8ms)[0m  SELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1
+  [1m[36mGame::Action Load (0.5ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 ORDER BY id[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (created_at >= '2013-04-02 00:24:26')
+  Rendered play/history.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 534ms (Views: 11.5ms | ActiveRecord: 23.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-06 10:22:38 -0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-06 10:22:38 -0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-06 10:22:38 -0400
+Served asset /play.js - 200 OK (0ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-06 10:22:38 -0400
+Served asset /play.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-06 10:22:38 -0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-06 10:22:38 -0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/play/history/1" for 127.0.0.1 at 2013-04-10 09:28:57 -0600
+Processing by PlayController#history as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTerra::GameState Load (1.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (1.4ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1
+  [1m[36mGame::Action Load (0.4ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (created_at >= '2013-04-02 15:31:40')[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.4ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (20, 19, 26, 27, 28)[0m
+  Rendered play/history.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 488ms (Views: 25.9ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-10 09:28:57 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-10 09:28:57 -0600
+Served asset /play.css - 200 OK (0ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-10 09:28:57 -0600
+Served asset /play.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-10 09:28:57 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-10 09:28:57 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-10 09:28:57 -0600
+Served asset /application.js - 200 OK (3ms)
+
+
+Started GET "/play/history/1" for 127.0.0.1 at 2013-04-10 15:41:16 -0600
+Processing by PlayController#history as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTerra::GameState Load (0.4ms)[0m  SELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1
+  [1m[36mGame::TurnCompletion Load (1.1ms)[0m  [1mSELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1[0m
+  [1m[35mGame::Action Load (0.8ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1
+  [1m[36mGame::PlayerAttrEntry Load (1.0ms)[0m  [1mSELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)[0m
+  [1m[35mGame::PlayerAttribute Load (0.3ms)[0m  SELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)
+  Rendered play/history.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 452ms (Views: 17.3ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-10 15:41:17 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-10 15:41:17 -0600
+Served asset /play.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-10 15:41:17 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-10 15:41:17 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-10 15:41:17 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-10 15:41:17 -0600
+Served asset /play.css - 200 OK (0ms)
+
+
+Started GET "/play/history/1?since_turn=7" for 127.0.0.1 at 2013-04-10 15:46:30 -0600
+Processing by PlayController#history as HTML
+  Parameters: {"since_turn"=>"7", "id"=>"1"}
+  [1m[36mTerra::GameState Load (0.4ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (1.4ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= '7') ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.4ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  Rendered play/history.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 433ms (Views: 11.9ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-10 15:46:30 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-10 15:46:31 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-10 15:46:31 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-10 15:46:31 -0600
+Served asset /play.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-10 15:46:31 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-10 15:46:31 -0600
+Served asset /play.js - 200 OK (0ms)
+
+
+Started GET "/play/history/1?since_turn=7" for 127.0.0.1 at 2013-04-10 15:51:26 -0600
+Processing by PlayController#history as HTML
+  Parameters: {"since_turn"=>"7", "id"=>"1"}
+  [1m[35mTerra::GameState Load (0.3ms)[0m  SELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1
+  [1m[36mGame::TurnCompletion Load (0.4ms)[0m  [1mSELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= '7') ORDER BY id[0m
+  [1m[35mGame::Action Load (0.3ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1
+  [1m[36mGame::PlayerAttrEntry Load (0.3ms)[0m  [1mSELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)[0m
+  [1m[35mGame::PlayerAttribute Load (0.3ms)[0m  SELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)
+  Rendered play/history.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 423ms (Views: 13.5ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-10 15:51:26 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-10 15:51:26 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-10 15:51:26 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-10 15:51:26 -0600
+Served asset /play.css - 200 OK (0ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-10 15:51:26 -0600
+Served asset /play.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-10 15:51:26 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/play/history/1?since_turn=11" for 127.0.0.1 at 2013-04-10 15:51:38 -0600
+Processing by PlayController#history as HTML
+  Parameters: {"since_turn"=>"11", "id"=>"1"}
+  [1m[36mTerra::GameState Load (0.4ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= '11') ORDER BY id
+  [1m[36mGame::Action Load (0.5ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.2ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  Rendered play/history.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 34ms (Views: 11.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-10 15:51:38 -0600
+Served asset /play.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-10 15:51:38 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-10 15:51:38 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-10 15:51:38 -0600
+Served asset /play.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-10 15:51:38 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-10 15:51:38 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/play/history/1?since_turn=11" for 127.0.0.1 at 2013-04-10 15:54:00 -0600
+Processing by PlayController#history as HTML
+  Parameters: {"since_turn"=>"11", "id"=>"1"}
+  [1m[35mTerra::GameState Load (0.5ms)[0m  SELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1
+  [1m[36mGame::TurnCompletion Load (0.4ms)[0m  [1mSELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= '11') ORDER BY id[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1
+  [1m[36mGame::PlayerAttrEntry Load (0.7ms)[0m  [1mSELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)[0m
+  [1m[35mGame::PlayerAttribute Load (0.4ms)[0m  SELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)
+  Rendered play/history.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 37ms (Views: 15.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-10 15:54:00 -0600
+Served asset /play.css - 200 OK (0ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-10 15:54:00 -0600
+Served asset /play.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-10 15:54:00 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-10 15:54:00 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-10 15:54:00 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-10 15:54:00 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/play/history/1?since_turn=11" for 127.0.0.1 at 2013-04-10 15:55:52 -0600
+Processing by PlayController#history as HTML
+  Parameters: {"since_turn"=>"11", "id"=>"1"}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.4ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= '11') ORDER BY id
+  [1m[36mGame::Action Load (7.1ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  Rendered play/history.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 602ms (Views: 112.4ms | ActiveRecord: 28.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-10 15:55:52 -0600
+Served asset /application.css - 200 OK (48ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-10 15:55:52 -0600
+Served asset /play.css - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-10 15:55:52 -0600
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-10 15:55:52 -0600
+Served asset /jquery.js - 200 OK (5ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-10 15:55:52 -0600
+Served asset /play.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-10 15:55:52 -0600
+Served asset /application.js - 200 OK (11ms)
+
+
+Started GET "/play/history/1?since_turn=11" for 127.0.0.1 at 2013-04-10 16:05:01 -0600
+Processing by PlayController#history as HTML
+  Parameters: {"since_turn"=>"11", "id"=>"1"}
+  [1m[35mTerra::GameState Load (0.2ms)[0m  SELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1
+  [1m[36mGame::TurnCompletion Load (0.3ms)[0m  [1mSELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 11) ORDER BY id[0m
+  [1m[35mGame::Action Load (0.3ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (created_at >= '2013-04-03 20:46:07')
+  Rendered play/history.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 336ms (Views: 9.5ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-10 16:05:01 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:01 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:01 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:01 -0600
+Served asset /play.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:01 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-10 16:05:01 -0600
+Served asset /play.css - 200 OK (0ms)
+
+
+Started GET "/play/history/1?since_turn=5" for 127.0.0.1 at 2013-04-10 16:05:07 -0600
+Processing by PlayController#history as HTML
+  Parameters: {"since_turn"=>"5", "id"=>"1"}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 5) ORDER BY id
+  [1m[36mGame::Action Load (0.4ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (created_at >= '2013-04-03 19:53:54')[0m
+  Rendered play/history.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 26ms (Views: 10.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-10 16:05:07 -0600
+Served asset /play.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-10 16:05:07 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:07 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:07 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:07 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:07 -0600
+Served asset /play.js - 200 OK (0ms)
+
+
+Started GET "/play/history/1?since_turn=4" for 127.0.0.1 at 2013-04-10 16:05:20 -0600
+Processing by PlayController#history as HTML
+  Parameters: {"since_turn"=>"4", "id"=>"1"}
+  [1m[35mTerra::GameState Load (0.3ms)[0m  SELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1
+  [1m[36mGame::TurnCompletion Load (0.3ms)[0m  [1mSELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 4) ORDER BY id[0m
+  [1m[35mGame::Action Load (0.5ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (created_at >= '2013-04-03 01:31:24')
+  [1m[36mGame::PlayerAttrEntry Load (0.3ms)[0m  [1mSELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (7, 8)[0m
+  [1m[35mGame::PlayerAttribute Load (0.3ms)[0m  SELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (26, 27, 28)
+  Rendered play/history.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 185ms (Views: 10.6ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-10 16:05:20 -0600
+Served asset /play.css - 200 OK (0ms)
+
+
+Started GET "/assets/play.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:20 -0600
+Served asset /play.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:20 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-10 16:05:20 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:20 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-10 16:05:20 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-10 20:14:06 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-10 20:14:06 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>nil}
+Completed 500 Internal Server Error in 103ms
+ActiveRecord::RecordNotFound (Couldn't find Terra::GameState without an ID):
+  app/controllers/play_controller.rb:7:in `history'
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-10 20:28:02 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-10 20:28:02 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.4ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+Completed 200 OK in 291ms (Views: 0.2ms | ActiveRecord: 17.0ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-10 20:29:31 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-10 20:29:31 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[35mTerra::GameState Load (0.3ms)[0m  SELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1
+  [1m[36mGame::TurnCompletion Load (0.3ms)[0m  [1mSELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id[0m
+  [1m[35mGame::Action Load (0.3ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1
+  [1m[36mGame::PlayerAttrEntry Load (0.3ms)[0m  [1mSELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)[0m
+  [1m[35mGame::PlayerAttribute Load (0.2ms)[0m  SELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 08:31:07 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 08:31:07 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.2ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.4ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.5ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.6ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.4ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.4ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (1.6ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 558ms (Views: 0.3ms | ActiveRecord: 23.2ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 08:33:38 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 08:33:38 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.2ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.4ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 531ms (Views: 0.2ms | ActiveRecord: 22.1ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 10:17:07 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 10:17:07 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.4ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.7ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.2ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.3ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.4ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 50ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 10:18:59 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 10:18:59 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.4ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.8ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 11:37:47 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 11:37:47 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.5ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.4ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.8ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 571ms (Views: 0.2ms | ActiveRecord: 22.0ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 11:39:32 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 11:39:33 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.4ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.6ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.5ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.8ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (1.0ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 684ms (Views: 0.2ms | ActiveRecord: 25.9ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 13:49:59 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 13:49:59 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (1.2ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.4ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.4ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 680ms (Views: 0.3ms | ActiveRecord: 25.5ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 13:59:09 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 13:59:09 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.2ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.5ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.6ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.4ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.4ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 744ms (Views: 0.2ms | ActiveRecord: 34.3ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 14:09:58 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 14:09:58 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.4ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.4ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.2ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 51ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 15:40:17 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 15:40:17 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (1.5ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.8ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (1.9ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.7ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.4ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 163ms (Views: 0.5ms | ActiveRecord: 6.8ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 15:43:10 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 15:43:10 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.6ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.5ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.4ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.5ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.4ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.6ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.4ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.4ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 257ms (Views: 0.2ms | ActiveRecord: 4.4ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 17:05:55 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 17:05:55 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.4ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.2ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.3ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 49ms (Views: 0.2ms | ActiveRecord: 2.8ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 17:08:45 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 17:08:45 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.4ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.4ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 577ms (Views: 0.2ms | ActiveRecord: 26.1ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 17:16:31 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 17:16:31 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.2ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 49ms (Views: 0.2ms | ActiveRecord: 2.8ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 17:21:33 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 17:21:33 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.4ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.7ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.3ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (1.4ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 53ms (Views: 0.2ms | ActiveRecord: 4.7ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 18:10:49 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 18:10:49 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.4ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.4ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.5ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.4ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.5ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 62ms (Views: 0.2ms | ActiveRecord: 3.7ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 18:13:10 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-11 18:13:10 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.4ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.4ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.5ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.3ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.5ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.4ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 62ms (Views: 0.2ms | ActiveRecord: 3.6ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 08:28:52 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 08:28:52 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.5ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.4ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.4ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.2ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.3ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 50ms (Views: 0.2ms | ActiveRecord: 3.2ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 08:29:11 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 08:29:11 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.4ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (1.0ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (1.3ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (3.0ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.3ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 60ms (Views: 0.2ms | ActiveRecord: 7.4ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 08:32:05 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 08:32:05 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.4ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 108ms (Views: 0.3ms | ActiveRecord: 3.1ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 10:53:53 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 10:53:53 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.4ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.4ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 55ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 10:54:46 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 10:54:46 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.4ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.6ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (1.0ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.6ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 4.3ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 10:55:06 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 10:55:06 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.4ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.6ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.4ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.8ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 66ms (Views: 0.2ms | ActiveRecord: 3.9ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 11:02:17 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 11:02:17 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.4ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.4ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.3ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.4ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 57ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 11:05:47 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 11:05:47 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.4ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 72ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 11:53:21 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 11:53:21 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.5ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.4ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.4ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.4ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.5ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.4ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 81ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 11:54:10 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 11:54:10 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.4ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.6ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.4ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 53ms (Views: 0.2ms | ActiveRecord: 3.6ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 11:57:13 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 11:57:13 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.4ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.4ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.2ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (2.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.5ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.5ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 65ms (Views: 0.2ms | ActiveRecord: 5.6ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 12:00:59 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 12:00:59 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.4ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.4ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 51ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 13:02:21 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 13:02:21 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.7ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.4ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.5ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.6ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.8ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (1.0ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 5.2ms)
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 13:02:50 -0600
+["Sending back AMF"]
+
+
+Started POST "/amf" for 127.0.0.1 at 2013-04-12 13:02:50 -0600
+Processing by PlayController#history as AMF
+  Parameters: {0=>{"id"=>1}}
+  [1m[36mTerra::GameState Load (0.3ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.4ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (1.1ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.4ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+["Sending back AMF"]

@@ -57,14 +57,9 @@ public static function friendlyClassName(input:*):String{
 	return out.split("::").join(":");
 }
 
+public static var remoteClassFactoryDelegate:IASRecordRemoteClassConverter;
 public static function createFromString(input:String):ASRecordClass{
-	if(!input)
-		throw new Error("input class name was null!");
-	//var qcn:String = getQualifiedClassName(input);
-	var klass:Class = getDefinitionByName(input) as Class;
-	if(!klass)
-		throw new Error("Could not create a class from input str:"+input);
-	return getInstance(klass);
+	return remoteClassFactoryDelegate.getASRecordClass(input);
 }
 
 

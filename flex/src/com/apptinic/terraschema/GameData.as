@@ -1,12 +1,18 @@
 package com.apptinic.terraschema{
 	import com.apptinic.util.ASRecord;
+	import com.apptinic.util.ASRecordClass;
+	import com.apptinic.util.RequestQueue;
+	import com.apptinic.util.RequestQueueEvent;
 	import com.apptinic.util.UberCollection;
 	
 [Bindable]
-public dynamic class GameData extends ASRecord{
+public class GameData extends ASRecord{
+	
+public static const TURN_COMPLETION:String = "Game::TurnCompletion";
 	
 // the source data
-public var actions:UberCollection;
+public var turns:UberCollection;
+public var unfinishedTurn:TurnCompletion;
 public var originalPlayers:UberCollection;
 public var originalLocations:UberCollection;
 
@@ -21,25 +27,33 @@ public function set gamePosition(input:uint):void{
 	gotoAction(input);
 }
 
-public function GameData(){
+public function GameData(stateId:int){
 	super();
 	enterInSchema(GameData, [
+		{type:HAS_MANY, propName:"originalPlayers", assocClass:Player},
+		{type:HAS_MANY, propName:"originalLocations", assocClass:Location},
 		{type:HAS_MANY, assocClass:Player},
 		{type:HAS_MANY, assocClass:Location},
-		{type:HAS_MANY, assocClass:Action},
+		//{type:HAS_MANY, assocClass:Action},
+		{type:HAS_MANY, propName:"turns", assocClass:TurnCompletion, fKeyName:"turnCompletionId"},
 	]);
+	this.id = stateId;
+	//originalPlayers = new UberCollection();
+	//originalLocations = new UberCollection();
+	remote.addEventListener(RequestQueueEvent.RESULT, onData);
 }
 
 public function resetGameState():void{
 	players.removeAll();
+	locations.removeAll();
 	var i:int;
-	for(i=0;i<originalPlayers.length;i++) {
-		var player:Player = originalPlayers[i];
+	//if(!players) players = new UberCollection();
+	for each(var player:Player in originalPlayers) {
 		player.attributes.removeAll();
 		players.addItem(player);
 	}
-	for(i=0;i<originalLocations.length;i++) {
-		var loc:Location = originalLocations[i];
+	//if(!locations) locations = new UberCollection();
+	for each(var loc:Location in originalLocations) {
 		loc.players.removeAll();
 		locations.addItem(loc);
 	}
@@ -47,36 +61,47 @@ public function resetGameState():void{
 }
 	
 public function gotoAction(input:uint):void{
-	if(input < _gamePosition)
-		resetGameState();
 	
-	while(!isAtEnd && _gamePosition < input)
-		stepOnce();
 }
 public function stepOnce():void{
-	var next:Action = nextAction;
-	var top:Action = topAction;
-	if(topAction && (!nextAction || topAction.resolvedAt.time < nextAction.createdAt.time))
-		resolveAction();
-	else{
-		stackedActions.addItem(next);
-		_gamePosition++;
-	}
+	
 }
-protected function resolveAction():void{
-	var topInd:int = stackedActions.length-1;
-	var ract:Action = stackedActions[topInd];
-	ract.execute(this);
-	stackedActions.removeItemAt(topInd);
-}
+
 public function get isAtEnd():Boolean{
-	return _gamePosition == actions.length && stackedActions.length == 0;
+	return false;
+	//return _gamePosition == actions.length && stackedActions.length == 0;
 }
-public function get topAction():Action{
-	return stackedActions.length > 0 ? stackedActions[stackedActions.length-1] : null;
+
+protected var remote:RequestQueue = new RequestQueue();
+
+public function getData(afterTurnId:int=-1):void{
+	var params:Object = {id:this.id};
+	if(afterTurnId != -1) params.afterTurn = afterTurnId;
+	remote.addRequest("history","Play",params);
 }
-public function get nextAction():Action{
-	return actions.length > 0 ? actions[actions.length-1] : null;
+protected function onData(event:RequestQueueEvent):void{
+	var item:Object;
+	if(event.data.hasOwnProperty("originalPlayers"))
+		this.update({originalPlayers:event.data.originalPlayers});
+	if(event.data.hasOwnProperty("originalLocations"))
+		this.update({originalLocations:event.data.originalLocations});
+	var rawHistory:Array = event.data.events;
+	if(!turns) turns = new UberCollection();
+	var actionsThisTurn:Array = [];
+	for each(item in rawHistory){
+		if(item.eType == TURN_COMPLETION){
+			var turn:TurnCompletion = ASRecord.findOrCreate(TurnCompletion,item.id) as TurnCompletion;
+			item.actions = actionsThisTurn;
+			turn.update(item);
+			turns.addItem(turn);
+			actionsThisTurn = [];
+		}else{
+			actionsThisTurn.push(item);
+		}
+	}
+	unfinishedTurn = new TurnCompletion();
+	unfinishedTurn.update({actions:actionsThisTurn});
+	trace("got game data:" +rawHistory.length);
 }
 
 

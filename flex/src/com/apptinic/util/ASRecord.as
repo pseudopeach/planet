@@ -55,7 +55,12 @@ public static function createRecord(klass:ASRecordClass,id:*=null):ASRecord{
 	return record;
 }
 
-public static function findOrCreate(klass:ASRecordClass,id:*=null):ASRecord{
+public static function findOrCreate(classish:Object,id:*=null, eType:String=null):ASRecord{
+	var klass:ASRecordClass;
+	if(eType)
+		klass = ASRecordClass.createFromString(eType);
+	else if(!(klass = classish as ASRecordClass))
+		klass = ASRecordClass.getInstance(classish as Class);
 	var out:ASRecord = findStoredObject(klass.tableBaseClass,id);
 	if(!out)
 		out = createRecord(klass,id);
@@ -85,13 +90,21 @@ public function enterInSchema(forClass:Class, assocIn:Array=null):void{
 	SCHEMA[forClass] = schemaEntry;
 	_classInfo = schemaEntry;
 }
-/*protected function init():void{
-	for(var s:String in classInfo.associations){
-		var assoc:ASRecordAssociation = classInfo.associations[s];
-		if(assoc.type == HAS_MANY && !this[assoc.propName])
-			this.setMany(assoc,[],true);
+
+protected static var _isBaseTableInherited:Boolean = false;
+public function set isBaseTableInherited(input:Boolean):void{
+	if(input != _isBaseTableInherited){
+		if(input){
+			var ci:ASRecordClass = classInfo;
+			_classInfo.tableBaseClass = ci.superKlass.tableBaseClass;
+			_isBaseTableInherited = true;
+		}else{
+			_classInfo.tableBaseClass = classInfo.klass;
+			_isBaseTableInherited = false;
+		}
 	}
-}*/
+}
+public function get isBaseTableInherited():Boolean{ return _isBaseTableInherited;}
 
 // =========== Core Functionality =================
 
@@ -108,15 +121,23 @@ public function update(input:Object, event:ASRecordEvent=null):void{
 	for(var s:String in input){
 		assoc = classInfo.assocByFKey[s];
 		if(assoc && !input.hasOwnProperty(assoc.propName)){
-			record = findOrCreate(assoc.classInfo,input[s]);
-		 	this[assoc.propName] = record;
+			if(input[s]){
+				record = findOrCreate(assoc.classInfo,input[s]);
+			 	this[assoc.propName] = record;
+			}else{
+				this[assoc.propName] = null;
+			}
 		}else{
 			item = input[s];
 			assoc = classInfo.associations[s];
 			if(assoc && assoc.type==HAS_MANY)
 				setMany(assoc,item);
-			else if(s!="id")
-				this[s] = item; 
+			else if(s!="id"){
+				if(this.hasOwnProperty(s))
+					this[s] = item;
+				else
+					trace("Warning: ASRecord "+classInfo.className+" couldn't accept the property: "+s);
+			}
 		}
 	}
 	//init();
@@ -200,7 +221,7 @@ public function setMany(assoc:ASRecordAssociation,input:Object,updateLocked:Bool
 	//list.supressEvents = true;
 	list.removeAll();
 	for(var i:int=0;i<listIn.length;i++){
-		var record:ASRecord = findOrCreate(assoc.classInfo,listIn[i].id);
+		var record:ASRecord = findOrCreate(assoc.classInfo,listIn[i].id,listIn[i].eType);
 		record.update(listIn[i]);
 		list.addItem(record);
 	}

@@ -13,7 +13,7 @@ public function ActLaunch(input:Object=null){
 	enterInSchema(ActLaunch, [
 		{type:BELONGS_TO, propName:"createdPlayer", assocClass:Player}
 	]);
-	_classInfo.tableBaseClass = _classInfo.superKlass.klass;
+	isBaseTableInherited = true;
 	if(input) update(input);
 }
 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:SkinnableContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
-					  xmlns:s="library://ns.adobe.com/flex/spark" 
-					  xmlns:mx="library://ns.adobe.com/flex/mx" 
-					  skinClass="com.apptinic.terraview.LongHexSkin"
-					  width="400" height="60">
+	  xmlns:s="library://ns.adobe.com/flex/spark" 
+	  xmlns:mx="library://ns.adobe.com/flex/mx" 
+	  skinClass="com.apptinic.terraview.LongHexSkin"
+	  width="400" height="60"
+	  initialize="init()">
 	
 	<s:layout>
 		<s:HorizontalLayout verticalAlign="middle" paddingLeft="15" paddingRight="15" gap="10"/>
@@ -15,5 +16,18 @@
 	<s:Label text="34 / 345" textAlign="center" color="#FFFFFF" paddingTop="2"/>
 	<s:Button width="45" height="45" icon="@Embed('assets/icon-replay.png')" skinClass="com.apptinic.terraview.IconButtonSkin" />
 	<s:Button width="45" height="45" icon="@Embed('assets/icon-last.png')" skinClass="com.apptinic.terraview.IconButtonSkin" />
+
 	
+<fx:Script>
+<![CDATA[
+
+	
+public function init():void{
+	
+}
+
+
+
+]]>
+</fx:Script>	
 </s:SkinnableContainer>

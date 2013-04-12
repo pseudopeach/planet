@@ -5,10 +5,11 @@ package com.apptinic.terraschema{
 [Bindable]
 public class PlayerAttr extends ASRecord{
 
-public var player:Player;
-public var attrUpdates:UberCollection;
 public var value:Number;
 public var name:String;
+	
+public var player:Player;
+public var attrUpdates:UberCollection;
 
 public function PlayerAttr(input:Object=null){
 	super();

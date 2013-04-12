@@ -15,39 +15,34 @@ def setup
   #broadcast_event Game::GAME_INITIALIZED, {}
 end
 
-def test_stuff
-  p1 = self.real_players.first
-  p2 = self.real_players.last
-  u1 = p1.user
-  u2 = p2.user
-  p1p = u1.prototyped_creatures.first
-  p2p = u2.prototyped_creatures.first
-  return {:p1=>p1,:p2=>p2,:u1=>u1,:u2=>u2,:p1p=>p1p,:p2p=>p2p}
-end
-
-def history(since_action_id=nil)
-  if since_action_id 
-    events = self.actions.includes([:player_attr_entries,:player_attr_entries=>:player_attribute]).order(:id).
-      where("id > ?",since_id)
-  else
-    events = self.actions.includes([:player_attr_entries,:player_attr_entries=>:player_attribute]).order(:id)
-  end 
-  if events.length > 0
-    cutoff = events[0].resolved_at
-    events += self.turn_completions.where("created_at >= ?",cutoff)
-    events.sort! {|a,b| a.created_at<=>b.created_at}
+def history_events(since_turn=nil)
+  events = turn_completions.scoped
+  if since_turn.present?
+    events = events.where("id >= ?",since_turn).order(:id)
+    if events[0] && events[0].id == since_turn
+      cutoff = events.shift.created_at
+    end  
   end
+  
+  actions = self.actions.scoped.includes([:player_attr_entries,:player_attr_entries=>:player_attribute])
+  actions = actions.where("created_at >= ?",cutoff) if cutoff.present?
+  events += actions
+  events.sort! {|a,b| a.created_at<=>b.created_at}
+
   history = []
   events.each do |e|
-    hsh = {:e_type=>e.class.to_s, :created_at=>e.created_at, :player_id=>e.player_id, :id=>e.id}
+    hsh = {:eType=>e.class.to_s, :createdAt=>e.created_at, :playerId=>e.player_id, :id=>e.id}
 
     if e.is_a? Game::Action
-      [:target_player_id, :resolved_at].each {|q| hsh[q] = e[q]}
-      hsh.update JSON(e.data) if e.data
-      hsh[:attribute_updates] = []
+      [:target_player_id, :resolved_at].each {|q| hsh[q.to_s.camelize(:lower)] = e[q]}
+      e.xdata.each_key {|q| hsh[q.to_s.camelize(:lower)] = e.xdata[q]} if e.xdata
+
+      hsh[:attrUpdates] = []
       e.player_attr_entries.each do |ae|
-        puts "Attribute entry: #{ae.id}"
-        hsh[:attribute_updates] << {:attr_id=>ae.id,:name=>ae.player_attribute.name,:value=>ae.value}
+        hsh[:attrUpdates] << {
+          :id=>ae.id, :playerAttrId=>ae.player_attribute.id,
+          :attrName=>ae.player_attribute.name.camelize(:lower),:value=>ae.value
+        }
       end
     end
 
@@ -97,6 +92,11 @@ def join(user)
     last_player.save
     self.create_locations
   end
+end
+
+def created_players
+  resolved = self.actions.where("resolved_at IS NOT NULL") 
+  return resolved.select{|a| a.respond_to? :created_player}.map {|p| p.created_player}
 end
 
 def stack_action(action)

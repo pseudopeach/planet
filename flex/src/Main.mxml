@@ -4,6 +4,7 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx" 
 			   xmlns:terraview="com.apptinic.terraview.*"
 			   minWidth="955" minHeight="600" backgroundColor="#000000"
+			   initialize="init();"
 			   creationComplete="onStartup()">
 	<fx:Style source="other.css" />
 	
@@ -28,40 +29,25 @@
 		<terraview:Globe id="globe" width="462" height="462" x="267" y="98"/>
 		
 	</s:Group>-->
-	<s:Button label="test" click="test()"/>
-	<fx:Declarations>
-		<s:RemoteObject id="sro" source="Play" endpoint="http://localhost:3000/amf" destination="RubyAMF"/>
-	</fx:Declarations>
+
 	
 	
 <fx:Script>
 <![CDATA[
+	import com.apptinic.terraschema.GameData;
+	import com.apptinic.terraschema.TerraRailsClassConverter;
 	import com.apptinic.terraview.TruncatedIcosahedron;
 	import com.apptinic.terraview.ZionCellSkin;
-	import com.apptinic.util.RequestQueue;
-	import com.apptinic.util.RequestQueueEvent;
-	
-	import mx.rpc.events.ResultEvent;
-	
-protected var rq:RequestQueue;
-	
+	import com.apptinic.util.ASRecordClass;
+protected function init():void{
+	ASRecordClass.remoteClassFactoryDelegate = new TerraRailsClassConverter();
+}	
 protected function onStartup():void{
-	rq = new RequestQueue();
-	rq.addEventListener(RequestQueueEvent.RESULT, onResult);
+	var gd:GameData = new GameData(1);
+	gd.getData();
 }
 	
-public function test():void{
-	//sro.history({id:1});
-	//sro.addEventListener(ResultEvent.RESULT,onResult);
-	//sro.test({bullshit:true});
-	var params:Object = {id:1};
-	rq.addRequest("history","Play",params);
-}
-	
-protected function onResult(event:RequestQueueEvent):void{
-	trace("got back"); 
-	trace("omg yay!");
-}
+
 
 ]]>
 </fx:Script>
