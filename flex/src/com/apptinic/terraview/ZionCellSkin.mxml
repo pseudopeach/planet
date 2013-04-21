@@ -25,7 +25,7 @@
 		<s:filters>
 			<s:GlowFilter 
 				color="#0082A6" 
-				alpha=".08" 
+				alpha=".26" 
 				blurX="16" 
 				blurY="16"
 				strength="3" 

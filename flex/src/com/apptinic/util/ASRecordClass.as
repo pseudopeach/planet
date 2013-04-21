@@ -1,9 +1,9 @@
 package com.apptinic.util{
-	import avmplus.getQualifiedSuperclassName;
 	
 	import flash.utils.Dictionary;
 	import flash.utils.getDefinitionByName;
 	import flash.utils.getQualifiedClassName;
+	import flash.utils.getQualifiedSuperclassName;
 
 public class ASRecordClass{
 	

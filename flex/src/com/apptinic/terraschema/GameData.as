@@ -5,6 +5,12 @@ package com.apptinic.terraschema{
 	import com.apptinic.util.RequestQueueEvent;
 	import com.apptinic.util.UberCollection;
 	
+	import mx.collections.ArrayCollection;
+	
+	import spark.collections.Sort;
+	import spark.collections.SortField;
+	
+	
 [Bindable]
 public class GameData extends ASRecord{
 	
@@ -12,7 +18,7 @@ public static const TURN_COMPLETION:String = "Game::TurnCompletion";
 	
 // the source data
 public var turns:UberCollection;
-public var unfinishedTurn:TurnCompletion;
+public var unfinishedTurn:GameTurn;
 public var originalPlayers:UberCollection;
 public var originalLocations:UberCollection;
 
@@ -21,11 +27,10 @@ public var originalLocations:UberCollection;
 [bindable] public var locations:UberCollection;
 [bindable] public var stackedActions:UberCollection = new UberCollection();
 
-protected var _gamePosition:uint=0;
-public function get gamePosition():uint {return _gamePosition;}
-public function set gamePosition(input:uint):void{
-	gotoAction(input);
-}
+protected var _completedTurnIdx:uint=0;
+public function get gamePosition():uint {return _completedTurnIdx;}
+protected var turnActionsByResolution:ArrayCollection;
+
 
 public function GameData(stateId:int){
 	super();
@@ -35,40 +40,42 @@ public function GameData(stateId:int){
 		{type:HAS_MANY, assocClass:Player},
 		{type:HAS_MANY, assocClass:Location},
 		//{type:HAS_MANY, assocClass:Action},
-		{type:HAS_MANY, propName:"turns", assocClass:TurnCompletion, fKeyName:"turnCompletionId"},
+		{type:HAS_MANY, propName:"turns", assocClass:GameTurn, fKeyName:"turnCompletionId"},
 	]);
 	this.id = stateId;
 	//originalPlayers = new UberCollection();
 	//originalLocations = new UberCollection();
 	remote.addEventListener(RequestQueueEvent.RESULT, onData);
+	/*
+	turnActionsByResolution = new ArrayCollection();
+	var resSort:Sort = new Sort();
+	resSort.fields[new SortField("resolvedAt")];
+	turnActionsByResolution.sort = resSort;*/
 }
 
 public function resetGameState():void{
 	players.removeAll();
 	locations.removeAll();
-	var i:int;
-	//if(!players) players = new UberCollection();
-	for each(var player:Player in originalPlayers) {
-		player.attributes.removeAll();
-		players.addItem(player);
-	}
-	//if(!locations) locations = new UberCollection();
-	for each(var loc:Location in originalLocations) {
-		loc.players.removeAll();
-		locations.addItem(loc);
-	}
-	_gamePosition = 0;
+	
+	players = originalPlayers;
+	locations = originalLocations;
+	_completedTurnIdx = 0;
 }
 	
-public function gotoAction(input:uint):void{
-	
+public function gotoTurn(input:uint):void{
+	if(input < _completedTurnIdx)
+		resetGameState();
+		
+	while(_completedTurnIdx < input) gotoNextTurn();
 }
-public function stepOnce():void{
-	
+public function gotoNextTurn():void{
+	var turn:GameTurn = turns[_completedTurnIdx];
+	turn.completeTurn();
+	_completedTurnIdx++;
 }
 
 public function get isAtEnd():Boolean{
-	return false;
+	return _completedTurnIdx == (turns.length-1) && stackedActions.length == 0;
 	//return _gamePosition == actions.length && stackedActions.length == 0;
 }
 
@@ -90,7 +97,7 @@ protected function onData(event:RequestQueueEvent):void{
 	var actionsThisTurn:Array = [];
 	for each(item in rawHistory){
 		if(item.eType == TURN_COMPLETION){
-			var turn:TurnCompletion = ASRecord.findOrCreate(TurnCompletion,item.id) as TurnCompletion;
+			var turn:GameTurn = ASRecord.findOrCreate(GameTurn,item.id) as GameTurn;
 			item.actions = actionsThisTurn;
 			turn.update(item);
 			turns.addItem(turn);
@@ -99,7 +106,7 @@ protected function onData(event:RequestQueueEvent):void{
 			actionsThisTurn.push(item);
 		}
 	}
-	unfinishedTurn = new TurnCompletion();
+	unfinishedTurn = new GameTurn();
 	unfinishedTurn.update({actions:actionsThisTurn});
 	trace("got game data:" +rawHistory.length);
 }

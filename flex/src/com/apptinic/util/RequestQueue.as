@@ -26,6 +26,7 @@ protected var queue:Array;
 protected var outstandingRequests:uint = 0;
 protected var sharedRemote:RemoteObject;
 protected var refObjectDict:Dictionary = new Dictionary();
+protected var tokenDictionary:Dictionary = new Dictionary();
 
 
 public function RequestQueue(target:IEventDispatcher=null){
@@ -35,6 +36,8 @@ public function RequestQueue(target:IEventDispatcher=null){
 
 public function addRequest(opName:String, opSrc:String, params:Object=null, refObject:Object=null):uint{
 	queue.push({opName:opName, opSrc:opSrc, params:params, refObject:refObject});
+	if(queue.length != 1) trace("queueing request: "+opSrc+"::"+opName);
+	
 	pokeQueue();
 	return queue.length;
 }
@@ -44,9 +47,9 @@ protected function executeRequest(req:Object):void{
 	ro.source = req.opSrc;
 	
 	var op:AbstractOperation = ro.getOperation(req.opName);
+	trace("sending remote request: "+ro.source+"::"+op.name);
 	var tok:AsyncToken = op.send(req.params);
-	if(req.refObject) 
-		refObjectDict[tok] = req.refObject;
+	tokenDictionary[tok] = req;
 	outstandingRequests++;
 	
 }
@@ -56,11 +59,15 @@ protected function onResult(event:ResultEvent):void{
 	var remote:RemoteObject = event.target as RemoteObject;
 	var refObj:Object = refObjectDict[event.token];
 	
+	var req:Object = tokenDictionary[event.token];
+	trace("request returned: "+req.opSrc+"::"+req.opName);
+	delete tokenDictionary[event.token];
+	
 	e.data = event.result;
-	if(refObj){
-		e.refObject = refObj;
-		delete refObjectDict[event.token];
-	}
+	
+	if(refObj)
+		e.refObject = req.refObject;
+
 	if(!sharedRemote)
 		sharedRemote = remote;
 	else{

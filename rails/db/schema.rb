@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(:version => 20130403201305) do
   end
 
   create_table "game_actions", :force => true do |t|
-    t.integer   "player_id",                       :null => false
-    t.integer   "target_player_id"
-    t.string    "data",             :limit => 512
-    t.string    "type",             :limit => 64,  :null => false
-    t.timestamp "created_at"
-    t.timestamp "resolved_at"
+    t.integer  "player_id",                       :null => false
+    t.integer  "target_player_id"
+    t.string   "data",             :limit => 512
+    t.string   "type",             :limit => 64,  :null => false
+    t.datetime "created_at"
+    t.datetime "resolved_at"
   end
 
   create_table "game_item_types", :force => true do |t|
@@ -82,11 +82,11 @@ ActiveRecord::Schema.define(:version => 20130403201305) do
   end
 
   create_table "game_states", :force => true do |t|
-    t.string    "status",                :limit => 32, :default => "initialized", :null => false
-    t.integer   "resolving_action_id"
-    t.timestamp "created_at"
-    t.timestamp "last_action_at"
-    t.integer   "current_turn_taker_id"
+    t.string   "status",                :limit => 32, :default => "initialized", :null => false
+    t.integer  "resolving_action_id"
+    t.datetime "created_at"
+    t.datetime "last_action_at"
+    t.integer  "current_turn_taker_id"
   end
 
   create_table "game_turn_completions", :force => true do |t|
@@ -129,15 +129,15 @@ ActiveRecord::Schema.define(:version => 20130403201305) do
   end
 
   create_table "users", :force => true do |t|
-    t.string    "screen_name",       :limit => 64,                     :null => false
-    t.string    "email",             :limit => 320
-    t.boolean   "is_disabled",                      :default => false, :null => false
-    t.text      "prefs"
-    t.string    "password",          :limit => 128,                    :null => false
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "emailverified",     :limit => 1,   :default => 0,     :null => false
-    t.string    "verification_code", :limit => 35
+    t.string   "screen_name",       :limit => 64,                     :null => false
+    t.string   "email",             :limit => 320
+    t.boolean  "is_disabled",                      :default => false, :null => false
+    t.text     "prefs"
+    t.string   "password",          :limit => 128,                    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "emailverified",     :limit => 1,   :default => 0,     :null => false
+    t.string   "verification_code", :limit => 35
   end
 
   add_index "users", ["screen_name"], :name => "screen_name", :unique => true

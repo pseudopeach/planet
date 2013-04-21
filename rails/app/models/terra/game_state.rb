@@ -39,6 +39,7 @@ def history_events(since_turn=nil)
 
       hsh[:attrUpdates] = []
       e.player_attr_entries.each do |ae|
+        puts "player attribute: "+ae.inspect
         hsh[:attrUpdates] << {
           :id=>ae.id, :playerAttrId=>ae.player_attribute.id,
           :attrName=>ae.player_attribute.name.camelize(:lower),:value=>ae.value

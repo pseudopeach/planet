@@ -1,4 +1,4 @@
-class CreateMigration < ActiveRecord::Migration
+class CreateDatabase < ActiveRecord::Migration
   def self.up
 
   create_table "actions_states_stacked", :id => false, :force => true do |t|

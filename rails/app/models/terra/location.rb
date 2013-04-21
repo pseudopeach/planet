@@ -1,6 +1,9 @@
 class Terra::Location < Game::Location
   belongs_to :game, :class_name=>"Terra::GameState", :foreign_key=>"state_id", :inverse_of=>:locations
   
+  include Util::Hashtastic
+  hash_exclude :state_id
+  
   def has_player_type?(prototype_id)
     return players.where(:prototype_id=>prototype_id).length > 0
   end
