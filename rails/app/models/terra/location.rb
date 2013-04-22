@@ -4,8 +4,34 @@ class Terra::Location < Game::Location
   include Util::Hashtastic
   hash_exclude :state_id
   
+  include Game::ExtendedAttributes
+  attr_accessor :xdata
+  before_save :serialize_data
+  #after_initialize :load_broadcastables 
+  after_initialize :deserialize_data
+  
   def has_player_type?(prototype_id)
     return players.where(:prototype_id=>prototype_id).length > 0
+  end
+  
+  def store_terrain_info(type, coast_points=nil)
+    terrain_type = type
+    if coast_points && coast_points.respond_to?(:length) && coast_points.length < 8
+      @xdata["coast_segments"] = coast_points.map {|seg| seg.first 100}
+    else
+      @xdata["coast_segments"] = []
+    end
+    return true
+  end
+  
+  def terrain_type
+    return @xdata["terrain_type"].to_sym
+  end
+  
+  def terrain_type=(input)
+    return false unless Terra::TERRAIN_TYPES.member? input.to_sym
+    
+    @xdata["terrain_type"] = input
   end
   
   def calc_caps
@@ -49,4 +75,6 @@ class Terra::Location < Game::Location
       state.remove_player_observer q.observer, action.player
     end
   end
+  
+  
 end

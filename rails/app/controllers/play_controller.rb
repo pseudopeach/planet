@@ -7,8 +7,8 @@ class PlayController < ApplicationController
     game = Terra::GameState.find(params[:id])
     @history = {:events=>game.history_events(params[:after_turn].to_i)}
     unless params[:after_turn]
-      @history[:originalPlayers] = (game.players - game.created_players).map{|q| to_hash q}
-      @history[:originalLocations] = (game.locations).map{|q| to_hash q}
+      @history[:originalPlayers] = (game.players - game.created_players).map{|q| q.to_hash}
+      @history[:originalLocations] = (game.locations).map{|q| q.to_hash}
     end
     #@bs = @history.map {|q| {:id=>q[:id], :created_at=>q[:created_at]} }
     respond_to do |format|

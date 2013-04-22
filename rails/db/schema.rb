@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403201305) do
+ActiveRecord::Schema.define(:version => 20130421230317) do
 
   create_table "actions_states_stacked", :id => false, :force => true do |t|
     t.integer "action_id", :null => false
@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(:version => 20130403201305) do
   end
 
   create_table "game_locations", :force => true do |t|
-    t.integer "i",                           :null => false
-    t.integer "j",                           :null => false
-    t.boolean "is_land",  :default => false, :null => false
-    t.integer "state_id",                    :null => false
+    t.integer "i",        :null => false
+    t.integer "j",        :null => false
+    t.integer "state_id", :null => false
+    t.text    "data"
   end
 
   add_index "game_locations", ["state_id", "i", "j"], :name => "up_i_j_game", :unique => true

@@ -3190,3 +3190,73 @@ Processing by PlayController#history as AMF
   [1m[35mTerra::Location Load (0.3ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
 Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 2.4ms)
 ["Sending back AMF"]
+
+
+Started GET "/play/history/1" for 127.0.0.1 at 2013-04-21 18:57:46 -0400
+Processing by PlayController#history as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTerra::GameState Load (2.7ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (3.7ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (3.3ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (2.3ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (1.3ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.5ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (1.0ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.3ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (1.1ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+  Rendered play/history.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 281ms (Views: 9.5ms | ActiveRecord: 35.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-21 18:57:47 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-21 18:57:47 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-21 18:57:47 -0400
+Served asset /play.css - 304 Not Modified (0ms)
+
+
+Started GET "/play/history/1" for 127.0.0.1 at 2013-04-21 19:01:18 -0400
+Processing by PlayController#history as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTerra::GameState Load (0.2ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (0.3ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.2ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.2ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.2ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.3ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.3ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (3.2ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.2ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+  Rendered play/history.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 231ms (Views: 5.0ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-21 19:01:18 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/play.css?body=1" for 127.0.0.1 at 2013-04-21 19:01:18 -0400
+Served asset /play.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-21 19:01:18 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateDatabase (1)
+Migrating to NullableActionId (20130402215455)
+Migrating to AddTurnEndId (20130402220502)
+Migrating to StandardizeCompletionTimestamp (20130403201305)
+Migrating to LocationDefineTerrain (20130421230317)
+  [1m[35m (56.1ms)[0m  ALTER TABLE `game_locations` DROP `is_land`
+  [1m[36m (31.8ms)[0m  [1mALTER TABLE `game_locations` ADD `data` text[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130421230317')
+  [1m[36m (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Mysql2::Error: Column 'i' cannot be null: INSERT INTO `game_locations` (`data`, `i`, `j`, `state_id`) VALUES ('{\"terrain_type\":\"tt_land\",\"coast_segments\":[\"SDFwegwrherhafsf\",\"WEAv345q23tvverv\",\"tc4t43qct4t34t\"]}', NULL, NULL, NULL)
+Mysql2::Error: Column 'i' cannot be null: INSERT INTO `game_locations` (`data`, `i`, `j`, `state_id`) VALUES ('{\"terrain_type\":\"tt_land\",\"coast_segments\":[\"SDFwegwrherhafsf\",\"WEAv345q23tvverv\",\"tc4t43qct4t34t\"]}', NULL, NULL, 2342)

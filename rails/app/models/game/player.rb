@@ -2,6 +2,7 @@ class Game::Player < ActiveRecord::Base
   
 include Game::ExtendedAttributes
 include Game::ItemAccounting
+include Util::Hashtastic
   
 belongs_to :game, :class_name=>"Game::State", :foreign_key=>"state_id", :inverse_of=>:players
 
@@ -22,6 +23,12 @@ has_many :observing_players, :class_name=>"Game::Player", :through=>:observers
 has_many :player_attributes, :dependent=>:destroy, :inverse_of=>:player
 has_many :actions, :class_name=>"Game::Action"
 has_many :items
+
+hash_exclude :next_player_id
+hash_exclude :prev_player_id
+hash_exclude :prototype_player_id
+hash_exclude :data
+hash_exclude :state_id
 
 @@loaded_prototypes = {}
 
