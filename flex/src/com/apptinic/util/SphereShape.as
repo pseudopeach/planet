@@ -84,6 +84,7 @@ public function createTerrainTile():SphereShape{
 		if(!iceMode) out.vertices.push(vert);
 		if(out.dataItem.coastSegments[i]){
 			var extras2d:Array = UDF.decodeLine(out.dataItem.coastSegments[i]);
+			if(iceMode) trace("decoding ice with "+vert2d.lat+" , "+vert2d.lon);
 			for each(var coord:Object in extras2d){
 				var extra:Vector3D = SphereView.toCartesian(coord.lat+vert2d.lat,coord.lon+vert2d.lon);
 				out.vertices.push(extra);
@@ -101,6 +102,7 @@ public function encodeTerrainInfo():void{
 	if(!dataItem)
 		dataItem = new Location();
 	dataItem.terrainType = ContinentBuilder.getTypeForColor(this.color);
+	var iceMode:Boolean = this.dataItem.terrainType == ContinentBuilder.ICE;
 
 	for(var i:int=0;i<seedVertices.length;i++){
 		segment = [];
@@ -110,11 +112,13 @@ public function encodeTerrainInfo():void{
 		if(segmentEndInd == -1)
 			segmentEndInd = vertices.length;
 		j++;
+		
 		while(j<segmentEndInd){
 			var pt:Object = SphereView.toSpherical(vertices[j]);
 			segment.push({lat:pt.lat-seedVert2d.lat, lon:pt.lon-seedVert2d.lon});
 			j++;
 		}
+		if(iceMode&&segment.length>0) trace("encoding ice with "+seedVert2d.lat+" , "+seedVert2d.lon);
 		//var sstr:String;
 		dataItem.coastSegments.push(/*sstr=*/UDF.encodeLine(segment));
 		//trace("segment length"+sstr.length);

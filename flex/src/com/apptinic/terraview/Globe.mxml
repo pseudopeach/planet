@@ -23,6 +23,7 @@ protected var surfaceFeatures:Vector.<SphereShape>;
 //public var continentBuilder:ContinentBuilder = new ContinentBuilder();
 	
 public function init():void{
+	trace("globe init");
 	var shape:SphereShape;
 	net = new Vector.<SphereShape>();
 	var hedron:TruncatedIcosahedron = new TruncatedIcosahedron();
@@ -33,6 +34,7 @@ public function init():void{
 		shape.borderThickness = BORDER_THICKNESS;
 		shape.bend();
 		net.push(shape);
+		trace("net creation: "+shape.dataItem.i+" , "+shape.dataItem.j);
 	}
 	surfaceFeatures = new Vector.<SphereShape>();
 	//shapes = null;
@@ -45,7 +47,7 @@ public function init():void{
 		*/
 	//shapes = surfaceFeatures.concat(net);
 	
-	//invalidateDisplayList();
+	invalidateDisplayList();
 }
 
 public function addLocation(loc:Location):void{
@@ -55,6 +57,7 @@ public function addLocation(loc:Location):void{
 	terrainTile.bend();
 	surfaceFeatures.push(terrainTile);
 	shapes = surfaceFeatures.concat(net);
+	invalidateDisplayList();
 }
 	
 protected var hoveredLocation:SphereShape;

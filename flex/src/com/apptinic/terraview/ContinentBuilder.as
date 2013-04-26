@@ -1,7 +1,6 @@
 package com.apptinic.terraview{
 	import com.apptinic.util.SphereShape;
 	import com.apptinic.util.SphereView;
-	import com.apptinic.util.UDF;
 	
 	import flash.geom.Point;
 	import flash.geom.Vector3D;
@@ -19,9 +18,11 @@ public static const ICE:String = "tt_ice";
 public var continentSpread:Number = 0.7;
 public var continentMinSize:Number = 5;
 public var continentMaxSize:Number = 12;
-public var roughness:Number = .4;
-public var maxCoastalSegmentSize:Number = .05;
+public var roughness:Number = .5;
+public var maxCoastalSegmentSize:Number = .03;
 public var addIcecaps:Boolean = true;
+public var prebendTiles:Boolean = false;
+public var schmutzCorners:Boolean = false;
 
 public var hedron:TruncatedIcosahedron;
 protected var vertexMap:Dictionary;
@@ -67,7 +68,10 @@ public function generate():void{
 	if(addIcecaps){
 		for(var i:int=30;i<hedron.faces.length;i++){
 			var last:Vector3D = hedron.faces[i].vertices[hedron.faces[i].vertices.length-1];
-			tile = new SphereShape({color:ICE_COLOR, vertices:new Vector.<Vector3D>});
+			tile = new SphereShape({
+				color:ICE_COLOR, vertices:new Vector.<Vector3D>,
+				loc_i:(i%2==0? 0:7), loc_j:0
+			});
 			for(var j:int=0;j<hedron.faces[i].vertices.length;j++){
 				//tile.vertices.push(hedron.faces[i].vertices[j].clone());
 				tile.vertices = tile.vertices.concat(getInterPoints(last,hedron.faces[i].vertices[j]));
@@ -77,8 +81,8 @@ public function generate():void{
 			tiles.push(tile);
 		}	
 	}
-		
-	for each(tile in tiles) tile.bend();
+	if(prebendTiles)	
+		for each(tile in tiles) tile.bend();
 	
 	hedron=null;
 	vertexMap=null;
@@ -224,7 +228,8 @@ public function traceOutline(initialPoint:Vector3D, backDir:Vector3D):Vector.<Ve
 		backDir = vertex.subtract(nextVertex);
 		vertex = nextVertex;
 		outline.push(nextVertex);
-		schmutzVertex(nextVertex);
+		if(schmutzCorners)
+			schmutzVertex(nextVertex);
 	}while(  vertex != initialPoint)
 	return outline;
 }

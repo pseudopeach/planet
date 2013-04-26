@@ -28,12 +28,18 @@ public function generate():void{
 	globe.init();
 	
 	var cb:ContinentBuilder = new ContinentBuilder();
+	//cb.addIcecaps = false;
 	cb.generate();
 	for each(var tile:SphereShape in cb.tiles){
+		//trace("tile begin **** ");
 		tile.encodeTerrainInfo();
+		var ts:SphereShape = new SphereShape();
+		ts.dataItem = tile.dataItem;
+		//trace("original: "+tile.vertices.length+" after transcoding: "+
 		globe.addLocation(tile.dataItem);
+		//tile.bend();
 	}
-	invalidateDisplayList();
+	//globe.shapes = cb.tiles
 }
 
 protected var reqq:RequestQueue = new RequestQueue();

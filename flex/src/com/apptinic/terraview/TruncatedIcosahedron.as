@@ -38,7 +38,10 @@ public function createFaces():void{
 			faces.push( f1=new SphereShape({lat:MAGIC_LATS[i], lon:36.0*j, 
 				type:"hex", vertices: new Vector.<Vector3D>(), center:new Vector3D(),
 				adjacentShapes: new Vector.<SphereShape>(), loc_i:i, loc_j:j} ) );
-			if(j%2==0) f1.lat *= -1;
+			if(j%2==0){
+				f1.lat *= -1;
+				f1.loc_i = 7-i;
+			}
 			if(i==2){ f1.type = "pent";f1.lat *= -1;}
 		}
 	}
