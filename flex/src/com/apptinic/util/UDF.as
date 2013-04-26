@@ -166,6 +166,66 @@ public static function diffObjects(o1:*, o2:*, addressStr:String="{root}"):Array
 	return output;	
 }
 
+public static function encodeLine(points:Array):String {
+	var out:String = "";
+	
+	var lastLat:Number = 0;
+	var lastLon:Number = 0;
+	
+	for each(var point:Object in points){
+		out += encodeNumber(Math.round((point.lat-lastLat)*1e5));
+		out += encodeNumber(Math.round((point.lon-lastLon)*1e5));
+		lastLat = point.lat;
+		lastLon = point.lon;
+	}
+	return out;
+}
+
+public static function encodeNumber(n:int):String {
+	var out:String = "";
+	var bits:int = n << 1;
+	if(n < 0)
+		bits = ~bits;
+	while(bits >= 0x20) {
+		out += (String.fromCharCode((0x20 | (bits & 0x1f)) + 63));
+		bits >>= 5;
+	}
+	out += String.fromCharCode(bits + 63);
+	return out;
+}
+
+public static function decodeLine(encoded:String):Array {
+	var len:uint = encoded.length;
+	var index:int = 0;
+	var out:Array = [];
+	var lat:Number = 0;
+	var lon:Number = 0;
+	var dc:Number;
+	while (index < len) {
+		var b:int;
+		var shift:int = 0;
+		var result:int = 0;
+		do {
+			b = encoded.charCodeAt(index++) - 63;
+			result |= (b & 0x1f) << shift;
+			shift += 5;
+		} while (b >= 0x20);
+		dc = ((result & 1) ? ~(result >> 1) : (result >> 1));
+		lat += dc;
+		shift = 0;
+		result = 0;
+		do {
+			b = encoded.charCodeAt(index++) - 63;
+			result |= (b & 0x1f) << shift;
+			shift += 5;
+		} while (b >= 0x20);
+		dc = ((result & 1) ? ~(result >> 1) : (result >> 1));
+		lon += dc;
+		out.push({lat:(lat*1e-5), lon:(lon*1e-5)});
+	}
+	return out;
+}
+
 public static function monthName(m:Number):String{
 	if(m == 0)
 		return "January";

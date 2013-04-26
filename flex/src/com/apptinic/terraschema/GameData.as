@@ -1,20 +1,24 @@
 package com.apptinic.terraschema{
+	import com.apptinic.terraview.ContinentBuilder;
 	import com.apptinic.util.ASRecord;
-	import com.apptinic.util.ASRecordClass;
 	import com.apptinic.util.RequestQueue;
 	import com.apptinic.util.RequestQueueEvent;
+	import com.apptinic.util.SphereShape;
 	import com.apptinic.util.UberCollection;
 	
 	import mx.collections.ArrayCollection;
-	
-	import spark.collections.Sort;
-	import spark.collections.SortField;
 	
 	
 [Bindable]
 public class GameData extends ASRecord{
 	
 public static const TURN_COMPLETION:String = "Game::TurnCompletion";
+public static const EVENT_LOCATION_ADDED:String = "locationAdded";
+public static const EVENT_PLAYER_ADDED:String = "playerAdded";
+public static const EVENT_HISTORY_ADDED:String = "historyAdded";
+public static const EVENT_LOCATIONS_RESET:String = "locationsReset";
+public static const EVENT_PLAYER_REMOVED:String = "playerRemoved";
+public static const EVENT_HISTORY_REMOVED:String = "historyRemoved";
 	
 // the source data
 public var turns:UberCollection;
@@ -32,7 +36,7 @@ public function get gamePosition():uint {return _completedTurnIdx;}
 protected var turnActionsByResolution:ArrayCollection;
 
 
-public function GameData(stateId:int){
+public function GameData(stateId:int=NaN){
 	super();
 	enterInSchema(GameData, [
 		{type:HAS_MANY, propName:"originalPlayers", assocClass:Player},
@@ -42,7 +46,8 @@ public function GameData(stateId:int){
 		//{type:HAS_MANY, assocClass:Action},
 		{type:HAS_MANY, propName:"turns", assocClass:GameTurn, fKeyName:"turnCompletionId"},
 	]);
-	this.id = stateId;
+	if(!isNaN(stateId)) 
+		this.id = stateId;
 	//originalPlayers = new UberCollection();
 	//originalLocations = new UberCollection();
 	remote.addEventListener(RequestQueueEvent.RESULT, onData);
@@ -109,6 +114,29 @@ protected function onData(event:RequestQueueEvent):void{
 	unfinishedTurn = new GameTurn();
 	unfinishedTurn.update({actions:actionsThisTurn});
 	trace("got game data:" +rawHistory.length);
+}
+
+protected var continentBuilder:ContinentBuilder = new ContinentBuilder();
+public function createLocations():void{
+	var locationObjs:Array = [];
+	for each(var tile:SphereShape in continentBuilder.tiles){
+		var loc:Location = tile.dataItem;
+		locationObjs.push(loc.toObject());
+	}
+	var params:Object = {gameId:this.id, locations:locationObjs};
+	service.addEventListener(RequestQueueEvent.RESULT,onLocationsCreated);
+	service.addRequest("create_locations","Play",params);
+}
+protected function onLocationsCreated(event:RequestQueueEvent):void{
+	service.removeEventListener(RequestQueueEvent.RESULT,onLocationsCreated);
+	getData();
+}
+
+public static function createGame():GameData{
+	var game:GameData = new GameData();
+	game.save();
+	game.createLocations();
+	return game;
 }
 
 

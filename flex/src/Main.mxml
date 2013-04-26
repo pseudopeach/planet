@@ -37,14 +37,20 @@
 	import com.apptinic.terraschema.GameData;
 	import com.apptinic.terraschema.TerraRailsClassConverter;
 	import com.apptinic.terraview.TruncatedIcosahedron;
+	import com.apptinic.terraview.ViewController;
 	import com.apptinic.terraview.ZionCellSkin;
 	import com.apptinic.util.ASRecordClass;
+	
+public var gameData:GameData;
+public var viewController:ViewController;
+	
 protected function init():void{
 	ASRecordClass.remoteClassFactoryDelegate = new TerraRailsClassConverter();
 }	
 protected function onStartup():void{
-	var gd:GameData = new GameData(1);
-	gd.getData();
+	gameData = new GameData(1);
+	viewController = new ViewController(gameData,globe);
+	gameData.getData();
 }
 	
 

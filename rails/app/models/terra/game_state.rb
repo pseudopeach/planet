@@ -91,7 +91,7 @@ def join(user)
     self.save
     self.players << player
     last_player.save
-    self.create_locations
+    #self.create_locations
   end
 end
 
@@ -235,13 +235,24 @@ def remove_player_observer(observer_player, observed_player, action_type=nil, fo
   end
 end
 
-def create_locations
-  self.transaction do
-  (0...5).each do |i|
-    (0...6).each do |j|
-      self.locations << Terra::Location.new(:i=>i,:j=>j)
+def create_locations(locations_in=nil)
+  if locations_in
+    locs = []
+    locations_in.each do |loc|
+      nl = Terra::Location.new(:i=>loc["i"], :j=>loc["j"])
+      nl.store_terrain_info = loc["terrainType"], loc["coastSegments"]
+      locs << nl
     end
-  end
+    self.locations = locs
+  else
+    #create standard locations
+    self.transaction do
+      (0...5).each do |i|
+        (0...6).each do |j|
+          self.locations << Terra::Location.new(:i=>i,:j=>j)
+        end
+      end
+    end
   end
 end
 

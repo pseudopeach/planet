@@ -25,7 +25,20 @@ class PlayController < ApplicationController
   end
   
   def create
+    #@user = User.find(session[:user_id])
+    @user = User.find(1)
+    @game = Terra::GameState.create_game(@user)
+    render :amf => {:game_id=>@game.id}
+  end
+  
+  def create_locations
+    @game = Terra::GameState.find_by_id(params[:game_id])
+    raise "Game {params[:game_id]} not found." unless @game
+    raise "Locations already exist for this game." if @game.locations.length > 0
     
+    @locations_in = params[:locations]
+    @retult = @game.create_locations @locations_in
+    render :amf => {:success=>@retult}
   end
   
   def join

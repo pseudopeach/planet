@@ -8,6 +8,7 @@
 	
 <fx:Script>
 <![CDATA[
+	import com.apptinic.terraschema.Location;
 	import com.apptinic.util.SphereShape;
 	
 public const BORDER_COLOR:uint = 0x666666;	
@@ -18,16 +19,11 @@ public const H_BORDER_ALPHA:Number = .9;
 
 protected var net:Vector.<SphereShape>;
 protected var surfaceFeatures:Vector.<SphereShape>;
-
+//protected var hedron:TruncatedIcosahedron = new TruncatedIcosahedron();
+//public var continentBuilder:ContinentBuilder = new ContinentBuilder();
 	
 public function init():void{
 	var shape:SphereShape;
-	//shapes = new Vector.<SphereShape>();
-	
-	var cb:ContinentBuilder = new ContinentBuilder();
-	cb.generate();
-	surfaceFeatures = cb.tiles;
-	
 	net = new Vector.<SphereShape>();
 	var hedron:TruncatedIcosahedron = new TruncatedIcosahedron();
 	for each(shape in hedron.faces){
@@ -38,13 +34,28 @@ public function init():void{
 		shape.bend();
 		net.push(shape);
 	}
-		
-	shapes = surfaceFeatures.concat(net);
+	surfaceFeatures = new Vector.<SphereShape>();
+	//shapes = null;
+	shapes = new Vector.<SphereShape>();
+	/*
+	continentBuilder.generate();
+	surfaceFeatures = continentBuilder.tiles;
 	
-	invalidateDisplayList();
+	
+		*/
+	//shapes = surfaceFeatures.concat(net);
+	
+	//invalidateDisplayList();
 }
 
-
+public function addLocation(loc:Location):void{
+	var netItem:SphereShape = getNetFaceForCoordinate(loc.i,loc.j);
+	netItem.dataItem = loc;
+	var terrainTile:SphereShape = netItem.createTerrainTile();
+	terrainTile.bend();
+	surfaceFeatures.push(terrainTile);
+	shapes = surfaceFeatures.concat(net);
+}
 	
 protected var hoveredLocation:SphereShape;
 override protected function onHover(x:Number, y:Number, data:Object=null):void{
@@ -69,7 +80,13 @@ override protected function onHover(x:Number, y:Number, data:Object=null):void{
 override protected function onClickOrTap(x:Number, y:Number, data:Object=null):void{
 	trace("click: "+x+","+y);
 }
-
+	
+public function getNetFaceForCoordinate(i:int,j:int):SphereShape{
+	var k:int=0;
+	while(i<net.length && !(net[k].dataItem.i == i && net[k].dataItem.j == j)) k++;
+	
+	return net[k];
+}
 
 ]]>
 </fx:Script>

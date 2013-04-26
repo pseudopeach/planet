@@ -17,7 +17,7 @@ class Terra::Location < Game::Location
   def store_terrain_info(type, coast_points=nil)
     terrain_type = type
     if coast_points && coast_points.respond_to?(:length) && coast_points.length < 8
-      @xdata["coast_segments"] = coast_points.map {|seg| seg.first 100}
+      @xdata["coast_segments"] = coast_points.map {|seg| seg.first 500}
     else
       @xdata["coast_segments"] = []
     end

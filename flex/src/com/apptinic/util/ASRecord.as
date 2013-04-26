@@ -1,6 +1,8 @@
 package com.apptinic.util{
 import flash.events.EventDispatcher;
+import flash.geom.Vector3D;
 import flash.utils.Dictionary;
+import flash.utils.describeType;
 import flash.utils.getQualifiedClassName;
 
 import mx.collections.ArrayCollection;
@@ -20,6 +22,8 @@ public static var fidCount:int = 1;
 
 public var id:int;
 protected var fid:int;
+protected var _hasUnsavedChanges:Boolean = true;
+public function get hasUnsavedChanges():Boolean{return _hasUnsavedChanges;}
 
 public var isLockedForUpdate:Boolean = false;
 public var isPopulated:Boolean = false;
@@ -53,6 +57,23 @@ public static function createRecord(klass:ASRecordClass,id:*=null):ASRecord{
 	record.id = id;
 	storeObject(record);
 	return record;
+}
+
+
+protected var service:RequestQueue;
+public function save():void{
+	if(!service)
+		service = new RequestQueue();
+	
+	service.addEventListener(RequestQueueEvent.RESULT, onSaveResult);
+	var params:Object = this.toObject();
+	service.addRequest(classInfo.remoteSaveMethodName,classInfo.remoteControllerName,params);
+}
+
+protected function onSaveResult(event:RequestQueueEvent):void{
+	service.removeEventListener(RequestQueueEvent.RESULT, onSaveResult);
+	this.id = event.data.id;
+	this._hasUnsavedChanges = false;
 }
 
 public static function findOrCreate(classish:Object,id:*=null, eType:String=null):ASRecord{
@@ -144,6 +165,34 @@ public function update(input:Object, event:ASRecordEvent=null):void{
 	isPopulated = true;
 }
 
+public function toObject(shallow:Boolean=true):Object{
+	var out:Object = new Object();
+	var names:Array = [];
+	var a:Object;
+	var s:String;
+	var assoc:ASRecordAssociation;
+	for(s in this)
+		names.push(s);
+	var classInfo:XML = describeType(this);
+	for each (a in classInfo..accessor) 
+	names.push(a.@name.toString());
+	for each (a in classInfo..variable) 
+	names.push(a.@name.toString());
+	for each(s in names){
+		//copy stuff
+		assoc = classInfo.associations[s];
+		if(shallow){
+			if(assoc && assoc.type == BELONGS_TO)
+				out[assoc.fKeyName] = this[s] ? this[s].id : null;
+			else if(!assoc)
+				out[s] = this[s]
+		}else{
+			//todo: implement deep serialize
+		}		
+	}
+	return out;
+}
+
 protected function onPropertyChanged(event:PropertyChangeEvent):void{
 	var newRecord:ASRecord = event.newValue as ASRecord;
 	var oldRecord:ASRecord = event.oldValue as ASRecord;
@@ -179,6 +228,7 @@ protected function onPropertyChanged(event:PropertyChangeEvent):void{
 	}
 	if(event.property != "id") isPopulated = true;
 	
+	this._hasUnsavedChanges = true;
 	var newEvent:ASRecordEvent = new ASRecordEvent(ASRecordEvent.CHANGE,this);
 	dispatchEvent(newEvent);	
 }

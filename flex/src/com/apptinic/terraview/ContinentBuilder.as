@@ -9,9 +9,12 @@ package com.apptinic.terraview{
 
 public class ContinentBuilder{
 	
-public const LAND_COLOR:uint = 0xC0FFB0;
-public const SEA_COLOR:uint = 0x76A3FF;
-public const ICE_COLOR:uint = 0xEBFBFF;
+public static const LAND_COLOR:uint = 0xC0FFB0;
+public static const LAND:String = "tt_land";
+public static const WATER_COLOR:uint = 0x76A3FF;
+public static const WATER:String = "tt_water";
+public static const ICE_COLOR:uint = 0xEBFBFF;
+public static const ICE:String = "tt_ice";
 
 public var continentSpread:Number = 0.7;
 public var continentMinSize:Number = 5;
@@ -29,7 +32,7 @@ public var tiles:Vector.<SphereShape>;
 public var tempsv:SphereView;
 	
 public function ContinentBuilder(){
-
+	
 }
 
 public function generate():void{
@@ -68,6 +71,7 @@ public function generate():void{
 			for(var j:int=0;j<hedron.faces[i].vertices.length;j++){
 				//tile.vertices.push(hedron.faces[i].vertices[j].clone());
 				tile.vertices = tile.vertices.concat(getInterPoints(last,hedron.faces[i].vertices[j]));
+				tile.seedVertices = hedron.faces[i].seedVertices;
 				last = hedron.faces[i].vertices[j];
 			}
 			tiles.push(tile);
@@ -89,7 +93,7 @@ public function paintRandomContinents():void{
 	var p:Point;
 	//var i:int;
 	for each(var face:SphereShape in hedron.faces)
-		face.color = SEA_COLOR;
+		face.color = WATER_COLOR;
 	for(var i:int=0;i<3;i++){//0xC0FFB0
 		seed = hedron.faces[Math.round(Math.random()*(hedron.faces.length-1))];
 		sizeOfContinent = Math.round(Math.random()*(continentMaxSize-continentMinSize) + continentMinSize)
@@ -147,6 +151,30 @@ public function seekACoast(initialPoint:Vector3D,transitColor:uint=LAND_COLOR):O
 	}
 
 	return null; //fail
+}
+
+public static function getColorForType(type:String):uint{
+	switch(type){
+		case LAND:
+			return LAND_COLOR;
+		case WATER:
+			return WATER_COLOR;
+		case ICE:
+			return ICE_COLOR;
+	}
+	return NaN;
+}
+
+public static function getTypeForColor(color:uint):String{
+	switch(color){
+		case LAND_COLOR:
+			return LAND;
+		case WATER_COLOR:
+			return WATER;
+		case ICE_COLOR:
+			return ICE;
+	}
+	return null;
 }
 	
 protected function findExistingCoastPoint(point:Vector3D):Object{
@@ -230,6 +258,13 @@ public function createCoastline(outline:Vector.<Vector3D>):void{
 			node[j].vertices.splice(index+k+1,0,points[k]);
 		
 		//trace("added coastline points: "+points.length);
+	}
+}
+
+public function saveContinents(gameStateId:int):void{
+	var locData:Array = [];
+	for each(var tile:SphereShape in tiles){
+		//locData.push({i:
 	}
 }
 

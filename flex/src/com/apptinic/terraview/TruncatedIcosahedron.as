@@ -37,14 +37,14 @@ public function createFaces():void{
 		for(j=0;j<10;j++){
 			faces.push( f1=new SphereShape({lat:MAGIC_LATS[i], lon:36.0*j, 
 				type:"hex", vertices: new Vector.<Vector3D>(), center:new Vector3D(),
-				adjacentShapes: new Vector.<SphereShape>()}) );
+				adjacentShapes: new Vector.<SphereShape>(), loc_i:i, loc_j:j} ) );
 			if(j%2==0) f1.lat *= -1;
 			if(i==2){ f1.type = "pent";f1.lat *= -1;}
 		}
 	}
-	faces.push(new SphereShape({lat:90.0, lon:0.0, type:"pent", 
+	faces.push(new SphereShape({lat:90.0, lon:0.0, type:"pent", loc_i:0, loc_j:0, 
 		vertices: new Vector.<Vector3D>(), adjacentShapes: new Vector.<SphereShape>()}) );
-	faces.push(new SphereShape({lat:-90.0, lon:0.0, type:"pent", 
+	faces.push(new SphereShape({lat:-90.0, lon:0.0, type:"pent", loc_i:7, loc_j:0, 
 		vertices: new Vector.<Vector3D>(), adjacentShapes: new Vector.<SphereShape>()}) );
 	
 	//pents 10-19, 30,31
@@ -104,6 +104,8 @@ public function createFaces():void{
 			f1.center = SphereView.toCartesian(f1.lat*Math.PI/180, f1.lon*Math.PI/180);
 		if(f1.lat < 0)
 			f1.vertices.reverse();
+		f1.seedVertices = new Vector.<Vector3D>();
+		for each(var pt:Vector3D in f1.vertices) f1.seedVertices.push(pt);
 	}
 	
 }
@@ -173,7 +175,6 @@ public function findContainingFace(surfacePoint:Vector3D):int{
 	return ind;
 }
 
-
 public function validateFaces():void{
 	var lastCentralAngle:Number=0;
 	var lastSurfaceAngle:Number=0;
@@ -209,8 +210,6 @@ public function validateFaces():void{
 		
 	}
 }
-
-
 
 public function TruncatedIcosahedron(){
 	init();

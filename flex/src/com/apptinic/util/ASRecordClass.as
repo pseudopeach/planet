@@ -13,9 +13,13 @@ public var klass:Class;
 public var superKlass:ASRecordClass;
 public var className:String;
 public var shortClassName:String;
-public var remoteClassName:String;
+
 public var tableBaseClass:Class;
 public var associations:Object;
+
+public var remoteClassName:String;
+public var remoteControllerName:String;
+public var remoteSaveMethodName:String = "update";
 	
 public function ASRecordClass(){
 	
