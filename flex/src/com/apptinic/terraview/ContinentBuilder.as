@@ -266,13 +266,6 @@ public function createCoastline(outline:Vector.<Vector3D>):void{
 	}
 }
 
-public function saveContinents(gameStateId:int):void{
-	var locData:Array = [];
-	for each(var tile:SphereShape in tiles){
-		//locData.push({i:
-	}
-}
-
 protected function getInterPoints(left:Vector3D, right:Vector3D):Vector.<Vector3D>{
 	var points:Vector.<Vector3D> = new Vector.<Vector3D>();
 	var len:Number;

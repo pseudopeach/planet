@@ -19,11 +19,8 @@ public const H_BORDER_ALPHA:Number = .9;
 
 protected var net:Vector.<SphereShape>;
 protected var surfaceFeatures:Vector.<SphereShape>;
-//protected var hedron:TruncatedIcosahedron = new TruncatedIcosahedron();
-//public var continentBuilder:ContinentBuilder = new ContinentBuilder();
 	
 public function init():void{
-	trace("globe init");
 	var shape:SphereShape;
 	net = new Vector.<SphereShape>();
 	var hedron:TruncatedIcosahedron = new TruncatedIcosahedron();
@@ -34,18 +31,10 @@ public function init():void{
 		shape.borderThickness = BORDER_THICKNESS;
 		shape.bend();
 		net.push(shape);
-		trace("net creation: "+shape.dataItem.i+" , "+shape.dataItem.j);
 	}
 	surfaceFeatures = new Vector.<SphereShape>();
 	//shapes = null;
 	shapes = new Vector.<SphereShape>();
-	/*
-	continentBuilder.generate();
-	surfaceFeatures = continentBuilder.tiles;
-	
-	
-		*/
-	//shapes = surfaceFeatures.concat(net);
 	
 	invalidateDisplayList();
 }

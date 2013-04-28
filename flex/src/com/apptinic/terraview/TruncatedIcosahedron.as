@@ -1,7 +1,6 @@
 package com.apptinic.terraview{
 	import com.apptinic.util.SphereShape;
 	import com.apptinic.util.SphereView;
-	import com.apptinic.util.UDF;
 	
 	import flash.geom.Vector3D;
 
@@ -17,15 +16,6 @@ public function init():void{
 	createFaces();
 	//validateFaces();
 	//createCurvedTiles()
-	
-	/*for(i=0;i<curvedTiles.length;i++){
-		tile = curvedTiles[i];
-		tile.adjacentShapes = new Vector.<SphereShape>();
-		for(var j:int=0;j<faces[i].adjacentShapes.length;j++){
-			var k:int = faces.indexOf(faces[i].adjacentShapes[i]);
-			tile.adjacentShapes.push(curvedTiles[k]);
-		}
-	}*/
 }
 
 public function createFaces():void{
@@ -136,28 +126,6 @@ public function makeAdjacent(p1:SphereShape,p2:SphereShape):void{
 	if(!p2.adjacentShapes.indexOf(p1)!=-1)
 		p1.adjacentShapes.push(p1);
 }
-
-/*public function bendTile(input:SphereShape,ppa:int=POINTS_PER_ARC_DEFAULT):SphereShape{
-	//**** refactor this to detect and bend lond streatches, but ignore short ones
-	var output:SphereShape = new SphereShape(input);
-	output.vertices = new Vector.<Vector3D>();
-	
-	for(var i:int=0;i<input.vertices.length;i++){
-		var nextVert:Vector3D = input.vertices[(i+1)%input.vertices.length];
-		var axis:Vector3D = input.vertices[i].crossProduct(nextVert);
-		var forepoint:Vector3D = axis.crossProduct(input.vertices[i]);
-		forepoint.normalize();
-		var step:Number = Vector3D.angleBetween(input.vertices[i],nextVert) / ppa;
-		
-		for(var j:int=0;j<ppa;j++){
-			var s:Number = Math.sin(j*step);
-			var c:Number = Math.cos(j*step);
-			
-			output.vertices.push(UDF.linearCombine(input.vertices[i],c,forepoint,s));
-		}
-	}
-	return output;
-}*/
 
 public function findContainingFace(surfacePoint:Vector3D):int{
 	var ind:int;
