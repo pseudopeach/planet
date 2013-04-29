@@ -215,7 +215,7 @@ override protected function updateDisplayList(unscaledWidth:Number,unscaledHeigh
 	graphics.endFill();
 	
 	for each(var shape:SphereShape in shapes)
-		renderShape(shape);
+		renderShape2(shape);
 	
 	graphics.beginBitmapFill(shadowMap,shadowTransform,false,true);
 	graphics.drawCircle(radius,radius,radius);
@@ -235,96 +235,54 @@ override protected function updateDisplayList(unscaledWidth:Number,unscaledHeigh
 	//setTimeout(invalidateDisplayList,2000);
 	if(isCoasting){setTimeout(invalidateDisplayList,7);}
 }
-	
-protected function renderShape(shape:SphereShape):void{
+protected function renderShape2(shape:SphereShape):void{
 	var tvect:Vector3D;
+	var i:uint;
 	var temp:Number;
-	var wasOnScreen:Boolean = false;
-	var transition:Point = new Point();
-	var transitionActive:Boolean = false;
-	var original:Point;
+	var startPointInd:uint;
+	var wasEverOnScreen:Boolean = false;
+	var lastOn:Boolean = false;
+	
 	graphics.beginFill(shape.color,shape.alpha);
-	for(var i:int=0;i<shape.vertices.length;i++){
+	
+	for(i=0;i<shape.vertices.length;i++){
 		tvect = theRotation.deltaTransformVector(shape.vertices[i]);
-		//trace("vect:"+tvect.x+","+tvect.y+","+tvect.z);
 		if(tvect.z < 0){
-			//point is on screen
-			if(!wasOnScreen){
-				if(transitionActive){
-					//transition onto screen
-					//trace("***going off, close out");
-					temp = radius/Math.sqrt(tvect.x*tvect.x + tvect.y*tvect.y);
-					edgeCurve(transition.x,transition.y,temp*tvect.x,temp*tvect.y);
-					transitionActive = false;
-				}else{	
-					//starting out
-					//trace("***start new region");
-					transition.x = tvect.x;
-					transition.y = tvect.y;
-					graphics.moveTo(tvect.x+radius,tvect.y+radius);
-					//trace("move to:"+(tvect.x+radius)+","+(tvect.y+radius));
-					if(i==0){
-						//trace("***first point");
-						original = new Point();
-						original.x = transition.x;
-						original.y = transition.y;
-					}else
-						transitionActive = true;
-				}
-				graphics.lineStyle(shape.borderThickness,shape.borderColor,shape.borderAlpha);
-				wasOnScreen = true;
-			}	
-			graphics.lineTo(tvect.x+radius,tvect.y+radius);
-			//trace("line to "+tvect.x+","+tvect.y);
-		}else{
-			//point is off screen
-			if(wasOnScreen){
-				//prev point was onscreen. transition
-				temp = radius/Math.sqrt(tvect.x*tvect.x + tvect.y*tvect.y);
-				if(transitionActive){
-					//transition from off screen
-					//trace("***transition off, close out. scale:" +temp );
-					edgeCurve(temp*tvect.x,temp*tvect.y,transition.x,transition.y);
-					transitionActive = false;
-				}else{
-					//go off screen for 
-					//trace("***transition off");
-					transition.x = temp*tvect.x;
-					transition.y = temp*tvect.y;
-					transitionActive = true;
-					graphics.lineTo(transition.x+radius,transition.y+radius);
-				}
-				wasOnScreen = false;
+			//point is onscreen
+			if(!wasEverOnScreen){ 
+				wasEverOnScreen = true;
+				startPointInd = i;
+				graphics.moveTo(tvect.x+radius,tvect.y+radius);
 			}
+			if(!lastOn){
+				lastOn=true;
+				graphics.lineStyle(shape.borderThickness,shape.borderColor,shape.borderAlpha);
+			}
+				
+			graphics.lineTo(tvect.x+radius,tvect.y+radius);
+				
+		}else if(wasEverOnScreen){
+			temp = radius/Math.sqrt(tvect.x*tvect.x+tvect.y*tvect.y);
+			if(lastOn){
+				lastOn=false;
+				graphics.lineStyle(0,0,0);
+			}
+			graphics.lineTo(tvect.x*temp+radius,tvect.y*temp+radius);
 		}
-	}//for loop
-	
-	//special case: curve back to start
-	if(transitionActive){
-		//trace("open transition at end");
-		if(original)
-			edgeCurve(transition.x,transition.y,original.x,original.y);
-		else
-			edgeCurve(tvect.x,tvect.y,transition.x,transition.y);
 	}
-	graphics.endFill();
-}
-
-protected function edgeCurve(x1:Number,y1:Number,x2:Number,y2:Number):void{
+	
 	graphics.lineStyle(0,0,0);
-	var start:Number = Math.atan2(y1,x1);
-	var finish:Number = Math.atan2(y2,x2);
-	var radius1:Number = radius;
-	var th:Number
-	//trace("***edge curve from "+start*180/Math.PI+" to "+finish*180/Math.PI);
-	if(finish > start)
-		finish -= 2*Math.PI;
-	for(th=start;th>finish;th-=.1){
-		//trace("line to (arc)"+radius*Math.cos(th)+","+radius*Math.sin(th));
-		graphics.lineTo(radius1*Math.cos(th)+radius,radius1*Math.sin(th)+radius);
+	if(wasEverOnScreen && tvect.z > 0){
+		//clean up ending
+		for(i=0;i<startPointInd;i++){
+			tvect = theRotation.deltaTransformVector(shape.vertices[i]);
+			temp = radius/Math.sqrt(tvect.x*tvect.x+tvect.y*tvect.y);
+		
+			graphics.lineTo(tvect.x*temp+radius,tvect.y*temp+radius);
+		}
 	}
 	
-	graphics.lineTo(radius1*Math.cos(finish)+radius,radius1*Math.sin(finish)+radius)	
+	graphics.endFill();
 }
 	
 public static function toCartesian(lat:Number, lon:Number, radius:Number=1.0):Vector3D{
