@@ -5,3 +5,4 @@ rails/Gemfile.lock
 rails/.metadata/
 rails/log/*
 rails/tmp/*
+dart/web/out/*
