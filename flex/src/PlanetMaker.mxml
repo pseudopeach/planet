@@ -16,6 +16,7 @@
 	
 <fx:Script>
 <![CDATA[
+	import com.apptinic.terraschema.GameData;
 	import com.apptinic.terraview.ContinentBuilder;
 	import com.apptinic.util.RequestQueue;
 	import com.apptinic.util.SphereShape;
@@ -35,8 +36,10 @@ public function generate():void{
 	}
 }
 
+protected var gameData:GameData;
 protected var reqq:RequestQueue = new RequestQueue();
 protected function saveLocations():void{
+	gameData = GameData.createGame();
 	
 }
 	

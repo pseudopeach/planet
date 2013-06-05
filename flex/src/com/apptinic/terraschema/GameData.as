@@ -117,13 +117,11 @@ protected function onData(event:RequestQueueEvent):void{
 }
 
 protected var continentBuilder:ContinentBuilder = new ContinentBuilder();
-public function createLocations():void{
-	var locationObjs:Array = [];
-	for each(var tile:SphereShape in continentBuilder.tiles){
-		var loc:Location = tile.dataItem;
-		locationObjs.push(loc.toObject());
-	}
-	var params:Object = {gameId:this.id, locations:locationObjs};
+public function createLocations(locations:ArrayCollection):void{
+	var lobs:Array = [];
+	for each(var loc:Location in locations)
+		lobs.push(loc.toObject());
+	var params:Object = {gameId:this.id, locations:lobs};
 	service.addEventListener(RequestQueueEvent.RESULT,onLocationsCreated);
 	service.addRequest("create_locations","Play",params);
 }
@@ -135,7 +133,6 @@ protected function onLocationsCreated(event:RequestQueueEvent):void{
 public static function createGame():GameData{
 	var game:GameData = new GameData();
 	game.save();
-	game.createLocations();
 	return game;
 }
 

@@ -1,0 +1,2240 @@
+---
+build.dart --machine --full
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 288 ms
+Total time                                                   -- 311 ms
+build.dart finished [725 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  34 ms
+build.dart finished [508 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart --removed=web/xclickcounter.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+[{"method":"error","params":{"file":"web/xclickcounter.html","message":"unable to open file \"web/xclickcounter.dart\"","line":12,"charStart":298,"charEnd":355}}]
+Total time spent on web/terraform_front.html                 -- 197 ms
+Total time                                                   -- 221 ms
+build.dart finished [633 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html --removed=web/xclickcounter.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+[{"method":"error","params":{"file":"web/terraform_front.html","message":"unable to open file \"web/xclickcounter.html\"","line":10,"charStart":192,"charEnd":237}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"custom element with tag name x-click-counter not found.","line":18,"charStart":371,"charEnd":442}}]
+Total time spent on web/terraform_front.html                 -- 169 ms
+Total time                                                   -- 192 ms
+build.dart finished [597 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html --changed=web/out/xclickcounter.dart --changed=web/...
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"custom element with tag name x-click-counter not found.","line":18,"charStart":367,"charEnd":438}}]
+Total time spent on web/terraform_front.html                 -- 304 ms
+Total time                                                   -- 339 ms
+build.dart finished [855 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  32 ms
+build.dart finished [564 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"custom element with tag name x-click-counter not found.","line":18,"charStart":367,"charEnd":438}}]
+Total time spent on web/terraform_front.html                 -- 302 ms
+Total time                                                   -- 336 ms
+build.dart finished [795 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  34 ms
+build.dart finished [542 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 258 ms
+Total time                                                   -- 282 ms
+build.dart finished [699 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [421 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+Total time                                                   --  27 ms
+build.dart finished [655 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  20 ms
+build.dart finished [407 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 278 ms
+Total time                                                   -- 302 ms
+build.dart finished [811 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [415 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 260 ms
+Total time                                                   -- 284 ms
+build.dart finished [675 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [430 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 270 ms
+Total time                                                   -- 294 ms
+build.dart finished [694 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [414 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+Total time                                                   --  23 ms
+build.dart finished [445 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  20 ms
+build.dart finished [413 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 383 ms
+Total time                                                   -- 419 ms
+build.dart finished [1204 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  31 ms
+build.dart finished [512 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 328 ms
+Total time                                                   -- 360 ms
+build.dart finished [926 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  31 ms
+build.dart finished [532 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 377 ms
+Total time                                                   -- 412 ms
+build.dart finished [990 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [546 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 374 ms
+Total time                                                   -- 410 ms
+build.dart finished [886 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  34 ms
+build.dart finished [542 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 267 ms
+Total time                                                   -- 291 ms
+build.dart finished [686 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [425 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 263 ms
+Total time                                                   -- 287 ms
+build.dart finished [678 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [417 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 261 ms
+Total time                                                   -- 284 ms
+build.dart finished [669 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [406 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 261 ms
+Total time                                                   -- 285 ms
+build.dart finished [671 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [420 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 267 ms
+Total time                                                   -- 291 ms
+build.dart finished [677 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [418 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 263 ms
+Total time                                                   -- 286 ms
+build.dart finished [767 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [415 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 263 ms
+Total time                                                   -- 286 ms
+build.dart finished [678 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [415 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 274 ms
+Total time                                                   -- 298 ms
+build.dart finished [684 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [424 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 265 ms
+Total time                                                   -- 289 ms
+build.dart finished [687 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [411 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 271 ms
+Total time                                                   -- 294 ms
+build.dart finished [678 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [409 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+Total time                                                   --  22 ms
+build.dart finished [416 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 268 ms
+Total time                                                   -- 292 ms
+build.dart finished [675 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [397 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+Total time                                                   --  21 ms
+build.dart finished [425 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 366 ms
+Total time                                                   -- 394 ms
+build.dart finished [935 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [464 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 361 ms
+Total time                                                   -- 397 ms
+build.dart finished [883 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  23 ms
+build.dart finished [514 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 376 ms
+Total time                                                   -- 411 ms
+build.dart finished [892 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  31 ms
+build.dart finished [549 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 279 ms
+Total time                                                   -- 302 ms
+build.dart finished [785 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [418 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 377 ms
+Total time                                                   -- 403 ms
+build.dart finished [863 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  29 ms
+build.dart finished [579 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 394 ms
+Total time                                                   -- 425 ms
+build.dart finished [978 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  24 ms
+build.dart finished [526 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 359 ms
+Total time                                                   -- 394 ms
+build.dart finished [958 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  29 ms
+build.dart finished [617 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 374 ms
+Total time                                                   -- 400 ms
+build.dart finished [956 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  26 ms
+build.dart finished [543 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 282 ms
+Total time                                                   -- 308 ms
+build.dart finished [826 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [412 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 321 ms
+Total time                                                   -- 347 ms
+build.dart finished [863 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  34 ms
+build.dart finished [550 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 373 ms
+Total time                                                   -- 405 ms
+build.dart finished [948 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [565 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 351 ms
+Total time                                                   -- 376 ms
+build.dart finished [912 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [432 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 385 ms
+Total time                                                   -- 418 ms
+build.dart finished [904 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  27 ms
+build.dart finished [543 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 402 ms
+Total time                                                   -- 431 ms
+build.dart finished [966 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  25 ms
+build.dart finished [455 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 324 ms
+Total time                                                   -- 353 ms
+build.dart finished [834 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  28 ms
+build.dart finished [508 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 439 ms
+Total time                                                   -- 475 ms
+build.dart finished [1065 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 463 ms
+Total time                                                   -- 500 ms
+build.dart finished [1086 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 386 ms
+Total time                                                   -- 424 ms
+build.dart finished [1030 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  41 ms
+build.dart finished [591 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+Total time                                                   --  21 ms
+build.dart finished [414 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 371 ms
+Total time                                                   -- 398 ms
+build.dart finished [968 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  23 ms
+build.dart finished [510 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 347 ms
+Total time                                                   -- 380 ms
+build.dart finished [814 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  29 ms
+build.dart finished [508 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 339 ms
+Total time                                                   -- 366 ms
+build.dart finished [846 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  33 ms
+build.dart finished [561 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 380 ms
+Total time                                                   -- 414 ms
+build.dart finished [951 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [526 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 380 ms
+Total time                                                   -- 408 ms
+build.dart finished [916 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  23 ms
+build.dart finished [520 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+Total time                                                   --  20 ms
+build.dart finished [409 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 380 ms
+Total time                                                   -- 414 ms
+build.dart finished [884 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  29 ms
+build.dart finished [592 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 393 ms
+Total time                                                   -- 428 ms
+build.dart finished [964 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  28 ms
+build.dart finished [485 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 386 ms
+Total time                                                   -- 420 ms
+build.dart finished [946 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  24 ms
+build.dart finished [519 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 354 ms
+Total time                                                   -- 387 ms
+build.dart finished [891 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  25 ms
+build.dart finished [492 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 396 ms
+Total time                                                   -- 431 ms
+build.dart finished [962 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  24 ms
+build.dart finished [548 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 313 ms
+Total time                                                   -- 341 ms
+build.dart finished [856 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  30 ms
+build.dart finished [551 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 413 ms
+Total time                                                   -- 449 ms
+build.dart finished [1009 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 364 ms
+Total time                                                   -- 395 ms
+build.dart finished [941 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  27 ms
+build.dart finished [575 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 403 ms
+Total time                                                   -- 435 ms
+build.dart finished [957 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  33 ms
+build.dart finished [536 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 358 ms
+Total time                                                   -- 397 ms
+build.dart finished [953 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [417 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 372 ms
+Total time                                                   -- 398 ms
+build.dart finished [885 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  23 ms
+build.dart finished [516 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 363 ms
+Total time                                                   -- 388 ms
+build.dart finished [878 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  32 ms
+build.dart finished [541 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 408 ms
+Total time                                                   -- 441 ms
+build.dart finished [896 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  25 ms
+build.dart finished [506 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 414 ms
+Total time                                                   -- 442 ms
+build.dart finished [1067 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 350 ms
+Total time                                                   -- 381 ms
+build.dart finished [892 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  26 ms
+build.dart finished [567 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 406 ms
+Total time                                                   -- 440 ms
+build.dart finished [1007 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  28 ms
+build.dart finished [608 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 372 ms
+Total time                                                   -- 405 ms
+build.dart finished [1019 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 370 ms
+Total time                                                   -- 405 ms
+build.dart finished [903 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  29 ms
+build.dart finished [605 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 345 ms
+Total time                                                   -- 371 ms
+build.dart finished [820 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  23 ms
+build.dart finished [491 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+Total time                                                   --  21 ms
+build.dart finished [440 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 286 ms
+Total time                                                   -- 311 ms
+build.dart finished [718 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [421 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 282 ms
+Total time                                                   -- 307 ms
+build.dart finished [717 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [426 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 287 ms
+Total time                                                   -- 310 ms
+build.dart finished [706 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [431 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+Total time                                                   --  22 ms
+build.dart finished [482 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  21 ms
+build.dart finished [420 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 307 ms
+Total time                                                   -- 330 ms
+build.dart finished [725 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [416 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 287 ms
+Total time                                                   -- 310 ms
+build.dart finished [693 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [409 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 287 ms
+Total time                                                   -- 310 ms
+build.dart finished [707 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [442 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 288 ms
+Total time                                                   -- 313 ms
+build.dart finished [709 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [428 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 285 ms
+Total time                                                   -- 308 ms
+build.dart finished [694 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [418 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 294 ms
+Total time                                                   -- 319 ms
+build.dart finished [723 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [420 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 287 ms
+Total time                                                   -- 311 ms
+build.dart finished [702 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [420 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 293 ms
+Total time                                                   -- 317 ms
+build.dart finished [717 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [408 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 313 ms
+build.dart finished [689 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [411 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 286 ms
+Total time                                                   -- 311 ms
+build.dart finished [698 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [414 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"Unexpected character after attribute value.","line":15,"charStart":336,"charEnd":411}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"Unexpected character after / in tag. Expected >","line":15,"charStart":336,"charEnd":423}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"Invalid character in attribute name","line":15,"charStart":336,"charEnd":427}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"Unexpected end tag (script). Ignored.","line":18,"charStart":455,"charEnd":464}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"Unexpected end tag (div). Missing end tag (body).","line":20,"charStart":520,"charEnd":527}}]
+Total time spent on web/terraform_front.html                 -- 297 ms
+Total time                                                   -- 321 ms
+build.dart finished [847 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.html --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [432 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"Unexpected character after attribute value.","line":15,"charStart":336,"charEnd":412}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"Unexpected character after / in tag. Expected >","line":15,"charStart":336,"charEnd":424}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"Invalid character in attribute name","line":15,"charStart":336,"charEnd":428}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"Unexpected end tag (script). Ignored.","line":18,"charStart":456,"charEnd":465}}]
+[{"method":"warning","params":{"file":"web/terraform_front.html","message":"Unexpected end tag (div). Missing end tag (body).","line":20,"charStart":521,"charEnd":528}}]
+Total time spent on web/terraform_front.html                 -- 295 ms
+Total time                                                   -- 318 ms
+build.dart finished [703 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.html --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [419 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 290 ms
+Total time                                                   -- 314 ms
+build.dart finished [701 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [421 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.css
+Total time                                                   --  20 ms
+build.dart finished [410 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 286 ms
+Total time                                                   -- 309 ms
+build.dart finished [700 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [406 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 285 ms
+Total time                                                   -- 309 ms
+build.dart finished [696 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [410 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 287 ms
+Total time                                                   -- 311 ms
+build.dart finished [710 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [408 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 312 ms
+build.dart finished [704 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [412 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 285 ms
+Total time                                                   -- 309 ms
+build.dart finished [866 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [428 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 301 ms
+Total time                                                   -- 324 ms
+build.dart finished [729 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [436 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 287 ms
+Total time                                                   -- 311 ms
+build.dart finished [709 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [424 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 286 ms
+Total time                                                   -- 309 ms
+build.dart finished [698 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [428 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 284 ms
+Total time                                                   -- 308 ms
+build.dart finished [700 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [434 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 281 ms
+Total time                                                   -- 306 ms
+build.dart finished [706 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  23 ms
+build.dart finished [448 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  20 ms
+build.dart finished [430 ms]
+
+---
+build.dart --machine --removed=web/out/terraform_front.html.dart
+Total time                                                   --  21 ms
+build.dart finished [425 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 285 ms
+Total time                                                   -- 309 ms
+build.dart finished [723 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [445 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 302 ms
+Total time                                                   -- 326 ms
+build.dart finished [838 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [424 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 280 ms
+Total time                                                   -- 303 ms
+build.dart finished [708 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [420 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 283 ms
+Total time                                                   -- 306 ms
+build.dart finished [709 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [428 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 278 ms
+Total time                                                   -- 301 ms
+build.dart finished [699 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [414 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 315 ms
+build.dart finished [725 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [426 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 285 ms
+Total time                                                   -- 309 ms
+build.dart finished [708 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [418 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 282 ms
+Total time                                                   -- 305 ms
+build.dart finished [711 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [413 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 286 ms
+Total time                                                   -- 310 ms
+build.dart finished [708 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [435 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 284 ms
+Total time                                                   -- 308 ms
+build.dart finished [717 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [433 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 283 ms
+Total time                                                   -- 307 ms
+build.dart finished [718 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [435 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 298 ms
+Total time                                                   -- 322 ms
+build.dart finished [727 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [434 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 290 ms
+Total time                                                   -- 313 ms
+build.dart finished [716 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [421 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 296 ms
+Total time                                                   -- 320 ms
+build.dart finished [722 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [423 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 313 ms
+build.dart finished [724 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [414 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 300 ms
+Total time                                                   -- 324 ms
+build.dart finished [735 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [436 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  21 ms
+build.dart finished [449 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 296 ms
+Total time                                                   -- 321 ms
+build.dart finished [755 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [440 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 299 ms
+Total time                                                   -- 323 ms
+build.dart finished [746 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [428 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 291 ms
+Total time                                                   -- 314 ms
+build.dart finished [737 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [425 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 290 ms
+Total time                                                   -- 314 ms
+build.dart finished [717 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [425 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 300 ms
+Total time                                                   -- 325 ms
+build.dart finished [741 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [434 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 285 ms
+Total time                                                   -- 309 ms
+build.dart finished [729 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [437 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 285 ms
+Total time                                                   -- 309 ms
+build.dart finished [722 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [428 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 284 ms
+Total time                                                   -- 308 ms
+build.dart finished [727 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [433 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 312 ms
+build.dart finished [721 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [431 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 287 ms
+Total time                                                   -- 310 ms
+build.dart finished [704 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [438 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 286 ms
+Total time                                                   -- 309 ms
+build.dart finished [722 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [424 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 286 ms
+Total time                                                   -- 310 ms
+build.dart finished [703 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [417 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 285 ms
+Total time                                                   -- 309 ms
+build.dart finished [716 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [423 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 284 ms
+Total time                                                   -- 307 ms
+build.dart finished [715 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [426 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 286 ms
+Total time                                                   -- 310 ms
+build.dart finished [704 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [431 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 292 ms
+Total time                                                   -- 317 ms
+build.dart finished [727 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [434 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 292 ms
+Total time                                                   -- 316 ms
+build.dart finished [722 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [419 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 314 ms
+build.dart finished [714 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [428 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 286 ms
+Total time                                                   -- 309 ms
+build.dart finished [719 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [436 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 291 ms
+Total time                                                   -- 314 ms
+build.dart finished [716 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [430 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  20 ms
+build.dart finished [488 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 288 ms
+Total time                                                   -- 312 ms
+build.dart finished [768 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 287 ms
+Total time                                                   -- 312 ms
+build.dart finished [713 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  23 ms
+build.dart finished [438 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  20 ms
+build.dart finished [416 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js.map --changed=web/out/terraform_front.html_boots...
+Total time                                                   --  21 ms
+build.dart finished [488 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 308 ms
+Total time                                                   -- 332 ms
+build.dart finished [733 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [428 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  20 ms
+build.dart finished [412 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 287 ms
+Total time                                                   -- 310 ms
+build.dart finished [712 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [422 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 286 ms
+Total time                                                   -- 309 ms
+build.dart finished [705 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [412 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 284 ms
+Total time                                                   -- 308 ms
+build.dart finished [701 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [417 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 290 ms
+Total time                                                   -- 314 ms
+build.dart finished [713 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [428 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 285 ms
+Total time                                                   -- 309 ms
+build.dart finished [707 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [428 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 313 ms
+build.dart finished [722 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [421 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 312 ms
+build.dart finished [704 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [416 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 286 ms
+Total time                                                   -- 309 ms
+build.dart finished [717 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [410 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 288 ms
+Total time                                                   -- 312 ms
+build.dart finished [705 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [429 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 285 ms
+Total time                                                   -- 310 ms
+build.dart finished [703 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [426 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 281 ms
+Total time                                                   -- 304 ms
+build.dart finished [706 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [422 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 282 ms
+Total time                                                   -- 305 ms
+build.dart finished [709 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [416 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 313 ms
+build.dart finished [715 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [422 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 298 ms
+Total time                                                   -- 322 ms
+build.dart finished [824 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [421 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 313 ms
+build.dart finished [709 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [413 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js.map --changed=web/out/terraform_front.html_boots...
+Total time                                                   --  20 ms
+build.dart finished [411 ms]
+
+---
+build.dart --machine --changed=web/ctest.html --changed=web/out/terraform_front.dart.js --changed=web/out/terra...
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 290 ms
+Total time                                                   -- 318 ms
+build.dart finished [728 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [414 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  21 ms
+build.dart finished [429 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 295 ms
+Total time                                                   -- 319 ms
+build.dart finished [731 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [414 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 291 ms
+Total time                                                   -- 314 ms
+build.dart finished [706 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [414 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html
+Total time                                                   --  21 ms
+build.dart finished [414 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html
+Total time                                                   --  21 ms
+build.dart finished [417 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html
+Total time                                                   --  21 ms
+build.dart finished [414 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html
+Total time                                                   --  21 ms
+build.dart finished [414 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.dart.js --changed=web/out/terraform_front.dart.js.deps -...
+Total time                                                   --  21 ms
+build.dart finished [415 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html
+Total time                                                   --  21 ms
+build.dart finished [413 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 294 ms
+Total time                                                   -- 318 ms
+build.dart finished [711 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [411 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 292 ms
+Total time                                                   -- 316 ms
+build.dart finished [723 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [415 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 301 ms
+Total time                                                   -- 325 ms
+build.dart finished [726 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [418 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 294 ms
+Total time                                                   -- 318 ms
+build.dart finished [715 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [421 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  20 ms
+build.dart finished [412 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 312 ms
+build.dart finished [703 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [425 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 290 ms
+Total time                                                   -- 314 ms
+build.dart finished [716 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [427 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 292 ms
+Total time                                                   -- 316 ms
+build.dart finished [714 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [422 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 292 ms
+Total time                                                   -- 315 ms
+build.dart finished [703 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [421 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 288 ms
+Total time                                                   -- 312 ms
+build.dart finished [715 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [430 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 294 ms
+Total time                                                   -- 318 ms
+build.dart finished [725 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [422 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 312 ms
+build.dart finished [719 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [425 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  20 ms
+build.dart finished [415 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 296 ms
+Total time                                                   -- 320 ms
+build.dart finished [719 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [434 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 313 ms
+build.dart finished [720 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [427 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 312 ms
+build.dart finished [724 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [431 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 294 ms
+Total time                                                   -- 318 ms
+build.dart finished [718 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [425 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.dart
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 294 ms
+Total time                                                   -- 317 ms
+build.dart finished [724 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [416 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 295 ms
+Total time                                                   -- 319 ms
+build.dart finished [716 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [423 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 294 ms
+Total time                                                   -- 318 ms
+build.dart finished [723 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [424 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  20 ms
+build.dart finished [409 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 297 ms
+Total time                                                   -- 322 ms
+build.dart finished [720 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [416 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 292 ms
+Total time                                                   -- 316 ms
+build.dart finished [713 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [418 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 296 ms
+Total time                                                   -- 320 ms
+build.dart finished [717 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [420 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  20 ms
+build.dart finished [410 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 293 ms
+Total time                                                   -- 317 ms
+build.dart finished [761 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [429 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 291 ms
+Total time                                                   -- 314 ms
+build.dart finished [702 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [416 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.html_bootstrap.dart.js --changed=web/out/terraform_front...
+Total time                                                   --  20 ms
+build.dart finished [407 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 293 ms
+Total time                                                   -- 317 ms
+build.dart finished [718 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [421 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 289 ms
+Total time                                                   -- 312 ms
+build.dart finished [702 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  21 ms
+build.dart finished [417 ms]
+
+---
+build.dart --machine --changed=web/zion_cell.html
+[{"method":"mapping","params":{"from":"web/terraform_front.html","to":"web/out/terraform_front.html"}}]
+Total time spent on web/terraform_front.html                 -- 294 ms
+Total time                                                   -- 318 ms
+build.dart finished [707 ms]
+
+---
+build.dart --machine --changed=web/out/terraform_front.css --changed=web/out/terraform_front.dart --changed=web...
+Total time                                                   --  22 ms
+build.dart finished [431 ms]
+
+---
+build.dart --machine --changed=web/terraform_front.css
+Total time                                                   --  20 ms
+build.dart finished [418 ms]
+

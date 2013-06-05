@@ -130,11 +130,11 @@ protected function onMouseUp(event:MouseEvent):void{
 	dragOrigin = null;
 }
 protected function onMouseOut(event:MouseEvent):void{
-	if(_isDragging){
+	/*if(_isDragging){
 		onDragEnded(dragOrigin.x, dragOrigin.y, event.localX-dragOrigin.x,event.localY-dragOrigin.y);
 	}
 	_isDragging = false;
-	dragOrigin = null;
+	dragOrigin = null;*/
 }
 protected function onMouseMove(event:MouseEvent):void{
 	if(event.buttonDown && !_isDragging && dragOrigin){
