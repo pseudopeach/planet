@@ -1,0 +1,192 @@
+@charset "utf-8";
+/* === reset === */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* === app global === */
+@font-face {
+    font-family: 'jura';
+    src: url('/assets/jura-regular-webfont.eot');
+    src: url('/assets/jura-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/assets/jura-regular-webfont.woff') format('woff'),
+    url('/assets/jura-regular-webfont.ttf') format('truetype'),
+    url('/assets/jura-regular-webfont.svg#jurabook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+@font-face {
+    font-family: 'jura';
+    src: url('/assets/jura-demibold-webfont.eot');
+    src: url('/assets/jura-demibold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/assets/jura-demibold-webfont.woff') format('woff'),
+    url('/assets/jura-demibold-webfont.ttf') format('truetype'),
+    url('/assets/jura-demibold-webfont.svg#jurademibold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+body{
+    background-color: black;
+}
+*{
+    color: white;
+    font-family:'jura';
+}
+h1,h2,h3{font-weight: bold}
+/* === app Layout === */
+#appWrapper {
+    max-width:1400px;
+    width:760px;
+    height:700px;
+    margin:0px auto;
+    position:relative;
+    bottom:0px;
+}
+#mainControls{
+    position:absolute;
+    height:300px;
+    left:10px;
+    right:10px;
+    bottom:0px;
+    /*background-color:#0F0;*/
+}
+
+
+.baseUIElement{
+    position:absolute;
+}
+
+.zionCell{
+    width:60px;
+    height:27px;
+    border:82px solid transparent;
+
+    -webkit-border-image:url('/assets/zcell-bg-left.png') 82 fill;
+    -moz-border-image:url('/assets/zcell-bg-left.png') 82 fill;
+    border-image:url('/assets/zcell-bg-left.png') 82 fill;
+}
+.zionCell h1{font-size: 22px;}
+.zionCell h2{font-size: 14px;}
+
+.zionCell > .expander{
+    position: absolute;
+    top:-40px;
+    right:-40px;
+    bottom:-40px;
+    left:-40px;
+}
+.zionCell > .expander > h1{margin:10px 35px}
+.zIconButton{
+    width:100%;
+    height: 100%;
+    background: transparent;
+    border: transparent;
+ }
+.zIconButton > img{margin:0px auto;}
+.zIconButton > h2{text-align: center; color:white;}
+
+#mainContent{
+    position:absolute;
+    top:10px;
+    left:10px;
+    right:10px;
+    bottom:10px;
+}
+#planet{
+    position:absolute;
+    top:50px;
+    left:220px;
+    right:10px;
+    bottom:50px;
+    background-color:#101010;
+}
+
+#detailPop{
+    position: absolute;
+    top:-40px;
+    left:20px;
+    height: 250px;
+    width: 200px;
+    z-index: 100;
+    display:none;
+}
+
+#creatureLab{bottom:245px; left:-2px;}
+#playerStatus{bottom:132px; left:-42px}
+
+#gameStatus{
+    position:absolute;
+    width:180px;
+    height:90px;
+    left:64px;
+    bottom:-12px;
+}
+#playbackControls{
+    position:absolute;
+    height:0px;
+    left:304px;
+    right:0px;
+    bottom:-40px;
+
+    border:70px solid transparent;
+    -webkit-border-image:url('/assets/playback-controls-bg.png') 70 fill;
+    -moz-border-image:url('/assets/playback-controls-bg') 70 fill;
+    border-image:url('/assets/playback-controls-bg.png') 70 fill;
+}
+
+#metaNav{
+    position:absolute;
+    height:80px;
+    width:150px;
+    right:10px;
+    top:10px;
+}
+
+#mainMenuBtn{top:-40px; right:70px;}
+#settingsBtn{top:40px; right:-40px;}
+
+
