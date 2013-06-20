@@ -3260,3 +3260,2373 @@ Migrating to LocationDefineTerrain (20130421230317)
   [1m[36m (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
 Mysql2::Error: Column 'i' cannot be null: INSERT INTO `game_locations` (`data`, `i`, `j`, `state_id`) VALUES ('{\"terrain_type\":\"tt_land\",\"coast_segments\":[\"SDFwegwrherhafsf\",\"WEAv345q23tvverv\",\"tc4t43qct4t34t\"]}', NULL, NULL, NULL)
 Mysql2::Error: Column 'i' cannot be null: INSERT INTO `game_locations` (`data`, `i`, `j`, `state_id`) VALUES ('{\"terrain_type\":\"tt_land\",\"coast_segments\":[\"SDFwegwrherhafsf\",\"WEAv345q23tvverv\",\"tc4t43qct4t34t\"]}', NULL, NULL, 2342)
+
+
+Started GET "/assets/stylesheets/application.css" for 127.0.0.1 at 2013-06-07 22:41:45 -0400
+Served asset /stylesheets/application.css - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/application.css"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (24.6ms)
+
+
+Started GET "/assets/stylesheets/application.css.scss" for 127.0.0.1 at 2013-06-07 22:44:04 -0400
+Served asset /stylesheets/application.css.scss - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/application.css.scss"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/stylesheets/application.css.scss" for 127.0.0.1 at 2013-06-07 22:44:44 -0400
+Served asset /stylesheets/application.css.scss - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/application.css.scss"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/stylesheets/application.css" for 127.0.0.1 at 2013-06-08 10:01:06 -0400
+Served asset /stylesheets/application.css - 404 Not Found (30ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/application.css"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (11.5ms)
+
+
+Started GET "/assets/stylesheets/application.css" for 127.0.0.1 at 2013-06-08 10:01:30 -0400
+Served asset /stylesheets/application.css - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/application.css"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at 2013-06-08 10:01:43 -0400
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/application.css"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/play/history/1" for 127.0.0.1 at 2013-06-08 10:17:33 -0400
+Processing by PlayController#history as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTerra::GameState Load (3.6ms)[0m  [1mSELECT `game_states`.* FROM `game_states` WHERE `game_states`.`id` = 1 LIMIT 1[0m
+  [1m[35mGame::TurnCompletion Load (1.2ms)[0m  SELECT `game_turn_completions`.* FROM `game_turn_completions` WHERE `game_turn_completions`.`state_id` = 1 AND (id >= 0) ORDER BY id
+  [1m[36mGame::Action Load (0.2ms)[0m  [1mSELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1[0m
+  [1m[35mGame::PlayerAttrEntry Load (0.8ms)[0m  SELECT `game_player_attr_entries`.* FROM `game_player_attr_entries` WHERE `game_player_attr_entries`.`action_id` IN (2, 6, 7, 8)
+  [1m[36mGame::PlayerAttribute Load (0.2ms)[0m  [1mSELECT `game_player_attributes`.* FROM `game_player_attributes` WHERE `game_player_attributes`.`id` IN (19, 20, 21, 26, 27, 28)[0m
+  [1m[35mGame::Action Load (0.3ms)[0m  SELECT `game_actions`.* FROM `game_actions` INNER JOIN `game_players` ON `game_actions`.`player_id` = `game_players`.`id` WHERE `game_players`.`state_id` = 1 AND (resolved_at IS NOT NULL)
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 7 LIMIT 1[0m
+  [1m[35mGame::Player Load (0.3ms)[0m  SELECT `game_players`.* FROM `game_players` WHERE `game_players`.`id` = 8 LIMIT 1
+  [1m[36mGame::Player Load (0.2ms)[0m  [1mSELECT `game_players`.* FROM `game_players` WHERE `game_players`.`state_id` = 1 AND (next_player_id IS NOT NULL)[0m
+  [1m[35mTerra::Location Load (0.6ms)[0m  SELECT `game_locations`.* FROM `game_locations` WHERE `game_locations`.`state_id` = 1
+  Rendered play/history.html.erb within layouts/application (4.3ms)
+Compiled application.css  (1ms)  (pid 15955)
+Completed 200 OK in 506ms (Views: 35.6ms | ActiveRecord: 126.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-08 10:17:33 -0400
+Served asset /application.css - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-08 10:17:33 -0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/stylesheets/application.css" for 127.0.0.1 at 2013-06-08 10:17:48 -0400
+Served asset /stylesheets/application.css - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/application.css"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-08 10:18:21 -0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/images/zcell_bg_left.png" for 127.0.0.1 at 2013-06-08 10:18:21 -0400
+Served asset /images/zcell_bg_left.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/zcell_bg_left.png"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/images/zcell_bg_left.png" for 127.0.0.1 at 2013-06-09 09:20:03 -0400
+Served asset /images/zcell_bg_left.png - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/zcell_bg_left.png"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.7ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 09:20:35 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (19ms)
+
+
+Started GET "/assets/zcell_bg_left.png" for 127.0.0.1 at 2013-06-09 09:20:35 -0400
+Served asset /zcell_bg_left.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/zcell_bg_left.png"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 09:20:37 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell_bg_left.png" for 127.0.0.1 at 2013-06-09 09:20:37 -0400
+Served asset /zcell_bg_left.png - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/zcell_bg_left.png"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/zcell_bg_left.png" for 127.0.0.1 at 2013-06-09 09:20:49 -0400
+Served asset /zcell_bg_left.png - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/zcell_bg_left.png"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/zcell_bg_left.png" for 127.0.0.1 at 2013-06-09 09:21:26 -0400
+Served asset /zcell_bg_left.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/zcell_bg_left.png"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/images/zcell_bg_left.png" for 127.0.0.1 at 2013-06-09 09:21:36 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images/zcell_bg_left.png"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/images/zcell_bg_left.png" for 127.0.0.1 at 2013-06-09 09:21:42 -0400
+Served asset /images/zcell_bg_left.png - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/zcell_bg_left.png"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/images/zcell_bg_left.png" for 127.0.0.1 at 2013-06-09 09:24:09 -0400
+Served asset /images/zcell_bg_left.png - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/zcell_bg_left.png"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 09:24:17 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 09:24:17 -0400
+Served asset /zcell-bg-left.png - 200 OK (2ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 09:25:08 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 09:25:08 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 09:26:31 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 09:26:31 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 09:30:30 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 09:30:30 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 10:34:33 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (13ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 10:34:33 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 10:35:39 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (14ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 10:35:39 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 10:37:22 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 10:37:22 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 10:41:05 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 10:41:05 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 10:42:44 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 10:42:44 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 11:03:40 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (14ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 11:03:40 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 11:03:40 -0400
+Served asset /playback-controls-bg.png - 200 OK (2ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 11:04:22 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 11:04:22 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 11:04:22 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 11:19:45 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (14ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 11:19:45 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 11:20:09 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 11:20:09 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 11:20:09 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 12:20:07 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 12:20:07 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 12:20:07 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 12:22:36 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (40ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 12:22:36 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 12:22:36 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 12:22:55 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 13:29:18 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 19:19:23 -0400
+Compiled application.css  (7ms)  (pid 15955)
+Served asset /application.css - 200 OK (74ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 19:19:24 -0400
+Served asset /zcell-bg-left.png - 200 OK (14ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 19:19:24 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 21:54:55 -0400
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 21:54:55 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 21:54:55 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 21:56:16 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 21:56:16 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 21:56:16 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 21:57:51 -0400
+Compiled application.css  (4ms)  (pid 15955)
+Served asset /application.css - 200 OK (66ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 21:57:51 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 21:57:51 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 22:00:42 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (8ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 22:00:42 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 22:00:42 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 22:01:59 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (309ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 22:01:59 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 22:01:59 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-09 22:07:04 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-09 22:07:04 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-09 22:07:04 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 15:19:22 -0400
+Compiled application.css  (5ms)  (pid 15955)
+Served asset /application.css - 200 OK (72ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 15:19:22 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 15:19:22 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 15:21:01 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (9ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 15:21:01 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 15:21:01 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 15:21:03 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 15:21:03 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 15:21:03 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 15:21:23 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 15:21:23 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 15:21:23 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 16:30:30 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (14ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 16:30:31 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 16:30:31 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 17:43:25 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (14ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 17:43:25 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 17:43:25 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 22:50:33 -0400
+Compiled application.css  (4ms)  (pid 15955)
+Served asset /application.css - 200 OK (68ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 22:50:33 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 22:50:33 -0400
+Served asset /playback-controls-bg.png - 200 OK (12ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 22:50:35 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 22:50:35 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 22:50:35 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 22:51:53 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (9ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 22:51:53 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 22:51:53 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 22:52:56 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 22:53:43 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (13ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 22:53:43 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 22:53:43 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 22:53:44 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 22:53:44 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 22:53:44 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 22:54:06 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 22:54:07 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 22:54:07 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 22:54:25 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 22:54:25 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 22:54:25 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:00:21 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:00:21 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:00:21 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:01:30 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:01:30 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:01:30 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:01:38 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:01:38 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:01:38 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:01:50 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:01:50 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:01:50 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:03:03 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (6ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:03:03 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:03:03 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:04:52 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:04:52 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:04:52 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:05:23 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (5ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:05:23 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:05:23 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:08:46 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (34ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:08:46 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:08:46 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:09:22 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:09:22 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:09:22 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:10:34 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:10:34 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:10:34 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:11:09 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:11:09 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:11:09 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-10 23:11:48 -0400
+Compiled application.css  (0ms)  (pid 15955)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-10 23:11:48 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-10 23:11:48 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-11 18:01:18 -0400
+Compiled application.css  (0ms)  (pid 608)
+Served asset /application.css - 200 OK (23ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-11 18:01:18 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (20ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-11 18:05:13 -0400
+Compiled application.css  (0ms)  (pid 608)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-11 18:05:13 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-11 18:05:13 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jura-regular-webfont.woff" for 127.0.0.1 at 2013-06-11 18:05:13 -0400
+Served asset /jura-regular-webfont.woff - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-regular-webfont.woff"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/assets/jura-demibold-webfont.woff" for 127.0.0.1 at 2013-06-11 18:05:13 -0400
+Served asset /jura-demibold-webfont.woff - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-demibold-webfont.woff"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/jura-regular-webfont.ttf" for 127.0.0.1 at 2013-06-11 18:05:13 -0400
+Served asset /jura-regular-webfont.ttf - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-regular-webfont.ttf"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/jura-demibold-webfont.ttf" for 127.0.0.1 at 2013-06-11 18:05:13 -0400
+Served asset /jura-demibold-webfont.ttf - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-demibold-webfont.ttf"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-11 18:05:52 -0400
+Compiled application.css  (0ms)  (pid 608)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-11 18:05:52 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-11 18:05:52 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jura-demibold-webfont.woff" for 127.0.0.1 at 2013-06-11 18:05:52 -0400
+Served asset /jura-demibold-webfont.woff - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-demibold-webfont.woff"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/jura-regular-webfont.woff" for 127.0.0.1 at 2013-06-11 18:05:52 -0400
+Served asset /jura-regular-webfont.woff - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-regular-webfont.woff"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/jura-demibold-webfont.ttf" for 127.0.0.1 at 2013-06-11 18:05:52 -0400
+Served asset /jura-demibold-webfont.ttf - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-demibold-webfont.ttf"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/jura-regular-webfont.ttf" for 127.0.0.1 at 2013-06-11 18:05:52 -0400
+Served asset /jura-regular-webfont.ttf - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-regular-webfont.ttf"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/jura-demibold-webfont.woff" for 127.0.0.1 at 2013-06-11 18:06:00 -0400
+Served asset /jura-demibold-webfont.woff - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-demibold-webfont.woff"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/jura-regular-webfont.woff" for 127.0.0.1 at 2013-06-11 18:06:00 -0400
+Served asset /jura-regular-webfont.woff - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-regular-webfont.woff"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/jura-demibold-webfont.ttf" for 127.0.0.1 at 2013-06-11 18:06:00 -0400
+Served asset /jura-demibold-webfont.ttf - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-demibold-webfont.ttf"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/jura-regular-webfont.ttf" for 127.0.0.1 at 2013-06-11 18:06:00 -0400
+Served asset /jura-regular-webfont.ttf - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-regular-webfont.ttf"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/jura-regular-webfont.ttf" for 127.0.0.1 at 2013-06-11 18:12:34 -0400
+Served asset /jura-regular-webfont.ttf - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jura-regular-webfont.ttf"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/info-diamond.png" for 127.0.0.1 at 2013-06-11 18:12:52 -0400
+Served asset /info-diamond.png - 200 OK (2ms)
+
+
+Started GET "/assets/fonts/jura-regular-webfont.ttf" for 127.0.0.1 at 2013-06-11 18:13:18 -0400
+Served asset /fonts/jura-regular-webfont.ttf - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/jura-regular-webfont.ttf"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/fonts/jura-regular-webfont.ttf" for 127.0.0.1 at 2013-06-11 18:15:06 -0400
+Served asset /fonts/jura-regular-webfont.ttf - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/fonts/jura-regular-webfont.ttf"):
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justo/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justo/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/jura-regular-webfont.ttf" for 127.0.0.1 at 2013-06-11 18:15:14 -0400
+Served asset /jura-regular-webfont.ttf - 200 OK (2ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-11 18:21:08 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-11 18:21:08 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jura-demibold-webfont.woff" for 127.0.0.1 at 2013-06-11 18:21:08 -0400
+Served asset /jura-demibold-webfont.woff - 200 OK (2ms)
+
+
+Started GET "/assets/jura-regular-webfont.woff" for 127.0.0.1 at 2013-06-11 18:21:08 -0400
+Served asset /jura-regular-webfont.woff - 200 OK (2ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-11 18:21:08 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-15 17:17:35 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (15ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-15 17:17:35 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jura-regular-webfont.woff" for 127.0.0.1 at 2013-06-15 17:17:35 -0400
+Served asset /jura-regular-webfont.woff - 304 Not Modified (1ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-15 17:17:35 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-15 18:41:37 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (13ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-15 18:41:37 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-15 18:41:37 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-17 10:21:54 -0400
+Compiled application.css  (2ms)  (pid 47905)
+Served asset /application.css - 200 OK (74ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-17 10:21:55 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-17 10:21:55 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-17 11:08:13 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (15ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-17 11:08:13 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-17 11:08:13 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-17 11:10:26 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-17 11:10:26 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-17 11:10:26 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-17 18:13:17 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (15ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-17 18:13:17 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-17 18:13:17 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-17 18:17:09 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (5ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-17 18:17:09 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-17 18:17:09 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-17 18:17:22 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-17 18:17:55 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (10ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-17 18:17:55 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-17 18:17:55 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 16:05:55 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (22ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 16:05:55 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 16:05:55 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 16:07:07 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 16:07:07 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 16:07:07 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 16:07:49 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 16:07:49 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 16:07:49 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 22:55:32 -0400
+Compiled application.css  (2ms)  (pid 47905)
+Served asset /application.css - 200 OK (72ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 22:55:32 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 22:55:32 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 22:58:30 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (15ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 22:58:30 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 22:58:30 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 22:59:56 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (21ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 22:59:56 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 22:59:56 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:00:25 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:00:25 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:00:25 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:03:25 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (6ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:03:25 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:03:25 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:03:59 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (5ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:03:59 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:03:59 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:09:40 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:09:40 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:09:40 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:11:52 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:11:52 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:11:52 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:11:54 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:11:54 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:11:54 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:12:12 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (5ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:12:12 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:12:12 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:12:13 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:12:13 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:12:13 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:12:48 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:12:48 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:12:48 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:13:20 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:13:20 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:13:20 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:14:24 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:14:24 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:14:24 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:14:52 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:14:52 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:14:52 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:16:19 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:16:19 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:16:19 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:20:27 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:20:27 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:20:27 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:21:15 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:21:15 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:21:15 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jura-regular-webfont.woff" for 127.0.0.1 at 2013-06-18 23:21:58 -0400
+Served asset /jura-regular-webfont.woff - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:23:03 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:23:03 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:23:03 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:23:14 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:23:14 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:23:14 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:25:26 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:25:26 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:25:26 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:25:29 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:25:29 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:25:29 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:25:32 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:25:32 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:25:32 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:27:41 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:27:41 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:27:41 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:28:20 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:28:20 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:28:20 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:29:34 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:29:34 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:29:34 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:31:03 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:31:03 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:31:03 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jura-demibold-webfont.woff" for 127.0.0.1 at 2013-06-18 23:31:03 -0400
+Served asset /jura-demibold-webfont.woff - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:32:04 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:32:05 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:32:05 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:36:22 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (28ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:36:22 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:36:22 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jura-demibold-webfont.woff" for 127.0.0.1 at 2013-06-18 23:37:04 -0400
+Served asset /jura-demibold-webfont.woff - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:37:53 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:37:53 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:37:53 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:39:58 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:39:58 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:39:58 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:40:27 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:40:27 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:40:27 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:41:01 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:41:01 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:41:01 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:41:15 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:41:15 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:41:15 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:41:34 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:41:34 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:41:34 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:41:43 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:41:43 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:41:43 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:42:01 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:42:01 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:42:01 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:42:17 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:42:17 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:42:17 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-18 23:42:27 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (28ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-18 23:42:27 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-18 23:42:27 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:38:32 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (15ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:38:32 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:38:32 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:38:33 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:38:33 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:38:33 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:39:29 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:39:29 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:39:29 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:40:15 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:40:15 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:40:15 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:45:24 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:45:24 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:45:24 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:45:43 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:45:43 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:45:43 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:45:45 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:45:45 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:45:45 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:46:07 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:46:07 -0400
+Served asset /zcell-bg-left.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:46:07 -0400
+Served asset /playback-controls-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:46:16 -0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:46:16 -0400
+Served asset /playback-controls-bg.png - 200 OK (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:46:17 -0400
+Served asset /zcell-bg-left.png - 200 OK (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:46:40 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (8ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:46:40 -0400
+Served asset /playback-controls-bg.png - 200 OK (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:46:40 -0400
+Served asset /zcell-bg-left.png - 200 OK (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:48:05 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (8ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:48:05 -0400
+Served asset /zcell-bg-left.png - 200 OK (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:48:05 -0400
+Served asset /playback-controls-bg.png - 200 OK (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:49:19 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (8ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:49:19 -0400
+Served asset /zcell-bg-left.png - 200 OK (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:49:19 -0400
+Served asset /playback-controls-bg.png - 200 OK (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:50:00 -0400
+Compiled application.css  (0ms)  (pid 47905)
+Served asset /application.css - 200 OK (10ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:50:00 -0400
+Served asset /zcell-bg-left.png - 200 OK (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:50:00 -0400
+Served asset /playback-controls-bg.png - 200 OK (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 00:51:10 -0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 00:51:10 -0400
+Served asset /zcell-bg-left.png - 200 OK (0ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 00:51:10 -0400
+Served asset /playback-controls-bg.png - 200 OK (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-19 08:55:29 -0400
+Compiled application.css  (5ms)  (pid 47905)
+Served asset /application.css - 200 OK (74ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-19 08:55:29 -0400
+Served asset /zcell-bg-left.png - 200 OK (1ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-19 08:55:29 -0400
+Served asset /playback-controls-bg.png - 200 OK (0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-06-20 12:58:20 -0400
+Served asset /application.css - 200 OK (6ms)
+
+
+Started GET "/assets/zcell-bg-left.png" for 127.0.0.1 at 2013-06-20 12:58:21 -0400
+Served asset /zcell-bg-left.png - 200 OK (1ms)
+
+
+Started GET "/assets/playback-controls-bg.png" for 127.0.0.1 at 2013-06-20 12:58:21 -0400
+Served asset /playback-controls-bg.png - 200 OK (0ms)
