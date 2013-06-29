@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8" />
@@ -18,25 +18,58 @@
     <nav id="mainControls">
         <figure id="gameStatus" class="baseUIElement zionCell">
         <div class="expander">
-           <h1>Game Status</h1>
+
+            <!-- *** -->
+            <h1>Game Status</h1>
+            <div class="chartGlyph"></div>
+            <h4>Locations Controlled</h4>
+            <div>
+
+                <table>
+                    <tr><td>Friendly</td><td class="count">12</td></tr>
+                    <tr><td>Enemy</td><td class="count">9</td></tr>
+                    <tr><td>Open</td><td class="count">11</td></tr>
+                </table>
+            </div>
+            <h4>Energy Units per Round</h4>
+            <table>
+                <tr><td>Friendly</td><td class="count">&curren;112</td></tr>
+                <tr><td>Enemy</td><td class="count">&curren;85</td></tr>
+            </table>
+
         </div>
         </figure>
 
         <figure id="playerStatus" class="baseUIElement zionCell" >
         <div class="expander">
             <h1>Items</h1>
+            <table style="margin-top:20px">
+                <tr><td>Fuel</td><td class="count">&curren;203</td></tr>
+                <tr><td>DNA Pt.</td><td class="count">&#8225;32</td></tr>
+            </table>
         </div>
         </figure>
 
         <figure id="creatureLab" class="baseUIElement zionCell" >
         <div class="expander">
             <button class="zIconButton">
-                <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Leaf_icon_15.svg/25px-Leaf_icon_15.svg.png"/>
+                <div id="zButtonIcon3" class="zButtonIcon" /></div>
                 <h2>Creature Lab</h2>
             </button>
         </div>
         </figure>
-        <figure id="playbackControls" class="baseUIElement"></figure>
+        <section id="playbackControls" class="baseUIElement">
+            <div class="playerIcons left">
+                <button id="replayBtn" class="playerControlButton"><div></div></button>
+                <button id="playBtn" class="playerControlButton"></button>
+            </div>
+            <!--<input id="playerScrub" type="range" />    -->
+            <div class="playerIcons right">
+                <div id="playerPositionLab">23 / 45</div>
+                <button id="ffBtn" class="playerControlButton"></button>
+                <button id="endBtn" class="playerControlButton"></button>
+            </div>
+        </section>
     </nav>
 
 
@@ -44,7 +77,7 @@
         <figure id="mainMenuBtn" class="baseUIElement zionCell">
         <div class="expander">
             <button class="zIconButton">
-                <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Leaf_icon_15.svg/25px-Leaf_icon_15.svg.png"/>
+                <div id="zButtonIcon2" class="zButtonIcon" /></div>
                 <h2>Game Menu</h2>
             </button>
         </div>
@@ -52,7 +85,7 @@
         <figure id="settingsBtn" class="baseUIElement zionCell" >
         <div class="expander">
             <button class="zIconButton">
-                <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Leaf_icon_15.svg/25px-Leaf_icon_15.svg.png"/>
+                <div id="zButtonIcon1" class="zButtonIcon" /></div>
                 <h2>Settings</h2>
             </button>
         </div>

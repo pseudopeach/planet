@@ -3,47 +3,93 @@
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
+b, i, center, dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+article, aside, audio, canvas, details, figcaption,
+figure, footer, header, hgroup, mark, menu, meter, nav,
+output, progress, section, summary, time, video {
     margin: 0;
     padding: 0;
     border: 0;
+    outline: 0;
     font-size: 100%;
-
     vertical-align: baseline;
+    background: transparent;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
+
 body {
     line-height: 1;
 }
-ol, ul {
+
+article, aside, dialog, figure, footer, header,
+hgroup, nav, section, blockquote {
+    display: block;
+}
+
+nav ul {
     list-style: none;
 }
+
+ol {
+    list-style: decimal;
+}
+
+ul {
+    list-style: disc;
+}
+
+ul ul {
+    list-style: circle;
+}
+
 blockquote, q {
     quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
     content: '';
     content: none;
 }
+
+ins {
+    text-decoration: underline;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+mark {
+    background: none;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted #000;
+    cursor:help;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input, select, a img {
+    vertical-align: middle;
+}
 /* === app global === */
 @font-face {
     font-family: 'jura';
@@ -55,9 +101,6 @@ table {
     font-weight: normal;
     font-style: normal;
 }
-
-
-
 
 @font-face {
     font-family: 'jura';
@@ -71,13 +114,25 @@ table {
 }
 body{
     background-color: black;
+    font-size: 14px;
 }
 *{
-    color: white;
+    color: #e0e0e0;
     font-family:'jura';
 }
-h1,h2,h3{font-weight: bold}
+h1,h2,h3,h4{font-weight: bold}
+h4{font-size: 14px;}
+h3{font-size: 20px;}
+h2{font-size: 24px;}
+h1{font-size: 30px;}
+
+h1,h2,h3,h4,table {margin:10px 15px 0px}
+table {margin:0px 25px 0px}
+table td {padding:0px 5px 0px 0px}
+
+
 /* === app Layout === */
+
 #appWrapper {
     max-width:1400px;
     width:760px;
@@ -119,15 +174,38 @@ h1,h2,h3{font-weight: bold}
     bottom:-40px;
     left:-40px;
 }
-.zionCell > .expander > h1{margin:10px 35px}
+.zionCell > .expander > h1{margin:10px 35px; height:22px;}
+/*.zionCell > .expander > table, .zionCell > .expander > div {margin:15px;}*/
 .zIconButton{
     width:100%;
     height: 100%;
     background: transparent;
     border: transparent;
+    z-index: 100;
  }
-.zIconButton > img{margin:0px auto;}
-.zIconButton > h2{text-align: center; color:white;}
+.zIconButton:hover{
+    background:url('/assets/zcell-btn-glow1.png') 100% no-repeat;
+}
+.zIconButton:active{
+    background:url('/assets/zcell-btn-glow2.png') 100% no-repeat;
+}
+.zIconButton > .zButtonIcon{
+    top:10px;
+    left: 14px;
+    position: absolute;
+    height:52px;
+    width: 100px;
+    background:url('/assets/main-btn-icons.png') transparent no-repeat;
+}
+#zButtonIcon1{background-position: 0px 0px;}
+#zButtonIcon2{background-position: 0px -52px;}
+#zButtonIcon3{background-position: 0px -104px;}
+.zIconButton > h2{
+    position:absolute;
+    left:-5px;
+    bottom:12px;
+    color:white;
+}
 
 #mainContent{
     position:absolute;
@@ -169,7 +247,7 @@ h1,h2,h3{font-weight: bold}
     position:absolute;
     height:0px;
     left:304px;
-    right:0px;
+    right:-40px;
     bottom:-40px;
 
     border:70px solid transparent;
@@ -189,4 +267,50 @@ h1,h2,h3{font-weight: bold}
 #mainMenuBtn{top:-40px; right:70px;}
 #settingsBtn{top:40px; right:-40px;}
 
+/* === #gameStatus styles === */
+.zionCell td.count {
+    color:#76a700;
+    font-weight: bold;
+    text-align: right;
+    font-size: 16px;
+}
+.zionCell tr {
+    height:14px;
+}
+#gameStatus table {
+    width: 150px;
+}
+#gameStatus .chartGlyph{
+    float:right;
+    width:50px;
+    height:50px;
+    margin: 0px 20px;
+    background:rgba(0,0,0,.3);
+}
 
+/* === #playbackControls styles === */
+.playerIcons{
+    position: absolute;
+    top:-30px;
+}
+.playerIcons.left{left:-20px}
+.playerIcons.right{right:-20px}
+
+.playerControlButton{
+    width:40px;
+    height:29px;
+    background:url('/assets/player-icons.png') transparent no-repeat;
+}
+.playerControlButton > div{height: 100%;}
+.playerControlButton > div:hover{background:url('/assets/zcell-btn-glow1.png') 100% no-repeat; }
+.playerControlButton, #playerPositionLab, #playerScrub{
+   margin:12px 18px;
+    border:transparent;
+    float: left;
+}
+
+#playBtn{background-position: 10px 0px;}
+#endBtn{background-position: -30px 0px;}
+#replayBtn{background-position: -70px 0px;}
+#ffBtn{background-position: -110px 0px;}
+#pauseBtn{background-position: -150px 0px;}
