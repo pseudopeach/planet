@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d79f8506-8546-4bee-887b-0d1a76849613" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rails/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/rails/app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rails/log/development.log" afterPath="$PROJECT_DIR$/rails/log/development.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rails/public/index.html" afterPath="$PROJECT_DIR$/rails/public/index.html" />
     </list>
     <ignored path="terraform.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="d79f8506-8546-4bee-887b-0d1a76849613" time="1370985892755" ignored="false" />
-    <file path="/index.html" changelist="d79f8506-8546-4bee-887b-0d1a76849613" time="1372542562696" ignored="false" />
+    <file path="/index.html" changelist="d79f8506-8546-4bee-887b-0d1a76849613" time="1372543136936" ignored="false" />
     <file path="/application.css" changelist="d79f8506-8546-4bee-887b-0d1a76849613" time="1372542619924" ignored="false" />
     <file path="/history.html.erb" changelist="d79f8506-8546-4bee-887b-0d1a76849613" time="1370701000897" ignored="false" />
     <file path="/stylesheet.css" changelist="d79f8506-8546-4bee-887b-0d1a76849613" time="1370986129601" ignored="false" />
@@ -33,22 +32,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rails/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="78" selection-start="2041" selection-end="2052" vertical-scroll-proportion="-2.5">
+            <state line="34" column="12" selection-start="869" selection-end="869" vertical-scroll-proportion="0.65217394">
               <folding>
                 <element signature="tag#head#0;tag#html#0" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#aside#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#aside#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#div#0;n#figure#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rails/app/assets/stylesheets/application.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="304" column="43" selection-start="6233" selection-end="6233" vertical-scroll-proportion="0.7058824">
+            <state line="305" column="100" selection-start="6293" selection-end="6293" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -79,8 +80,8 @@
         <option value="$PROJECT_DIR$/rails/app/views/layouts/game.html.erb" />
         <option value="$PROJECT_DIR$/rails/public/acrepage.html" />
         <option value="$PROJECT_DIR$/../../index.html" />
-        <option value="$PROJECT_DIR$/rails/public/index.html" />
         <option value="$PROJECT_DIR$/rails/app/assets/stylesheets/application.css" />
+        <option value="$PROJECT_DIR$/rails/public/index.html" />
       </list>
     </option>
   </component>
@@ -275,7 +276,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="22" width="1391" height="860" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -361,6 +362,8 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="tag#head#0;tag#html#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#aside#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#aside#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#0;n#figure#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -449,20 +452,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rails/public/index.html">
+    <entry file="file://$PROJECT_DIR$/rails/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="78" selection-start="2041" selection-end="2052" vertical-scroll-proportion="-2.5">
-          <folding>
-            <element signature="tag#head#0;tag#html#0" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#figure#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="305" column="100" selection-start="6293" selection-end="6293" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rails/app/assets/stylesheets/application.css">
+    <entry file="file://$PROJECT_DIR$/rails/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="304" column="43" selection-start="6233" selection-end="6233" vertical-scroll-proportion="0.7058824">
-          <folding />
+        <state line="34" column="12" selection-start="869" selection-end="869" vertical-scroll-proportion="0.65217394">
+          <folding>
+            <element signature="tag#head#0;tag#html#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#aside#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#aside#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#figure#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
