@@ -6,3 +6,6 @@ rails/.metadata/
 rails/log/*
 rails/tmp/*
 dart/web/out/*
+.idea
+.idea/*
+*.log
