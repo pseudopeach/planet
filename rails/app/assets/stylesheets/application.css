@@ -122,12 +122,12 @@ body{
 }
 h1,h2,h3,h4{font-weight: bold}
 h4{font-size: 14px;}
-h3{font-size: 20px;}
-h2{font-size: 24px;}
+h3{font-size: 16px;}
+h2{font-size: 20px;}
 h1{font-size: 30px;}
 
-h1,h2,h3,h4,table {margin:10px 15px 0px}
-table {margin:0px 25px 0px}
+h1,h2,h3,h4 {margin:15px 20px 5px}
+table {margin:5px 20px 5px;}
 table td {padding:0px 5px 0px 0px}
 
 
@@ -232,6 +232,10 @@ table td {padding:0px 5px 0px 0px}
     z-index: 100;
     display:none;
 }
+#detailPop h1{
+    font-size:30px;
+    margin:15px 10px 10px 25px;
+}
 
 #creatureLab{bottom:245px; left:-2px;}
 #playerStatus{bottom:132px; left:-42px}
@@ -277,8 +281,10 @@ table td {padding:0px 5px 0px 0px}
 .zionCell tr {
     height:14px;
 }
+#gameStatus h4 {margin-top:8px;margin-bottom:0px;}
 #gameStatus table {
     width: 150px;
+    margin-top:0px;
 }
 #gameStatus .chartGlyph{
     float:right;
@@ -301,8 +307,9 @@ table td {padding:0px 5px 0px 0px}
     height:29px;
     background:url('/assets/player-icons.png') transparent no-repeat;
 }
+/*
 .playerControlButton > div{height: 100%;}
-.playerControlButton > div:hover{background:url('/assets/zcell-btn-glow1.png') 100% no-repeat; }
+.playerControlButton > div:hover{background:url('/assets/zcell-btn-glow1.png') 100% no-repeat; }  */
 .playerControlButton, #playerPositionLab, #playerScrub{
    margin:12px 18px;
     border:transparent;
@@ -314,3 +321,50 @@ table td {padding:0px 5px 0px 0px}
 #replayBtn{background-position: -70px 0px;}
 #ffBtn{background-position: -110px 0px;}
 #pauseBtn{background-position: -150px 0px;}
+
+/* === #detailPop styles === */
+
+.thermoBar{
+    position: relative;
+    margin:0px 20px;
+    height:0px;
+    border:20px solid transparent;
+    -webkit-border-image:url('/assets/thermo-track.png') 20 fill;
+    -moz-border-image:url('/assets/thermo-track.png') 20 fill;
+    border-image:url('/assets/thermo-track.png') 20 fill;
+}
+.thermoBar .fill{
+    position:absolute;
+    top:-19px;
+    left:-18px;
+    bottom: -19px;
+    border:18px solid transparent;
+    -webkit-border-image:url('/assets/thermo-fill-red.png') 18 fill;
+    -moz-border-image:url('/assets/thermo-fill-red.png') 18 fill;
+    border-image:url('/assets/thermo-fill-red.png') 18 fill;
+}
+
+.thermoBar .fill.green{
+    -webkit-border-image:url('/assets/thermo-fill-green.png') 18 fill;
+    -moz-border-image:url('/assets/thermo-fill-green.png') 18 fill;
+    border-image:url('/assets/thermo-fill-green.png') 18 fill;
+}
+.thermoBar .fill.gold{
+    -webkit-border-image:url('/assets/thermo-fill-gold.png') 18 fill;
+    -moz-border-image:url('/assets/thermo-fill-gold.png') 18 fill;
+    border-image:url('/assets/thermo-fill-gold.png') 18 fill;
+}
+.thermoBar .fill.blue{
+    -webkit-border-image:url('/assets/thermo-fill-blue.png') 18 fill;
+    -moz-border-image:url('/assets/thermo-fill-blue.png') 18 fill;
+    border-image:url('/assets/thermo-fill-blue.png') 18 fill;
+}
+.thermoBar .data{
+    text-align: center;
+    position: absolute;
+    top:3px;
+    left:0px;
+    right:0px;
+    margin-top: -10px;
+    z-index: 150;
+}
