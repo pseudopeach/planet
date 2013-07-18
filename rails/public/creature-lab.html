@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Terraforma</title>
+    <link rel="stylesheet" href="/assets/application.css" />
+</head>
+
+<body>
+<div id="creatureLabPop" class="popup zionCell">
+    <h1>Creature Lab</h1>
+
+    <form class="dialogForm">
+    <fieldset>
+        <div class="avatar" style="background: #cccccc"></div>
+        <input type="text" id="creatureNameFld" name="name" value="Name of Creature" />
+    </fieldset>
+
+    <fieldset>
+        <legend>Base</legend>
+
+        <div class="prettySelect">
+        <select>
+            <option>Rabbit</option>
+            <option>Mouse</option>
+            <option>Bacteria</option>
+        </select>
+        </div>
+
+        <div class="readonly">
+            <div class="attr">Type:</div><span class="value">Fauna</span>
+        </div>
+        <div class="readonly">
+            <div class="attr">Habitat:</div><span class="value">Land</span>
+        </div>
+
+        <input type="text" id="creatureNameFld" name="name" value="Name of Creature" />
+    </fieldset>
+
+    <fieldset>
+        <legend>Upgrades</legend>
+
+        <div class="prettySelect">
+        <select size="5">
+            <option>Upgrade 1</option>
+            <option>Upgrade 2</option>
+            <option>Upgrade 3</option>
+        </select>
+        </div>
+        <button id="upgradePlusBtn"></button>
+        <button id="upgradeMinusBtn"></button>
+    </fieldset>
+
+    <fieldset>
+        <legend>Stats</legend>
+        <table class="creatureStats">
+            <tr>
+                <td>Hit Points</td><td>100</td>
+            </tr><tr>
+                <td>Movement</td><td>4</td>
+            </tr><tr>
+                <td>Attack</td><td>50</td>
+            </tr><tr>
+                <td>Defense</td><td>40</td>
+            </tr><tr>
+                <td>Hunger</td><td>12</td>
+            </tr><tr>
+                <td>Visible Range</td><td>3</td>
+            </tr><tr>
+                <td>Observation Range</td><td>4</td>
+            </tr>
+        </table>
+    </fieldset>
+    </form>
+
+    <div class="dialogBtnBar">
+        <button class="primary">Save</button>
+        <button>Cancel</button>
+
+    </div>
+
+</div>
+</body>
+
+</html>
